@@ -13,12 +13,12 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 
 Add a group photo here!
 
-- Group member 1, name, email, role
-- Group member 2, name, email, role
-- Group member 3, name, email, role
-- Group member 4, name, email, role
-- Group member 5, name, email, role
-- Group member 6, name, email, role
+- Omnia Ali, dc24201@bristol.ac.uk
+- May Daoud, name, zy21368@bristol.ac.uk
+- Barney Evershed, b.evershed.2021@bristol.ac.uk
+- Scarlett Hurford, cy21903@bristol.ac.uk
+- Matilda Stokes, jl21579@bristol.ac.uk
+- Ziyan Zhao, rw24449@bristol.ac.uk
 
 ## Project Report
 
