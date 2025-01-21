@@ -14,7 +14,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 Add a group photo here!
 
 - Omnia Ali, dc24201@bristol.ac.uk
-- May Daoud, name, zy21368@bristol.ac.uk
+- May Daoud, zy21368@bristol.ac.uk
 - Barney Evershed, b.evershed.2021@bristol.ac.uk
 - Scarlett Hurford, cy21903@bristol.ac.uk
 - Matilda Stokes, jl21579@bristol.ac.uk
