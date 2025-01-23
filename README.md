@@ -11,7 +11,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 
 ## Your Group
 
-Add a group photo here!
+![a1bf76bf-2297-42d2-b71b-fa3e6f9cb044](https://github.com/user-attachments/assets/b43574ac-2e0f-42da-97bd-f11e2723570f)
 
 - Omnia Ali, dc24201@bristol.ac.uk
 - May Daoud, zy21368@bristol.ac.uk
