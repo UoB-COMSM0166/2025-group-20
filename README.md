@@ -11,6 +11,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 
 ## Your Group
 updated
+![Image](https://github.com/user-attachments/assets/e390c111-41f2-4050-9869-2d5312bb0523)
 - Omnia Ali, dc24201@bristol.ac.uk
 - May Daoud, zy21368@bristol.ac.uk
 - Barney Evershed, b.evershed.2021@bristol.ac.uk
