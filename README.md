@@ -10,8 +10,7 @@ Your game lives in the [/docs](/docs) folder, and is published using Github page
 Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
 
 ## Your Group
-
-![a1bf76bf-2297-42d2-b71b-fa3e6f9cb044](https://github.com/user-attachments/assets/b43574ac-2e0f-42da-97bd-f11e2723570f)
+![a1bf76bf-2297-42d2-b71b-fa3e6f9cb044](https://github.com/user-attachments/assets/ec8afe9e-761e-407c-94c4-1038b5a1be93)
 
 - Omnia Ali, dc24201@bristol.ac.uk
 - May Daoud, zy21368@bristol.ac.uk
