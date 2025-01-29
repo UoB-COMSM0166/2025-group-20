@@ -65,3 +65,63 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
     </tr>
   </tbody>
 </table>
+
+Concept ideas
+![Image](https://github.com/user-attachments/assets/e2e42032-4ef7-4643-b40d-1896d0753f60)
+
+![Image](https://github.com/user-attachments/assets/fcd500be-54c7-49d8-bdbf-12c731f266c3)
+
+![Image](https://github.com/user-attachments/assets/30bc5fb6-2200-4e2f-b2ea-d6633ff2ccbf)
+
+Characters
+<ul>
+  <li>TA's (they help with instructions, tips, and hints)</li>
+  <li>
+    ALT:
+    <ul>
+      <li><strong>Name:</strong> Curt Wolfe and India Music</li>
+      <li><strong>Attack:</strong> Throws guitars</li>
+      <li><strong>Look:</strong> Wears alternative clothing</li>
+    </ul>
+  </li>
+  <li>
+    Sporty:
+    <ul>
+      <li><strong>Name:</strong> Jack LeTackle and Jessie LaStick</li>
+      <li><strong>Attack:</strong> Throws Rugby/Hockey Balls</li>
+      <li><strong>Look:</strong> Wears UoB Quarterzips</li>
+    </ul>
+  </li>
+  <li>
+    Nitty:
+    <ul>
+      <li><strong>Name:</strong> Spud, Yam</li>
+      <li><strong>Attack:</strong> Throws Fizzy Drinks (CocaCola)</li>
+      <li><strong>Look:</strong> Wears Torn/Dirty charity shop clothing</li>
+    </ul>
+  </li>
+  <li>
+    Neek:
+    <ul>
+      <li><strong>Name:</strong> Ben Boston, Janice Johnson</li>
+      <li><strong>Attack:</strong> Throws Books</li>
+      <li><strong>Look:</strong> Wears Glasses and Smart Casual</li>
+    </ul>
+  </li>
+  <li>
+    DJ:
+    <ul>
+      <li><strong>Name:</strong> Sir Doesn't Mix-a-Lot, Miss Iles</li>
+      <li><strong>Attack:</strong> Throws Vinyl</li>
+      <li><strong>Look:</strong> Wears Headphones and Hoodie</li>
+    </ul>
+  </li>
+  <li>
+    Trust Fund:
+    <ul>
+      <li><strong>Name:</strong> Rufus Cuthbert-Smythe, Penelope Rose-Goldsmith</li>
+      <li><strong>Attack:</strong> Throws Money</li>
+      <li><strong>Look:</strong> Wears Gilet and Corduroys</li>
+    </ul>
+  </li>
+</ul>
