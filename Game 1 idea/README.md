@@ -14,11 +14,11 @@ The journey begins with simple weapons, like a simple pistol, but as you level u
 The screen design features a side-scrolling layout where your character moves from the left side of the screen to the right, while zombies approach from the right. A score counter in the top corner tracks your zombie kills, and the number of points collected on the left. The game's movement system includes keyboard commands, letting you manoeuvre forward, backward, jump, and duck to evade zombie attacks. Zombies can appear unpredictably from behind buildings, out of manholes, or even by crashing through windows, ensuring players stay on their toes. Each level introduces new environments—city streets, farms, forests—each with unique zombie types and challenges. For instance, city levels might feature faster zombies, while forests could have camouflaged ones that ambush unsuspecting players. Enemy Variety: Include different zombie types, such as: 
 
 <ul>
-  <li>Runners: Fast, aggressive zombies that overwhelm players.</li> 
-  <li>Tanks: Huge zombies with high health and devastating attacks.</li> 
-  <li>Spitters: Zombies that launch acid or projectiles, creating environmental hazards.</li> 
-  <li>Stealth Zombies: Lurking enemies that attack when least expected.</li> 
-  <li>Bosses: Epic battles with special zombies that require unique strategies to defeat.</li>
+  <li><strong>Runners:</strong> Fast, aggressive zombies that overwhelm players.</li> 
+  <li><strong>Tanks:</strong> Huge zombies with high health and devastating attacks.</li> 
+  <li><strong>Spitters:</strong> Zombies that launch acid or projectiles, creating environmental hazards.</li> 
+  <li><strong>Stealth Zombies:</strong> Lurking enemies that attack when least expected.</li> 
+  <li><strong>Bosses:</strong> Epic battles with special zombies that require unique strategies to defeat.</li>
 </ul> 
  
 
