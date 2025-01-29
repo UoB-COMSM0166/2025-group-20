@@ -135,4 +135,4 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
 </ul>
 
 <h2>Storyline</h2>
-![Image](https://github.com/user-attachments/assets/18f094b9-1a8c-4585-a958-fd4e75f804b8)
+![Image](https://github.com/user-attachments/assets/69366d51-2256-4a9c-89cd-30e85ed9d07e)
