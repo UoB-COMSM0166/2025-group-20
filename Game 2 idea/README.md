@@ -130,6 +130,9 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
 <h2>Storyline</h2>
 <img width="563" alt="Image" src="https://github.com/user-attachments/assets/56cfe0ba-0e04-4b7c-b976-2198d4961511" />
 
+<h2>Paper Prototype</h2>
+![Demo]('Game 2 idea'/'UoBSim prototype.gif')
+
 <h2>Additional Inspiration</h2>
 <ul>
   <li>The Sims</li>
