@@ -13,7 +13,7 @@ Papers Please feature pixel art and a limited palette of colors overall. This sh
 The user plays a university student in Bristol who is responsible for passing their degree. To pass each module, the player must face their lecturer in a battle. The battles become more challenging as the game progresses, and as the player gets closer to graduating their degree. Between the battles, the player must make difficult choices which include going out to the club or pulling an all-nighter for an assignment. These decisions affect the player’s health in the subsequent battle.  
 We adopt the graphics and mechanics of Papers Please, making use of the top unplayable section on the screen. The top screen can be where the player engages in the battles. The bottom left screen allows for interactions with fellow university students, TA’s and lecturers. These interactions are important for instructions and storytelling. The bottom right screen is where the player is allowed to make decisions that a typical university student makes daily. These include social and academic sacrifices. This aspect of the game is merely for filling the gaps between the levels and gauging attention. An interesting idea to implement is letting these decisions affect the abilities of the players at the next level. (This could be compared to situations in Papers Please e.g., bribery, which affect the storyline based on the player’s decision). 
 
-![Image](https://github.com/user-attachments/assets/e4c3a642-444f-4cf1-af71-9aa84e738a75)
+![Image](https://github.com/user-attachments/assets/749b0aa3-021d-472e-89e5-09455dc5b804)
 
 <table>
   <thead>
