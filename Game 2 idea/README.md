@@ -132,4 +132,4 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
 <ul>
   <li>The Sims</li>
   <li>Bitlife</li>
-<ul>
+</ul>
