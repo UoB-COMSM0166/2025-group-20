@@ -131,9 +131,7 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
 <img width="563" alt="Image" src="https://github.com/user-attachments/assets/56cfe0ba-0e04-4b7c-b976-2198d4961511" />
 
 <h2>Paper Prototype</h2>
-![UoBSim prototype](https://github.com/user-attachments/assets/d97e9dea-39e3-4162-868c-a0d5a9ff8fd2)
-
-
+![protoype](https://github.com/UoB-COMSM0166/2025-group-20/blob/d9abea6d4d96163aa49ca9f983d4eb932dd4ae94/Game%202%20idea/UoBSim%20prototype.gif)
 
 <h2>Additional Inspiration</h2>
 <ul>
