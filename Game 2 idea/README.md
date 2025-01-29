@@ -127,12 +127,11 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
   </li>
 </ul>
 
+<h2>Storyline</h2>
+<img width="563" alt="Image" src="https://github.com/user-attachments/assets/56cfe0ba-0e04-4b7c-b976-2198d4961511" />
 
 <h2>Additional Inspiration</h2>
 <ul>
   <li>The Sims</li>
   <li>Bitlife</li>
 </ul>
-
-<h2>Storyline</h2>
-![Image](https://github.com/user-attachments/assets/69366d51-2256-4a9c-89cd-30e85ed9d07e)
