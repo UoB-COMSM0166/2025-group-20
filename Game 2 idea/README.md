@@ -67,6 +67,7 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
 </table>
 
 Concept ideas
+
 ![Image](https://github.com/user-attachments/assets/e2e42032-4ef7-4643-b40d-1896d0753f60)
 
 ![Image](https://github.com/user-attachments/assets/fcd500be-54c7-49d8-bdbf-12c731f266c3)
@@ -125,3 +126,10 @@ Characters
     </ul>
   </li>
 </ul>
+
+
+Additional Inspiration
+<ul>
+  <li>The Sims<li>
+  <li>Bitlife<li>
+<ul>
