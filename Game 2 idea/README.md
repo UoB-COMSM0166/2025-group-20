@@ -133,3 +133,6 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
   <li>The Sims</li>
   <li>Bitlife</li>
 </ul>
+
+<h2>Storyline</h2>
+![Image](https://github.com/user-attachments/assets/18f094b9-1a8c-4585-a958-fd4e75f804b8)
