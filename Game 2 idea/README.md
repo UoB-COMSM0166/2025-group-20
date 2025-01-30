@@ -30,7 +30,6 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
       <td>
         <ul>
           <li>Has an army of cow minions</li>
-          <li>Wears a cardigan</li>
         </ul>
       </td>
     </tr>
@@ -38,19 +37,14 @@ We adopt the graphics and mechanics of Papers Please, making use of the top unpl
       <td>Johnny Meowskas</td>
       <td>Programs robots to attack you</td>
       <td>
-        <ul>
-          <li>Wears a Hawaiian shirt</li>
-        </ul>
       </td>
     </tr>
     <tr>
       <td>Jo Halibot</td>
-      <td>Charges at you to attack</td>
+      <td>Throws Mario shells at you</td>
       <td>
         <ul>
-          <li>Wears a Hawaiian shirt</li>
           <li>Tells you to use Linux</li>
-          <li>Mathew is there in the background</li>
         </ul>
       </td>
     </tr>
