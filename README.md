@@ -27,7 +27,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 - Describe your game, what is based on, what makes it novel?
 
 ### Requirements 
-
+.
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
