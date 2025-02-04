@@ -24,7 +24,8 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 ### Introduction
 
 - 5% ~250 words 
-- Describe your game, what is based on, what makes it novel? 
+- Describe your game, what is based on, what makes it novel?
+- https://github.com/UoB-COMSM0166/2025-group-20/tree/main/Game%201%20idea
 
 ### Requirements 
 
