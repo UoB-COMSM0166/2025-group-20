@@ -5,7 +5,7 @@
 ![Image](https://github.com/user-attachments/assets/ab5f880f-5ccb-4560-a3c8-340989f9356c)
 <strong>Fruit Ninja: </strong>In classic mode, you must slice as much fruits as possible as they pop up on the screen. You get 3 lives, and you lose one when you accidentally miss a fruit. You die if you slice the occasional sneaky bomb.<br>
 <strong>Overcooked 2: </strong>In this game, you play team up with friends to serve. As many customers in a restaurant as possible. Each level involves different recipes, kitchen set-up and cooking instructions. You need a minimum number of points to level up.<br>
-<strong>Fruit Ninja x Overcooked 2: </strong>In our game, you must slice the fruits that show up on the screen according to the smoothie recipes presented to you at the top of the screen. In addition, each fruit will require a specific slicing motion. You lose a live if you use the wrong motion to slice the fruit or if you slice the wrong fruit. Therefore, you must remember where you currently are in the recipe.
+<strong>Fruit Ninja x Overcooked 2: </strong>In our game, you must slice the fruits that show up on the screen according to the smoothie recipes presented to you at the top of the screen. In addition, each fruit will require a specific slicing motion. You lose a life if you use the wrong motion to slice the fruit or if you slice the wrong fruit. Therefore, you must remember where you currently are in the recipe.
 
 <h2>Functional Requirements</h2>
 <h3>User Interface</h3>
