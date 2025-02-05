@@ -138,3 +138,10 @@
 <ul>
   <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
 </ul>
+<<<<<<< HEAD
+=======
+
+<h2>Game Prototype</h2>
+
+![Image](https://github.com/user-attachments/assets/f97dd196-1bb4-48ef-baad-a61347e8ce22)
+>>>>>>> 45cbca3 (add prototype)
