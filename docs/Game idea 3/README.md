@@ -120,3 +120,21 @@
             </tr>
         </tbody>
     </table>
+
+<h3>User Stories – Prioritized using MoSCoW and Value vs Effort</h3>
+<strong>Must Have (High Value, Low Effort):</strong><br>
+<ul>
+  <li>As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.</li>
+  <li>As a casual player, I want a game with a straightforward and intuitive gameplay that I can pick up quicky without a time-consuming learning curve.</li>
+</ul>
+<strong>Should Have (High Value, High Effort):</strong><br>
+<ul>
+  <li>As a player, I want a variety of fruits and features that introduce fresh experiences in each gameplay session.</li>
+  <li>As a long-term gamer, I want a game that never ends, so that I can play the game for longer.</li>
+  <li>As someone who likes to be challenged, I want to experience more challenge as time goes on, thereby feeling a sense of achievement through overcoming difficulty.</li>
+  <li>As an easily bored gamer, I want to have an element of danger in the game, so that I am kept on my toes and stay engaged.</li>
+</ul>
+<strong>Could Have (Low Value, Low Effort):</strong><br>
+<ul>
+  <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
+</ul>
