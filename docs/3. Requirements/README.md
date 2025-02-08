@@ -3,7 +3,9 @@
 <p>We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. Their insights provided input on how to refine our functional requirements.</p>
 
 <h3>Onion Model</h3>
-<p>[Insert Image Here]</p>
+
+![Onion Model](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/3.%20Requirements/OnionModel.png)
+
 
 <h2>Functional Requirements</h2>
 
@@ -56,7 +58,9 @@
 </ul>
 
 <h3>Use Case Diagram</h3>
-<p>[Insert Diagram Here]</p>
+
+![Use Case Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/3.%20Requirements/UseCaseDiagram.png)
+
 
 
 <h2>User Stories</h2>
@@ -154,5 +158,3 @@
 <ul>
   <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
 </ul>
-
-<h2>Game Prototype</h2>
