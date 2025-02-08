@@ -2,7 +2,9 @@
 
 This game is inspired by fashion games (including ‘Hollywood a Fashion Star’ and ‘Dress to Impress’) and combat games (including ‘Street Fighter’ and ‘Cowgirl Crusader’). The first aspect of the game will involve customizing your own character and dressing her up. You start with a limited choice of clothes and accessories, unlocking more as you earn more points. Points are earned through engaging in armed combats with zombie men. 
 
-<img src="images/GameIdea1.jpg" alt="Mood Board for Game Idea 1" width="600">
+
+![Mood Board](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/2.%20Game%20Ideas/Game%20Idea%201/GameIdea1.jpg)
+
 
 
 <h2>The Twist</h2> 
@@ -30,4 +32,6 @@ Before the game begins, players can create their own character, customizing thei
 The journey begins with simple weapons, like a simple pistol, but as you level up, you can acquire and upgrade more weapons. Each weapon can come with distinct advantages. Weapon upgrades enhance stats like firepower, reload speed, or magazine capacity, allowing players to adapt to the increasing intensity of the zombie waves. 
 
 <h2>Paper Prototype</h2>
-<img src="images/prototype.gif" alt="Dress To Impress To Fight Prototype" width="600">
+
+![Prototype GIF](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/2.%20Game%20Ideas/Game%20Idea%201/DtItK%20prototype.gif)
+
