@@ -2,6 +2,9 @@
 
 This game is inspired by fashion games (including ‘Hollywood a Fashion Star’ and ‘Dress to Impress’) and combat games (including ‘Street Fighter’ and ‘Cowgirl Crusader’). The first aspect of the game will involve customizing your own character and dressing her up. You start with a limited choice of clothes and accessories, unlocking more as you earn more points. Points are earned through engaging in armed combats with zombie men. 
 
+<img src="images/GameIdea1.jpg" alt="Mood Board for Game Idea 1" width="600">
+
+
 <h2>The Twist</h2> 
 
 The game takes the core mechanics of Street Fighter and Cowgirl Crusader and adds a twist: customizable, fashionable outfits that players can mix and match to create unique looks. Players engage in fast-paced 1v1 battles using signature moves, combos, and special attacks. The twist lies in the ability to unlock and equip stylish clothing, from streetwear to fantasy armour, with some pieces offering bonuses like increased speed or enhanced damage.  The challenge lies in balancing the fashion and combat systems, ensuring skill drives victory while players fight in style. 
@@ -25,3 +28,6 @@ Before the game begins, players can create their own character, customizing thei
 <h2>Weaponry</h2> 
 
 The journey begins with simple weapons, like a simple pistol, but as you level up, you can acquire and upgrade more weapons. Each weapon can come with distinct advantages. Weapon upgrades enhance stats like firepower, reload speed, or magazine capacity, allowing players to adapt to the increasing intensity of the zombie waves. 
+
+<h2>Paper Prototype</h2>
+<img src="images/prototype.gif" alt="Dress To Impress To Fight Prototype" width="600">
