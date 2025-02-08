@@ -8,6 +8,10 @@
   <li>Miss a fruit that should have been sliced.</li>
 </ul>
 
+
+![Mood Board](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/2.%20Game%20Ideas/Game%20Idea%203/GameIdea3.jpg)
+
+
 <h2>The Twist</h2>
 
 <p>Our game introduces two key twists that set it apart from Fruit Ninja. First, a recipe-based slicing, where players must follow a smoothie recipe displayed on the screen, slicing fruits in the correct order and with the correct motion (e.g., horizontal, vertical, diagonal). This adds a memory and strategy element instead of just slicing everything on sight. Second, the game will have no immediate feedback on progress. Unlike traditional games that explicitly tell players what they’ve completed, our game does not track or highlight previously sliced fruits. Players must remember what they have already sliced and what remains in the recipe. This forces them to stay focused and engaged throughout the game.</p>
@@ -23,3 +27,5 @@
 <p>While the game will have simple visuals and feature a plain, non-moving background as a wall and fruit graphics with both whole and sliced versions. In addition, it will feature clear user interface elements, such as a recipe tracker at the top of the screen, total score achieved in-game, and a lives indicator.</p>
 
 <h2>Paper Prototype</h2>
+
+![Game Idea 3 Prototype](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/2.%20Game%20Ideas/Game%20Idea%203/prototype.gif)
