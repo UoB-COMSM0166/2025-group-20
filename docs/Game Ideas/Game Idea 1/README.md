@@ -25,4 +25,3 @@ Before the game begins, players can create their own character, customizing thei
 <h2>Weaponry</h2> 
 
 The journey begins with simple weapons, like a simple pistol, but as you level up, you can acquire and upgrade more weapons. Each weapon can come with distinct advantages. Weapon upgrades enhance stats like firepower, reload speed, or magazine capacity, allowing players to adapt to the increasing intensity of the zombie waves. 
-
