@@ -1,7 +1,4 @@
 
-let gameState = "intro";
-let playButton;
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
