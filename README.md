@@ -3,7 +3,7 @@
 
 ## Your Game
 
-Link to your game [PLAY HERE](http://127.0.0.1:5500/docs/Game%20code/index.html)
+Link to your game [PLAY HERE]([http://127.0.0.1:5500/docs/Game%20code/index.html](https://uob-comsm0166.github.io/2025-group-20/))
 git 
 
 Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
