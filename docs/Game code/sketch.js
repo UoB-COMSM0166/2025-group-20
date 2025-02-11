@@ -1,11 +1,18 @@
+let state = 0;
+let playButton;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(0, 100, 200);
+  background('rgb(100%, 0%, 10%)');
+  textAlign(CENTER);
+  textSize(50);
+  text('START GAME', width / 2, height / 2 + 10);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
