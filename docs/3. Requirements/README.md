@@ -59,7 +59,7 @@
 
 <h3>Use Case Diagram</h3>
 
-![Use Case Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/3.%20Requirements/UseCaseDiagram.png)
+![Use Case Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/3.%20Requirements/usecasemod.png)
 
 
 
