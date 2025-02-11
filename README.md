@@ -3,7 +3,7 @@
 
 ## Your Game
 
-Link to your game [PLAY HERE](https://peteinfo.github.io/COMSM0166-project-template/)
+Link to your game [PLAY HERE](http://127.0.0.1:5500/docs/Game%20code/index.html)
 git 
 
 Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
