@@ -1,7 +1,6 @@
 var mode;
 let gameFont;
 
-
  function preload() {
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/fruits/apple.png');
@@ -61,27 +60,15 @@ function instructionButton() {
     let buttonX2 = windowWidth / 3  + rectWidth;
     let buttonY = windowHeight / 1.6 ;
     if (mouseX >= buttonX1 && mouseX <= buttonX2 + rectWidth && mouseY >= buttonY && mouseY <= buttonY + rectHeight) {
-      mode = 2; 
+      mode = 1; 
     }
   }
 }
-/*
-function startGameButton() {
-  image(appleImg, windowWidth / 1.6, windowHeight / 5.4, 250);
-  
-  push(); 
-  translate(windowWidth / 1.5, windowHeight / 4.4);
-  rotate(radians(320)); 
-  textFont(gameFont);
-  fill('white');
-  textSize(20);
-  text('SLICE TO START', 0, 0); 
-  pop(); 
-  
-}*/
+
 let angle = 30; 
 let angleSpeed = 0.75; 
 let angleDirection = 1; 
+
 
 function startGameButton() {
   image(appleImg, width / 1.6, height / 5.4, 250);
