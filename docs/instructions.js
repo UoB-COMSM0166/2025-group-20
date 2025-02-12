@@ -1,0 +1,4 @@
+function instructionScreen() {
+    background('crimson');
+
+}

@@ -14,7 +14,10 @@ function setup() {
 function draw() {
   clear();
   if (mode == 0) {
-    drawMainMenu();
+    drawStartScreen();
+  }
+  if (mode == 1){
+    instructionScreen();
   }
 }
 

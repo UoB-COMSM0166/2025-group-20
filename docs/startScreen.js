@@ -1,4 +1,4 @@
-function drawMainMenu() {
+function drawStartScreen() {
     background('black');
     textAlign(CENTER);
     textFont(gameFont);
