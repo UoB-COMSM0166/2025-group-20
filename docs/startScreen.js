@@ -8,4 +8,5 @@ function drawStartScreen() {
     text('Operator', width / 3, height / 1.9);
     instructionButton();
     startGameButton();
+    keyPressed();
   }

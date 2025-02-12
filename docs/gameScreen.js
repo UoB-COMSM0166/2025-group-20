@@ -1,0 +1,3 @@
+function gameScreen() {
+    background('seagreen');
+}

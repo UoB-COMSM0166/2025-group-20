@@ -43,3 +43,9 @@ function instructionButton() {
       angleDirection *= -1;
     }
   }
+
+  function keyPressed() {
+    if (keyCode == ENTER){
+        mode = 2;
+    }
+  }

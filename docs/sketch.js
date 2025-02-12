@@ -19,6 +19,9 @@ function draw() {
   if (mode == 1){
     instructionScreen();
   }
+  if (mode == 2){
+    gameScreen();
+  }
 }
 
 function windowResized() {
