@@ -14,7 +14,7 @@ function preload() {
   
   // loads fruit images to the fruitImgs array
   for (var i = 0; i < fruitList.length; i++) {
-    fruitImgs[i] = loadImage('Images/' + fruitList[i] + '.png');
+    fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '.png');
   }
 }
 
