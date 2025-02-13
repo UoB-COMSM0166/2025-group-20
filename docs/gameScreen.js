@@ -1,6 +1,8 @@
-function gameScreen() {
-    background('seagreen');
 
+function gameScreen() {
+    
+    background('seagreen');
+    cursorEffect();
     // generate random number for fruit appearance
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
