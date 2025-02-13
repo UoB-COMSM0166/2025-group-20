@@ -40,17 +40,6 @@ function draw() {
 function windowResized() {
   let minW = 800; 
   let minH = 600; 
- // resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
-  resizeCanvas(windowWidth, windowHeight);
-  updateScaleFactor();
-}
+  resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
 
-function updateScaleFactor() {
-  scaleFactor = min(windowWidth / baseWidth, windowHeight / baseHeight);
-}
-
-// Apply scaling transformation
-function applyScaling() {
-  translate((windowWidth - baseWidth * scaleFactor) / 2, (windowHeight - baseHeight * scaleFactor) / 2);
-  scale(scaleFactor);
 }
