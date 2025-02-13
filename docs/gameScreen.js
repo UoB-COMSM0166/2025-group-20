@@ -1,7 +1,11 @@
+let bg 
 
+function preload(){
+    bg = loadImage('https://github.com/UoB-COMSM0166/2025-group-20/tree/main/docs/Background%20Images')
+}
 function gameScreen() {
     
-    background('seagreen');
+    background('bg');
     //cursorEffect();
     // generate random number for fruit appearance
     if(frameCount % 5 === 0){
