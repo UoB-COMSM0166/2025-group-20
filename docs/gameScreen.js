@@ -2,12 +2,13 @@ function gameScreen() {
     background('seagreen');
 
     // generate random number for fruit appearance
-    var x = random(1000);
-    if (x % 2 === 0) {
-        fruitImgs.push(randomFruit());
+    if(frameCount % 5 === 0){
+        if(noise(frameCount) > 0.69){
+          fruit.push(randomGen());
+        }
     }
-    for (var i = fruitList.length - 1; i >= 0; i--) {
-        fruit[i].show;
-        fruit[i].move;
+    for (var i = fruit.length - 1; i >= 0; i--) {
+        fruit[i].show();
+        fruit[i].move();
     }
 }

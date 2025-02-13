@@ -1,8 +1,9 @@
 class Fruit {
-  constructor(fruitImg, fruitName) {
+  constructor(fruitImg, fruitName, size) {
     // setting up basic properties
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
+    this.size  = size;
 
     // setting up physics properties
     this.x = random(windowWidth);
@@ -13,7 +14,7 @@ class Fruit {
   }
 
   show() {
-    image(this.fruitImg, this.x, this.y);
+    image(this.fruitImg, this.x, this.y, this.size, this.size);
   }
 
   move() {
@@ -34,18 +35,22 @@ function randomXSpeed(x) {
   if (x < windowWidth / 2) {
     return random(minSpeed, maxSpeed);
   }
+  else if (x == windowWidth / 2) {
+    return 0;
+  }
   return random(0 - maxSpeed, 0 - minSpeed);
 }
 
 function randomYSpeed(y) {
-  var minSpeed = windowWidth / 15;
-  var maxSpeed = windowWidth / 10;
-  return random(minSpeed, maxSpeed);
+  var minSpeed = 0 - (windowHeight * 0.005);
+  var maxSpeed = 0 - (windowHeight * 0.02);
+  return random(-10.4, -7.4);
 }
 
 function randomGen() {
   var index = round(random(0, fruitList.length - 1));
   var fruitImg = fruitImgs[index];
   var fruitName = fruitList[index];
-  return new Fruit(fruitImg, fruitName);
+  var size = noise(frameCount)*20 + 40;
+  return new Fruit(fruitImg, fruitName, size);
 }

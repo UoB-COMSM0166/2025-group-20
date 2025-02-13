@@ -5,6 +5,7 @@ var gravity = 0.1;
 // array of the fruits and vegetables 
 var fruitList = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'grape', 'watermelon', 'bomb'];
 var fruitImgs = [];
+var fruit = [];
 
 function preload() {
   // loads material used in start screen
