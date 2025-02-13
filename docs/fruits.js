@@ -11,6 +11,19 @@ class Fruit {
     this.ySpeed = randomYSpeed(this.y); // function to determine speed
     this.visible = true;
   }
+
+  show() {
+    image(this.fruitImg, this.x, this.y);
+  }
+
+  move() {
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+    this.ySpeed += gravity;
+    if (this.y > height) {
+      this.visible = false;
+    }
+  }
 }
 
 function randomXSpeed(x) {
