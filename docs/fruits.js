@@ -21,6 +21,9 @@ class Fruit {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     this.ySpeed += gravity;
+    if(this.y < height * 0.00125){
+      this.ySpeed = 0;
+    }
     if (this.y > height) {
       this.visible = false;
     }
@@ -30,8 +33,8 @@ class Fruit {
 function randomXSpeed(x) {
   /* if the object generates in the left side of the screen, we want it to start moving
   to the right side of the screen. vice versa */
-  var minSpeed = windowWidth * 0.005;
-  var maxSpeed = windowWidth * 0.01;
+  var minSpeed = windowWidth * 0.002;
+  var maxSpeed = windowWidth * 0.006;
   if (x < windowWidth / 2) {
     return random(minSpeed, maxSpeed);
   }
@@ -42,15 +45,18 @@ function randomXSpeed(x) {
 }
 
 function randomYSpeed(y) {
-  var minSpeed = 0 - (windowHeight * 0.005);
+  var minSpeed = -9;
+  var maxSpeed = -11;
+  return random(minSpeed, maxSpeed);
+  /*var minSpeed = 0 - (windowHeight * 0.005);
   var maxSpeed = 0 - (windowHeight * 0.02);
-  return random(-10.4, -7.4);
+  return random(-10.4, -7.4);*/
 }
 
 function randomGen() {
   var index = round(random(0, fruitList.length - 1));
   var fruitImg = fruitImgs[index];
   var fruitName = fruitList[index];
-  var size = noise(frameCount)*20 + 40;
+  var size = noise(frameCount)*60 + 120;
   return new Fruit(fruitImg, fruitName, size);
 }
