@@ -67,9 +67,11 @@ class SlicePattern{
    }
    
    isHit(){
-     if (mouseX <= this.umx && mouseX >= this.lmx && mouseY <= this.umy && mouseY >= this.lmy){
-       this.hit = true
-     }
+      if (mouseClicked()){
+        if (mouseX <= this.umx && mouseX >= this.lmx && mouseY <= this.umy && mouseY >= this.lmy){
+          this.hit = true
+        }
+      }
    }
    
  }
