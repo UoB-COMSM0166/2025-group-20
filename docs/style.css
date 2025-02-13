@@ -1,12 +1,18 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%; 
+
+@media only screen and (min-width: 800px) {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    min-width: 800px; 
+    min-height: 600px; 
+    overflow: hidden;
+    background-color: black;
+  }
+
+  canvas {
+    display: block;
+    position: absolute;
+  }
 }
-
-canvas {
-  display: block;
-  min-width: 400px; 
-}
-
-

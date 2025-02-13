@@ -10,3 +10,6 @@ function drawStartScreen() {
     startGameButton();
     keyPressed();
   }
+
+
+  
