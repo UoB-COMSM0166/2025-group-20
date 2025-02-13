@@ -1,10 +1,9 @@
 {
   "scripts": {
-    "test": "mocha"
+    "test": "mochas'test/**/*.js'"
   },
   "devDependencies": {
     "chai": "^5.1.2",
-    "jsdom": "^26.0.0",
     "mocha": "^11.1.0"
   }
 }

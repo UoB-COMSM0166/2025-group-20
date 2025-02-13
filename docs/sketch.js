@@ -7,6 +7,7 @@ var fruitList = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'grape', 'w
 var fruitImgs = [];
 var fruit = [];
 
+let bg; //variable to store background game screen image
 
 function preload() {
   // loads material used in start screen
