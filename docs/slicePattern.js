@@ -43,12 +43,12 @@ class SlicePattern{
    //Have this.wrongSlice triggering a life to be lost when equalling true
    //Have this.correctSlice triggering points to be gained when equalling true
    isSliced(){
-     if (this.hits[1].hit == false && (this.hits[0].hit || this.hits[2].hit)){
+     if (this.hits[2].hit == false && (this.hits[0].hit || this.hits[1].hit)){
          this.wrongSlice = true;
      }
-     else if (this.hits[1].hit && (this.hits[0].hit == false || this.hits[2].hit == false)){
+     else if (this.hits[2].hit && (this.hits[0].hit == false || this.hits[1].hit == false)){
          this.wrongSlice = false;
-         if (this.hits[1].hit && this.hits[0].hit && this.hits[2].hit){
+         if (this.hits[2].hit && this.hits[0].hit && this.hits[1].hit){
             this.correctSlice == true;
          }
      }
