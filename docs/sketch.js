@@ -7,6 +7,7 @@ var fruitList = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'grape', 'w
 var fruitImgs = [];
 var fruit = [];
 
+
 function preload() {
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
