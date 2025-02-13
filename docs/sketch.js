@@ -10,7 +10,7 @@ var fruit = [];
 function preload() {
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
-  appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/fruits/apple.png');
+  appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
   
   // loads fruit images to the fruitImgs array
   for (var i = 0; i < fruitList.length; i++) {
