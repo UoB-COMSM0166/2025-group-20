@@ -42,6 +42,18 @@ function instructionButton() {
     if (angle >= 40 || angle <= 20) {
       angleDirection *= -1;
     }
+
+    // TEMP CODE TO CHECK WHETEHR LINK TO GAME SCREEN WORKS
+    if (mouseIsPressed) {
+      let buttonX1 = width / 1.6;
+      let buttonX2 = width / 1.6 + 250;
+      let buttonY1 = height / 5.4;
+      let buttonY2 = height / 5.4 + appleImg.height;
+
+      if (mouseX > buttonX1 && mouseX < buttonX2 && mouseY > buttonY1 && mouseY < buttonY2) {
+        mode = 2; 
+      }
+    }
   }
 
   function keyPressed() {
