@@ -1,9 +1,11 @@
 class Fruit {
-  constructor(fruitImg, fruitName, size) {
+  constructor(fruitImg, fruitName, size, slicePat) {
     // setting up basic properties
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size  = size;
+    this.slicePat = new SlicePattern(slicePat);
+
 
     // setting up physics properties
     this.x = random(windowWidth);
@@ -20,6 +22,7 @@ class Fruit {
   move() {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
+    this.slicePat.move(this.x, this.y);
     this.ySpeed += gravity;
     if(this.y < height * 0.00125){
       this.ySpeed = 0;
@@ -57,6 +60,7 @@ function randomGen() {
   var index = round(random(0, fruitList.length - 1));
   var fruitImg = fruitImgs[index];
   var fruitName = fruitList[index];
+  var slicePat = sliceList[index];
   var size = noise(frameCount)*60 + 120;
-  return new Fruit(fruitImg, fruitName, size);
+  return new Fruit(fruitImg, fruitName, size, slicePat);
 }
