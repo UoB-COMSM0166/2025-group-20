@@ -4,7 +4,7 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size  = size;
-    //this.slicePat = new SlicePattern(slicePat);
+    //this.slicePat = new SlicePattern(slicePat, this.size);
 
 
     // setting up physics properties
