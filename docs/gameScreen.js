@@ -11,15 +11,16 @@ function gameScreen() {
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
-        if (fruit[i].slicePat.isSliced() == 'correct'){
-            //gain points
-        }
-        else if (fruit[i].slicePat.isSliced() == 'wrong'){
-            //lose life
-        }
-        else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            //game over
-        }
+        
+        // if (fruit[i].slicePat.isSliced() == 'correct'){
+        //     //gain points
+        // }
+        // else if (fruit[i].slicePat.isSliced() == 'wrong'){
+        //     //lose life
+        // }
+        // else if (fruit[i].slicePat.isSliced() == 'bomb'){
+        //     //game over
+        // }
     }
 
     if (!smoothieDisplay && fruitImgs.every(img => img instanceof p5.Image)) {
@@ -27,6 +28,9 @@ function gameScreen() {
     }
     if (smoothieDisplay) {
         smoothieDisplay.display();
+    }
+    if (lifeIcons){
+        lifeIcons.display();
     }
 
     cursorEffect();
