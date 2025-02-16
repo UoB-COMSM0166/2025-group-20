@@ -1,13 +1,13 @@
 //Slice Pattern has series of hitboxes tracking the position of the fruit
 class SlicePattern{
-   constructor(type){
+   constructor(type, size){
      this.hits = [3];
      this.type = type;
      if (this.type == 'bomb'){
-      this.diameter = 30;
+      this.diameter = size;
      }
     else {
-     this.diameter = 10;
+     this.diameter = size/3;
      this.hits[1] = new HitBox(this.diameter);
      this.hits[2] = new HitBox(this.diameter);
     }
