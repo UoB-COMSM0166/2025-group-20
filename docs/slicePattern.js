@@ -72,7 +72,7 @@ class SlicePattern{
   }
 }
  
- class HitBox {
+class HitBox {
   constructor(diameter){
     this.diameter = diameter;
     this.hit = false;
@@ -82,7 +82,7 @@ class SlicePattern{
     this.x = x;
     this.y = y;
     //uncomment line below for visual display of hit box
-    //circle(this.x, this.y, this.diameter);
+    circle(this.x, this.y, this.diameter);
     this.umx = x+(this.diameter/2);
     this.lmx = x-(this.diameter/2);
     this.umy = y+(this.diameter/2);
@@ -101,4 +101,4 @@ class SlicePattern{
     }
   }
 
- }
+}
