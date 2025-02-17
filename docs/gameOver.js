@@ -1,0 +1,4 @@
+function gameOver() {
+    background('crimson');
+
+}

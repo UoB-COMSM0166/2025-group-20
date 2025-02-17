@@ -1,10 +1,7 @@
-
-
 let trail = [];
 const maxTrail = 50;
 
 function cursorEffect() {
-
   trail.push({ x: mouseX, y: mouseY, alpha: 255 });
 
   if (trail.length > maxTrail) {
@@ -23,7 +20,4 @@ function cursorEffect() {
     t.alpha -= 5;
   }
 }
-//I actually don't know if this bit underneath is necessary 
-if (typeof module !== "undefined") {
-  module.exports = cursorEffect;
-}
+

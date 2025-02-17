@@ -1,34 +1,50 @@
-//Slice Pattern has series of hitboxes tracking the position of the fruit
-class SlicePattern{
-   constructor(type, size){
-     this.hits = [3];
-     this.type = type;
-     if (this.type == 'bomb'){
-      this.diameter = size;
-     }
-    else {
-     this.diameter = size/3;
-     this.hits[1] = new HitBox(this.diameter);
-     this.hits[2] = new HitBox(this.diameter);
-    }
-     this.hits[0] = new HitBox(this.diameter);
-   }
-   
-   isSliced(){
-    if (mouseClicked()){
-      if (this.type == 'bomb' && this.hits[0].isHit()){
-        return 'bomb';
+class SlicePattern {
+  constructor(type) {
+      this.hits = []; 
+      this.type = type;
+      this.correctSlice = (["left", "right", "lrdown", "rlup"].includes(type)) ? "horizontal" : "vertical";
+
+      if (this.type == 'bomb') {
+          this.diameter = 30;
+      } else {
+          this.diameter = 10;
       }
-      else if (this.hits[2].isHit() == false && (this.hits[0].isHit() || this.hits[1].isHit())){
-        return 'wrong';
+
+      this.hits[0] = new HitBox(this.diameter);
+      if (this.type !== 'bomb') {
+          this.hits[1] = new HitBox(this.diameter);
+          this.hits[2] = new HitBox(this.diameter);
       }
-      else if (this.hits[2].isHit() && (this.hits[0].isHit() == false || this.hits[1].isHit() == false)){
-        if (this.hits[2].isHit() && this.hits[0].isHit() && this.hits[1].isHit()){
-          return 'correct';
-        }
+  }
+
+  isSliced(swipeDirection) {
+    
+      if (!swipeDirection) return null; 
+
+      if (this.type == 'bomb' && this.hits[0].isHit()) {
+          return 'bomb';
       }
-    }
-   }
+
+      if (this.hits.length > 2) {
+          if (!this.hits[2].isHit() && (this.hits[0].isHit() || this.hits[1].isHit())) {
+              return 'wrong';
+          }
+
+          if (this.hits[2].isHit() && this.hits[0].isHit() && this.hits[1].isHit()) {
+              if (swipeDirection === this.correctSlice) {
+                  return 'correct';
+              } else {
+                  return 'wrong';
+              }
+          }
+      }
+      return null;
+  }
+
+
+
+
+
 
    move(x, y){
     this.hits[0].move(x, y);
@@ -69,14 +85,13 @@ class SlicePattern{
  
  class HitBox {
    constructor(diameter){
+     //circle(this.x, this.y, diameter);
       this.diameter = diameter;
    }
 
-   move(x, y){
+   move(x, y){ 
     this.x = x;
     this.y = y;
-    //uncomment line below for visual display of hit box
-    //circle(this.x, this.y, diameter);
     this.umx = x+(this.diameter/2);
     this.lmx = x-(this.diameter/2);
     this.umy = y+(this.diameter/2);

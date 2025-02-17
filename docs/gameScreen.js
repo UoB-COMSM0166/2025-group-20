@@ -1,7 +1,6 @@
 function gameScreen() {
     
     background(bg);
-    //cursorEffect();
     // generate random number for fruit appearance
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
@@ -12,15 +11,18 @@ function gameScreen() {
         fruit[i].show();
         fruit[i].move();
         
-        // if (fruit[i].slicePat.isSliced() == 'correct'){
-        //     //gain points
-        // }
-        // else if (fruit[i].slicePat.isSliced() == 'wrong'){
-        //     //lose life
-        // }
-        // else if (fruit[i].slicePat.isSliced() == 'bomb'){
-        //     //game over
-        // }
+        if (fruit[i].slicePat.isSliced() == 'correct'){
+            gameOver().display;
+            //gain points
+        }
+        else if (fruit[i].slicePat.isSliced() == 'wrong'){
+            gameOver().display;
+            //lose life
+        }
+        else if (fruit[i].slicePat.isSliced() == 'bomb'){
+            gameOver().display;
+            //game over
+        }
     }
 
     if (!smoothieDisplay && fruitImgs.every(img => img instanceof p5.Image)) {
