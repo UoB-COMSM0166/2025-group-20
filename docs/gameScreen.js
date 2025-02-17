@@ -1,7 +1,8 @@
 function gameScreen() {
     
     background(bg);
-    //cursorEffect();
+    cursorEffect();
+    redBorder();
     // generate random number for fruit appearance
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
@@ -22,7 +23,7 @@ function gameScreen() {
         //     //game over
         // }
     }
-
+    // displayBorder = true;
     if (!smoothieDisplay && fruitImgs.every(img => img instanceof p5.Image)) {
         smoothieDisplay = new SmoothieDisplay(smoothieRecipe, fruitImgs);
     }
@@ -33,5 +34,4 @@ function gameScreen() {
         lifeIcons.display();
     }
 
-    cursorEffect();
 }
