@@ -16,13 +16,13 @@ class Fruit {
   }
 
   show() {
-    image(this.fruitImg, this.x+(this.size/2), this.y+(this.size/2), this.size, this.size);
+    image(this.fruitImg, this.x, this.y, this.size, this.size);
   }
 
   move() {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
-    this.slicePat.move(this.x, this.y);
+    this.slicePat.move(this.x+(this.size/2), this.y+(this.size/2));
     this.ySpeed += gravity;
     if(this.y < height * 0.00125){
       this.ySpeed = 0;
