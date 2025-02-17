@@ -1,4 +1,5 @@
 function gameScreen() {
+    constructor 
     
     background(bg);
     cursorEffect();
@@ -14,14 +15,14 @@ function gameScreen() {
         fruit[i].move();
         
         // if (fruit[i].slicePat.isSliced() == 'correct'){
-        //     //gain points
-        // }
-        // else if (fruit[i].slicePat.isSliced() == 'wrong'){
-        //     //lose life
-        // }
-        // else if (fruit[i].slicePat.isSliced() == 'bomb'){
-        //     //game over
-        // }
+        //      //gain points
+        //  }
+        //  else if (fruit[i].slicePat.isSliced() == 'wrong'){
+        //      //lose life
+        //  }
+        //  else if (fruit[i].slicePat.isSliced() == 'bomb'){
+        //      //game over
+        //  }
     }
     // displayBorder = true;
     if (!smoothieDisplay && fruitImgs.every(img => img instanceof p5.Image)) {
