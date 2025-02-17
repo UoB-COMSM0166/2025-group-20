@@ -16,7 +16,7 @@ class Fruit {
   }
 
   show() {
-    image(this.fruitImg, this.x, this.y, this.size, this.size);
+    image(this.fruitImg, this.x+(this.size/2), this.y+(this.size/2), this.size, this.size);
   }
 
   move() {
