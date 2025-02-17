@@ -3,7 +3,7 @@ var mode = 0;
 let gameFont, appleImg;
 var gravity = 0.1;
 // array of the fruits and vegetables 
-var fruitList = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'grape', 'watermelon', 'bomb']; //one more fruit needed
+var fruitList = ['apple', 'banana', 'blueberry', 'pear', 'cherry', 'grape', 'watermelon', 'bomb']; //one more fruit needed
 var sliceList = ['up', 'down', 'left', 'right', 'lrdown', 'rlup', 'rldown', 'lrup', 'bomb']; //line up exactly with corresponding fruit above
 var fruitImgs = [];
 var fruit = [];
