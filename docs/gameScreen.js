@@ -1,5 +1,5 @@
 function gameScreen() {
-    
+
     background(bg);
     // generate random number for fruit appearance
     if(frameCount % 5 === 0){
@@ -12,8 +12,7 @@ function gameScreen() {
         fruit[i].move();
         
         if (fruit[i].slicePat.isSliced() == 'correct'){
-            gameOver().display;
-            //gain points
+            //
         }
         else if (fruit[i].slicePat.isSliced() == 'wrong'){
             gameOver().display;
