@@ -15,7 +15,7 @@ function cursorEffect() {
   for (let i = 0; i < trail.length; i++) {
     let t = trail[i];
     fill(255, 255, 255, t.alpha);
-    drawingContext.shadowBlur = 15;
+    // drawingContext.shadowBlur = 15;
     drawingContext.shadowColor = color(255, 255, 255, t.alpha);
     rectMode(CENTER);
     rect(t.x, t.y, 10, 10);
