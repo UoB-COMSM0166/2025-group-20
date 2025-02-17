@@ -11,6 +11,9 @@ let bg;
 let smoothieDisplay; 
 var lifeIcons;
 
+let PointsDisplay;
+let HighestPointDisplay;
+
 function preload() {
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
