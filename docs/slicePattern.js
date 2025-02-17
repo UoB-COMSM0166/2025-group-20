@@ -14,8 +14,6 @@ class SlicePattern{
      this.hits[0] = new HitBox(this.diameter);
    }
    
-   //Have this.wrongSlice triggering a life to be lost when equalling true
-   //Have this.correctSlice triggering points to be gained when equalling true
    isSliced(){
     if (mouseClicked()){
       if (this.type == 'bomb' && this.hits[0].isHit()){
@@ -71,14 +69,14 @@ class SlicePattern{
  
  class HitBox {
    constructor(diameter){
-     //uncomment line below for visual display of hit box
-     //circle(this.x, this.y, diameter);
       this.diameter = diameter;
    }
 
    move(x, y){
     this.x = x;
     this.y = y;
+    //uncomment line below for visual display of hit box
+    //circle(this.x, this.y, diameter);
     this.umx = x+(this.diameter/2);
     this.lmx = x-(this.diameter/2);
     this.umy = y+(this.diameter/2);
