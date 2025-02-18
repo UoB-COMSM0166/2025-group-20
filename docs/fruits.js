@@ -20,7 +20,7 @@ class Fruit {
   }
   
   move() {
-  this.x += this.xSpeed;
+  this.x += 0.5;
   this.y += this.ySpeed;
   this.slicePat.move(this.x+(this.size/2), this.y+(this.size/2));
   this.ySpeed += gravity;

@@ -13,7 +13,7 @@ function gameScreen() {
     HighestScore.display();
 
     if(frameCount % 5 === 0){
-        if(noise(frameCount) > 0.69){
+        if(noise(frameCount) > 0.80){
           fruit.push(randomGen());
         }
     }
