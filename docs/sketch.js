@@ -29,7 +29,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  lifeIcons = new LifeIcons();
+  lifeIcons = new LifeIcons(3);
 }
 
 function draw() {
