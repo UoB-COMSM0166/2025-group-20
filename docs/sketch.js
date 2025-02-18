@@ -5,7 +5,7 @@ var gravity = 0.1;
 var displayBorder = false;
 // array of the fruits and vegetables 
 var fruitList = ['apple', 'banana', 'blueberry', 'pear', 'cherry', 'grape', 'watermelon', 'lemon','bomb']; //one more fruit needed
-var sliceList = ['up', 'down', 'left', 'right', 'lrdown', 'rlup', 'rldown', 'lrup', 'bomb']; //line up exactly with corresponding fruit above
+var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
 var fruitImgs = [];
 var fruit = [];
 let bg;
@@ -29,7 +29,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  lifeIcons = new LifeIcons();
+  lifeIcons = new LifeIcons(3);
 }
 
 function draw() {
