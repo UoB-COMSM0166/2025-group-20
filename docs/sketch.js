@@ -9,7 +9,7 @@ var fruitImgs = [];
 var fruit = [];
 let bg;
 var lifeIcons;
-let currentRecipe;
+var currentRecipe;
 
 function preload() {
   // loads material used in start screen
