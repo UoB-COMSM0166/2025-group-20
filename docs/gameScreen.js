@@ -47,7 +47,7 @@ function gameScreen() {
     cursorEffect();
 }
 
-function freshGameScreen{
+function freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new pointSystem();
