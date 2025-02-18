@@ -1,4 +1,3 @@
-//Slice Pattern has series of hitboxes tracking the position of the fruit
 class SlicePattern{
   constructor(type, size){
     this.hits = [3];
