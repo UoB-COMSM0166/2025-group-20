@@ -1,7 +1,7 @@
 class SlicePattern{
   constructor(type, size){
     this.hits = [3];
-    this.type = type;
+    this.type = type; 
     if (this.type == 'bomb' || this.type == 'click'){
       this.diameter = size;
     }
@@ -14,6 +14,9 @@ class SlicePattern{
   }
   
   isSliced(){
+    if (this.type == 'inert'){
+      return 'inert';
+    }
     if (this.type == 'bomb'){
       if (this.hits[0].hit){
         return 'bomb';
