@@ -20,25 +20,23 @@ function gameScreen() {
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
-        print(currentRecipe.ingredients);
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if (fruit[i] != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
+                //redBorder();
             }
-            else {
+            else if (fruit[i] == currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() == 'correct'){
                     currentRecipe.ingredients.shift();
                     gameScore.correctCut();
-                    fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
-                    fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
                     //wrong slice effect
                     //redBorder();
-                    fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
-                    fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
             }
+            fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
+            fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
             mode = 4;
