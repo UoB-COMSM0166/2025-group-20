@@ -20,7 +20,7 @@ function gameScreen() {
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
-        console.log(currentRecipe.ingredients);
+        print(currentRecipe.ingredients);
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if (fruit[i] != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
