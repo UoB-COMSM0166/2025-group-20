@@ -3,6 +3,13 @@ function gameScreen() {
     background(bg);
     //cursorEffect();
     // generate random number for fruit appearance
+    if (currentRecipe.ingredients.length == 0){
+        currentRecipe = new SmoothieRecipe();
+    }
+    currentRecipe.display();
+    lifeIcons.display();
+    cursorEffect();
+
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
           fruit.push(randomGen());
@@ -33,16 +40,8 @@ function gameScreen() {
             }
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            //game over
-            //switch to exploded screen
+            drawGameOver();
         }
     }
-    if (currentRecipe.ingredients.length == 0){
-        currentRecipe = new SmoothieRecipe();
-    }
-    //if (!fruitImgs.every(img => img instanceof p5.Image)) {
-    currentRecipe.display();
-    //}
-    lifeIcons.display();
-    cursorEffect();
+
 }
