@@ -3,11 +3,12 @@ function gameScreen() {
     background(bg);
     //cursorEffect();
     // generate random number for fruit appearance
+
     if (currentRecipe.ingredients.length == 0){
         currentRecipe = new SmoothieRecipe();
     }
     currentRecipe.display();
-    lifeIcons.display();
+    lifeIcons.show();
     cursorEffect();
 
     if(frameCount % 5 === 0){
