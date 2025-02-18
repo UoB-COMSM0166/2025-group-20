@@ -3,16 +3,10 @@ class LifeIcons {
     this.lives = 3;
     
     // Load heart images
-    this.heart = [
+    this.hearts = [
     loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png'),
     loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png'),
     loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png')
-    ];
-    
-    this.heartempty = [
-    loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'),
-    loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'),
-    loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png')
     ];
     
     this.xOffset = 20; // Left
@@ -24,7 +18,7 @@ class LifeIcons {
     loseLife() {
     if (this.lives > 0) {
     this.lives--;
-    this.heart[this.lives] = this.heartempty[this.lives]; // Replace heart with empty heart
+    this.heart[this.lives] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'); // Replace heart with empty heart
     }
     }
     
