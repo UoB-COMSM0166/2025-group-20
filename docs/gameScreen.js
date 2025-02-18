@@ -28,7 +28,7 @@ function gameScreen() {
             else {
                 if (fruit[i].slicePat.isSliced() == 'correct'){
                     currentRecipe.ingredients.shift();
-                    //pointsystem.correctCut();
+                    gameScore.correctCut();
                     fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
                     fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
