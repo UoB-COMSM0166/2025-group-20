@@ -38,7 +38,7 @@ class PointsDisplay {
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
         fill('white');
-        text('Current Points: ' + this.PointsPerGame,this.x,this.y);
+        text('Current Points: ' + this.PointsPerGame, this.x, this.y);
         
     }
     

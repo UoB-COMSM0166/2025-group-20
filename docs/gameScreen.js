@@ -9,6 +9,8 @@ function gameScreen() {
     }
     currentRecipe.display();
     lifeIcons.show();
+    CurrentPointsDisplay.display();
+    HighestScore.display();
 
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){

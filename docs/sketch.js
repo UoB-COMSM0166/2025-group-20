@@ -10,6 +10,9 @@ var fruit = [];
 let bg;
 var lifeIcons;
 var currentRecipe;
+var gameScore;
+var HighestScore;
+var CurrentPointsDisplay;
 
 function preload() {
   // loads material used in start screen
@@ -30,6 +33,9 @@ function setup() {
   frameRate(60); // most computers default to 60fps
   lifeIcons = new LifeIcons();
   currentRecipe  = new SmoothieRecipe();
+  gameScore = new pointSystem();
+  HighestScore = new HighestPointDisplay;
+  CurrentPointsDisplay = new PointsDisplay(gameScore);
 }
 
 function draw() {
