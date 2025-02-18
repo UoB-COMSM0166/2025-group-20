@@ -46,3 +46,11 @@ function gameScreen() {
     }
     cursorEffect();
 }
+
+function freshGameScreen{
+    lifeIcons = new LifeIcons();
+    currentRecipe  = new SmoothieRecipe();
+    gameScore = new pointSystem();
+    CurrentPointsDisplay = new PointsDisplay(gameScore);
+    mode = 2;
+}
