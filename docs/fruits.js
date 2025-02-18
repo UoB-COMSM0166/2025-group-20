@@ -1,18 +1,18 @@
 class Fruit {
   constructor(fruitImg, fruitName, size, slicePat) { //slicePat here as well
-  // setting up basic properties
-  this.fruitImg = fruitImg;
-  this.fruitName = fruitName;
-  this.size = size;
-  this.slicePat = new SlicePattern(slicePat, this.size);
-  
-  
-  // setting up physics properties
-  this.x = random(windowWidth);
-  this.y = windowHeight;
-  this.xSpeed = randomXSpeed(this.x); // function to determine speed
-  this.ySpeed = randomYSpeed(this.y); // function to determine speed
-  this.visible = true;
+    // setting up basic properties
+    this.fruitImg = fruitImg;
+    this.fruitName = fruitName;
+    this.size  = size;
+    this.slicePat = new SlicePattern(slicePat, this.size);
+
+
+    // setting up physics properties
+    this.x = random(windowWidth);
+    this.y = windowHeight;
+    this.xSpeed = randomXSpeed(this.x); // function to determine speed
+    this.ySpeed = randomYSpeed(this.y); // function to determine speed
+    this.visible = true;
   }
   
   show() {
