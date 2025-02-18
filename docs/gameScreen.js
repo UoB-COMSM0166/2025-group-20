@@ -24,7 +24,7 @@ function gameScreen() {
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
            // if (fruit[i] != currentRecipe.ingredients[0]){
                 // lose life
-              //  --lifeIcons.lives;
+              //  loseLife();
            // }
             //else {
                 if (fruit[i].slicePat.isSliced() == 'correct'){
