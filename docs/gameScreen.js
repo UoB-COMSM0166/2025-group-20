@@ -24,6 +24,9 @@ function gameScreen() {
             if (fruit[i] != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 //redBorder();
+                if (lifeIcons.lives == 0){
+                    mode = 4;
+                }
             }
             else if (fruit[i] == currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() == 'correct'){
@@ -31,7 +34,6 @@ function gameScreen() {
                     gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
-                    //wrong slice effect
                     //redBorder();
                 }
             }
