@@ -1,39 +1,16 @@
 class LifeIcons {
     constructor() {
         this.lives = 3;
-
-        // Load heart images
-        this.heart = [
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png'),
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png'),
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png')
-        ];
-
-        this.heartempty = [
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'),
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'),
-            loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png')
-        ];
-
-        this.xOffset = 20;  // Left 
-        this.yOffset = 20;  // Top 
-        this.iconSize = 50; 
-        this.spacing = this.iconSize + 10; 
+        this.x = 20; // Distance from left
+        this.y = 20; // Distance from top
+        this.spacing = 100; // Increase spacing to accommodate larger icons
+        this.heartSize = 80; // Increase heart size to 50x50
     }
 
-    loseLife() {
-        if (this.lives > 0) {
-            this.lives--; 
-            this.heart[this.lives] = this.heartempty[this.lives]; // Replace heart with empty heart
-        }
-    }
-
-    show() {
-        for (let i = 0; i < 3; i++) {
-            image(this.heart[i], this.xOffset + i * this.spacing, this.yOffset, this.iconSize, this.iconSize);
+    display() {
+        for (let i = 0; i < this.lives; i++) {
+            image(lifeImg, this.x + i * this.spacing, this.y, this.heartSize, this.heartSize);
         }
     }
 }
-
-
 
