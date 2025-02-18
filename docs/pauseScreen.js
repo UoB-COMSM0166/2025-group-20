@@ -60,10 +60,10 @@ function drawPauseScreen() {
 
         restartButton.mousePressed(() => {
             mode = 2; // Goes back to game screen
-            lifeIcons = new LifeIcons();
-            currentRecipe  = new SmoothieRecipe();
-            gameScore = new pointSystem();
-            CurrentPointsDisplay = new PointsDisplay(gameScore);
+            //lifeIcons = new LifeIcons();
+            //currentRecipe  = new SmoothieRecipe();
+            //gameScore = new pointSystem();
+            //CurrentPointsDisplay = new PointsDisplay(gameScore);
             loop(); // Restarts draw loop
             resumeButton.hide();
             restartButton.hide(); 
