@@ -43,6 +43,9 @@ function draw() {
   if (mode == 2){
     gameScreen();
   }
+  if (mode == 4){
+    drawGameOver();
+  }
 }
 
 function windowResized() {

@@ -40,7 +40,8 @@ function gameScreen() {
             }
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            drawGameOver();
+            //drawGameOver();
+            mode = 4;
         }
     }
     cursorEffect();
