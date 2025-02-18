@@ -9,7 +9,6 @@ function gameScreen() {
     }
     currentRecipe.display();
     lifeIcons.show();
-    cursorEffect();
 
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
@@ -44,5 +43,5 @@ function gameScreen() {
             drawGameOver();
         }
     }
-
+    cursorEffect();
 }
