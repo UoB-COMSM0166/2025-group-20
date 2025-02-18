@@ -13,7 +13,7 @@ function gameScreen() {
     HighestScore.display();
 
     if(frameCount % 5 === 0){
-        if(noise(frameCount) > 0.80){
+        if(noise(frameCount) > 0.69){
           fruit.push(randomGen());
         }
     }
@@ -22,24 +22,24 @@ function gameScreen() {
         fruit[i].move();
         
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-            if (fruit[i] != currentRecipe.ingredients[0]){
+           // if (fruit[i] != currentRecipe.ingredients[0]){
                 // lose life
-                --lifeIcons.lives;
-            }
-            else {
+              //  --lifeIcons.lives;
+           // }
+            //else {
                 if (fruit[i].slicePat.isSliced() == 'correct'){
-                    currentRecipe.ingredients.shift();
-                    pointsystem.correctCut();
-                    fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '-slice.png');
-                    fruit[i].slicePat = null;
+                    //currentRecipe.ingredients.shift();
+                    //pointsystem.correctCut();
+                    fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
+                    fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
                     //wrong slice effect
-                    wrongSliceFrame.redBorder();
-                    fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '-slice.png');
-                    fruit[i].slicePat = null;
+                    //redBorder();
+                    fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
+                    fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
-            }
+            //}
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
             //drawGameOver();
