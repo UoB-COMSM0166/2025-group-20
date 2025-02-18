@@ -2,6 +2,7 @@
 var mode = 0;
 let gameFont, appleImg;
 var gravity = 0.1;
+var displayBorder = false;
 // array of the fruits and vegetables 
 var fruitList = ['apple', 'banana', 'blueberry', 'pear', 'cherry', 'grape', 'watermelon', 'lemon','bomb']; //one more fruit needed
 var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
@@ -10,6 +11,7 @@ var fruit = [];
 let bg;
 let smoothieDisplay; 
 var lifeIcons;
+let fruitImages = []
 
 let PointsDisplay;
 let HighestPointDisplay;
@@ -23,15 +25,18 @@ function preload() {
   lifelostImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png');
   
   // loads fruit images to the fruitImgs array
-  for (var i = 0; i < fruitList.length; i++) {
-    fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '.png');
+  for (let i = 0; i < fruitList.length; i++) {
+    let fruitName = fruitList[i];
+    let img = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitName + '.png');
+    fruitImgs.push(img);
+    //fruitImages[fruitName] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '.png');
   }
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  lifeIcons = new LifeIcons();
+  lifeIcons = new LifeIcons(3);
 }
 
 function draw() {
@@ -44,6 +49,7 @@ function draw() {
   }
   if (mode == 2){
     gameScreen();
+    console.log("Game Screen loaded successfully");
   }
 }
 

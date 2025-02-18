@@ -21,10 +21,18 @@ class SmoothieDisplay {
         this.smoothieIngredients = smoothieIngredients;
         this.fruitImgs = fruitImgs;
         this.x = width / 2 - (this.smoothieIngredients.length * 30); 
+        console.log("The width is:", width);
         this.y = 20; 
     }
 
     display() {
+        console.log("SmoothieDisplay.display is running");
+        console.log("this.fruitImgs:", this.fruitImgs);
+        if (!this.fruitImgs || this.fruitImgs.length === 0) {
+            console.error("Error: fruitImgs is undefined or empty in SmoothieDisplay!");
+            return;  // Stop execution if there's an issue
+        }
+    
         let xPos = this.x;
         for (let fruit of this.smoothieIngredients) {
             let index = fruitList.indexOf(fruit); 
