@@ -18,13 +18,13 @@ class LifeIcons {
     loseLife() {
     if (this.lives > 0) {
     this.lives--;
-    this.heart[this.lives] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'); // Replace heart with empty heart
+    this.hearts[this.lives] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png'); // Replace heart with empty heart
     }
     }
     
     show() {
     for (let i = 0; i < 3; i++) {
-    image(this.heart[i], this.xOffset + i * this.spacing, this.yOffset, this.iconSize, this.iconSize);
+    image(this.hearts[i], this.xOffset + i * this.spacing, this.yOffset, this.iconSize, this.iconSize);
     }
     }
     }
