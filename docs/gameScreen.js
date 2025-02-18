@@ -23,7 +23,7 @@ function gameScreen() {
         console.log(currentRecipe.ingredients);
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if (fruit[i] != currentRecipe.ingredients[0]){
-                loseLife();
+                lifeIcons.loseLife();
             }
             else {
                 if (fruit[i].slicePat.isSliced() == 'correct'){
