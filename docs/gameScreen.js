@@ -22,13 +22,12 @@ function gameScreen() {
         fruit[i].move();
         
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-           // if (fruit[i] != currentRecipe.ingredients[0]){
-                // lose life
-              //  loseLife();
-           // }
-            //else {
+            if (fruit[i] != currentRecipe.ingredients[0]){
+                loseLife();
+            }
+            else {
                 if (fruit[i].slicePat.isSliced() == 'correct'){
-                    //currentRecipe.ingredients.shift();
+                    currentRecipe.ingredients.shift();
                     //pointsystem.correctCut();
                     fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
                     fruit[i].slicePat = new SlicePattern('inert', 0);
@@ -39,10 +38,9 @@ function gameScreen() {
                     fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
                     fruit[i].slicePat = new SlicePattern('inert', 0);
                 }
-            //}
+            }
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            //drawGameOver();
             mode = 4;
         }
     }
