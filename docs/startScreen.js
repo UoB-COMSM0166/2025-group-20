@@ -1,14 +1,13 @@
 function drawStartScreen() {
     background('black');
-    textAlign(CENTER);
+    textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('seagreen');
-    textSize(100);
-    text('Smoothie', width / 3, height / 2.5);
-    text('Operator', width / 3, height / 1.9);
-    instructionButton();
+    textSize(150);
+    text('Smoothie', width / 3, height / 3.7);
+    text('Operator', width / 3, height / 2.1);
     startGameButton();
-    keyPressed();
+    instructionButton();
   }
 
 

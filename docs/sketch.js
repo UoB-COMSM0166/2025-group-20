@@ -32,16 +32,30 @@ function setup() {
 }
 
 function draw() {
-  clear();
-  if (mode == 0) {
+  if (mode === 0) {
     drawStartScreen();
-  }
-  if (mode == 1){
-    instructionScreen();
-  }
-  if (mode == 2){
-    gameScreen();
+    instructionsButton.show();
 
+    if (pauseButton){
+      pauseButton.hide();
+    }
+  }
+  if (mode === 1){
+    instructionScreen();
+
+    if (pauseButton){
+      pauseButton.hide();
+    }
+  }
+  if (mode === 2){
+    gameScreen();
+    makePauseButton();
+    pauseButton.show();
+    instructionsButton.hide();
+  }
+  if (mode === 3){
+    noLoop();
+    drawPauseScreen();
   }
 }
 

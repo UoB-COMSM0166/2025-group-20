@@ -1,4 +1,29 @@
+let instructionsButton;
+
 function instructionButton() {
+    if (!instructionsButton){
+
+      instructionsButton = createButton('INSTRUCTIONS');
+      instructionsButton.style('font-size', '30');
+      instructionsButton.style('font-family', 'gameFont');
+      instructionsButton.style('text-align', 'center');
+      instructionsButton.style('background-color', '#FCF3CF');
+      instructionsButton.style('border', 'none');
+      instructionsButton.style('border-radius', '8px');
+      instructionsButton.style('color', 'black');
+      instructionsButton.size(250, 50); 
+      instructionsButton.position((windowWidth / 3) - 125, (windowHeight / 1.4)); 
+
+      instructionsButton.mousePressed(() => {
+        mode = 1; // Goes to instructions screen
+        instructionsButton.hide();
+      });
+      instructionsButton.show();
+    }
+  }
+/*
+
+
     let rectWidth = 105;
     let rectHeight = 25;
     fill('lightgoldenrodyellow');
@@ -20,21 +45,21 @@ function instructionButton() {
         mode = 1; 
       }
     }
-  }
+  }*/
   
   let angle = 30;
   let angleSpeed = 0.75;
   let angleDirection = 1;
   
   function startGameButton() {
-    image(appleImg, width / 1.6, height / 5.4, 250);
+    image(appleImg, width / 1.6, height / 5.8, 350, 400);
   
     push();
-    translate(width / 1.3, height / 4.4);
+    translate(width / 1.2, height / 4.4);
     rotate(radians(angle));
     textFont(gameFont);
     fill('white');
-    textSize(25);
+    textSize(32);
     text('SLICE TO START', 0, 0);
     pop();
   
@@ -56,8 +81,4 @@ function instructionButton() {
     }
   }
 
-  function keyPressed() {
-    if (keyCode == ENTER){
-        mode = 2;
-    }
-  }
+  
