@@ -17,11 +17,11 @@ function gameScreen() {
         }*/
     }
     
-    /*if(frameCount % 60 === 0) {
-        if(noise(framecount) > 0.69){
-            fruit.push(randomGenRec(currentRecipe.ingredients));
+    if(frameCount % 60 === 0) {
+        if(noise(frameCount) > 0.69){
+            fruit.push(randomGenRec(currentRecipe));
         }
-    }*/
+    }
 
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
