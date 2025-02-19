@@ -66,7 +66,6 @@ function startOverButton(){
     if((mouseX-ellCentreX)*(mouseX-ellCentreX) / ((ellWidth/2)*(ellWidth/2)) + 
     ((mouseY-ellCentreY)*(mouseY-ellCentreY))/((ellHeight/2)*(ellHeight/2)) < 1){
     //console.log("return Home");
-         mode = 2;
          freshGameScreen();
        }
   
