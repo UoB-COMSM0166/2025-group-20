@@ -76,7 +76,7 @@ function instructionButton() {
       let buttonY2 = height / 5.4 + appleImg.height;
 
       if (mouseX > buttonX1 && mouseX < buttonX2 && mouseY > buttonY1 && mouseY < buttonY2) {
-        mode = 2; 
+        freshGameScreen();
       }
     }
   }
