@@ -1,6 +1,6 @@
 class SmoothieRecipe {
    constructor() {
-       const filteredFruits = fruitList.filter(fruit => fruit != 'bomb'); 
+       const filteredFruits = [0, 1, 2 , 3, 4, 5, 6]; 
        const numFruits = Math.floor(Math.random() * 5) + 3; 
        this.ingredients = filteredFruits.sort(() => 0.5 - Math.random()).slice(0, numFruits); 
        this.x = width / 2 - (this.ingredients.length * 30); 
@@ -9,12 +9,9 @@ class SmoothieRecipe {
 
    display() {
       let xPos = this.x;
-      for (let fruit of this.ingredients) {
-          let index = fruitList.indexOf(fruit); 
-          if (index !== -1) { 
-              image(fruitImgs[index], xPos, this.y, 50, 50);
-              xPos += 60; 
-          }
+      for (var i = 0; i < this.ingredients.length; i++){
+         image(fruitImgs[this.ingredients[i]], xPos, this.y, 50, 50);
+         xPos += 60;
       }
    }
 }

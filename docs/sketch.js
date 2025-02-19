@@ -13,6 +13,7 @@ var lifeIcons;
 var currentRecipe;
 var gameScore;
 var highestScore;
+var sound;
 
 function preload() {
   // loads material used in start screen
@@ -73,4 +74,9 @@ function windowResized() {
   let minW = 800; 
   let minH = 600; 
   resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
+}
+
+function playSound(soundLink){
+  sound = createAudio(soundLink);
+  sound.play();
 }

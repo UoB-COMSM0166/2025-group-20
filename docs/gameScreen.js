@@ -10,23 +10,31 @@ function gameScreen() {
     gameScore.display();
     highestScore.display();
 
-    if(frameCount % 5 === 0){
-        if(noise(frameCount) > 0.69){
+    if(frameCount % 60 == 0){
+        fruit.push(randomGen());
+        /*if(noise(frameCount) > 0.69){
           fruit.push(randomGen());
+        }*/
+    }
+    
+    if(frameCount % 60 === 0) {
+        if(noise(frameCount) > 0.69){
+            fruit.push(randomGenRec(currentRecipe));
         }
     }
+
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-            if (fruit[i].fruitName != currentRecipe.ingredients[0]){
+            if (fruit[i].index != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 wrongSliceEffect()
                 if (lifeIcons.lives == 0){
                     mode = 4;
                 }
             }
-            else if (fruit[i].fruitName == currentRecipe.ingredients[0]){
+            else if (fruit[i].index == currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() == 'correct'){
                     currentRecipe.ingredients.shift();
                     gameScore.correctCut();
@@ -35,12 +43,19 @@ function gameScreen() {
                     wrongSliceEffect();
                 }
             }
+            playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
+<<<<<<< HEAD
             lifeIcons.lives = 0;
             //mode = 4;
+=======
+            playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+            fruit[i].slicePat = new SlicePattern('inert', 0);
+            mode = 4;
+>>>>>>> main
         }
     }
     cursorEffect();
