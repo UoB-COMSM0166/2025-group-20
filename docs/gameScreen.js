@@ -1,7 +1,6 @@
 function gameScreen() {
     
     background(bg);
-
     if (currentRecipe.ingredients.length == 0){
         currentRecipe = new SmoothieRecipe();
     }
