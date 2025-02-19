@@ -31,7 +31,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  highestScore = new HighestPointDisplay;
+  highestScore = new HighestPointDisplay(highScore);
 }
 
 function draw() {
