@@ -1,8 +1,6 @@
 function gameScreen() {
     
     background(bg);
-    //cursorEffect();
-    // generate random number for fruit appearance
 
     if (currentRecipe.ingredients.length == 0){
         currentRecipe = new SmoothieRecipe();
@@ -23,7 +21,7 @@ function gameScreen() {
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if (fruit[i] != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
-                //redBorder();
+                wrongSliceEffect()
                 if (lifeIcons.lives == 0){
                     mode = 4;
                 }
@@ -34,7 +32,7 @@ function gameScreen() {
                     gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
-                    //redBorder();
+                    wrongSliceEffect()
                 }
             }
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
