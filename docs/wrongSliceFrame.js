@@ -9,3 +9,10 @@ function redBorder() {
     pop();
   }
 }
+
+function wrongSliceEffect(){
+   displayBorder = true;
+   setTimeout(() => {
+      displayBorder = false;
+   }, 1000);
+}
