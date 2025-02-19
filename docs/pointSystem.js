@@ -2,9 +2,9 @@
 //completion of recipe +20
 //fruit points accumulate
 
-var HighestScore = 0;
+var highestScore = 0;
 
-class pointSystem{
+class PointSystem{
     constructor(){
         this.pointsPerGame = 0;
     }
@@ -20,8 +20,8 @@ class pointSystem{
     }
 
     updateHighestScore(){
-        if(this.pointsPerGame > HighestScore){
-            HighestScore = this.pointsPerGame;
+        if(this.pointsPerGame > highestScore){
+            highestScore = this.pointsPerGame;
         }
     }
 
@@ -45,8 +45,8 @@ class PointsDisplay {
 }
 
 class HighestPointDisplay {
-    constructor(HighestPoint) {
-        this.HighestPoint = HighestPoint;
+    constructor(highestPoint) {
+        this.highestPoint = highestPoint;
         this.x = width - 40;
         this.y = height/23;
     }
@@ -55,7 +55,7 @@ class HighestPointDisplay {
       textAlign(RIGHT, TOP); // Align to top-right
         textSize(15);
         fill('white');
-          text('Highest Score: ' + this.HighestPoint,this.x,this.y);
+          text('Highest Score: ' + this.highestPoint,this.x,this.y);
     }
 
 }
