@@ -63,6 +63,7 @@ function draw() {
   }
   if (mode == 4){
     drawGameOver();
+    pauseButton.hide();
   }
 }
 
