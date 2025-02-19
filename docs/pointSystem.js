@@ -16,12 +16,6 @@ class PointSystem{
         this.pointsPerGame += 20;
     }
 
-    updateHighestScore(highScore){
-        if(this.pointsPerGame > highScore){
-            highScore = this.pointsPerGame;
-        }
-    }
-
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
@@ -37,6 +31,12 @@ class HighestPointDisplay {
         this.highestPoint = highestPoint;
         this.x = width - 40;
         this.y = height/23;
+    }
+    
+    updateHighestScore(gameScore){
+        if(gameScore > this.highestPoint){
+            this.highestPoint = gameScore;
+        }
     }
 
     display(){
