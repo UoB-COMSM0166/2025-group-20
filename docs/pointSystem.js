@@ -7,6 +7,8 @@ var highestScore = 0;
 class PointSystem{
     constructor(){
         this.pointsPerGame = 0;
+        this.x = width - 40;
+        this.y = height/10;
     }
     
     correctCut(){
@@ -25,15 +27,6 @@ class PointSystem{
         }
     }
 
-}
-
-class PointsDisplay {
-    constructor(pointsPerGame) {
-        this.pointsPerGame = pointsPerGame;
-        this.x = width - 40;
-        this.y = height/10;
-    }
-
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
@@ -41,7 +34,7 @@ class PointsDisplay {
         text('Current Points: ' + this.pointsPerGame, this.x, this.y);
         
     }
-    
+
 }
 
 class HighestPointDisplay {
