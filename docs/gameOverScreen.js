@@ -78,7 +78,6 @@ function returnHomeButton() {
 // }
 
 
-
 function startOverButton(){
   image(bombImg, width/3.5 , height/3.5 ,200, 200);
   posx1 = width/2.5;
