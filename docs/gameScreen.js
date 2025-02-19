@@ -9,8 +9,8 @@ function gameScreen() {
     }
     currentRecipe.display();
     lifeIcons.show();
-    CurrentPointsDisplay.display();
-    HighestScore.display();
+    currentPointsDisplay.display();
+    highestScore.display();
 
     if(frameCount % 5 === 0){
         if(noise(frameCount) > 0.69){
@@ -51,6 +51,6 @@ function freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new pointSystem();
-    CurrentPointsDisplay = new PointsDisplay(gameScore);
+    currentPointsDisplay = new PointsDisplay(gameScore);
     mode = 2;
 }
