@@ -1,10 +1,11 @@
 class Fruit {
-  constructor(fruitImg, fruitName, size, slicePat) { //slicePat here as well
+  constructor(fruitImg, fruitName, size, slicePat, index) { //slicePat here as well
     // setting up basic properties
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size  = size;
     this.slicePat = new SlicePattern(slicePat, this.size);
+    this.index = index;
 
 
     // setting up physics properties
@@ -62,6 +63,6 @@ class Fruit {
   var fruitName = fruitList[index];
   var slicePat = sliceList[index];
   var size = noise(frameCount)*60 + 120;
-  return new Fruit(fruitImg, fruitName, size, slicePat);
+  return new Fruit(fruitImg, fruitName, size, slicePat, index);
   }
   
