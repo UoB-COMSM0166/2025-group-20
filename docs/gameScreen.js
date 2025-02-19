@@ -50,7 +50,7 @@ function gameScreen() {
 function freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
-    gameScore = new pointSystem();
+    gameScore = new PointSystem();
     currentPointsDisplay = new PointsDisplay(gameScore);
     mode = 2;
 }
