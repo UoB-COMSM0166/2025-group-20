@@ -7,7 +7,7 @@ function gameScreen() {
     }
     currentRecipe.display();
     lifeIcons.show();
-    currentPointsDisplay.display();
+    gameScore.display();
     highestScore.display();
 
     if(frameCount % 5 === 0){
@@ -49,6 +49,5 @@ function freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new PointSystem();
-    currentPointsDisplay = new PointsDisplay(gameScore);
     mode = 2;
 }
