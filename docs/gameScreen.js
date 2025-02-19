@@ -10,11 +10,19 @@ function gameScreen() {
     gameScore.display();
     highestScore.display();
 
-    if(frameCount % 5 === 0){
-        if(noise(frameCount) > 0.69){
+    if(frameCount % 60 == 0){
+        fruit.push(randomGen());
+        /*if(noise(frameCount) > 0.69){
           fruit.push(randomGen());
-        }
+        }*/
     }
+    
+    /*if(frameCount % 60 === 0) {
+        if(noise(framecount) > 0.69){
+            fruit.push(randomGenRec(currentRecipe.ingredients));
+        }
+    }*/
+
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
