@@ -80,7 +80,7 @@ function returnHomeButton() {
 
 function startOverButton(){
   image(bombImg, width/3.5 , height/3.5 ,200, 200);
-  posx1 = width/2.5;
+  posx1 = width/3.5;
   posx2 = width/3.5 + 200;
   posy1 = height/3.5;
   posy2 = height/3.5 + bombImg.height;
@@ -88,7 +88,7 @@ function startOverButton(){
   fill('white');
   textSize(20);
   textFont('Comic Sans');
-  text("Start Over", width/3.5, height/3.5);
+  text("Start Over", width/2.75, height/2.3);
 
   if(mouseIsPressed){
     if(mouseX > posx1 && mouseX < posx2 && mouseY > posy1 && mouseY < posy2 && mode == 4){

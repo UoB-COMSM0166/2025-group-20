@@ -48,14 +48,9 @@ function gameScreen() {
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-<<<<<<< HEAD
-            lifeIcons.lives = 0;
-            //mode = 4;
-=======
             playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
             fruit[i].slicePat = new SlicePattern('inert', 0);
             mode = 4;
->>>>>>> main
         }
     }
     cursorEffect();
