@@ -20,16 +20,16 @@ class pointSystem{
     }
 
     updateHighestScore(){
-        if(this.PointsPerGame > HighestScore){
-            HighestScore = this.PointsPerGame;
+        if(this.pointsPerGame > HighestScore){
+            HighestScore = this.pointsPerGame;
         }
     }
 
 }
 
 class PointsDisplay {
-    constructor(PointsPerGame) {
-        this.PointsPerGame = PointsPerGame;
+    constructor(pointsPerGame) {
+        this.pointsPerGame = pointsPerGame;
         this.x = width - 40;
         this.y = height/10;
     }
@@ -38,7 +38,7 @@ class PointsDisplay {
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
         fill('white');
-        text('Current Points: ' + this.PointsPerGame, this.x, this.y);
+        text('Current Points: ' + this.pointsPerGame, this.x, this.y);
         
     }
     
