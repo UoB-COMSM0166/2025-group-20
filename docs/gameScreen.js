@@ -43,6 +43,8 @@ function gameScreen() {
                     wrongSliceEffect()
                 }
             }
+            sliceSound = createAudio('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
+            sliceSound.play();
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
