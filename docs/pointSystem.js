@@ -2,7 +2,7 @@
 //completion of recipe +20
 //fruit points accumulate
 
-var highestScore = 0;
+var highScore = 0;
 
 class PointSystem{
     constructor(){
@@ -23,7 +23,7 @@ class PointSystem{
 
     updateHighestScore(){
         if(this.pointsPerGame > highestScore){
-            highestScore = this.pointsPerGame;
+            highScore = this.pointsPerGame;
         }
     }
 
