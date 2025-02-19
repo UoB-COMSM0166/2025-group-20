@@ -9,7 +9,7 @@ class SmoothieRecipe {
 
    display() {
       let xPos = this.x;
-      for (var i = 0; this.ingredients.length; i++){
+      for (var i = 0; i < this.ingredients.length; i++){
          image(fruitImgs[this.ingredients[i]], xPos, this.y, 50, 50);
          xPos += 60;
       }
