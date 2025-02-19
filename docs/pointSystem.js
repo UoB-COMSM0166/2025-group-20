@@ -22,7 +22,7 @@ class PointSystem{
     }
 
     updateHighestScore(){
-        if(this.pointsPerGame > highestScore){
+        if(this.pointsPerGame > highScore){
             highScore = this.pointsPerGame;
         }
     }
