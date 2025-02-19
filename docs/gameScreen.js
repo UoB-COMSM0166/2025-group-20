@@ -43,14 +43,12 @@ function gameScreen() {
                     wrongSliceEffect()
                 }
             }
-            sliceSound = createAudio('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
-            sliceSound.play();
+            playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            sliceSound = createAudio('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
-            sliceSound.play();
+            playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
             mode = 4;
         }
     }
