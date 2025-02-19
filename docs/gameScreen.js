@@ -40,7 +40,7 @@ function gameScreen() {
                     gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
-                    wrongSliceEffect()
+                    wrongSliceEffect();
                 }
             }
             playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
