@@ -1,9 +1,6 @@
 //correct cut on each fruit +10
 //completion of recipe +20
 //fruit points accumulate
-
-var highScore = 0;
-
 class PointSystem{
     constructor(){
         this.pointsPerGame = 0;
@@ -13,15 +10,13 @@ class PointSystem{
     
     correctCut(){
         this.pointsPerGame += 10;
-        this.updateHighestScore();
     }
 
     recipeComplete(){
         this.pointsPerGame += 20;
-        this.updateHighestScore();
     }
 
-    updateHighestScore(){
+    updateHighestScore(highScore){
         if(this.pointsPerGame > highScore){
             highScore = this.pointsPerGame;
         }
