@@ -57,6 +57,9 @@ function gameScreen() {
 }
 
 function freshGameScreen() {
+    while (fruit.length != 0){
+        fruit.shift();
+    }
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new PointSystem();
