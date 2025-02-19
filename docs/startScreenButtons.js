@@ -51,6 +51,7 @@ function instructionButton() {
   let angleSpeed = 0.75;
   let angleDirection = 1;
   
+  
   function startGameButton() {
     image(appleImg, width / 1.6, height / 5.8, 350, 400);
   

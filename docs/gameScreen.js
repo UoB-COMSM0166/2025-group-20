@@ -32,14 +32,15 @@ function gameScreen() {
                     gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() == 'wrong'){
-                    wrongSliceEffect()
+                    wrongSliceEffect();
                 }
             }
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-            mode = 4;
+            lifeIcons.lives = 0;
+            //mode = 4;
         }
     }
     cursorEffect();

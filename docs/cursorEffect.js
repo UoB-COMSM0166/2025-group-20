@@ -1,5 +1,3 @@
-
-
 let trail = [];
 const maxTrail = 50;
 

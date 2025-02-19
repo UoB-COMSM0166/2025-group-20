@@ -41,11 +41,11 @@ class HighestPointDisplay {
     }
 
     display(){
-      textAlign(RIGHT, TOP); // Align to top-right
+        textAlign(RIGHT, TOP); // Align to top-right
         textSize(15);
         textFont('Times New Roman');
         fill('white');
-          text('Highest Score: ' + this.highestPoint,this.x,this.y);
+        text('Highest Score: ' + this.highestPoint,this.x,this.y);
     }
 
 }
