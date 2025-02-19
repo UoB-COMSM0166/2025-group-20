@@ -49,6 +49,7 @@ function gameScreen() {
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
             playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+            fruit[i].slicePat = new SlicePattern('inert', 0);
             mode = 4;
         }
     }
