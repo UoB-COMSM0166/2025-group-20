@@ -11,8 +11,8 @@ let bg;
 var lifeIcons;
 var currentRecipe;
 var gameScore;
-var HighestScore;
-var CurrentPointsDisplay;
+var highestScore;
+var currentPointsDisplay;
 
 function preload() {
   // loads material used in start screen
@@ -31,7 +31,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  HighestScore = new HighestPointDisplay;
+  highestScore = new HighestPointDisplay;
 }
 
 function draw() {
