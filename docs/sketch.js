@@ -33,6 +33,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
+  sliceSound = createAudio('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/smootth.mp3');
+  sliceSound.play();
 }
 
 function draw() {
