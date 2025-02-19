@@ -7,6 +7,7 @@ function gameScreen() {
     }
     currentRecipe.display();
     lifeIcons.show();
+    highestScore.updateHighestScore(gameScore.pointsPerGame);
     gameScore.display();
     highestScore.display();
 
