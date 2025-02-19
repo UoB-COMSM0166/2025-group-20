@@ -53,6 +53,7 @@ function draw() {
   }
   if (mode === 2){
     gameScreen();
+    redBorder();
     makePauseButton();
     pauseButton.show();
     instructionsButton.hide();
