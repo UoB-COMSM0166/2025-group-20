@@ -19,14 +19,14 @@ function gameScreen() {
         fruit[i].show();
         fruit[i].move();
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-            if (fruit[i].fruitName != currentRecipe.ingredients[0]){
+            if (fruit[i].index != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 wrongSliceEffect()
                 if (lifeIcons.lives == 0){
                     mode = 4;
                 }
             }
-            else if (fruit[i].fruitName == currentRecipe.ingredients[0]){
+            else if (fruit[i].index == currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() == 'correct'){
                     currentRecipe.ingredients.shift();
                     gameScore.correctCut();
