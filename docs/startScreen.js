@@ -8,6 +8,7 @@ function drawStartScreen() {
     text('Operator', width / 3, height / 2.1);
     startGameButton();
     instructionButton();
+    highestScore.display();
   }
 
 
