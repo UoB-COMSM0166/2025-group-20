@@ -8,7 +8,7 @@ class PointSystem{
     constructor(){
         this.pointsPerGame = 0;
     }
-
+    
     correctCut(){
         this.pointsPerGame += 10;
         this.updateHighestScore();
