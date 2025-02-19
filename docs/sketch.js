@@ -31,11 +31,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
-  lifeIcons = new LifeIcons();
-  currentRecipe  = new SmoothieRecipe();
-  gameScore = new pointSystem();
   HighestScore = new HighestPointDisplay;
-  CurrentPointsDisplay = new PointsDisplay(gameScore);
 }
 
 function draw() {
