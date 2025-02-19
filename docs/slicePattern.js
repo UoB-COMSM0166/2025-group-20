@@ -102,5 +102,4 @@ class HitBox {
       this.hit = false;
     }
   }
-
 }
