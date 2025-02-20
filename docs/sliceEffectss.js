@@ -11,8 +11,22 @@ function redBorder() {
 }
 
 function wrongSliceEffect(){
-   displayBorder = true;
-   setTimeout(() => {
-      displayBorder = false;
-   }, 1000);
+  
+}
+
+function recipeComplete(){
+  this.x = width / 2; 
+  this.y = 20;
+  textAlign(CENTER, CENTER);
+  textFont(gameFont);
+  fill('white');
+  textSize(150);
+  text('Recipe Complete!');
+}
+
+function loseLifeEffect(){
+  displayBorder = true;
+  setTimeout(() => {
+     displayBorder = false;
+  }, 1000);
 }

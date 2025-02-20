@@ -2,6 +2,7 @@ function gameScreen() {
     
     background(bg);
     if (currentRecipe.ingredients.length == 0){
+        recipeComplete();
         currentRecipe = new SmoothieRecipe();
     }
     currentRecipe.display();
@@ -29,7 +30,7 @@ function gameScreen() {
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if (fruit[i].index != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
-                wrongSliceEffect()
+                loseLifeEffect();
                 if (lifeIcons.lives == 0){
                     mode = 4;
                 }
