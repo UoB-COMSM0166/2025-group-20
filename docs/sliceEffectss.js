@@ -15,13 +15,15 @@ function wrongSliceEffect(){
 }
 
 function recipeComplete(){
-  this.x = width / 2; 
-  this.y = 20;
-  textAlign(CENTER, CENTER);
-  textFont(gameFont);
-  fill('white');
-  textSize(150);
-  text('Recipe Complete!');
+  setInterval(() => {
+    this.x = width / 2; 
+    this.y = 20;
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill('white');
+    textSize(150);
+    text('Recipe Complete!');
+  }, 1000);
 }
 
 function loseLifeEffect(){
