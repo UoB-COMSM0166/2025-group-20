@@ -16,13 +16,11 @@ function wrongSliceEffect(){
 
 function recipeComplete(){
   setInterval(() => {
-    this.x = width / 2; 
-    this.y = 40;
     textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('white');
     textSize(150);
-    text('Recipe Complete!', this.x, this.y);
+    text('Recipe Complete!', width/2, 40);
   }, 1000);
 }
 
