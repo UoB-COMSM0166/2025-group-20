@@ -14,15 +14,40 @@ var currentRecipe;
 var gameScore;
 var highestScore;
 var sound;
+let instructionBg;
+let pearImg;
+let lemonImg;
+let watermelonImg;
+let cherryImg;
+let bananaImg;
+let pearSliceImg;
+let lemonSliceImg;
+let watermelonSliceImg;
+let cherrySliceImg;
+let bananaSliceImg;
+let appleSliceImg;
 
 function preload() {
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
+  appleSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/apple-slice.png');
   bg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/923cd18c3e0c776d146c9cb4e9bf10b24d488e40/docs/Background%20Images/Game%20Screen%20Background.png');
   lifeImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/life.png');
   lifelostImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/lifelost.png');
   bombImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/bomb.png');
+  instructionBg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/Instructions%20Background.png');
+  pearImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/pear.png');
+  lemonImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/lemon.png');
+  watermelonImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/watermelon.png');
+  cherryImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/cherry.png');
+  bananaImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/banana.png');
+  //pearSliceImg = loadImage(''); needs to be added later when pear slice is made
+  lemonSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/lemon-slice.png');
+  watermelonSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/watermelon-slice.png');
+  cherrySliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/cherry-slice.png');
+  bananaSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/banana-slice.png');
+
   // loads fruit images to the fruitImgs array
   for (var i = 0; i < fruitList.length; i++) {
     fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '.png');
@@ -33,6 +58,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
+  //setupInstructionButtons();
 }
 
 function draw() {
@@ -46,6 +72,7 @@ function draw() {
     }
   }
   if (mode === 1){
+    //console.log("Switching to instruction screen");
     instructionScreen();
 
     if (pauseButton){
@@ -68,12 +95,28 @@ function draw() {
     drawGameOver();
     pauseButton.hide();
   }
+  if(mode === 5){
+    instructionObjectivesScreen();
+  }
+  if(mode === 6){
+    instructionControlsScreen();
+  }
+  if(mode === 7){
+    instructionScoringSystemScreen();
+  }
+  if(mode === 8){
+    instructionGameOverConditionsScreen();
+  }
+  if(mode === 9){
+    instructionNavigationScreen();
+  }
 }
 
 function windowResized() {
   let minW = 800; 
   let minH = 600; 
   resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
+  setupInstructionButtons();
 }
 
 function playSound(soundLink){
