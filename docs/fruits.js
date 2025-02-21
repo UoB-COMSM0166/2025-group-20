@@ -1,74 +1,48 @@
 class Fruit {
-  constructor(fruitImg, fruitName, size, slicePat, index) { //slicePat here as well
-    // setting up basic properties
+  constructor(fruitImg, fruitName, slicePat, listIndex) {
+    // setting up basic attributes
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
-    this.size  = size;
+    this.size = 110;
     this.slicePat = new SlicePattern(slicePat, this.size);
-    this.index = index;
+    this.index = listIndex;
 
-
-    // setting up physics properties
-    this.x = random(windowWidth);
-    this.y = windowHeight;
-    this.xSpeed = randomXSpeed(this.x); // function to determine speed
-    this.ySpeed = randomYSpeed(this.y); // function to determine speed
+    // setting up physics attrbutes
+    this.xPos = random(windowWidth);
+    this.yPos = windowHeight;
+    this.xSpeed = randomXDirection(this.xPos);
+    this.ySpeed = -11;
     this.visible = true;
   }
-  
-    show() {
-      image(this.fruitImg, this.x, this.y, this.size, this.size);
-    }
-  
-    move() {
-      this.x += this.xSpeed;
-      this.y += this.ySpeed;
-      this.slicePat.move(this.x+(this.size/2), this.y+(this.size/2));
-      this.ySpeed += gravity;
-      if(this.y < height * 0.00125){
-        this.ySpeed = 0;
-      }
-      if (this.y > height) {
-        this.visible = false;
-      }
-    }
-  }
-  
-  function randomXSpeed(x) {
-  /* if the object generates in the left side of the screen, we want it to start moving
-  to the right side of the screen. vice versa */
-    var minSpeed = windowWidth * 0.002;
-    var maxSpeed = windowWidth * 0.006;
-    if (x < windowWidth / 2) {
-      return random(minSpeed, maxSpeed);
-    }
-    else if (x == windowWidth / 2) {
-      return 0;
-    }
-      return random(0 - maxSpeed, 0 - minSpeed);
-  }
-  
-  function randomYSpeed(y) {
-    var minSpeed = -9;
-    var maxSpeed = -11;
-    return random(minSpeed, maxSpeed);
-  }
-  
-  function randomGen() {
-    var index = round(random(0, fruitList.length - 1));
-    var fruitImg = fruitImgs[index];
-    var fruitName = fruitList[index];
-    var slicePat = sliceList[index];
-    var size = noise(frameCount)*60 + 120;
-    return new Fruit(fruitImg, fruitName, size, slicePat, index);
+
+  show() {
+    image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
   }
 
-  function randomGenRec(recipe) {
-    var index = recipe.ingredients[0]; // round(random(recipe.ingredients[0], recipe.ingredients[recipe.length - 1]));
-    var fruitImg = fruitImgs[index];
-    var fruitName = fruitList[index];
-    var slicePat = sliceList[index];
-    var size = noise(frameCount)*60 + 120;
-    return new Fruit(fruitImg, fruitName, size, slicePat, index);
+  move() {
+    // moving fruit along x and y axes
+    this.xPos += this.xSpeed;
+    this.yPos += this.ySpeed;
+    this.ySpeed += gravity;
+    this.slicePat.move(this.xPos+(this.size/2), this.yPos+(this.size/2));
+
+    // fruit starts falling down when it reaches max height
+    if(this.yPos < maxHeight) {
+      this.ySpeed = 0;
+    }
+
+    // toggle off visibily off screen
+    if(this.y > height) {
+      this.visibility = false;
+    }
   }
-  
+}
+
+function randomXDirection(xPos) {
+  /* picks an x speed which moves the fruit in the opposte side of the
+  screen from where it spawned */
+  if(xPos > windowWidth / 2) {
+    return -5;
+  }
+  return 5;
+}

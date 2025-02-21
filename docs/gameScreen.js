@@ -12,7 +12,7 @@ function gameScreen() {
     highestScore.display();
 
     if(frameCount % 60 == 0){
-        fruit.push(randomGen());
+        fruit.push(randomFruitGen(1, currentRecipe));
         /*if(noise(frameCount) > 0.69){
           fruit.push(randomGen());
         }*/
@@ -20,7 +20,7 @@ function gameScreen() {
     
     if(frameCount % 60 === 0) {
         if(noise(frameCount) > 0.69){
-            fruit.push(randomGenRec(currentRecipe));
+            fruit.push(randomFruitGen(0, currentRecipe));
         }
     }
 
