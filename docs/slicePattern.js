@@ -1,12 +1,12 @@
 class SlicePattern{
   constructor(type, size){
-    this.sliceArrays = [3];
     this.type = type; 
     if (this.type == 'bomb' || this.type == 'click'){
       this.diameter = size;
       this.hit = new HitBox(this.diameter);
     }
     else {
+      this.sliceArrays = [3];
       this.diameter = size/3;
       for (let i = 0; i < 3; ++i){
         this.sliceArrays[i] = new SliceArray(this.type, this.diameter);
@@ -42,22 +42,27 @@ class SlicePattern{
  }
 
   move(x, y){
-    this.sliceArrays[0].move(x, y);
-    if (this.type == 'down' || this.type == 'up'){
-      this.sliceArrays[1].move(x - this.diameter, y);
-      this.sliceArrays[2].move(x + this.diameter, y);
+    if (this.type  == 'bomb' ||this.type  == 'click'){
+      this.hit.move(x,y);
     }
-    else if (this.type == 'left' || this.type == 'right'){
-      this.sliceArrays[1].move(x, y - this.diameter);
-      this.sliceArrays[2].move(x, y + this.diameter);
-    }
-    else if (this.type == 'lrdown/rlup'){
-      this.sliceArrays[1].move(x + this.diameter, y - this.diameter);
-      this.sliceArrays[2].move(x - this.diameter, y + this.diameter);
-    }
-    else if (this.type == 'rldown/lrup'){
-      this.sliceArrays[1].move(x - this.diameter, y - this.diameter);
-      this.sliceArrays[2].move(x + this.diameter, y + this.diameter);
+    else{
+      this.sliceArrays[0].move(x, y);
+      if (this.type == 'down' || this.type == 'up'){
+        this.sliceArrays[1].move(x - this.diameter, y);
+        this.sliceArrays[2].move(x + this.diameter, y);
+      }
+      else if (this.type == 'left' || this.type == 'right'){
+        this.sliceArrays[1].move(x, y - this.diameter);
+        this.sliceArrays[2].move(x, y + this.diameter);
+      }
+      else if (this.type == 'lrdown/rlup'){
+        this.sliceArrays[1].move(x + this.diameter, y - this.diameter);
+        this.sliceArrays[2].move(x - this.diameter, y + this.diameter);
+      }
+      else if (this.type == 'rldown/lrup'){
+        this.sliceArrays[1].move(x - this.diameter, y - this.diameter);
+        this.sliceArrays[2].move(x + this.diameter, y + this.diameter);
+      }
     }
   }
 }
