@@ -1,4 +1,7 @@
 let instructionsButton;
+let appleIsSliced = false;
+let appleFallSpeed = 0; 
+let appleY = null;
 
 function instructionButton() {
     if (!instructionsButton){
@@ -53,8 +56,16 @@ function instructionButton() {
   
   
   function startGameButton() {
-    image(appleImg, width / 1.6, height / 5.8, 350, 400);
-  
+    if (appleY === null) appleY = height / 5.8;
+
+    if(!appleIsSliced){
+      image(appleImg, width / 1.6, height / 5.8, 350, 400);
+    }
+    else{
+      image(appleSliceImg, width / 1.6, appleY, 350, 400);
+      appleY += appleFallSpeed; 
+      appleFallSpeed += 0.5; 
+    }
     push();
     translate(width / 1.2, height / 4.4);
     rotate(radians(angle));
@@ -77,7 +88,13 @@ function instructionButton() {
       let buttonY2 = height / 5.4 + appleImg.height;
 
       if (mouseX > buttonX1 && mouseX < buttonX2 && mouseY > buttonY1 && mouseY < buttonY2) {
-        freshGameScreen();
+        appleIsSliced = true;
+        appleFallSpeed = -5;
+
+        setTimeout(()=>{
+          mode = 2;
+          freshGameScreen();
+        }, 700);
       }
     }
   }
