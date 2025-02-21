@@ -1,3 +1,5 @@
+let instructionScreenFirstLoad = true;
+
 function instructionScreen() {
     //console.log("Instruction screen is running");
     background(bg);
@@ -11,12 +13,16 @@ function instructionScreen() {
 
     //console.log("checking instructionFruits:", instructionFruits);
 
-    if (!instructionFruits || instructionFruits.length === 0) {
-        console.warn("instructionFruits is empty! Calling setupInstructionButtons...");
+    if (instructionScreenFirstLoad) {
         setupInstructionButtons();
+        instructionScreenFirstLoad = false;
     }
 
+    //setupInstructionButtons();
+
+    drawBackButton();
     drawInstructionButtons();
+    cursorEffect();
     /*instructionsControlsButton();
     instructionsGameOverConditions();
     instructionsNavigationButton();
@@ -28,17 +34,46 @@ function mousePressed(){
     if (mode === 1){
         checkInstructionClick(mouseX, mouseY);
     }
-    if (mouseX > width - 150 && mouseX < width - 30 && mouseY > height - 60 && mouseY < height - 20) {
-        mode = 1; // button to go back to the instructions menu 
+
+    let buttonX = (width / 2) - 100;
+    let buttonY = height - 100;
+    let buttonWidth = 200;
+    let buttonHeight = 50;
+
+    if (mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY && mouseY < buttonY + buttonHeight) {
+        mode = 0;
+    }
+
+    if (mode >= 5 && mode <= 9) {
+        let backX = width - 150;
+        let backY = height - 60;
+        let backWidth = 120;
+        let backHeight = 40;
+
+        if (mouseX > backX && mouseX < backX + backWidth && mouseY > backY && mouseY < backY + backHeight) {
+            mode = 1; 
+        }
     }
 }
 
 //I need to fix this because it looks really weird and ugly
 function drawBackButton() {
+    if (mode != 1) return;
+
+    let buttonX = (width / 2) - 100;
+    let buttonY = height - 100;
+    let buttonWidth = 200;
+    let buttonHeight = 50;
+
     fill("#FCF3CF");
-    rect(width - 150, height - 60, 120, 40, 10);
-    fill('black');
-    textSize(20);
-    text("Back", width - 90, height - 40);
+    stroke(30, 15, 5);
+    strokeWeight(4);
+    rect(buttonX + buttonWidth / 2, buttonY + buttonHeight / 2 + 5, buttonWidth, buttonHeight, 10);
+    
+    noStroke();
+    fill("black");
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("BACK", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
 }
 

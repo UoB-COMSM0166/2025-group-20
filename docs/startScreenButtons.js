@@ -3,6 +3,11 @@ let appleIsSliced = false;
 let appleFallSpeed = 0; 
 let appleY = null;
 
+function resetStartScreenApple() {
+  appleIsSliced = false;
+  appleFallSpeed = 0;
+}
+
 function instructionButton() {
     if (!instructionsButton){
 
@@ -93,6 +98,7 @@ function instructionButton() {
 
         setTimeout(()=>{
           mode = 2;
+          startScreenFirstLoad = true;
           freshGameScreen();
         }, 700);
       }

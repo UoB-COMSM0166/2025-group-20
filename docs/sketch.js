@@ -15,7 +15,7 @@ var gameScore;
 var highestScore;
 var sound;
 let instructionBg;
-let pearImg;
+/*let pearImg;
 let lemonImg;
 let watermelonImg;
 let cherryImg;
@@ -24,7 +24,7 @@ let pearSliceImg;
 let lemonSliceImg;
 let watermelonSliceImg;
 let cherrySliceImg;
-let bananaSliceImg;
+let bananaSliceImg;*/
 let appleSliceImg;
 
 function preload() {
@@ -37,7 +37,7 @@ function preload() {
   lifelostImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/lifelost.png');
   bombImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/bomb.png');
   instructionBg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/Instructions%20Background.png');
-  pearImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/pear.png');
+  /*pearImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/pear.png');
   lemonImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/lemon.png');
   watermelonImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/watermelon.png');
   cherryImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/cherry.png');
@@ -46,7 +46,7 @@ function preload() {
   lemonSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/lemon-slice.png');
   watermelonSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/watermelon-slice.png');
   cherrySliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/cherry-slice.png');
-  bananaSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/banana-slice.png');
+  bananaSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/banana-slice.png');*/
 
   // loads fruit images to the fruitImgs array
   for (var i = 0; i < fruitList.length; i++) {

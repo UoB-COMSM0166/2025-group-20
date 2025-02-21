@@ -1,10 +1,11 @@
 //this function lays out the 'buttons' in the instruction screen that lead to differet information screen
+let backButton;
+
 class InstructionFruit {
-    constructor(x, y, img, slicedImg, label, targetMode) {
+    constructor(x, y, fruitName, label, targetMode) {
       this.x = x;
       this.y = y;
-      this.img = img;
-      this.slicedImg = slicedImg;
+      this.fruitName = fruitName;
       this.label = label;
       this.targetMode = targetMode;
       this.yOffset = 0;
@@ -15,27 +16,18 @@ class InstructionFruit {
 
       this.isSliced = false;
       this.fallSpeed = 0;
+
+      let fruitIndex = fruitList.indexOf(fruitName);
+      if (fruitIndex !== -1) {
+        this.fruitImg = fruitImgs[fruitIndex]; 
+    } else {
+        console.error(`Error: no fruit images found ${fruitName}`);
+        this.fruitImg = createImage(150, 150); // Placeholder blank image
     }
-  
-   /* update() {
-      // I'm trying to make the fruit float up and down but I want them to do it randomly
-      this.yOffset += this.yDirection * 0.5;
-      if (this.yOffset > 10 || this.yOffset < -10) {
-        this.yDirection *= -1;
-      }
-      
-      //rotated text like in the start Screen
-      this.angle += this.angleSpeed * this.angleDirection;
-      if (this.angle >= 40 || this.angle <= 20) {
-        this.angleDirection *= -1;
-      }
-      else{
-        this.y += this.fallSpeed; //make all fruits fall off screen
-        this.fallSpeed += 0.5; //gravity
-      }
-    }*/
+    }
 
     update() {
+      console.log(`🔄 Updating ${this.label}: yOffset=${this.yOffset}, angle=${this.angle}`);
       if (!this.isSliced) {
         // I'll make a random generation float thing I hope soon
         this.yOffset += this.yDirection * 0.5;
@@ -48,7 +40,7 @@ class InstructionFruit {
         if (this.angle >= 40 || this.angle <= 20) {
                 this.angleDirection *= -1;
         }
-        } 
+      } 
         else {
           this.y += this.fallSpeed;
           this.fallSpeed += 0.5; // gravity and fruit fall off
@@ -56,23 +48,19 @@ class InstructionFruit {
     }
   
     display() {
-      if(!this.isSliced){
-      image(this.img, this.x, this.y + this.yOffset, 150, 150);
-      }
-      else{
-        image(this.slicedImg, this.x, this.y, 150, 150);
-      }
-      
-      push();
-      translate(this.x + 75, this.y + 180 + this.yOffset);
-      rotate(radians(this.angle));
-      textFont(gameFont);
-      fill("#FCF3CF");
+      image(this.fruitImg, this.x, this.y + (this.isSliced ? 0 : this.yOffset), 150, 150);
 
-      textSize(24);
-      textAlign(CENTER);
-      text(this.label, 0, 0);
-      pop();
+        if (!this.isSliced) {
+          push();
+          translate(this.x + 75, this.y + 180 + this.yOffset);
+          rotate(radians(this.angle));
+          textFont(gameFont);
+          fill("#FCF3CF");
+          textSize(24);
+          textAlign(CENTER);
+          text(this.label, 0, 0);
+          pop();
+        }
     }
   
     isClicked(mx, my) {
@@ -80,6 +68,12 @@ class InstructionFruit {
     }
     animateSlice() {
       this.isSliced = true;
+      let fruitIndex = fruitList.indexOf(this.fruitName);
+      if (fruitIndex !== -1) {
+          this.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${this.fruitName}-slice.png`);
+      } else {
+          console.error('Error: no sliced image found for ${this.fruitName}');
+      }
       this.fallSpeed = -5;
     }
   }
@@ -89,6 +83,8 @@ class InstructionFruit {
   
   function setupInstructionButtons() {
     console.log("Setting up instruction buttons");
+
+    instructionFruits = [];
     let centreX = width / 2.2;
     let centreY = height * 0.4;
 
@@ -99,12 +95,15 @@ class InstructionFruit {
     let wideSpacing = width * 0.22;
     let narrowSpacing = width * 0.14;
     instructionFruits = [
-      new InstructionFruit(centreX, topY, pearImg, pearSliceImg, "Game Objectives", 5),
-      new InstructionFruit(centreX - wideSpacing, midY, bananaImg, bananaSliceImg, "Controls", 6),
-      new InstructionFruit(centreX + wideSpacing, midY, cherryImg, cherrySliceImg, "Scoring System", 7),
-      new InstructionFruit(centreX - narrowSpacing, bottomY, lemonImg, lemonSliceImg, "Game Over", 8),
-      new InstructionFruit(centreX + narrowSpacing, bottomY, watermelonImg, watermelonSliceImg, "Navigation", 9),
+      new InstructionFruit(centreX, topY, 'grape', "Game Objectives", 5),
+      new InstructionFruit(centreX - wideSpacing, midY, 'banana' , "Controls", 6),
+      new InstructionFruit(centreX + wideSpacing, midY, 'cherry', "Scoring System", 7),
+      new InstructionFruit(centreX - narrowSpacing, bottomY, 'lemon', "Game Over", 8),
+      new InstructionFruit(centreX + narrowSpacing, bottomY, 'watermelon', "Navigation", 9),
     ];
+
+
+  //backButton.show(); 
 
     console.log("InstructionFruits have been initilised");
   }
@@ -123,25 +122,19 @@ class InstructionFruit {
         fruit.animateSlice();
         let targetMode = fruit.targetMode;
         setTimeout(() => {
+          instructionScreenFirstLoad = true;
           mode = targetMode;
+          backButton.hide();
         }, 700);
         return;
       }
     }
   }
 
-/*function instructionsControlsButton(){
-    image(pearImg, );
-}
-function instructionsGameOverConditions(){
-    image(watermelonImg, );
-}
-function instructionsNavigationButton(){
-    image(lemonImg, );
-}
-function instructionsObjectivesButton(){
-    image(cherryImg, );
-}
-function instructionsScoringSystem(){
-    image(bananaImg, );
-}*/
+  function resetInstructionFruits() {
+    console.log("resetting Instruction Fruits...");
+    setupInstructionButtons(); // Reinitialize fruit buttons
+} 
+
+  
+
