@@ -4,7 +4,12 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    this.slicePat = new SlicePattern(slicePat, this.size);
+    if (difficulty == 'easy'){
+      this.slicePat = new SlicePattern('easy', this.size);
+    }
+    else {
+      this.slicePat = new SlicePattern(slicePat, this.size);
+    }
     this.index = listIndex;
 
     // setting up physics attrbutes
