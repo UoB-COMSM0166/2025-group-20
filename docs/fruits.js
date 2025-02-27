@@ -23,7 +23,7 @@ class Fruit {
   show() {
     image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
   }
-
+  
   move() {
     // moving fruit along x and y axes
     this.xPos += this.xSpeed;
