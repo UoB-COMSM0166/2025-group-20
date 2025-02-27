@@ -1,7 +1,7 @@
 class SlicePattern{
   constructor(type, size){
     this.type = type; 
-    if (this.type == 'bomb' || this.type == 'click'){
+    if (this.type == 'bomb' || this.type == 'click' || this.type == 'easy'){
       this.diameter = size;
       this.hit = new HitBox(this.diameter);
     }
@@ -24,7 +24,7 @@ class SlicePattern{
         return 'bomb';
       }
     }
-    else if (this.type == 'click') {
+    else if (this.type == 'click' || this.type == 'easy') {
       if (this.hit.hit){
         return 'correct';
       }
