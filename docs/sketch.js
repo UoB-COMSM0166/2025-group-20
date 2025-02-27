@@ -15,6 +15,7 @@ var gameScore;
 var highestScore;
 var sound;
 var maxHeight;
+var difficulty;
 
 function preload() {
   // loads material used in start screen
