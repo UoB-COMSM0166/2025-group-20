@@ -18,6 +18,7 @@ class Fruit {
     this.xSpeed = randomXDirection(this.xPos);
     this.ySpeed = -11;
     this.visible = true;
+    removeFruit();
   }
 
   show() {
@@ -37,8 +38,8 @@ class Fruit {
     }
 
     // toggle off visibily off screen
-    if(this.y > height) {
-      this.visibility = false;
+    if(this.yPos > windowHeight) {
+      this.visible = false;
     }
   }
 }
@@ -50,4 +51,10 @@ function randomXDirection(xPos) {
     return -5;
   }
   return 5;
+}
+
+function removeFruit() {
+  if (!this.visible) {
+    fruitOnScreen.splice(fruitOnScreen.indexOf(this.index), 1);
+  }
 }
