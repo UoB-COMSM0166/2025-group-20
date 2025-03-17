@@ -53,6 +53,7 @@ Player immersion - No timer, immersive visuals etc.
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
+We've actually already written all of this! Will find a way of structuring it more succinctly at some point in this section :)
 ### Design
 
 - 15% ~750 words 
