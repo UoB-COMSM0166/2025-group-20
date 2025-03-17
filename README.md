@@ -57,7 +57,28 @@ We've actually already written all of this! Will find a way of structuring it mo
 ### Design
 
 - 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams. 
+- System architecture. Class diagrams, behavioural diagrams.
+
+Our design elements had a focus on maintability and Object-Oriented Principles, in order to create a robust foundation for the game. 
+
+- System Architecture
+- This section should include our User Interface (How the user interacts with the game both visually and gesturally - ie. the mouse or trackpad sliding to simulate the slicing of the fruit), the Game Logic (the fruit generation, the mechanics behind the slicing patterns, the scoring, and the registering of incorrect slicing adnd slicing bombs) and the Data Management (Persistently tracking game state and player statistics) - let me know if I've missed anything!
+- This displays a modular approach to seperating the code, which instigates efficient testing and feature addition.
+
+- Object-Oriented Design 
+- Object-Oriented Design should display clarity and flexibility: Encapsulation, Abstraction, Inheritance, Polymorphism, Composition)
+
+- Class Diagrams
+- Explanation of our different classes, their different roles and relationships in accordance with the game and Object-Oriented Principles
+- So far looking at the code we have the: Fruit Class, Life Icons Class, Point System Class, Slice Pattern Class, Smoothie Recipe Class
+- These classes establish the relationships and associations clearly so the interactions within code are cohesive and gameplay retains data integrity
+
+- Behavioural Diagrams
+- We need to include sequence diagrams here like in the pac-man slides (demonstrate the dynamics of the gameplay)
+- 
+
+- Design Decisions and Subsquent Justification
+- 
 
 ### Implementation
 
