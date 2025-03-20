@@ -74,11 +74,17 @@ Our design elements had a focus on maintability and Object-Oriented Principles, 
 - These classes establish the relationships and associations clearly so the interactions within code are cohesive and gameplay retains data integrity
 
 - Behavioural Diagrams
-- We need to include sequence diagrams here like in the pac-man slides (demonstrate the dynamics of the gameplay)
-- 
+- We need to include sequence diagrams here like in the pac-man slides (demonstrate the dynamics of the gameplay) I don't want to use this but I've made a simplified one below to show you what it could look like
+Player → Cursor: slice action cursorEffect()
+Cursor → Fruit: isSliced() (in SlicePattern class)
+Fruit → Fruit: isHit() (in HitBox class)
+Fruit → Game: correctCut || recipeComplete() (in PointSystem class)
+Game → Game (only if the highest score is reached): updateHighestScore(gameScore) (in HighestPointDisplay class)
+Game → UI: gameScreen() (should update the display as necessary)
+
 
 - Design Decisions and Subsquent Justification
-- 
+- In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
 
 ### Implementation
 
