@@ -10,6 +10,7 @@ var fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'wa
 var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
 var fruitImgs = [];
 var fruit = [];
+var fruitOnScreen = [];
 let bg;
 var lifeIcons;
 var currentRecipe;
@@ -17,6 +18,7 @@ var gameScore;
 var highestScore;
 var sound;
 var maxHeight;
+var difficulty;
 
 function preload() {
   // loads material used in start screen

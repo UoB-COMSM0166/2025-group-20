@@ -1,7 +1,7 @@
 class SlicePattern{
   constructor(type, size){
     this.type = type; 
-    if (this.type == 'bomb' || this.type == 'click'){
+    if (this.type == 'bomb' || this.type == 'click' || this.type == 'easy'){
       this.diameter = size;
       this.hit = new HitBox(this.diameter);
     }
@@ -24,7 +24,7 @@ class SlicePattern{
         return 'bomb';
       }
     }
-    else if (this.type == 'click') {
+    else if (this.type == 'click' || this.type == 'easy') {
       if (this.hit.hit){
         return 'correct';
       }
@@ -138,7 +138,7 @@ class HitBox {
     this.x = x;
     this.y = y;
     //uncomment line below for visual display of hit box
-    circle(this.x, this.y, this.diameter);
+    //circle(this.x, this.y, this.diameter);
     this.umx = x+(this.diameter/2);
     this.lmx = x-(this.diameter/2);
     this.umy = y+(this.diameter/2);

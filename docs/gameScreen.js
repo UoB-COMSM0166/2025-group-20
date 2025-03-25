@@ -2,8 +2,9 @@ function gameScreen() {
     
     background(bg);
     if (currentRecipe.ingredients.length == 0){
-        recipeComplete();
+        //recipeComplete();
         currentRecipe = new SmoothieRecipe();
+        fruitOnScreen = [];
     }
     currentRecipe.display();
     lifeIcons.show();
@@ -11,17 +12,16 @@ function gameScreen() {
     gameScore.display();
     highestScore.display();
 
-    if(frameCount % 60 == 0){
-        fruit.push(randomFruitGen(1, currentRecipe));
-        /*if(noise(frameCount) > 0.69){
-          fruit.push(randomGen());
-        }*/
+    if(frameCount % 60 == 0) {
+        var x = randomFruitGen(1, currentRecipe);
+        fruit.push(x);
+        fruitOnScreen.push(x.index);
     }
-    
-    if(frameCount % 60 === 0) {
-        if(noise(frameCount) > 0.69){
-            fruit.push(randomFruitGen(0, currentRecipe));
-        }
+
+    if(!fruitOnScreen.includes(currentRecipe.ingredients[0])){
+        var x = randomFruitGen(0, currentRecipe);
+        fruit.push(x);
+        fruitOnScreen.push(x.index);
     }
 
     for (var i = fruit.length - 1; i >= 0; i--) {
@@ -61,6 +61,7 @@ function freshGameScreen() {
     while (fruit.length != 0){
         fruit.shift();
     }
+    fruitOnScreen = [];
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new PointSystem();

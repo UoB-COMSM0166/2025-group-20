@@ -4,7 +4,12 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    this.slicePat = new SlicePattern(slicePat, this.size);
+    if (difficulty == 'easy'){
+      this.slicePat = new SlicePattern('easy', this.size);
+    }
+    else {
+      this.slicePat = new SlicePattern(slicePat, this.size);
+    }
     this.index = listIndex;
 
     // setting up physics attrbutes
@@ -13,12 +18,13 @@ class Fruit {
     this.xSpeed = randomXDirection(this.xPos);
     this.ySpeed = -11;
     this.visible = true;
+    removeFruit();
   }
 
   show() {
     image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
   }
-
+  
   move() {
     // moving fruit along x and y axes
     this.xPos += this.xSpeed;
@@ -32,8 +38,8 @@ class Fruit {
     }
 
     // toggle off visibily off screen
-    if(this.y > height) {
-      this.visibility = false;
+    if(this.yPos > windowHeight) {
+      this.visible = false;
     }
   }
 }
@@ -45,4 +51,10 @@ function randomXDirection(xPos) {
     return -5;
   }
   return 5;
+}
+
+function removeFruit() {
+  if (!this.visible) {
+    fruitOnScreen.splice(fruitOnScreen.indexOf(this.index), 1);
+  }
 }
