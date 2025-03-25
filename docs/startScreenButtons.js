@@ -1,4 +1,6 @@
 let instructionsButton;
+let easyModeButton;
+let hardModeButton;
 
 function instructionButton() {
     if (!instructionsButton){
@@ -12,7 +14,7 @@ function instructionButton() {
       instructionsButton.style('border-radius', '8px');
       instructionsButton.style('color', 'black');
       instructionsButton.size(250, 50); 
-      instructionsButton.position((windowWidth / 3) - 125, (windowHeight / 1.4)); 
+      instructionsButton.position((windowWidth / 3) - 125, (windowHeight / 1.5)); 
 
       instructionsButton.mousePressed(() => {
         mode = 1; // Goes to instructions screen
@@ -20,6 +22,37 @@ function instructionButton() {
       });
       instructionsButton.show();
     }
+  }
+
+  function modeButtons() {
+      if (!easyModeButton){
+
+        easyModeButton = createButton('EASY MODE');
+        easyModeButton.style('font-size', '20');
+        easyModeButton.style('font-family', 'gameFont');
+        easyModeButton.style('text-align', 'center');
+        easyModeButton.style('background-color', '#FCF3CF');
+        easyModeButton.style('border', 'none');
+        easyModeButton.style('border-radius', '8px');
+        easyModeButton.style('color', 'black');
+        easyModeButton.size(150, 30);
+        easyModeButton.position((windowWidth / 3) - 76.5, (windowHeight / 1.345));
+      }
+
+      if (!hardModeButton){
+
+        hardModeButton = createButton('HARD MODE');
+        hardModeButton.style('font-size', '20');
+        hardModeButton.style('font-family', 'gameFont');
+        hardModeButton.style('text-align', 'center');
+        hardModeButton.style('background-color', '#FCF3CF');
+        hardModeButton.style('border', 'none');
+        hardModeButton.style('border-radius', '8px');
+        hardModeButton.style('color', 'black');
+        hardModeButton.size(150, 30);
+        hardModeButton.position((windowWidth / 3) - 76.5, (windowHeight / 1.26));
+      }
+ 
   }
 /*
 

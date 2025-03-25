@@ -1,3 +1,5 @@
+//import cursorEffect = require("./cursorEffect");
+
 // global variables
 var mode = 0;
 let gameFont, appleImg;
@@ -58,10 +60,11 @@ function draw() {
     gameScreen();
     redBorder();
     makePauseButton();
+    makeRecipeButton();
     pauseButton.show();
-    instructionsButton.hide();
-    
+    instructionsButton.hide()
   }
+
   if (mode === 3){
     noLoop();
     drawPauseScreen();
