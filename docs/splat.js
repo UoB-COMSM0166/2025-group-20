@@ -12,7 +12,6 @@ class splat {
   
     show() {
       if (this.img) {
-        console.log("Showing splatter at", this.x, this.y);
         push();
         tint(255, this.alpha);
         image(this.img, this.x, this.y, 270, 270); // may need to adjust the size later
