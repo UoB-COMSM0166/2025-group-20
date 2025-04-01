@@ -19,9 +19,12 @@ class PointSystem{
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
-        textFont('Times New Roman');
+        textFont(gameFont);
         fill('white');
-        text('Current Points: ' + this.pointsPerGame, this.x, this.y);
+        text('CURRENT POINTS: ', this.x - 40, this.y);
+     
+        textFont('sans-serif');
+        text(this.pointsPerGame, this.x, this.y);
         
     }
 
@@ -43,9 +46,12 @@ class HighestPointDisplay {
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(15);
-        textFont('Times New Roman');
+        textFont(gameFont);
         fill('white');
-        text('Highest Score: ' + this.highestPoint,this.x,this.y);
+        text('HIGHEST SCORE: ',this.x - 40,this.y);
+
+        textFont("sans-serif");
+        text(this.highestPoint, this.x,this.y);
     }
 
 }
