@@ -2,7 +2,6 @@ var recipeButton;
 var openRecipeButton;
 var isRecipeOpen = false;
 
-
 function makeRecipeButton() {
     textFont(gameFont);
     fill('white');
@@ -49,6 +48,7 @@ function recipeScreen() {
     image(fruitImgs[4], windowWidth / 2 + 120, windowHeight / 2, 100, 100); // cherry
     image(fruitImgs[5], windowWidth / 2 - 240, windowHeight / 2 - 120, 100, 100); // grapes
     image(fruitImgs[6], windowWidth / 2 - 240, windowHeight / 2, 100, 100); // watermelon 
+    image(fruitImgs[7], windowWidth / 2 + 120, windowHeight / 2 - 120, 100, 100); // bomb just to make it even
   
 
 }

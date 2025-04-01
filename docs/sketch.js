@@ -77,8 +77,13 @@ function draw() {
     gameScreen();
     redBorder();
     makePauseButton();
-    makeRecipeButton();
-    recipeButton.show();
+    if (difficulty != 'easy') {
+      makeRecipeButton();
+      recipeButton.show();
+    }
+    else if (recipeButton && difficulty == 'easy') {
+      recipeButton.hide();
+    }
     pauseButton.show();
     instructionsButton.hide();
     easyModeButton.hide();
