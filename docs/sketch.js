@@ -19,7 +19,7 @@ var gameScore;
 var highestScore;
 var sound;
 var maxHeight;
-var difficulty = false;
+var difficulty = 'easy';
 let appleSliceImg;
 
 function preload() {
@@ -68,6 +68,8 @@ function draw() {
     if (pauseButton){
       pauseButton.hide();
     }
+    easyModeButton.hide();
+    hardModeButton.hide();
   }
   if (mode === 2){
     gameScreen();

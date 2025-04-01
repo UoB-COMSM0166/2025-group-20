@@ -112,14 +112,14 @@ function instructionButton() {
 
       // for easy mode
       easyModeButton.mousePressed(() => {
-        difficulty = false;
+        difficulty = 'easy';
         easyModeButton.style('background-color', '#c2ac53');
         hardModeButton.style('background-color', '#FCF3CF');
       });
 
       // for hard mode
       hardModeButton.mousePressed(() => {
-        difficulty = true;
+        difficulty = 'hard';
         easyModeButton.style('background-color', '#FCF3CF');
         hardModeButton.style('background-color', '#c2ac53');
       });

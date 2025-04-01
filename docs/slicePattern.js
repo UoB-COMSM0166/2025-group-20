@@ -42,7 +42,7 @@ class SlicePattern{
  }
 
   move(x, y){
-    if (this.type  == 'bomb' ||this.type  == 'click'){
+    if (this.type  == 'bomb' ||this.type  == 'click' || this.type == 'easy'){
       this.hit.move(x,y);
     }
     else{
