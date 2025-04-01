@@ -36,7 +36,12 @@ function gameScreen() {
         fruit[i].show();
         fruit[i].move();
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-            if (fruit[i].index != currentRecipe.ingredients[0]){
+            if(fruit[i].fruitName === 'dragonfruit'){
+                console.log('Dragonfruit sliced!');
+                lifeIcons.gainLife(); 
+                //I want to make a twinkle sound effect for when this is sliced.
+            }
+            else if (fruit[i].fruitName !== 'dragonfruit' && fruit[i].index != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 loseLifeEffect();
                 if (lifeIcons.lives == 0){
@@ -54,10 +59,8 @@ function gameScreen() {
             }
             playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
-            console.log("Adding splatter for", fruit[i].fruitName, "at", fruit[i].xPos, fruit[i].yPos);
             splatters.push(new splat(fruit[i].xPos, fruit[i].yPos, fruit[i].fruitName));
-            console.log("Added the splatter for", fruit[i].fruitName);
-            //load splat image and update to slice fruit even if there's not corresponding splat (at the moment there is not a corresponding splat for banana, lemon, bomb)
+        //load splat image and update to slice fruit even if there's not corresponding splat (at the moment there is not a corresponding splat for banana, lemon, bomb)
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
