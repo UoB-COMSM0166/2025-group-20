@@ -42,7 +42,7 @@ function recipeScreen() {
     rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 55); 
     var patImgs = [];
     for (var i = 0; i < fruitList.length; i++) {
-        fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
+        patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
     }
     image(patImgs[0], windowWidth / 2 - 120, windowHeight / 2, 100, 100); // apple
     image(patImgs[1], windowWidth / 2, windowHeight / 2, 100, 100); // banana
