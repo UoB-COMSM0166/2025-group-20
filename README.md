@@ -27,15 +27,64 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel?
 
+- Smoothie Operator first came to inception as an accessible, lighthearted desktop or PC game. Simple to play, hard to get the hang of, creating a delicate balance, that appeals to both newer, more relaxed players, and the more eager, ambitious players. In essence, we wanted to capture the chaos and thrill, through the act of slicing fruit, taking inspiration from the popular tablet game "Fruit Ninja".
+
+- Game Concept:
+Fruit Ninja with a twist! Players take on the role of "knife" or "smoothie man" or "blender" (I don't really know if the player has a role sorry I just feel like those work thematically). Their task? To churn out Smoothie Recipes with precision and speed (I suppose it's not really speed but I just thought that would sound good). As they progress through the game, the fruits gets faster, the bombs get bigger (I know they don't yet but it's nice alliteration), the recipes get more bonkers and the pressue cranks up.
+The "recipe system" (or the blender queue system as I like to call it), is specially designed to optimise players engagement, and the "recipe book" on hard mode gives the more advanced players a challenge. 
+
+- Demographic and difficulty/accessibility:
+We took a "the more the merrier" approach to our game demographic. The idea was to attract casual gamers, while also appealing to those looking for a challenge (more on this later, specifically when talking about our difficulty levels system). Similar to our inspiration Fruit Ninja, we wanted a "Pick up and play" or, with the tablet to desktop transition considered, the more accurately dubbed "Click on a play" design. It's an inviting, convenenient format 
+Simplicity - one mouse or trackpad control
+Playing sessions should be compact, digestible, but replayable 
+ 
+- USPs (Unique Selling Point - what makes our game different?):
+Fruit Ninja - with a twist! Specific slicing patterns delegated to specific fruits, as well as specific "recipes" you have to follow, adds a memory/skill-mastering aspect to the game that encourages a more engaging gameplay. 
+Technologies and technological difficulties
+
+- Player Experience (the learning curve, engagement over time etc.) and progression:
+Instant gratification and satisfaction(how satisfying it is when you slice a fruit i.e. animations, graphics and sound)
+Player immersion - No timer, immersive visuals etc.
+
+- Summary of the overall vision 
+
 ### Requirements 
 .
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
+We've actually already written all of this! Will find a way of structuring it more succinctly at some point in this section :)
 ### Design
 
 - 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams. 
+- System architecture. Class diagrams, behavioural diagrams.
+
+Our design elements had a focus on maintability and Object-Oriented Principles, in order to create a robust foundation for the game. 
+
+- System Architecture
+- This section should include our User Interface (How the user interacts with the game both visually and gesturally - ie. the mouse or trackpad sliding to simulate the slicing of the fruit), the Game Logic (the fruit generation, the mechanics behind the slicing patterns, the scoring, and the registering of incorrect slicing adnd slicing bombs) and the Data Management (Persistently tracking game state and player statistics) - let me know if I've missed anything!
+- This displays a modular approach to seperating the code, which instigates efficient testing and feature addition.
+
+- Object-Oriented Design 
+- Object-Oriented Design should display clarity and flexibility: Encapsulation, Abstraction, Inheritance, Polymorphism, Composition)
+
+- Class Diagrams
+- Explanation of our different classes, their different roles and relationships in accordance with the game and Object-Oriented Principles
+- So far looking at the code we have the: Fruit Class, Life Icons Class, Point System Class, Slice Pattern Class, Smoothie Recipe Class
+- These classes establish the relationships and associations clearly so the interactions within code are cohesive and gameplay retains data integrity
+
+- Behavioural Diagrams
+- We need to include sequence diagrams here like in the pac-man slides (demonstrate the dynamics of the gameplay) I don't want to use this but I've made a simplified one below to show you what it could look like
+Player → Cursor: slice action cursorEffect()
+Cursor → Fruit: isSliced() (in SlicePattern class)
+Fruit → Fruit: isHit() (in HitBox class)
+Fruit → Game: correctCut || recipeComplete() (in PointSystem class)
+Game → Game (only if the highest score is reached): updateHighestScore(gameScore) (in HighestPointDisplay class)
+Game → UI: gameScreen() (should update the display as necessary)
+
+
+- Design Decisions and Subsquent Justification
+- In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
 
 ### Implementation
 

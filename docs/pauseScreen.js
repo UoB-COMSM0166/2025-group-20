@@ -71,7 +71,7 @@ function drawPauseScreen() {
     textAlign(CENTER, CENTER);
     textSize(40);
     fill('white');
-    text("Game Paused", windowWidth / 2, windowHeight / 2 - 90);
+    text("GAME PAUSED", windowWidth / 2, windowHeight / 2 - 90);
   }
 
 

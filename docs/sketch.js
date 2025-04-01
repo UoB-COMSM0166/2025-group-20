@@ -1,3 +1,5 @@
+//import cursorEffect = require("./cursorEffect");
+
 // global variables
 var mode = 0;
 let gameFont, appleImg;
@@ -9,6 +11,7 @@ var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/l
 var fruitImgs = [];
 var sliceImgs = [];
 var fruit = [];
+var fruitOnScreen = [];
 let bg;
 var lifeIcons;
 var currentRecipe;
@@ -16,6 +19,7 @@ var gameScore;
 var highestScore;
 var sound;
 var maxHeight;
+var difficulty;
 let appleSliceImg;
 
 function preload() {
@@ -64,10 +68,11 @@ function draw() {
     gameScreen();
     redBorder();
     makePauseButton();
+    makeRecipeButton();
     pauseButton.show();
-    instructionsButton.hide();
-    
+    instructionsButton.hide()
   }
+
   if (mode === 3){
     noLoop();
     drawPauseScreen();
