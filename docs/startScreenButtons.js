@@ -31,7 +31,8 @@ function instructionButton() {
         easyModeButton.style('font-size', '20');
         easyModeButton.style('font-family', 'gameFont');
         easyModeButton.style('text-align', 'center');
-        easyModeButton.style('background-color', '#FCF3CF');
+        easyModeButton.style('background-color', '#c2ac53'); // default is easy ?
+
         easyModeButton.style('border', 'none');
         easyModeButton.style('border-radius', '8px');
         easyModeButton.style('color', 'black');
@@ -108,6 +109,20 @@ function instructionButton() {
       let buttonX2 = width / 1.6 + 250;
       let buttonY1 = height / 5.4;
       let buttonY2 = height / 5.4 + appleImg.height;
+
+      // for easy mode
+      easyModeButton.mousePressed(() => {
+        difficulty = false;
+        easyModeButton.style('background-color', '#c2ac53');
+        hardModeButton.style('background-color', '#FCF3CF');
+      });
+
+      // for hard mode
+      hardModeButton.mousePressed(() => {
+        difficulty = true;
+        easyModeButton.style('background-color', '#FCF3CF');
+        hardModeButton.style('background-color', '#c2ac53');
+      });
 
       if (mouseX > buttonX1 && mouseX < buttonX2 && mouseY > buttonY1 && mouseY < buttonY2) {
         freshGameScreen();

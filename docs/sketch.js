@@ -19,7 +19,7 @@ var gameScore;
 var highestScore;
 var sound;
 var maxHeight;
-var difficulty;
+var difficulty = false;
 let appleSliceImg;
 
 function preload() {
@@ -51,6 +51,11 @@ function draw() {
   if (mode === 0) {
     drawStartScreen();
     instructionsButton.show();
+    easyModeButton.show();
+    hardModeButton.show();
+    if (recipeButton) {
+      recipeButton.hide();
+    }
     
 
     if (pauseButton){
@@ -69,8 +74,11 @@ function draw() {
     redBorder();
     makePauseButton();
     makeRecipeButton();
+    recipeButton.show();
     pauseButton.show();
-    instructionsButton.hide()
+    instructionsButton.hide();
+    easyModeButton.hide();
+    hardModeButton.hide();
   }
 
   if (mode === 3){
