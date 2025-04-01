@@ -43,7 +43,7 @@ function preload() {
   }
   for (var i = 0; i < fruitList.length; i++) {
     patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
-}
+  }
 }
 
 function setup() {
