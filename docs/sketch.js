@@ -10,6 +10,7 @@ var fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'wa
 var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
 var fruitImgs = [];
 var sliceImgs = [];
+var patImgs = [];
 var fruit = [];
 var fruitOnScreen = [];
 var splatterImgs = {};
@@ -40,6 +41,9 @@ function preload() {
   for (var i = 0; i < fruitList.length - 1; i++) {
     sliceImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '-slice.png');
   }
+  for (var i = 0; i < fruitList.length; i++) {
+    patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
+}
 }
 
 function setup() {
