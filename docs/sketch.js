@@ -9,6 +9,8 @@ var sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/l
 var fruitImgs = [];
 var fruit = [];
 var fruitOnScreen = [];
+var splatterImgs = {};
+var splatters = [];
 let bg;
 var lifeIcons;
 var currentRecipe;
