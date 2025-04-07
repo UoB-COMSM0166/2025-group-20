@@ -53,6 +53,7 @@ function setup() {
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
+  fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
 }
 
 function draw() {

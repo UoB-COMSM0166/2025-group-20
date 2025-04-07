@@ -13,13 +13,12 @@ class InstructionFruit {
       this.angle = 30;
       this.angleSpeed = 0.5;
       this.angleDirection = 1;
-
       this.isSliced = false;
       this.fallSpeed = 0;
-
       let fruitIndex = fruitList.indexOf(fruitName);
+
       if (fruitIndex !== -1) {
-        this.fruitImg = fruitImgs[fruitIndex]; 
+        this.fruitImg = fruitImgs[fruitIndex];
     } else {
         console.error(`Error: no fruit images found ${fruitName}`);
         this.fruitImg = createImage(150, 150); // Placeholder blank image
@@ -40,13 +39,13 @@ class InstructionFruit {
         if (this.angle >= 40 || this.angle <= 20) {
                 this.angleDirection *= -1;
         }
-      } 
+      }
         else {
           this.y += this.fallSpeed;
           this.fallSpeed += 0.5; // gravity and fruit fall off
         }
     }
-  
+
     display() {
       image(this.fruitImg, this.x, this.y + (this.isSliced ? 0 : this.yOffset), 150, 150);
 
@@ -62,7 +61,7 @@ class InstructionFruit {
           pop();
         }
     }
-  
+
     isClicked(mx, my) {
       return mx > this.x && mx < this.x + 150 && my > this.y + this.yOffset && my < this.y + 150 + this.yOffset;
     }
@@ -70,22 +69,13 @@ class InstructionFruit {
       this.isSliced = true;
       let fruitIndex = fruitList.indexOf(this.fruitName);
       this.fruitImg = sliceImgs[fruitIndex];
-      /*if (fruitIndex !== -1) {
-          this.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${this.fruitName}-slice.png`);
-      } else {
-          console.error('Error: no sliced image found for ${this.fruitName}');
-      }*/
       this.fallSpeed = -5;
     }
   }
 
-  
 
-  
   function setupInstructionButtons() {
     console.log("Setting up instruction buttons");
-
-    //instructionFruits = [];
 
     let centreX = width / 2.2;
     let centreY = height * 0.4;
@@ -108,14 +98,14 @@ class InstructionFruit {
   //backButton.show();
     console.log("InstructionFruits have been initialised");
   }
-  
+
   function drawInstructionButtons() {
     for (let fruit of instructionFruits) {
       fruit.update();
       fruit.display();
     }
   }
-  
+
   function checkInstructionClick(mx, my) {
     for (let fruit of instructionFruits) {
       if (fruit.isClicked(mx, my)) {
@@ -131,14 +121,3 @@ class InstructionFruit {
       }
     }
   }
-
-
-
-  /**
-  function resetInstructionFruits() {
-    console.log("resetting Instruction Fruits...");
-    setupInstructionButtons(); // Reinitialize fruit buttons
-}
-
-  let backButton;
-   */

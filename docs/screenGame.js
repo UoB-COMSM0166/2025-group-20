@@ -13,13 +13,13 @@ function gameScreen() {
     highestScore.display();
 
     if(frameCount % 60 === 0) {
-        let x = randomFruitGen(1, currentRecipe);
+        let x = fruitGenerator.randomFruitGen(1, currentRecipe);
         fruit.push(x);
         fruitOnScreen.push(x.index);
     }
 
     if(!fruitOnScreen.includes(currentRecipe.ingredients[0])){
-        let x = randomFruitGen(0, currentRecipe);
+        let x = fruitGenerator.randomFruitGen(0, currentRecipe);
         fruit.push(x);
         fruitOnScreen.push(x.index);
     }
