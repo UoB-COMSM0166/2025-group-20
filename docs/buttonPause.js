@@ -1,6 +1,6 @@
 let pauseButton;
 
-function makePauseButton() {
+function buttonPause() {
     
     textFont(gameFont);
     fill('white');

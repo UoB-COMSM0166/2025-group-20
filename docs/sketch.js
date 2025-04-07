@@ -84,7 +84,7 @@ function draw() {
     redBorder();
     completionText();
     wrongSliceText();
-    makePauseButton();
+    buttonPause();
     if (difficulty != 'easy') {
       makeRecipeButton();
       recipeButton.show();
