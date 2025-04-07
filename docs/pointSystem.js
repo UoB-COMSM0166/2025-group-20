@@ -31,8 +31,13 @@ class PointSystem{
 }
 
 class HighestPointDisplay {
-    constructor(highestPoint) {
-        this.highestPoint = highestPoint;
+    constructor() {
+        if (document.cookie.length === 0){
+            this.highestPoint = 0;
+        }
+        else {
+            this.highestPoint = document.cookie.split("=")[1]
+        }
         this.x = width - 40;
         this.y = height/23;
     }
@@ -40,6 +45,7 @@ class HighestPointDisplay {
     updateHighestScore(gameScore){
         if(gameScore > this.highestPoint){
             this.highestPoint = gameScore;
+            document.cookie = "score=" + gameScore;
         }
     }
 

@@ -53,7 +53,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
-  highestScore = new HighestPointDisplay(0);
+  highestScore = new HighestPointDisplay();
 }
 
 function draw() {
