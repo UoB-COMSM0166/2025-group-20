@@ -10,6 +10,18 @@ function redBorder() {
   }
 }
 
+function greenBorder() {
+  if(displayGreen == true){
+    push();
+    noFill();
+    stroke("green");
+    strokeWeight(20);
+    rectMode(CORNER);
+    rect(0, 0, width, height, 20);
+    pop();
+  }
+}
+
 function completionText(){
   if(recipeComplete){
     textAlign(CENTER, CENTER);
@@ -44,7 +56,12 @@ function recipeCompleteEffect(){
   }, 1000);
 }
 
-
+function gainLifeEffect(){
+  displayGreen = true;
+  setTimeout(() => {
+    displayGreen = false;
+  }, 1000);
+}
 
 
 function loseLifeEffect(){

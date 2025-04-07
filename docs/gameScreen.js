@@ -38,7 +38,8 @@ function gameScreen() {
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
             if(fruit[i].fruitName === 'dragonfruit'){
                 console.log('Dragonfruit sliced!');
-                lifeIcons.gainLife(); 
+                lifeIcons.gainLife();
+                gainLifeEffect();
                 //I want to make a twinkle sound effect for when this is sliced.
             }
             else if (fruit[i].fruitName !== 'dragonfruit' && fruit[i].index != currentRecipe.ingredients[0]){
