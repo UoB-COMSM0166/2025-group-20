@@ -14,7 +14,7 @@ function greenBorder() {
   if(displayGreen == true){
     push();
     noFill();
-    stroke("green");
+    stroke("lime");
     strokeWeight(20);
     rectMode(CORNER);
     rect(0, 0, width, height, 20);
