@@ -1,5 +1,5 @@
 function redBorder() {
-  if(displayBorder == true){
+  if(displayBorder === true){
     push();
     noFill();
     stroke("red");
@@ -43,8 +43,6 @@ function recipeCompleteEffect(){
     recipeComplete = false
   }, 1000);
 }
-
-
 
 
 function loseLifeEffect(){

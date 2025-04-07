@@ -103,7 +103,7 @@ function instructionButton() {
       angleDirection *= -1;
     }
 
-    // TEMP CODE TO CHECK WHETEHR LINK TO GAME SCREEN WORKS
+    // TEMP CODE TO CHECK WHETHER LINK TO GAME SCREEN WORKS
     if (mouseIsPressed) {
       let buttonX1 = width / 1.6;
       let buttonX2 = width / 1.6 + 250;

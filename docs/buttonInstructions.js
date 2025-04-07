@@ -1,5 +1,5 @@
-//this function lays out the 'buttons' in the instruction screen that lead to differet information screen
-let backButton;
+//this function lays out the 'buttons' in the instruction screen that lead to different information screen
+let instructionFruits = [];
 
 class InstructionFruit {
     constructor(x, y, fruitName, label, targetMode) {
@@ -80,12 +80,13 @@ class InstructionFruit {
   }
 
   
-  let instructionFruits = [];
+
   
   function setupInstructionButtons() {
     console.log("Setting up instruction buttons");
 
-    instructionFruits = [];
+    //instructionFruits = [];
+
     let centreX = width / 2.2;
     let centreY = height * 0.4;
 
@@ -95,6 +96,7 @@ class InstructionFruit {
 
     let wideSpacing = width * 0.22;
     let narrowSpacing = width * 0.14;
+
     instructionFruits = [
       new InstructionFruit(centreX, topY, 'grape', "Game Objectives", 5),
       new InstructionFruit(centreX - wideSpacing, midY, 'banana' , "Controls", 6),
@@ -103,10 +105,8 @@ class InstructionFruit {
       new InstructionFruit(centreX + narrowSpacing, bottomY, 'watermelon', "Navigation", 9),
     ];
 
-
-  //backButton.show(); 
-
-    console.log("InstructionFruits have been initilised");
+  //backButton.show();
+    console.log("InstructionFruits have been initialised");
   }
   
   function drawInstructionButtons() {
@@ -132,9 +132,13 @@ class InstructionFruit {
     }
   }
 
+
+
+  /**
   function resetInstructionFruits() {
     console.log("resetting Instruction Fruits...");
     setupInstructionButtons(); // Reinitialize fruit buttons
-} 
+}
 
-  
+  let backButton;
+   */

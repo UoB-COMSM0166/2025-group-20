@@ -12,10 +12,6 @@ class PointSystem{
         this.pointsPerGame += 10;
     }
 
-    recipeComplete(){
-        this.pointsPerGame += 20;
-    }
-
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
@@ -53,5 +49,4 @@ class HighestPointDisplay {
         textFont("sans-serif");
         text(this.highestPoint, this.x,this.y);
     }
-
 }

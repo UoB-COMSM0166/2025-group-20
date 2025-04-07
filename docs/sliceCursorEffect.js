@@ -1,5 +1,6 @@
 let trail = [];
 const maxTrail = 50;
+let module;
 
 function cursorEffect() {
 

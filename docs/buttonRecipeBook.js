@@ -1,6 +1,6 @@
-var recipeButton;
-var openRecipeButton;
-var isRecipeOpen = false;
+let recipeButton;
+let openRecipeButton;
+let isRecipeOpen = false;
 
 function makeRecipeButton() {
     textFont(gameFont);
