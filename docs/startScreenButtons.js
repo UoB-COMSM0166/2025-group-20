@@ -37,6 +37,15 @@ function instructionButton() {
         easyModeButton.style('color', 'black');
         easyModeButton.size(150, 30);
         easyModeButton.position((windowWidth / 3) - 76.5, (windowHeight / 1.345));
+
+        easyModeButton.mousePressed(() => {
+          difficulty = 'easy';
+          hardModeButton.style('background-color', '#FCF3CF');
+          easyModeButton.style('background-color', 'seagreen');
+          easyModeButton.hide();
+        })
+        easyModeButton.show();
+
       }
 
       if (!hardModeButton){
@@ -51,6 +60,14 @@ function instructionButton() {
         hardModeButton.style('color', 'black');
         hardModeButton.size(150, 30);
         hardModeButton.position((windowWidth / 3) - 76.5, (windowHeight / 1.26));
+       
+        hardModeButton.mousePressed(() => {
+          difficulty = 'hard';
+          hardModeButton.style('background-color', 'seagreen');
+          easyModeButton.style('background-color', '#FCF3CF');
+          hardModeButton.hide();
+        })
+        hardModeButton.show;
       }
  
   }

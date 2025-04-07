@@ -45,10 +45,11 @@ function draw() {
   if (mode === 0) {
     drawStartScreen();
     instructionsButton.show();
-    
-
-    if (pauseButton){
+    easyModeButton.show();
+    hardModeButton.show();
+    if (pauseButton || recipeButton){
       pauseButton.hide();
+      recipeButton.hide();
     }
   }
   if (mode === 1){
@@ -56,6 +57,10 @@ function draw() {
 
     if (pauseButton){
       pauseButton.hide();
+    }
+    if (easyModeButton || hardModeButton){
+      easyModeButton.hide();
+      hardModeButton.hide();
     }
   }
   if (mode === 2){
@@ -65,6 +70,11 @@ function draw() {
     makeRecipeButton();
     pauseButton.show();
     instructionsButton.hide()
+
+    if (easyModeButton || hardModeButton){
+      easyModeButton.hide();
+      hardModeButton.hide();
+    }
   }
 
   if (mode === 3){
