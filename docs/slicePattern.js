@@ -42,7 +42,7 @@ class SlicePattern{
  }
 
   move(x, y){
-    if (this.type  == 'bomb' ||this.type  == 'click'){
+    if (this.type  == 'bomb' ||this.type  == 'click' || this.type == 'easy'){
       this.hit.move(x,y);
     }
     else{
@@ -56,12 +56,12 @@ class SlicePattern{
         this.sliceArrays[2].move(x, y + this.diameter);
       }
       else if (this.type == 'lrdown/rlup'){
-        this.sliceArrays[1].move(x + this.diameter, y - this.diameter);
-        this.sliceArrays[2].move(x - this.diameter, y + this.diameter);
+        this.sliceArrays[1].move(x + this.diameter/1.5, y - this.diameter/1.5);
+        this.sliceArrays[2].move(x - this.diameter/1.5, y + this.diameter/1.5);
       }
       else if (this.type == 'rldown/lrup'){
-        this.sliceArrays[1].move(x - this.diameter, y - this.diameter);
-        this.sliceArrays[2].move(x + this.diameter, y + this.diameter);
+        this.sliceArrays[1].move(x - this.diameter/1.5, y - this.diameter/1.5);
+        this.sliceArrays[2].move(x + this.diameter/1.5, y + this.diameter/1.5);
       }
     }
   }
@@ -118,12 +118,12 @@ class SliceArray{
      this.hits[2].move(x - this.diameter, y);
     }
     else if (this.type == 'lrdown/rlup'){
-     this.hits[1].move(x - this.diameter, y - this.diameter);
-     this.hits[2].move(x + this.diameter, y + this.diameter);
+     this.hits[1].move(x - this.diameter/1.5, y - this.diameter/1.5);
+     this.hits[2].move(x + this.diameter/1.5, y + this.diameter/1.5);
     }
     else if (this.type == 'rldown/lrup'){
-     this.hits[1].move(x + this.diameter, y - this.diameter);
-     this.hits[2].move(x - this.diameter, y + this.diameter);
+     this.hits[1].move(x + this.diameter/1.5, y - this.diameter/1.5);
+     this.hits[2].move(x - this.diameter/1.5, y + this.diameter/1.5);
     }
   }
 }

@@ -18,5 +18,8 @@ function randomFruitGen(genType, recipe) {
   var fruitImg = fruitImgs[index];
   var fruitName = fruitList[index];
   var slicePat = sliceList[index];
+  if (fruitName === 'dragonfruit') {
+    slicePat = 'click'; // this should mean there's no slicing pattern for dragonfruit
+  }
   return new Fruit(fruitImg, fruitName, slicePat, index);
 }

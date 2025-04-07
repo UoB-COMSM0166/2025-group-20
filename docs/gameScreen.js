@@ -2,7 +2,7 @@ function gameScreen() {
     
     background(bg);
     if (currentRecipe.ingredients.length == 0){
-        //recipeComplete();
+        recipeCompleteEffect();
         currentRecipe = new SmoothieRecipe();
         fruitOnScreen = [];
     }
@@ -23,12 +23,26 @@ function gameScreen() {
         fruit.push(x);
         fruitOnScreen.push(x.index);
     }
+        //drawing and fading out splatter BEFORE the fruit is sliced, so it appears on the background
+    for (let i = splatters.length - 1; i >= 0; i--) {
+        splatters[i].update();
+        splatters[i].show();
+        if (splatters[i].isDone()) {
+            splatters.splice(i, 1);
+        }
+    }
 
     for (var i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
         if (fruit[i].slicePat.isSliced() == 'correct' || fruit[i].slicePat.isSliced() == 'wrong'){
-            if (fruit[i].index != currentRecipe.ingredients[0]){
+            if(fruit[i].fruitName === 'dragonfruit'){
+                console.log('Dragonfruit sliced!');
+                lifeIcons.gainLife();
+                gainLifeEffect();
+                //I want to make a twinkle sound effect for when this is sliced.
+            }
+            else if (fruit[i].fruitName !== 'dragonfruit' && fruit[i].index != currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 loseLifeEffect();
                 if (lifeIcons.lives == 0){
@@ -46,6 +60,8 @@ function gameScreen() {
             }
             playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
+            splatters.push(new splat(fruit[i].xPos, fruit[i].yPos, fruit[i].fruitName));
+        //load splat image and update to slice fruit even if there's not corresponding splat (at the moment there is not a corresponding splat for banana, lemon, bomb)
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){

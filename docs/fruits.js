@@ -21,8 +21,16 @@ class Fruit {
     removeFruit();
   }
 
-  show() {
-    image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
+  show() { //adding a glow effect to the dragonfruit as it +1's life 
+    if (this.fruitName === 'dragonfruit') {
+      push();
+      tint(255, 220, 150); // this should be a yellowish glow
+      image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
+      pop();
+  } else {
+      image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
+  }
+  
   }
   
   move() {
