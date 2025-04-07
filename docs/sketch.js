@@ -83,6 +83,7 @@ function draw() {
   if (mode === 2){
     gameScreen();
     redBorder();
+    greenBorder();
     completionText();
     wrongSliceText();
     makePauseButton();
