@@ -16,13 +16,13 @@ class SlicePattern{
   }
   
   isSliced(){
-    if (this.type == 'inert'){
-      return 'inert';
-    }
     if (this.type == 'bomb'){
       if (this.hit.hit){
         return 'bomb';
       }
+    }
+    else if (this.type == 'inert'){
+      return 'inert';
     }
     else if (this.type == 'click' || this.type == 'easy') {
       if (this.hit.hit){
