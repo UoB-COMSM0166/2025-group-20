@@ -96,7 +96,7 @@ Game → UI: gameScreen() (should update the display as necessary)
 
 - 15% ~750 words
 
-- One qualitative evaluation (your choice) 
+- One qualitative evaluation (your choice) (Ask about the preference of mouse pressed vs no mouse pressed)
 
 - One quantitative evaluation (of your choice) 
 
