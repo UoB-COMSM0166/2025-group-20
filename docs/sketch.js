@@ -1,4 +1,3 @@
-//import cursorEffect = require("./cursorEffect");
 
 // global variables
 var mode = 0;
@@ -68,14 +67,10 @@ function draw() {
     hardModeButton.show();
     onePlayerButton.show();
     twoPlayerButton.show();
-   // if (pauseButton || recipeButton){
-     // pauseButton.hide();
-     // recipeButton.hide();
-   // }
-   if (pauseMenu) pauseMenu.hideAll();
-   if (recipeButton) recipeButton.hide();
+    if (pauseMenu) pauseMenu.hideAll();
+    if (recipeButton) recipeButton.hide();
 
-  }
+  } 
   else if (mode === 1){
     instructionScreen();
 
@@ -85,26 +80,30 @@ function draw() {
       hardModeButton.hide();
     }
   }
-  if (mode === 2){
+  if (mode === 2) {
     gameScreen();
     redBorder();
     greenBorder();
     completionText();
     wrongSliceText();
-    if (pauseMenu) pauseMenu.pauseButton.show();
+    
+    if (pauseMenu && pauseMenu.pauseButton) {
+        pauseMenu.pauseButton.show();
+    }
     if (difficulty !== 'easy') {
-      recipeButton.show();
-      recipeButton.update(); // Call the update method for RecipeButton
+        recipeButton.show();
+        recipeButton.update(); 
     } else {
-     recipeButton.hide();
+        recipeButton.hide();
     }
-    instructionsButton.hide()
-
-    if (easyModeButton || hardModeButton){
-      easyModeButton.hide();
-      hardModeButton.hide();
+    tutorialBtn.hide();
+    if (easyModeButton || hardModeButton || onePlayerButton || twoPlayerButton) {
+        if (onePlayerButton) onePlayerButton.hide();
+        if (twoPlayerButton) twoPlayerButton.hide();
+        if (easyModeButton) easyModeButton.hide();
+        if (hardModeButton) hardModeButton.hide();
     }
-  }
+}
 
   else if (mode === 3){
     noLoop();

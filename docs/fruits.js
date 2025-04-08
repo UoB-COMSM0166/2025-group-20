@@ -4,7 +4,7 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    if (difficulty == 'easy'){
+    if (difficulty === 'easy'){
       this.slicePat = new SlicePattern('easy', this.size);
     }
     else {

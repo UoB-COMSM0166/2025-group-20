@@ -5,22 +5,26 @@ let onePlayerButton;
 let twoPlayerButton;
 
 function drawStartScreen() {
-    mode == 0;
     background(bg);
     textAlign(CENTER, CENTER);
     textFont(gameFont);
-    fill('seagreen');
+    fill('white');
     stroke('black')
     strokeWeight(6);
     textSize(100);
     text('Smoothie Operator', width / 2, height / 8);
-   // text('Operator', width / 2, height / 3.8);
+    border();
     tutorialButton();
     modeButtons();
-    playerButtons();
-    movingBorder();
+    startGame();
     highestScore.display();
+
   }
+  function keyPressed() {
+    if (keyCode === ENTER) {
+      freshGameScreen(); // changes to game screen
+    }
+  }  
 
   function tutorialButton() {
     if (!tutorialBtn){
@@ -126,8 +130,6 @@ function drawStartScreen() {
       hardModeButton.show;
     }
 
-}
-
     easyModeButton.mousePressed(() => {
       difficulty = 'easy';
       easyModeButton.style('background-color', '#c2ac53');
@@ -141,112 +143,137 @@ function drawStartScreen() {
       hardModeButton.style('background-color', '#c2ac53');
     });
 
+    if (!onePlayerButton){
 
-function playerButtons() {
+      onePlayerButton = createButton('ONE PLAYER');
+      onePlayerButton.style('font-size', '30');
+      onePlayerButton.style('font-family', 'gameFont');
+      onePlayerButton.style('text-align', 'center');
+      onePlayerButton.style('background-color', '#c2ac53'); // default is easy ?
 
-  if (!onePlayerButton){
+      onePlayerButton.style('border', '3px solid black');
+      onePlayerButton.style('border-radius', '8px');
+      onePlayerButton.style('color', 'black');
+      onePlayerButton.size(250, 50); 
+      onePlayerButton.position((windowWidth / 2) - 250, (windowHeight / 2) + 70);
 
-    onePlayerButton = createButton('ONE PLAYER');
-    onePlayerButton.style('font-size', '30');
-    onePlayerButton.style('font-family', 'gameFont');
-    onePlayerButton.style('text-align', 'center');
-    onePlayerButton.style('background-color', '#c2ac53'); // default is easy ?
+      onePlayerButton.mouseMoved(() => {
+        onePlayerButton.style('box-shadow', '5px 5px 5px seagreen');
+      })
 
-    onePlayerButton.style('border', '3px solid black');
-    onePlayerButton.style('border-radius', '8px');
-    onePlayerButton.style('color', 'black');
-    onePlayerButton.size(250, 50); 
-    onePlayerButton.position((windowWidth / 2) - 250, (windowHeight / 2) + 70);
+      onePlayerButton.mouseOut(() => {
+        onePlayerButton.style('box-shadow', 'none');
+      });
 
-    onePlayerButton.mouseMoved(() => {
-      onePlayerButton.style('box-shadow', '5px 5px 5px seagreen');
-    })
+      onePlayerButton.mousePressed(() => {
+        twoPlayerButton.style('background-color', '#FCF3CF');
+        onePlayerButton.style('background-color', '#c2ac53');
+        onePlayerButton.hide();
+      })
 
-    onePlayerButton.mouseOut(() => {
-      onePlayerButton.style('box-shadow', 'none');
-    });
+      onePlayerButton.show();
+    }
 
-    onePlayerButton.mousePressed(() => {
-      twoPlayerButton.style('background-color', '#FCF3CF');
-      onePlayerButton.style('background-color', '#c2ac53');
-      onePlayerButton.hide();
-    })
+    if (!twoPlayerButton){
 
-    onePlayerButton.show();
-  }
+      twoPlayerButton = createButton('TWO PLAYERS');
+      twoPlayerButton.style('font-size', '30');
+      twoPlayerButton.style('font-family', 'gameFont');
+      twoPlayerButton.style('text-align', 'center');
+      twoPlayerButton.style('background-color', '#FCF3CF'); 
 
-  if (!twoPlayerButton){
+      twoPlayerButton.style('border', '3px solid black');
+      twoPlayerButton.style('border-radius', '8px');
+      twoPlayerButton.style('color', 'black');
+      twoPlayerButton.size(250, 50); 
+      twoPlayerButton.position((windowWidth / 2) + 10, (windowHeight / 2) + 70);
 
-    twoPlayerButton = createButton('TWO PLAYERS');
-    twoPlayerButton.style('font-size', '30');
-    twoPlayerButton.style('font-family', 'gameFont');
-    twoPlayerButton.style('text-align', 'center');
-    twoPlayerButton.style('background-color', '#FCF3CF'); 
+      twoPlayerButton.mouseMoved(() => {
+        twoPlayerButton.style('box-shadow', '5px 5px 5px seagreen');
+      })
 
-    twoPlayerButton.style('border', '3px solid black');
-    twoPlayerButton.style('border-radius', '8px');
-    twoPlayerButton.style('color', 'black');
-    twoPlayerButton.size(250, 50); 
-    twoPlayerButton.position((windowWidth / 2) + 10, (windowHeight / 2) + 70);
+      twoPlayerButton.mouseOut(() => {
+        twoPlayerButton.style('box-shadow', 'none');
+      });
 
-    twoPlayerButton.mouseMoved(() => {
-      twoPlayerButton.style('box-shadow', '5px 5px 5px seagreen');
-    })
+      twoPlayerButton.mousePressed(() => {
+        onePlayerButton.style('background-color', '#FCF3CF');
+        twoPlayerButton.style('background-color', '#c2ac53');
+        twoPlayerButton.hide();
+      })
 
-    twoPlayerButton.mouseOut(() => {
-      twoPlayerButton.style('box-shadow', 'none');
-    });
+      twoPlayerButton.show();
+    }
+  }  
 
-    twoPlayerButton.mousePressed(() => {
-      onePlayerButton.style('background-color', '#FCF3CF');
-      twoPlayerButton.style('background-color', '#c2ac53');
-      twoPlayerButton.hide();
-    })
+let yWaveSpeed = 0.03;   
+let xWaveSpeed = 0.03;   
+let yWaveSize = 20;      
+let xWaveSize = 20;     
+let yWaveOffset = 0;     
+let xWaveOffset = 0;     
 
-    twoPlayerButton.show();
+function startGame() {
+  textAlign(CENTER, CENTER);
+  textFont('gameFont');
+  fill('white');
+  textSize(40);
+
+  let textString = "Press ENTER to start game!";
+  let textLength = textString.length;
+
+  for (let i = 0; i < textLength; i++) {
+    let char = textString.charAt(i);
+
+    let yWave = sin(frameCount * yWaveSpeed + i * 0.5 + yWaveOffset) * yWaveSize;
+    let xWave = cos(frameCount * xWaveSpeed + i * 0.5 + xWaveOffset) * xWaveSize;
+    let xPos = (windowWidth / 2 + 30) + xWave + (i - textLength / 2) * 32; // spacing
+    let yPos = windowHeight / 8 + 480 + yWave;
+
+    text(char, xPos, yPos);
   }
 }
 
-function movingBorder() {
-/*
-  let apple = image(fruitImgs[0], windowWidth / 2 - 400, windowHeight / 8 + 100, 50, 50); // apple
-  let banana = image(fruitImgs[1], windowWidth / 2 - 330, windowHeight / 8 + 100, 50, 50); // banana
-  let blueberry = image(fruitImgs[2], windowWidth / 2 - 260, windowHeight / 8 + 100, 50, 50); // blueberry
-  let lemon = image(fruitImgs[3], windowWidth / 2 - 190, windowHeight / 8 + 100, 50, 50); // lemon
-  let cherry = image(fruitImgs[4],  windowWidth / 2 - 120, windowHeight / 8 + 100, 50, 50); // cherry
-  let grapes = image(fruitImgs[5], windowWidth / 2 - 50, windowHeight / 8 + 100, 50, 50); // grapes
-  image(fruitImgs[6], windowWidth / 2 + 20, windowHeight / 8 + 100, 50, 50); // watermelon 
-
-   //while (mode === 1) {
-
-   //}*/
+  function border() {
 
    let fruitTypes = [
-    { img: fruitImgs[0], positions: [{x:windowWidth / 2 - 400, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 90, y: windowHeight / 8 + 100}] }, // apple
+    { img: fruitImgs[0], positions: [{x:windowWidth / 2 - 435, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 475, y: windowHeight / 8 + 310}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 435, y: windowHeight / 8 + 520}] }, // apple
 
-    { img: fruitImgs[1], positions: [{x:windowWidth / 2 - 330, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 160, y: windowHeight / 8 + 100}] }, // banana
+    { img: fruitImgs[1], positions: [{x:windowWidth / 2 - 365, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 195, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 475, y: windowHeight / 8 + 380}, {x:windowWidth / 2 + 55, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 520}] }, // banana
     
-    { img: fruitImgs[2], positions: [{x:windowWidth / 2 - 260, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 230, y: windowHeight / 8 + 100}] }, // blueberry
+    { img: fruitImgs[2], positions: [{x:windowWidth / 2 - 295, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 265, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 475, y: windowHeight / 8 + 450}, {x:windowWidth / 2 - 15, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 450}] }, // blueberry
 
-    { img: fruitImgs[3], positions: [{x:windowWidth / 2 - 190, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 300, y: windowHeight / 8 + 100}] },
+    { img: fruitImgs[3], positions: [{x:windowWidth / 2 - 225, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 335, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 475, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 85, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 380}] },
 
-    { img: fruitImgs[4], positions: [{x:windowWidth / 2 - 120, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 370, y: windowHeight / 8 + 100}] },
+    { img: fruitImgs[4], positions: [{x:windowWidth / 2 - 155, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 405, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 405, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 155, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 310} ] },
 
-    { img: fruitImgs[5], positions: [{x:windowWidth / 2 - 50, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 440, y: windowHeight / 8 + 100}] },
+    { img: fruitImgs[5], positions: [{x:windowWidth / 2 - 85, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 475, y: windowHeight / 8 + 100},
+      {x:windowWidth / 2 + 335, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 225, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 240} ] },
 
-    { img: fruitImgs[6], positions: [{x:windowWidth / 2 - 470, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 20, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 510, y: windowHeight / 8 + 100}] }
-    // Add more fruits as needed
-  ];
-  
-
-    // Loop through each fruit type
+    { img: fruitImgs[6], positions: [{x:windowWidth / 2 - 15, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 475, y: windowHeight / 8 + 170},
+      {x:windowWidth / 2 + 265, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 295, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 505, y: windowHeight / 8 + 170}] },
+ 
+    { img: fruitImgs[7], positions: [{x:windowWidth / 2 - 505, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 55,  y:windowHeight / 8 + 100}, 
+      {x:windowWidth / 2 + 475, y: windowHeight / 8 + 240}, {x:windowWidth / 2 + 195, y: windowHeight / 8 + 520},
+      {x:windowWidth / 2 - 365, y: windowHeight / 8 + 520}] }
+  ]; 
+    
     for (let i = 0; i < fruitTypes.length; i++) {
-      // Loop through each position of the current fruit type
       for (let j = 0; j < fruitTypes[i].positions.length; j++) {
-        // Get the fruit's image and its current position
         let fruit = fruitTypes[i];
         let position = fruit.positions[j];
-        // Draw the fruit at its position
         image(fruit.img, position.x, position.y, 50, 50);
       }
     }
@@ -254,3 +281,7 @@ function movingBorder() {
 
 
   
+
+
+
+
