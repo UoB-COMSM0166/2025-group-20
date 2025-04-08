@@ -3,7 +3,7 @@ function gameScreen() {
     background(bg);
     if (currentRecipe.ingredients.length == 0){
         recipeCompleteEffect();
-        recipeComplete();
+        gameScore.recipeComplete();
         currentRecipe = new SmoothieRecipe();
         fruitOnScreen = [];
     }
