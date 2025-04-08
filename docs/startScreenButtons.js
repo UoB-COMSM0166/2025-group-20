@@ -130,4 +130,21 @@ function instructionButton() {
     }
   }
 
+  function setupMuteButton() {
+    if (!muteButton) {
+      muteButton = createButton("Unmute");
+      muteButton.style('font-size', '18px');
+      muteButton.style('font-family', 'gameFont');
+      muteButton.style('background-color', '#FCF3CF');
+      muteButton.style('border', 'none');
+      muteButton.style('border-radius', '8px');
+      muteButton.style('color', 'black');
+      muteButton.size(120, 35);
+      muteButton.position((windowWidth / 10) - 100, (windowHeight / 1.085));
+  
+      muteButton.mousePressed(toggleMute);
+      muteButton.show();
+    }
+  }
+
   

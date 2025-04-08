@@ -19,6 +19,10 @@ var fruitOnScreen = [];
 var splatterImgs = {};
 var splatters = [];
 let bg;
+let muteButton;
+let muted = true;
+let startScreenMusic;
+let musicPlaying = false;
 var lifeIcons;
 var currentRecipe;
 var gameScore;
@@ -54,22 +58,24 @@ function setup() {
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay();
+  setupMuteButton();
 }
 
 function draw() {
   if (mode === 0) {
-    drawStartScreen();
+    drawStartScreen();   
+    muteButton.show();
     instructionsButton.show();
     easyModeButton.show();
     hardModeButton.show();
     if (recipeButton) {
       recipeButton.hide();
     }
-    
-
     if (pauseButton){
       pauseButton.hide();
     }
+  }else{
+    muteButton.hide;
   }
   if (mode === 1){
     instructionScreen();
@@ -132,7 +138,33 @@ function windowResized() {
   setupInstructionButtons();
 }
 
-function playSound(soundLink){
+function playSound(soundLink, loop = false) {
   sound = createAudio(soundLink);
-  sound.play();
+  if (loop) {
+    sound.loop();
+  } else {
+    sound.play();
+  }
+  return sound;
 }
+
+function mousePressed() {
+  if (mode === 0 && !musicPlaying) {
+    startScreenMusic = playSound("https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/smoothieOperatorStart.wav", true);
+    startScreenMusic.elt.muted = muted;
+    musicPlaying = true;
+  }
+}
+
+function toggleMute() {
+  muted = !muted;
+  if (startScreenMusic) {
+    startScreenMusic.elt.muted = muted;
+  }
+  muteButton.html(muted ? "Unmute" : "Mute");
+}
+
+
+
+
+
