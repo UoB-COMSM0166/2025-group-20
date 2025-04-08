@@ -53,6 +53,20 @@ function instructionButton() {
         hardModeButton.size(150, 30);
         hardModeButton.position((windowWidth / 3) - 76.5, (windowHeight / 1.26));
       }
+
+      // for easy mode
+      easyModeButton.mousePressed(() => {
+        difficulty = 'easy';
+        easyModeButton.style('background-color', '#c2ac53');
+        hardModeButton.style('background-color', '#FCF3CF');
+      });
+      
+      // for hard mode
+      hardModeButton.mousePressed(() => {
+        difficulty = 'hard';
+        easyModeButton.style('background-color', '#FCF3CF');
+        hardModeButton.style('background-color', '#c2ac53');
+      });
  
   }
 /*
@@ -109,20 +123,6 @@ function instructionButton() {
       let buttonX2 = width / 1.6 + 250;
       let buttonY1 = height / 5.4;
       let buttonY2 = height / 5.4 + appleImg.height;
-
-      // for easy mode
-      easyModeButton.mousePressed(() => {
-        difficulty = 'easy';
-        easyModeButton.style('background-color', '#c2ac53');
-        hardModeButton.style('background-color', '#FCF3CF');
-      });
-
-      // for hard mode
-      hardModeButton.mousePressed(() => {
-        difficulty = 'hard';
-        easyModeButton.style('background-color', '#FCF3CF');
-        hardModeButton.style('background-color', '#c2ac53');
-      });
 
       if (mouseX > buttonX1 && mouseX < buttonX2 && mouseY > buttonY1 && mouseY < buttonY2) {
         freshGameScreen();
