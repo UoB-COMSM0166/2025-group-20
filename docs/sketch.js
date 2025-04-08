@@ -63,6 +63,7 @@ function setup() {
 
 function draw() {
   if (mode === 0) {
+    cursor();
     drawStartScreen();   
     muteButton.show();
     instructionsButton.show();
@@ -78,6 +79,7 @@ function draw() {
     muteButton.hide;
   }
   if (mode === 1){
+    noCursor();
     instructionScreen();
 
     if (pauseButton){
@@ -87,6 +89,7 @@ function draw() {
     hardModeButton.hide();
   }
   if (mode === 2){
+    noCursor();
     gameScreen();
     redBorder();
     greenBorder();
@@ -107,26 +110,33 @@ function draw() {
   }
 
   if (mode === 3){
+    cursor();
     noLoop();
     drawPauseScreen();
   }
   if (mode == 4){
+    cursor();
     drawGameOver();
     pauseButton.hide();
   }
   if(mode === 5){
+    cursor();
     instructionObjectivesScreen();
   }
   if(mode === 6){
+    cursor();
     instructionControlsScreen();
   }
   if(mode === 7){
+    cursor();
     instructionScoringSystemScreen();
   }
   if(mode === 8){
+    cursor();
     instructionGameOverConditionsScreen();
   }
   if(mode === 9){
+    cursor();
     instructionNavigationScreen();
   }
 }
