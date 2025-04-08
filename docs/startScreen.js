@@ -7,7 +7,7 @@ function drawStartScreen() {
     text('Smoothie', width / 3, height / 3.7);
     text('Operator', width / 3, height / 2.1);
     startGameButton();
-    instructionButton();
+    drawTutorialButton();
     modeButtons();
     highestScore.display();
   }

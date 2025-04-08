@@ -27,6 +27,8 @@ var maxHeight;
 var difficulty = 'easy';
 let appleSliceImg;
 
+
+
 function preload() {
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
@@ -46,6 +48,7 @@ function preload() {
   for (var i = 0; i < fruitList.length; i++) {
     patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
   }
+
 }
 
 function setup() {
@@ -58,7 +61,7 @@ function setup() {
 function draw() {
   if (mode === 0) {
     drawStartScreen();
-    instructionsButton.show();
+    tutorialButton.show();
     easyModeButton.show();
     hardModeButton.show();
     if (recipeButton) {
@@ -71,7 +74,7 @@ function draw() {
     }
   }
   if (mode === 1){
-    instructionScreen();
+    tutorialEasyScreen();
 
     if (pauseButton){
       pauseButton.hide();
@@ -93,7 +96,7 @@ function draw() {
       recipeButton.hide();
     }
     pauseButton.show();
-    instructionsButton.hide();
+    tutorialButton.hide();
     easyModeButton.hide();
     hardModeButton.hide();
   }
@@ -106,21 +109,21 @@ function draw() {
     drawGameOver();
     pauseButton.hide();
   }
-  if(mode === 5){
-    instructionObjectivesScreen();
-  }
-  if(mode === 6){
-    instructionControlsScreen();
-  }
-  if(mode === 7){
-    instructionScoringSystemScreen();
-  }
-  if(mode === 8){
-    instructionGameOverConditionsScreen();
-  }
-  if(mode === 9){
-    instructionNavigationScreen();
-  }
+  // if(mode === 5){
+  //   instructionObjectivesScreen();
+  // }
+  // if(mode === 6){
+  //   instructionControlsScreen();
+  // }
+  // if(mode === 7){
+  //   instructionScoringSystemScreen();
+  // }
+  // if(mode === 8){
+  //   instructionGameOverConditionsScreen();
+  // }
+  // if(mode === 9){
+  //   instructionNavigationScreen();
+  // }
 }
 
 function windowResized() {

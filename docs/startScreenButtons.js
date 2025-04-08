@@ -1,26 +1,26 @@
-let instructionsButton;
+let tutorialButton;
 let easyModeButton;
 let hardModeButton;
 
-function instructionButton() {
-    if (!instructionsButton){
+function drawTutorialButton() {
+    if (!tutorialButton){
 
-      instructionsButton = createButton('INSTRUCTIONS');
-      instructionsButton.style('font-size', '30');
-      instructionsButton.style('font-family', 'gameFont');
-      instructionsButton.style('text-align', 'center');
-      instructionsButton.style('background-color', '#FCF3CF');
-      instructionsButton.style('border', 'none');
-      instructionsButton.style('border-radius', '8px');
-      instructionsButton.style('color', 'black');
-      instructionsButton.size(250, 50); 
-      instructionsButton.position((windowWidth / 3) - 125, (windowHeight / 1.5)); 
+      tutorialButton = createButton('TUTORIAL');
+      tutorialButton.style('font-size', '30');
+      tutorialButton.style('font-family', 'gameFont');
+      tutorialButton.style('text-align', 'center');
+      tutorialButton.style('background-color', '#FCF3CF');
+      tutorialButton.style('border', 'none');
+      tutorialButton.style('border-radius', '8px');
+      tutorialButton.style('color', 'black');
+      tutorialButton.size(250, 50); 
+      tutorialButton.position((windowWidth / 3) - 125, (windowHeight / 1.5)); 
 
-      instructionsButton.mousePressed(() => {
+      tutorialButton.mousePressed(() => {
         mode = 1; // Goes to instructions screen
-        instructionsButton.hide();
+        tutorialButton.hide();
       });
-      instructionsButton.show();
+      tutorialButton.show();
     }
   }
 
