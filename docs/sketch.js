@@ -27,6 +27,8 @@ var sound;
 var maxHeight;
 var difficulty = 'easy';
 let appleSliceImg;
+let pauseMenu;
+let recipeButton; 
 
 function preload() {
   // loads material used in start screen
@@ -54,25 +56,30 @@ function setup() {
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
+  pauseMenu = new PauseMenu();
+  recipeButton = new RecipeButton();
 }
 
 function draw() {
   if (mode === 0) {
     drawStartScreen();
-    instructionsButton.show();
+    tutorialBtn.show();
     easyModeButton.show();
     hardModeButton.show();
-    if (pauseButton || recipeButton){
-      pauseButton.hide();
-      recipeButton.hide();
-    }
+    onePlayerButton.show();
+    twoPlayerButton.show();
+   // if (pauseButton || recipeButton){
+     // pauseButton.hide();
+     // recipeButton.hide();
+   // }
+   if (pauseMenu) pauseMenu.hideAll();
+   if (recipeButton) recipeButton.hide();
+
   }
-  if (mode === 1){
+  else if (mode === 1){
     instructionScreen();
 
-    if (pauseButton){
-      pauseButton.hide();
-    }
+    if (pauseMenu) pauseMenu.hideAll();
     if (easyModeButton || hardModeButton){
       easyModeButton.hide();
       hardModeButton.hide();
@@ -84,15 +91,13 @@ function draw() {
     greenBorder();
     completionText();
     wrongSliceText();
-    makePauseButton();
-    if (difficulty != 'easy') {
-      makeRecipeButton();
+    if (pauseMenu) pauseMenu.pauseButton.show();
+    if (difficulty !== 'easy') {
       recipeButton.show();
+      recipeButton.update(); // Call the update method for RecipeButton
+    } else {
+     recipeButton.hide();
     }
-    else if (recipeButton && difficulty == 'easy') {
-      recipeButton.hide();
-    }
-    pauseButton.show();
     instructionsButton.hide()
 
     if (easyModeButton || hardModeButton){
@@ -101,13 +106,15 @@ function draw() {
     }
   }
 
-  if (mode === 3){
+  else if (mode === 3){
     noLoop();
-    drawPauseScreen();
+    pauseMenu.drawPauseScreen();
+  
   }
   if (mode == 4){
     drawGameOver();
-    pauseButton.hide();
+    if (pauseMenu) pauseMenu.hideAll();
+  
   }
   if(mode === 5){
     instructionObjectivesScreen();
@@ -126,14 +133,3 @@ function draw() {
   }
 }
 
-function windowResized() {
-  let minW = 800; 
-  let minH = 600; 
-  resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
-  setupInstructionButtons();
-}
-
-function playSound(soundLink){
-  sound = createAudio(soundLink);
-  sound.play();
-}

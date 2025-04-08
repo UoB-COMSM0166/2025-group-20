@@ -48,6 +48,8 @@ class HighestPointDisplay {
         textSize(15);
         textFont(gameFont);
         fill('white');
+        stroke('black');
+        strokeWeight(1);
         text('HIGHEST SCORE: ',this.x - 40,this.y);
 
         textFont("sans-serif");

@@ -1,7 +1,6 @@
 let instructionScreenFirstLoad = true;
 
 function instructionScreen() {
-    //console.log("Instruction screen is running");
     background(bg);
     textAlign(CENTER, CENTER);
     textFont(gameFont);
