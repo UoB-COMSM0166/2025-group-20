@@ -48,13 +48,13 @@ Player immersion - No timer, immersive visuals etc.
 
 - Summary of the overall vision 
 
-### Requirements 
+### Requirements (Ziyan)
 .
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
 We've actually already written all of this! Will find a way of structuring it more succinctly at some point in this section :)
-### Design
+### Design (Barney)
 
 - 15% ~750 words 
 - System architecture. Class diagrams, behavioural diagrams.
@@ -86,27 +86,29 @@ Game → UI: gameScreen() (should update the display as necessary)
 - Design Decisions and Subsquent Justification
 - In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
 
-### Implementation
+### Implementation (Omnia)
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### Evaluation
+### Evaluation (Matilda)
 
 - 15% ~750 words
 
-- One qualitative evaluation (your choice) 
+- One qualitative evaluation (your choice) (Ask about the preference of mouse pressed vs no mouse pressed)
 
 - One quantitative evaluation (of your choice) 
 
 - Description of how code was tested. 
 
-### Process 
+### Process (May)
 
 - 15% ~750 words
 
-- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together. 
+- Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
+
+  ### Sustainability (Scarlett)
 
 ### Conclusion
 
