@@ -102,10 +102,10 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 
 | Theme | Positive | Negative | Suggested modifications |
 | --- | --- | --- | --- |
-| Controls | The click control is very satisfying<br>The cursorEffect provides good user feedback | Touchpad is inelegant<br>Mousepressed functions bug after hearts lost<br>The mousepressed for slicing could be redundant |  |
-| Display | Good fruit sizes<br>Fruit slice visuals are very rewarding | Recipe aspect and order is unclear<br>cursorEffect does not remain long enough<br>Some fruits are generated stuck together | |
-| Learning Curve |  | Initial difficulty remembering rules<br>Initial difficulty remembering slice patterns<br>Once slice patterns are internalised, they're too easy to remember | |
-| Frustrations and Engagements |  | No time constraints cause monotony | |
+| Controls | <ul><li>The click control is very satisfying</li><li>The cursorEffect provides good user feedback</li></ul> | <ul><li>Touchpad is inelegant</li><li>Mousepressed functions bug after hearts lost</li><li>The mousepressed for slicing could be redundant</li></ul> |  |
+| Display | <ul><li>Good fruit sizes</li><li>Fruit slice visuals are very rewarding</li></ul> | <ul><li>Recipe aspect and order is unclear</li><li>cursorEffect does not remain long enough</li><li>Some fruits are generated stuck together</li></ul> | |
+| Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
+| Frustrations and Engagements |  | <ul><li>No time constraints cause monotony</li></ul> | |
 
 | Theme | Positive | Negative | Suggested modifications |
 | --- | --- | --- | --- | --- |
