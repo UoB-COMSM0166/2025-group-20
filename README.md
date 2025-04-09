@@ -101,6 +101,13 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 ### Qualitative: Think Aloud
 
 | Theme | Positive | Negative | Suggested modifications |
+| --- | --- | --- | --- |
+| Controls | The click control is very satisfying<br>The cursorEffect provides good user feedback | Touchpad is inelegant<br>Mousepressed functions bug after hearts lost<br>The mousepressed for slicing could be redundant |  |
+| Display | Good fruit sizes<br>Fruit slice visuals are very rewarding | Recipe aspect and order is unclear<br>cursorEffect does not remain long enough<br>Some fruits are generated stuck together | |
+| Learning Curve |  | Initial difficulty remembering rules<br>Initial difficulty remembering slice patterns<br>Once slice patterns are internalised, they're too easy to remember | |
+| Frustrations and Engagements |  | No time constraints cause monotony | |
+
+| Theme | Positive | Negative | Suggested modifications |
 | --- | --- | --- | --- | --- |
 | Controls | The click control is very satisfying | Touchpad is inelegant | |
 | | The cursorEffect provides good user feedback | Mousepressed functions bug after hearts lost | |
