@@ -1,4 +1,7 @@
 let currentFruitIndex = 0;
+let showNextButton = false;
+let autoAdvanceTimeout = null;
+
 class TutorialFruit {
     constructor(img, slicePattern, fruitName) {
         this.fruitImg = img;
@@ -46,7 +49,6 @@ class TutorialFruit {
             image(this.fruitImg, this.xPos, this.yCurrentPos, this.size, this.size);
         }
         
-
         if(!this.slicingGif){
                 this.slicingGif = createImg('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[currentFruitIndex] + '-slice.gif');
                 this.slicingGif.size(100, 100); // adjust size as needed
@@ -69,12 +71,8 @@ class TutorialFruit {
         this.fruitImg = fruitImgs[currentFruitIndex];
     }
 
-}
+    
 
-function removeFruit() {
-    if (!this.visible) {
-      fruitOnScreen.splice(fruitOnScreen.indexOf(this.index), 1);
-    }
 }
 
 let tutorialNarration = [];
@@ -90,10 +88,9 @@ function tutorialEasyScreen() {
     stroke(30, 15, 5);
     strokeWeight(8);
 
-    
+    tutorialNarration = "Slice the " + fruitList[currentFruitIndex] + " " + sliceNarration[currentFruitIndex];
     text(tutorialNarration, width / 2, 50 );
 
-    tutorialNarration = "Slice the " + fruitList[currentFruitIndex] + " " + sliceNarration[currentFruitIndex];
     drawBackButton();
     drawArrows();
 
@@ -108,12 +105,18 @@ function tutorialEasyScreen() {
 
     currentTutorialFruit.move();
     currentTutorialFruit.show();
-    if (currentTutorialFruit.slicePat.isSliced() === 'correct'|| currentTutorialFruit.slicePat.isSliced() === 'wrong'){
-        if (currentTutorialFruit.slicePat.isSliced() === 'correct'){
-            correctSliceEffect();
-            console.log("Correct Slice detected!!");
+    let sliceResult = currentTutorialFruit.slicePat.isSliced();
+        if (sliceResult === 'correct' || sliceResult === 'wrong') {
+            if (sliceResult === 'correct') {
+                correctSliceEffect();
+                console.log("Correct Slice detected!!");
+                if (!autoAdvanceTimeout) { //sets a timeout so the player immediately moves on if they don't click the next button
+                    autoAdvanceTimeout = setTimeout(() => {
+                        goToNextTutorialStep();
+                    }, 15000);
+                }
             
-        } else if (currentTutorialFruit.slicePat.isSliced() === 'wrong'){
+        } else if (sliceResult === 'wrong'){
             console.log("Wrong Slice detected!!");
             wrongSliceEffect();
         }
@@ -124,6 +127,7 @@ function tutorialEasyScreen() {
     }
 
 }
+
 let correctSlice = false;
 function correctSliceText(){
     if(correctSlice){
@@ -133,7 +137,9 @@ function correctSliceText(){
         textSize(100);
         text('Well done! Go to next step', width/2, 100);
     }
+   cursorEffect();
 }
+
 function correctSliceEffect(){
     correctSlice = true;
     setTimeout(() => {
@@ -157,7 +163,6 @@ function mousePressed(){
         return;
     }
 
-
     let xDiff = 20;
     let arrowWidth = 50;
     let arrowHeight = 50;
@@ -166,14 +171,15 @@ function mousePressed(){
     let rightX = width - arrowWidth - 20;
     let rightY = (height - arrowHeight) / 2;
 
-    if (mouseX <= rightX + arrowWidth && mouseX >= rightX && mouseY >= rightY && mouseY <= rightY) {
+    if (mouseY >= rightY && mouseY <= rightY + arrowHeight && mouseX >= rightX && mouseX <= rightX + arrowWidth) {
+        console.log("Mouse has been pressed here!")
         //next step
         if (currentTutorialFruit && currentTutorialFruit.slicingGif) {
             currentTutorialFruit.slicingGif.remove();
             currentTutorialFruit = null;
           }
 
-        currentFruitIndex = (currentFruitIndex + 1) % (fruitList.length-2);
+        currentFruitIndex = (currentFruitIndex + 1) % (fruitList.length-2); //skip out bomb and dragonfruit 
         currentTutorialFruit = new TutorialFruit(fruitImgs[currentFruitIndex], sliceList[currentFruitIndex], fruitList[currentFruitIndex]);
     }else if (mouseX >= leftX && mouseX <= leftX + arrowWidth && mouseY >= leftY && mouseY <= leftY + arrowHeight) {
 
@@ -186,7 +192,7 @@ function mousePressed(){
         currentFruitIndex = (currentFruitIndex - 1 + fruitList.length - 2) % (fruitList.length - 2);
         currentTutorialFruit = new TutorialFruit(fruitImgs[currentFruitIndex], sliceList[currentFruitIndex], fruitList[currentFruitIndex]);
     }
-    cursorEffect();  
+    //cursorEffect();  
 }
 
 function drawBackButton() {
@@ -216,10 +222,9 @@ function drawArrows(){
     let xOffset = 20;
     if (leftImg && rightImg) {
         image(leftImg, xOffset, (height - leftImg.height) / 2, 50, 50);
-        image(rightImg, width - rightImg.width - xOffset, (height - rightImg.height) / 2, 50, 50);
+        image(rightImg, width - rightImg.width + xOffset, (height - rightImg.height) / 2, 50, 50);
    }
 
 }
 
-
-
+//why when click does it move to the 

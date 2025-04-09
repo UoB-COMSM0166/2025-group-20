@@ -92,6 +92,7 @@ function draw() {
     muteButton.hide;
   }
   if (mode === 1){
+    noCursor();
     tutorialEasyScreen();
     wrongSliceText();
     correctSliceText();
