@@ -32,12 +32,15 @@ let muted = true;
 let startScreenMusic;
 let musicPlaying = false;
 let leftImg, rightImg;
-
-
+let cutSound;
+let bombSound;
 
 
 function preload() {
   // loads material used in start screen
+
+  cutSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/soundSlicing.wav');
+  bombSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
   bg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/923cd18c3e0c776d146c9cb4e9bf10b24d488e40/docs/Background%20Images/Game%20Screen%20Background.png');
@@ -65,41 +68,39 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  maxHeight = windowHeight * 0.00125;
+  //maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
-  setupMuteButton();
+  pauseMenu = new PauseMenu();
 }
 
 function draw() {
   if (mode === 0) {
     drawStartScreen();
-    muteButton.show();
-    instructionsButton.show();
+    tutorialBtn.show();
+   // soundBtn.show();
     easyModeButton.show();
     hardModeButton.show();
+    onePlayerButton.show();
+    twoPlayerButton.show();
     if (recipeButton) {
       recipeButton.hide();
     }
-    
-
-    if (pauseButton){
-      pauseButton.hide();
+    if (pauseMenu.pauseButton) {
+      pauseMenu.pauseButton.hide();
     }
   }
-  else{
-    muteButton.hide;
-  }
+ 
   if (mode === 1){
     noCursor();
     tutorialEasyScreen();
     wrongSliceText();
     correctSliceText();
-
-    if (pauseButton){
-      pauseButton.hide();
-    }
+    tutorialBtn.hide();
+   // soundBtn.hide();
+    onePlayerButton.hide();
+    twoPlayerButton.hide();
     easyModeButton.hide();
     hardModeButton.hide();
   } else {
@@ -111,7 +112,7 @@ function draw() {
     greenBorder();
     completionText();
     wrongSliceText();
-    buttonPause();
+    
     if (difficulty !== 'easy') {
       makeRecipeButton();
       recipeButton.show();
@@ -119,19 +120,25 @@ function draw() {
     else if (recipeButton && difficulty === 'easy') {
       recipeButton.hide();
     }
-    pauseButton.show();
-    instructionsButton.hide();
+    tutorialBtn.hide();
+    //soundBtn.hide();
+    onePlayerButton.hide();
+    twoPlayerButton.hide();
     easyModeButton.hide();
     hardModeButton.hide();
+    pauseMenu.pauseButton.show(); 
+    if (pauseMenu.pause) {
+      pauseMenu.drawPauseScreen(); 
+    }
   }
 
   if (mode === 3){
     noLoop();
-    drawPauseScreen();
+    pauseMenu.drawPauseScreen(); 
   }
   if (mode === 4){
     drawGameOver();
-    pauseButton.hide();
+    
   }
   // if(mode === 5){
   //   instructionObjectivesScreen();
@@ -154,7 +161,7 @@ function windowResized() {
   let minW = 800; 
   let minH = 600; 
   resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
-  setupInstructionButtons();
+  //setupInstructionButtons();
 }
 
 function playSound(soundLink, loop = false){

@@ -1,78 +1,92 @@
-let resumeButton;
-let restartButton;
-let quitButton;
-function drawPauseScreen() {
-    pauseButton.show();
-    fill('rgba(0, 0, 0, 0.5)'); // Semi-transparent overlay
-    rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 20); 
-    
-    if (!resumeButton) { 
-        resumeButton = createButton('Resume Game');
-        resumeButton.style('font-size', '20px');
-        resumeButton.style('font-family', 'gameFont');
-        resumeButton.style('background-color', 'rgba(255, 0, 0, 0.0)');
-        resumeButton.style('border', 'none');
-        resumeButton.style('color', 'white');
-        resumeButton.size(200, 50); 
-        resumeButton.position((windowWidth / 2) - 100, (windowHeight / 2) - 25); 
-    
-        resumeButton.mousePressed(() => {
-          mode = 2; // Goes back to game screen
-          loop(); // Restarts draw loop
-          resumeButton.hide(); 
-          restartButton.hide();
-          quitButton.hide();
-        });
-      }
-      resumeButton.show();
-      
-      if (!quitButton){
-        quitButton = createButton('Quit Game');
-        quitButton.style('font-size', '20px');
-        quitButton.style('font-family', 'gameFont');
-        quitButton.style('background-color', 'rgba(255, 0, 0, 0.0)');
-        quitButton.style('border', 'none');
-        quitButton.style('color', 'white');
-        quitButton.size(200, 50); 
-        quitButton.position((windowWidth / 2) - 100, (windowHeight / 2) + 75); 
-
-
-       quitButton.mousePressed(() => {
-            mode = 0; // Goes back to start screen
-            loop(); 
-            resumeButton.hide();
-            restartButton.hide(); 
-            quitButton.hide();
-            pauseButton.hide();
+class PauseMenu {
+    constructor() {
+      this.pauseButton = this.createPauseButton();
+      this.resumeButton = this.createTextButton('Resume Game', -25, () => {
+        mode = 2;
+        loop();
+        this.hideMenuButtons();
       });
-    }
-     quitButton.show();
- 
-    if (!restartButton){
-        restartButton = createButton('Restart Game');
-        restartButton.style('font-size', '20px');
-        restartButton.style('font-family', 'gameFont');
-        restartButton.style('background-color', 'rgba(255, 0, 0, 0.0)');
-        restartButton.style('border', 'none');
-        restartButton.style('color', 'white');
-        restartButton.size(200, 50); 
-        restartButton.position((windowWidth / 2) - 100, (windowHeight / 2) + 25); 
-
-        restartButton.mousePressed(() => {
-            freshGameScreen();
-            loop(); // Restarts draw loop
-            resumeButton.hide();
-            restartButton.hide(); 
-            quitButton.hide();
-          });
-    }
-    restartButton.show();
-
-    textAlign(CENTER, CENTER);
-    textSize(40);
-    fill('white');
-    text("GAME PAUSED", windowWidth / 2, windowHeight / 2 - 90);
-  }
-
-
+      this.restartButton = this.createTextButton('Restart Game', 25, () => {
+        freshGameScreen();
+        loop();
+        this.hideMenuButtons();
+      });
+      this.quitButton = this.createTextButton('Quit Game', 75, () => {
+        mode = 0;
+        loop();
+        this.hideMenuButtons();
+        this.pauseButton.hide();
+      });
   
+      this.hideMenuButtons(); // hide initially
+    }
+  
+    createPauseButton() {
+      let btn = createButton('II');
+      btn.style('border-radius', '8px');
+      btn.style('border-color', 'black');
+      btn.style('border-style', 'solid');
+      btn.style('border-width', '4.5px');
+      btn.style('background-color', '#FCF3CF');
+      btn.style('font-family', 'sans-serif');
+      btn.style('font-size', '65px');
+      btn.style('font-weight', '900');
+      btn.style('line-height', '64px');
+      btn.style('text-align', 'center');
+      btn.style('color', 'black');
+      btn.size(75, 75);
+      btn.position(windowWidth / 1.08, windowHeight / 1.15);
+      btn.mousePressed(() => {
+        mode = 3; // pause mode
+      });
+      return btn;
+    }
+  
+    createTextButton(label, yOffset, callback) {
+      let btn = createButton(label);
+      btn.style('font-size', '20px');
+      btn.style('font-family', 'gameFont');
+      btn.style('background-color', 'rgba(255, 0, 0, 0.0)');
+      btn.style('border', 'none');
+      btn.style('color', 'white');
+      btn.size(200, 50);
+      btn.position((windowWidth / 2) - 100, (windowHeight / 2) + yOffset);
+      btn.mousePressed(callback);
+      return btn;
+    }
+  
+    drawPauseScreen() {
+      this.pauseButton.show();
+      
+      fill('rgba(0, 0, 0, 0.5)');
+      rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 20);
+  
+      textAlign(CENTER, CENTER);
+      textSize(40);
+      fill('white');
+      textFont('gameFont');
+      text("GAME PAUSED", windowWidth / 2, windowHeight / 2 - 90);
+  
+      this.resumeButton.show();
+      this.restartButton.show();
+      this.quitButton.show();
+    }
+  
+    hideMenuButtons() {
+      this.resumeButton.hide();
+      this.restartButton.hide();
+      this.quitButton.hide();
+    }
+  
+    hideAll() {
+      this.pauseButton.hide();
+      this.hideMenuButtons();
+    }
+
+    updateButtonPositions() {
+        this.pauseButton.position(windowWidth / 1.08, windowHeight / 1.15);
+        this.resumeButton.position((windowWidth / 2) - 100, (windowHeight / 2) - 25);
+        this.restartButton.position((windowWidth / 2) - 100, (windowHeight / 2) + 25);
+        this.quitButton.position((windowWidth / 2) - 100, (windowHeight / 2) + 75);
+      }
+  }

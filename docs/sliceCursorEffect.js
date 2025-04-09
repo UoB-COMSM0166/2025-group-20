@@ -23,6 +23,6 @@ function cursorEffect() {
   }
 }
 //I actually don't know if this bit underneath is necessary 
-if (typeof module !== "undefined") {
-  module.exports = cursorEffect;
-}
+///if (typeof module !== "undefined") {
+ // module.exports = cursorEffect;
+//}
