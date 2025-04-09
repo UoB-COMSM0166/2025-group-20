@@ -68,7 +68,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //maxHeight = windowHeight * 0.00125;
+  maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
   highestScore = new HighestPointDisplay(0);
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
@@ -161,7 +161,6 @@ function windowResized() {
   let minW = 800; 
   let minH = 600; 
   resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
-  //setupInstructionButtons();
 }
 
 function playSound(soundLink, loop = false){
@@ -173,7 +172,7 @@ function playSound(soundLink, loop = false){
   }
   return sound;
 }
-
+/*
 function mousePressed() {
   if (mode === 0 && !musicPlaying) {
     startScreenMusic = playSound("https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/smoothieOperatorStart.wav", true);
@@ -188,5 +187,6 @@ function toggleMute() {
     startScreenMusic.elt.muted = muted;
   }
   muteButton.html(muted ? "Unmute" : "Mute");
-}
+}*/
+
 
