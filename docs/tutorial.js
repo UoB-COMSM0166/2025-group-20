@@ -201,7 +201,8 @@ function drawBackButton() {
     fill("#FCF3CF");
     stroke(30, 15, 5);
     strokeWeight(4);
-    rect(buttonX, buttonY, buttonWidth, buttonHeight, 10);
+    //rect(buttonX, buttonY, buttonWidth, buttonHeight, 10);
+    rect(buttonX + buttonWidth / 2, buttonY + buttonHeight / 2, buttonWidth, buttonHeight, 10);
     
     noStroke();
     fill("black");
