@@ -12,7 +12,6 @@ class SlicePattern{
                 this.sliceArrays[i] = new SliceArray(this.type, this.diameter);
             }
         }
-
     }
 
     isSliced(){
@@ -101,29 +100,40 @@ class SliceArray{
 
     move(x, y){
         this.hits[0].move(x, y);
+        this.hits[0].show();
         if (this.type == 'down'){
             this.hits[1].move(x, y + this.diameter);
             this.hits[2].move(x, y - this.diameter);
         }
         else if (this.type == 'up'){
             this.hits[1].move(x, y - this.diameter);
+            this.hits[1].show();
             this.hits[2].move(x, y + this.diameter);
+            this.hits[2].show();
         }
         else if (this.type == 'left'){
             this.hits[1].move(x - this.diameter, y);
+            this.hits[1].show();
             this.hits[2].move(x + this.diameter, y);
+            this.hits[2].show();
         }
         else if (this.type == 'right'){
             this.hits[1].move(x + this.diameter, y);
+            this.hits[1].show();
             this.hits[2].move(x - this.diameter, y);
+            this.hits[2].show();
         }
         else if (this.type == 'lrdown/rlup'){
             this.hits[1].move(x - this.diameter/1.5, y - this.diameter/1.5);
+            this.hits[1].show();
             this.hits[2].move(x + this.diameter/1.5, y + this.diameter/1.5);
+            this.hits[2].show();
         }
         else if (this.type == 'rldown/lrup'){
             this.hits[1].move(x + this.diameter/1.5, y - this.diameter/1.5);
+            this.hits[1].show();
             this.hits[2].move(x - this.diameter/1.5, y + this.diameter/1.5);
+            this.hits[2].show();
         }
     }
 }
@@ -156,4 +166,16 @@ class HitBox {
             this.hit = false;
         }
     }
+
+     // Added show() method for debugging purposes.
+  show(){
+    push();
+    noFill();
+    // Change the stroke color based on whether the hit box is active (being "hit")
+    stroke(this.hit ? 'red' : 'green');
+    strokeWeight(2);
+    // Draw a circle centered at this.x, this.y with the given diameter.
+    circle(this.x, this.y, this.diameter);
+    pop();
+  }
 }

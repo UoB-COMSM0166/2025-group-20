@@ -5,7 +5,7 @@ let angleDirection = 1;
 
 function instructionButton() {
     if (!instructionsButton) {
-        instructionsButton = createButton('INSTRUCTIONS');
+        instructionsButton = createButton('Tutorial');
         instructionsButton.style('font-size', '30');
         instructionsButton.style('font-family', 'gameFont');
         instructionsButton.style('text-align', 'center');

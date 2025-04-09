@@ -20,93 +20,42 @@
 
 //     // setupInstructionButtons();
 
-<<<<<<< HEAD:docs/instructions.js
-//     drawBackButton();
-//     drawInstructionButtons();
-//     cursorEffect();
-//     /*instructionsControlsButton();
-//     instructionsGameOverConditions();
-//     instructionsNavigationButton();
-//     instructionsObjectivesButton();
-//     instructionsScoringSystem();*/
-// }
-
-// function mousePressed(){
-//     if (mode === 1){
-//         checkInstructionClick(mouseX, mouseY);
-//     }
-=======
-    drawBackButton();
-    drawInstructionButtons();
-    cursorEffect();
+    // drawBackButton();
+    // drawInstructionButtons();
+    // cursorEffect();
     /*instructionsControlsButton();
     instructionsGameOverConditions();
     instructionsNavigationButton();
     instructionsObjectivesButton();
     instructionsScoringSystem();*/
-}
+//}
 /* global mousePressed, mouseX, mouseY */
-function mousePressed(){
-    if (mode === 1){
-        checkInstructionClick(mouseX, mouseY);
-    }
->>>>>>> 859cd97313619438685320352037154e77a1aa38:docs/screenInstructions.js
+// function mousePressed(){
+//     if (mode === 1){
+//         checkInstructionClick(mouseX, mouseY);
+//     }
 
 //     let buttonX = (width / 2) - 100;
 //     let buttonY = height - 100;
 //     let buttonWidth = 200;
 //     let buttonHeight = 50;
 
-<<<<<<< HEAD:docs/instructions.js
 //     if (mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY && mouseY < buttonY + buttonHeight) {
-//         if (mode == 1) {
+//         if (mode === 1) {
 //             mode = 0;
 //         }
 //         else {
 //             mode = 1;
 //         }
-        
-//         //mode = 0;
 //     }
-
-//     /*if (mode >= 5 && mode <= 9) {
-//         let backX = width - 150;
-//         let backY = height - 60;
-//         let backWidth = 120;
-//         let backHeight = 40;
-
-//         if (mouseX > backX && mouseX < backX + backWidth && mouseY > backY && mouseY < backY + backHeight) {
-//             mode = 1; 
-//         }
-//     }*/
 // }
 
-// //I need to fix this because it looks really weird and ugly
+//I need to fix this because it looks really weird and ugly
 // function drawBackButton() {
-//     //if (mode != 1) return;
-
 //     let buttonX = (width / 2) - 100;
 //     let buttonY = height - 100;
 //     let buttonWidth = 200;
 //     let buttonHeight = 50;
-=======
-    if (mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY && mouseY < buttonY + buttonHeight) {
-        if (mode === 1) {
-            mode = 0;
-        }
-        else {
-            mode = 1;
-        }
-    }
-}
-
-//I need to fix this because it looks really weird and ugly
-function drawBackButton() {
-    let buttonX = (width / 2) - 100;
-    let buttonY = height - 100;
-    let buttonWidth = 200;
-    let buttonHeight = 50;
->>>>>>> 859cd97313619438685320352037154e77a1aa38:docs/screenInstructions.js
 
 //     fill("#FCF3CF");
 //     stroke(30, 15, 5);
