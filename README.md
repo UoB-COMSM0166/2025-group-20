@@ -20,9 +20,9 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 - Matilda Stokes, jl21579@bristol.ac.uk
 - Ziyan Zhao, rw24449@bristol.ac.uk
 
-## Project Report
+# Project Report
 
-### Introduction
+## Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel?
@@ -48,7 +48,7 @@ Player immersion - No timer, immersive visuals etc.
 
 - Summary of the overall vision 
 
-### Requirements (Ziyan)
+## Requirements (Ziyan)
 .
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
@@ -86,7 +86,7 @@ Game → UI: gameScreen() (should update the display as necessary)
 - Design Decisions and Subsquent Justification
 - In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
 
-### Implementation (Omnia)
+## Implementation (Omnia)
 
 - 15% ~750 words
 
@@ -100,6 +100,9 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 
 ### Qualitative: Think Aloud
 
+To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience (Nielsen, 1993). This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback—demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed four prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system, the learning curve associated with recipe memorisation, and the overall emotional experience. The richness of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic coding and categorised to identify patterns of friction, satisfaction, and emergent player strategies (see Table X). 
+
+Table X: Raw Think Aloud (TA) feedback
 | Theme | Positive | Negative | Suggested modifications |
 | --- | --- | --- | --- |
 | Controls | <ul><li>The click control is very satisfying</li><li>The cursorEffect provides good user feedback</li></ul> | <ul><li>Touchpad is inelegant</li><li>Mousepressed functions bug after hearts lost</li><li>The mousepressed for slicing could be redundant</li></ul> |  |
@@ -107,37 +110,21 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 | Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
 | Frustrations and Engagements |  | <ul><li>No time constraints cause monotony</li></ul> | |
 
-| Theme | Positive | Negative | Suggested modifications |
-| --- | --- | --- | --- | --- |
-| Controls | The click control is very satisfying | Touchpad is inelegant | |
-| | The cursorEffect provides good user feedback | Mousepressed functions bug after hearts lost | |
-| | | The mousepressed for slicing could be redundant | |
-| Display | Good Fruit Sizes | Recipe aspect and order is unclear | |
-| | Fruit slice visuals are very rewarding | cursorEffect does not remain long enough | |
-| | | Some fruits are generated stuck together | |
-| Learning Curve | | Initial difficulty remembering rules | |
-| | Initial difficuly remembering slice patterns | |
-| | Easy to avoid the bomb (Redundant?) | |
-| | Once slice patterns internalised, they're too easy to remember | |
-| Frustrations and engagments | | No time constraints cause monotony | |
-
 - 15% ~750 words
-
-- One qualitative evaluation (your choice) (Ask about the preference of mouse pressed vs no mouse pressed)
 
 - One quantitative evaluation (of your choice) 
 
 - Description of how code was tested. 
 
-### Process (May)
+## Process (May)
 
 - 15% ~750 words
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
 
-  ### Sustainability (Scarlett)
+  ## Sustainability (Scarlett)
 
-### Conclusion
+## Conclusion
 
 - 10% ~500 words
 
