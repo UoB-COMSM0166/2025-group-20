@@ -92,7 +92,27 @@ Game → UI: gameScreen() (should update the display as necessary)
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-### Evaluation (Matilda)
+## Evaluation (Matilda)
+
+### Abstract
+
+This section presents the HCI evaluations of Smoothie Operator, with a particular focus on assessing balanced usability, cognitive load, and player engagement. To assess the game's key issues early in the design process, we employed a mixed-methods approach - combining qualitative feedback from Think Aloud evaluations with quantitative data collected using the NASA Task Load Index (TLX). Evaluations were conducted with a range of participants to encapsulate a comprehensive picture of potential user behaviours and perceptions. The primary objectives were to identify the usability key issues and measure player workload and demand across gameplay tasks to inform iterative design improvements. Results from the evaluations provided clear and direct feedback on the game's task flow and cognitive demands, leading to straightforward problem-solving to gameplay.
+
+### Qualitative: Think Aloud
+
+| Theme | Positive | Negative | Suggested modifications |
+| --- | --- | --- | --- | --- |
+| Controls | The click control is very satisfying | Touchpad is inelegant | |
+| | The cursorEffect provides good user feedback | Mousepressed functions bug after hearts lost | |
+| | | The mousepressed for slicing could be redundant | |
+| Display | Good Fruit Sizes | Recipe aspect and order is unclear | |
+| | Fruit slice visuals are very rewarding | cursorEffect does not remain long enough | |
+| | | Some fruits are generated stuck together | |
+| Learning Curve | | Initial difficulty remembering rules | |
+| | Initial difficuly remembering slice patterns | |
+| | Easy to avoid the bomb (Redundant?) | |
+| | Once slice patterns internalised, they're too easy to remember | |
+| Frustrations and engagments | | No time constraints cause monotony | |
 
 - 15% ~750 words
 
