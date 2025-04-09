@@ -22,7 +22,9 @@ var lifeIcons;
 var currentRecipe;
 var gameScore;
 var highestScore;
-var sound;
+var cutSound;
+var bombSound;
+var introMusic;
 var maxHeight;
 var difficulty = 'easy';
 let appleSliceImg;
@@ -30,6 +32,10 @@ let pauseMenu;
 let recipeButton; 
 
 function preload() {
+  introMusic = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/smoothieOperatorStart.wav')
+  cutSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/soundSlicing.wav');
+  bombSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/soundBomb.wav');
+
   // loads material used in start screen
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
@@ -75,11 +81,13 @@ function draw() {
     instructionScreen();
 
     if (pauseMenu) pauseMenu.hideAll();
-    if (easyModeButton || hardModeButton){
-      easyModeButton.hide();
-      hardModeButton.hide();
+    if (easyModeButton || hardModeButton || onePlayerButton || twoPlayerButton) {
+      if (onePlayerButton) onePlayerButton.hide();
+      if (twoPlayerButton) twoPlayerButton.hide();
+      if (easyModeButton) easyModeButton.hide();
+      if (hardModeButton) hardModeButton.hide();
+      }
     }
-  }
   if (mode === 2) {
     gameScreen();
     redBorder();
@@ -104,7 +112,6 @@ function draw() {
         if (hardModeButton) hardModeButton.hide();
     }
 }
-
   else if (mode === 3){
     noLoop();
     pauseMenu.drawPauseScreen();

@@ -59,14 +59,16 @@ function gameScreen() {
                     wrongSliceEffect();
                 }
             }
-           // playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
+          //  playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sliceEffect.wav');
+            cutSound.play();
             fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
             splatters.push(new splat(fruit[i].xPos, fruit[i].yPos, fruit[i].fruitName));
         //load splat image and update to slice fruit even if there's not corresponding splat (at the moment there is not a corresponding splat for banana, lemon, bomb)
             fruit[i].slicePat = new SlicePattern('inert', 0);
         }
         else if (fruit[i].slicePat.isSliced() == 'bomb'){
-          //  playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+           // playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+            bombSound.play();
             fruit[i].slicePat = new SlicePattern('inert', 0);
             mode = 4;
         }

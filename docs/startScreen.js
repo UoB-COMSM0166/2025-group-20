@@ -1,3 +1,5 @@
+
+
 let tutorialBtn;
 let easyModeButton;
 let hardModeButton;
@@ -5,6 +7,8 @@ let onePlayerButton;
 let twoPlayerButton;
 
 function drawStartScreen() {
+    mode = 0;
+   // introMusic.play();
     background(bg);
     textAlign(CENTER, CENTER);
     textFont(gameFont);
@@ -60,12 +64,12 @@ function drawStartScreen() {
   function modeButtons() {
 
     textSize(30);
-    textFont('gameFont');
+    textFont(gameFont);
     textAlign(CENTER, CENTER);
     fill('white');
     stroke('black')
     strokeWeight(2);
-    text('Choose your recipe for the game:', windowWidth / 2 , windowHeight / 2 - 20);
+    text('Choose your recipe for the game:', windowWidth / 2 , windowHeight / 2 - 40);
 
     if (!easyModeButton){
 
@@ -278,8 +282,6 @@ function startGame() {
       }
     }
 }
-
-
   
 
 
