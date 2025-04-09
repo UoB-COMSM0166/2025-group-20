@@ -94,11 +94,11 @@ Game → UI: gameScreen() (should update the display as necessary)
 
 ## Evaluation (Matilda)
 
-### Abstract
+## Abstract
 
 This section presents the HCI evaluations of Smoothie Operator, with a particular focus on assessing balanced usability, cognitive load, and player engagement. To assess the game's key issues early in the design process, we employed a mixed-methods approach - combining qualitative feedback from Think Aloud evaluations with quantitative data collected using the NASA Task Load Index (TLX). Evaluations were conducted with a range of participants to encapsulate a comprehensive picture of potential user behaviours and perceptions. The primary objectives were to identify the usability key issues and measure player workload and demand across gameplay tasks to inform iterative design improvements. Results from the evaluations provided clear and direct feedback on the game's task flow and cognitive demands, leading to straightforward problem-solving to gameplay.
 
-### Qualitative: Think Aloud
+## Qualitative: Think Aloud
 
 To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience (Nielsen, 1993). This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback—demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed four prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system, the learning curve associated with recipe memorisation, and the overall emotional experience. The richness of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic coding and categorised to identify patterns of friction, satisfaction, and emergent player strategies (see Table X). 
 
@@ -108,7 +108,15 @@ Table X: Raw Think Aloud (TA) feedback
 | Controls | <ul><li>The click control is very satisfying</li><li>The cursorEffect provides good user feedback</li></ul> | <ul><li>Touchpad is inelegant</li><li>Mousepressed functions bug after hearts lost</li><li>The mousepressed for slicing could be redundant</li></ul> |  |
 | Display | <ul><li>Good fruit sizes</li><li>Fruit slice visuals are very rewarding</li></ul> | <ul><li>Recipe aspect and order is unclear</li><li>cursorEffect does not remain long enough</li><li>Some fruits are generated stuck together</li></ul> | |
 | Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
-| Frustrations and Engagements |  | <ul><li>No time constraints cause monotony</li></ul> | |
+| Affective response |  | <ul><li>No time constraints cause monotony</li></ul> | |
+
+# Controls 
+
+# Display
+
+# Learning Curve
+
+# Affective Response 
 
 - 15% ~750 words
 
