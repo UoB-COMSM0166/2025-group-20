@@ -73,7 +73,6 @@ class InstructionFruit {
     }
   }
 
-
   function setupInstructionButtons() {
     console.log("Setting up instruction buttons");
 

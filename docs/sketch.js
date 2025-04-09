@@ -11,6 +11,7 @@ let wrongSlice = false;
 // array of the fruits and vegetables 
 let fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'watermelon', 'dragonfruit', 'bomb']; //one more fruit needed
 let sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
+let sliceNarration = ['upwards', 'downwards','by clicking', 'to the left', 'to the right', 'top-left to bottom-right', 'top-right to bottom-left', 'bomb'];
 let fruitImgs = [];
 let sliceImgs = [];
 let patImgs = [];
@@ -30,6 +31,10 @@ let muteButton;
 let muted = true;
 let startScreenMusic;
 let musicPlaying = false;
+let leftImg, rightImg;
+
+
+
 
 function preload() {
   // loads material used in start screen
@@ -40,6 +45,9 @@ function preload() {
   lifelostImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/lifelost.png');
   appleSliceImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Images/apple-slice.png');
   bombImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/bomb.png');
+  //change the image path after pushing it to main
+  leftImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/left.png');
+  rightImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/right.png');
 
   // loads fruit images to the fruitImgs array
   for (let i = 0; i < fruitList.length; i++) {
@@ -51,6 +59,8 @@ function preload() {
   for (let i = 0; i < fruitList.length; i++) {
     patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
   }
+
+
 }
 
 function setup() {
@@ -82,13 +92,18 @@ function draw() {
     muteButton.hide;
   }
   if (mode === 1){
-    instructionScreen();
+    noCursor();
+    tutorialEasyScreen();
+    wrongSliceText();
+    correctSliceText();
 
     if (pauseButton){
       pauseButton.hide();
     }
     easyModeButton.hide();
     hardModeButton.hide();
+  } else {
+    cursor();
   }
   if (mode === 2){
     gameScreen();
@@ -118,21 +133,21 @@ function draw() {
     drawGameOver();
     pauseButton.hide();
   }
-  if(mode === 5){
-    instructionObjectivesScreen();
-  }
-  if(mode === 6){
-    instructionControlsScreen();
-  }
-  if(mode === 7){
-    instructionScoringSystemScreen();
-  }
-  if(mode === 8){
-    instructionGameOverConditionsScreen();
-  }
-  if(mode === 9){
-    instructionNavigationScreen();
-  }
+  // if(mode === 5){
+  //   instructionObjectivesScreen();
+  // }
+  // if(mode === 6){
+  //   instructionControlsScreen();
+  // }
+  // if(mode === 7){
+  //   instructionScoringSystemScreen();
+  // }
+  // if(mode === 8){
+  //   instructionGameOverConditionsScreen();
+  // }
+  // if(mode === 9){
+  //   instructionNavigationScreen();
+  // }
 }
 
 function windowResized() {

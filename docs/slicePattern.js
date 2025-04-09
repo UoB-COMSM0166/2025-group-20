@@ -12,7 +12,6 @@ class SlicePattern{
                 this.sliceArrays[i] = new SliceArray(this.type, this.diameter);
             }
         }
-
     }
 
     isSliced(){
@@ -156,4 +155,5 @@ class HitBox {
             this.hit = false;
         }
     }
+
 }
