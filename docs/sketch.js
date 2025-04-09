@@ -102,6 +102,8 @@ function draw() {
     }
     easyModeButton.hide();
     hardModeButton.hide();
+  } else {
+    cursor();
   }
   if (mode === 2){
     gameScreen();

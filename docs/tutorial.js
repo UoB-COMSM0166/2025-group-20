@@ -1,5 +1,4 @@
-let currentFruitIndex = 0;
-let showNextButton = false;
+let currentFruitIndex = 0;;
 let autoAdvanceTimeout = null;
 
 class TutorialFruit {
@@ -157,6 +156,7 @@ function mousePressed(){
         
         if (mode === 1) {
             mode = 0;
+            currentTutorialFruit.slicingGif.remove();
         } else {
             mode = 1;
         }
@@ -207,7 +207,6 @@ function drawBackButton() {
     fill("#FCF3CF");
     stroke(30, 15, 5);
     strokeWeight(4);
-    //rect(buttonX, buttonY, buttonWidth, buttonHeight, 10);
     rect(buttonX + buttonWidth / 2, buttonY + buttonHeight / 2, buttonWidth, buttonHeight, 10);
     
     noStroke();
