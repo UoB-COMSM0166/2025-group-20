@@ -110,13 +110,15 @@ Table X: Raw Think Aloud (TA) feedback
 | Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
 | Affective response |  | <ul><li>No time constraints cause monotony</li></ul> | |
 
-# Controls 
+### Controls 
 
-# Display
+### Display
 
-# Learning Curve
+### Learning Curve
 
-# Affective Response 
+### Affective Response 
+
+## Quantitative: NASA TLX
 
 - 15% ~750 words
 
