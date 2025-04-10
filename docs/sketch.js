@@ -1,7 +1,6 @@
 //import cursorEffect = require("./cursorEffect");
 
 // global variables
-let mode = 0;
 let gameFont, appleImg;
 let gravity = 0.1;
 let displayBorder = false;
@@ -34,6 +33,9 @@ let musicPlaying = false;
 let leftImg, rightImg;
 let cutSound;
 let bombSound;
+
+let gameManager;
+
 
 
 function preload() {
@@ -73,10 +75,11 @@ function setup() {
   highestScore = new HighestPointDisplay(0);
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
+  gameManager = new GameManager(); 
 }
 
 function draw() {
-  if (mode === 0) {
+  /*if (mode === 0) {
     drawStartScreen();
     tutorialBtn.show();
    // soundBtn.show();
@@ -90,9 +93,15 @@ function draw() {
     if (pauseMenu.pauseButton) {
       pauseMenu.pauseButton.hide();
     }
+  }*/
+
+  gameManager.render();
+}
+
+  /*if (gameManager.state === "start") {
+    drawStartState();
   }
- 
-  if (mode === 1){
+  if (gameManager.switchState("tutorial"){
     noCursor();
     tutorialEasyScreen();
     wrongSliceText();
@@ -138,24 +147,15 @@ function draw() {
   }
   if (mode === 4){
     drawGameOver();
+    tutorialBtn.hide();
+    // soundBtn.hide();
+     onePlayerButton.hide();
+     twoPlayerButton.hide();
+     easyModeButton.hide();
+     hardModeButton.hide();
     
   }
-  // if(mode === 5){
-  //   instructionObjectivesScreen();
-  // }
-  // if(mode === 6){
-  //   instructionControlsScreen();
-  // }
-  // if(mode === 7){
-  //   instructionScoringSystemScreen();
-  // }
-  // if(mode === 8){
-  //   instructionGameOverConditionsScreen();
-  // }
-  // if(mode === 9){
-  //   instructionNavigationScreen();
-  // }
-}
+}*/
 
 function windowResized() {
   let minW = 800; 
@@ -172,6 +172,22 @@ function playSound(soundLink, loop = false){
   }
   return sound;
 }
+
+/*function drawStartState() {
+  drawStartScreen();
+  tutorialBtn.show();
+  easyModeButton.show();
+  hardModeButton.show();
+  onePlayerButton.show();
+  twoPlayerButton.show();
+  if (recipeButton) {
+    recipeButton.hide();
+  }
+  if (pauseMenu.pauseButton) {
+    pauseMenu.pauseButton.hide();
+  }
+}*/
+
 /*
 function mousePressed() {
   if (mode === 0 && !musicPlaying) {
@@ -188,5 +204,3 @@ function toggleMute() {
   }
   muteButton.html(muted ? "Unmute" : "Mute");
 }*/
-
-

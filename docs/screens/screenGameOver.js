@@ -31,10 +31,8 @@ function returnHomeButton() {
   if(mouseIsPressed){
   let insideEllipseCheck = (mouseX-ellCentreX)*(mouseX-ellCentreX) / ((ellWidth/2)*(ellWidth/2)) + 
     ((mouseY-ellCentreY)*(mouseY-ellCentreY))/((ellHeight/2)*(ellHeight/2));
-    if(insideEllipseCheck < 1 && mode === 4){
-        //console.log("return Home");
-      mode = 0;
-    
+    if(insideEllipseCheck < 1 && gameManager.state === "gameover"){
+        gameManager.switchState("start");
     }
  }
 }
@@ -54,7 +52,7 @@ function startOverButton(){
   text("Start Over", width/2.75, height/2.3);
 
   if(mouseIsPressed){
-    if(mouseX > posx1 && mouseX < posx2 && mouseY > posy1 && mouseY < posy2 && mode === 4){
+    if(mouseX > posx1 && mouseX < posx2 && mouseY > posy1 && mouseY < posy2 && gameManager.state === "gameover"){
       freshGameScreen();
     }
   }

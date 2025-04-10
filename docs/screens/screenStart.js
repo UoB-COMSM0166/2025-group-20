@@ -6,7 +6,7 @@ let onePlayerButton;
 let twoPlayerButton;
 
 function drawStartScreen() {
-    mode = 0;
+    gameManager.switchState("start");
    // introMusic.play();
     background(bg);
     textAlign(CENTER, CENTER);
@@ -25,9 +25,9 @@ function drawStartScreen() {
 
   }
   function keyPressed() {
-    if (keyCode === ENTER && mode === 0) {
+    if (keyCode === ENTER && gameManager.state === "start") {
       freshGameScreen(); // changes to game screen
-      mode = 2;
+      gameManager.switchState("game");
     }
   }  
 
@@ -55,7 +55,7 @@ function drawStartScreen() {
       });
 
       tutorialBtn.mousePressed(() => {
-        mode = 1; // Goes to instructions screen
+        gameManager.switchState("tutorial"); // Goes to instructions screen
         tutorialBtn.hide();
       });
       tutorialBtn.show();
