@@ -2,7 +2,7 @@ class PauseMenu {
     constructor() {
       this.pauseButton = this.createPauseButton();
       this.resumeButton = this.createTextButton('Resume Game', -25, () => {
-        mode = 2;
+        gameManager.switchState("game");
         loop();
         this.hideMenuButtons();
       });
@@ -12,7 +12,7 @@ class PauseMenu {
         this.hideMenuButtons();
       });
       this.quitButton = this.createTextButton('Quit Game', 75, () => {
-        mode = 0;
+        gameManager.switchState("start");
         loop();
         this.hideMenuButtons();
         this.pauseButton.hide();
@@ -37,7 +37,7 @@ class PauseMenu {
       btn.size(75, 75);
       btn.position(windowWidth / 1.08, windowHeight / 1.15);
       btn.mousePressed(() => {
-        mode = 3; // pause mode
+        gameManager.switchState("pause"); // pause mode
       });
       return btn;
     }

@@ -47,7 +47,7 @@ function gameScreen() {
                 lifeIcons.loseLife();
                 loseLifeEffect();
                 if (lifeIcons.lives === 0){
-                    mode = 4;
+                    gameManager.switchState("gameover");
                 }
             }
             else if (fruit[i].index === currentRecipe.ingredients[0]){
@@ -70,7 +70,7 @@ function gameScreen() {
            // playSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
             bombSound.play();
             fruit[i].slicePat = new SlicePattern('inert', 0);
-            mode = 4;
+            gameManager.switchState("gameover");
         }
     }
     cursorEffect();
@@ -84,5 +84,5 @@ function freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
     gameScore = new PointSystem();
-    mode = 2;
+    gameManager.switchState("game");
 }

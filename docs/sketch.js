@@ -1,7 +1,6 @@
 //import cursorEffect = require("./cursorEffect");
 
 // global variables
-let mode = 0;
 let gameFont, appleImg;
 let gravity = 0.1;
 let displayBorder = false;
@@ -34,6 +33,9 @@ let musicPlaying = false;
 let leftImg, rightImg;
 let cutSound;
 let bombSound;
+
+let gameManager;
+
 
 
 function preload() {
@@ -73,88 +75,18 @@ function setup() {
   highestScore = new HighestPointDisplay(0);
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
+  gameManager = new GameManager(); 
 }
 
 function draw() {
-  if (mode === 0) {
-    drawStartScreen();
-    tutorialBtn.show();
-   // soundBtn.show();
-    easyModeButton.show();
-    hardModeButton.show();
-    onePlayerButton.show();
-    twoPlayerButton.show();
-    if (recipeButton) {
-      recipeButton.hide();
-    }
-    if (pauseMenu.pauseButton) {
-      pauseMenu.pauseButton.hide();
-    }
-  }
- 
-  if (mode === 1){
-    noCursor();
-    tutorialEasyScreen();
-    wrongSliceText();
-    correctSliceText();
-    tutorialBtn.hide();
-   // soundBtn.hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-  } else {
-    cursor();
-  }
-  if (mode === 2){
-    gameScreen();
-    redBorder();
-    greenBorder();
-    completionText();
-    wrongSliceText();
-    
-    if (difficulty !== 'easy') {
-      makeRecipeButton();
-      recipeButton.show();
-    }
-    else if (recipeButton && difficulty === 'easy') {
-      recipeButton.hide();
-    }
-    tutorialBtn.hide();
-    //soundBtn.hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-    pauseMenu.pauseButton.show(); 
-    if (pauseMenu.pause) {
-      pauseMenu.drawPauseScreen(); 
-    }
-  }
+  gameManager.render();
+}
 
-  if (mode === 3){
-    noLoop();
-    pauseMenu.drawPauseScreen(); 
+function keyPressed() {
+  if (keyCode === ENTER && gameManager.state === "start") {
+    freshGameScreen();
+    gameManager.switchState("game");
   }
-  if (mode === 4){
-    drawGameOver();
-    
-  }
-  // if(mode === 5){
-  //   instructionObjectivesScreen();
-  // }
-  // if(mode === 6){
-  //   instructionControlsScreen();
-  // }
-  // if(mode === 7){
-  //   instructionScoringSystemScreen();
-  // }
-  // if(mode === 8){
-  //   instructionGameOverConditionsScreen();
-  // }
-  // if(mode === 9){
-  //   instructionNavigationScreen();
-  // }
 }
 
 function windowResized() {
@@ -172,6 +104,7 @@ function playSound(soundLink, loop = false){
   }
   return sound;
 }
+
 /*
 function mousePressed() {
   if (mode === 0 && !musicPlaying) {
@@ -188,5 +121,3 @@ function toggleMute() {
   }
   muteButton.html(muted ? "Unmute" : "Mute");
 }*/
-
-

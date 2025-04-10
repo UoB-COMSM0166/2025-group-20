@@ -154,11 +154,11 @@ function mousePressed(){
     let buttonY = height - buttonHeight - 20; 
     if (mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY && mouseY < buttonY + buttonHeight) {
         
-        if (mode === 1) {
-            mode = 0;
+        if (gameManager.state === "tutorial") {
+            gameManager.switchState("start");
             currentTutorialFruit.slicingGif.remove();
         } else {
-            mode = 1;
+            gameManager.switchState("tutorial");
         }
         return;
     }
@@ -196,7 +196,7 @@ function mousePressed(){
 }
 
 function drawBackButton() {
-    if (mode != 1) return;
+    if (gameManager.state !== "tutorial") return;
 
     let buttonWidth = 200;
     let buttonHeight = 50;
@@ -217,7 +217,7 @@ function drawBackButton() {
 }
 
 function drawArrows(){
-    if (mode != 1) return;
+    if (gameManager.state !== "tutorial") return;
     let xOffset = 20;
     if (leftImg && rightImg) {
         image(leftImg, xOffset, (height - leftImg.height) / 2, 50, 50);
