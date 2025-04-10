@@ -1,6 +1,7 @@
 class GameManager {
     constructor() {
       this.state = "start";
+      this.startScreen = new ScreenStart(this);
       this.score = 0;
       this.lives = 3;
       this.difficulty = "easy";
@@ -17,9 +18,14 @@ class GameManager {
     render() {
       switch (this.state) {
         case "start":
-            this.drawStartState();
+            this.startScreen.render();
+            this.startScreen.showButtons();
+            if (pauseMenu.pauseButton) {
+                pauseMenu.pauseButton.hide();
+            }
           break;
         case "tutorial":
+        //this.startScreen.hideButtons();
           this.drawTutorialState();
           break;
         case "game":
@@ -34,7 +40,7 @@ class GameManager {
       }
     }
 
-    drawStartState() {
+    /*drawStartState() {
         drawStartScreen();
         tutorialBtn.show();
         easyModeButton.show();
@@ -47,7 +53,7 @@ class GameManager {
         if (pauseMenu.pauseButton) {
           pauseMenu.pauseButton.hide();
         }
-    }
+    }*/
 
     drawTutorialState(){
         noCursor();

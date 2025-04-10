@@ -79,83 +79,15 @@ function setup() {
 }
 
 function draw() {
-  /*if (mode === 0) {
-    drawStartScreen();
-    tutorialBtn.show();
-   // soundBtn.show();
-    easyModeButton.show();
-    hardModeButton.show();
-    onePlayerButton.show();
-    twoPlayerButton.show();
-    if (recipeButton) {
-      recipeButton.hide();
-    }
-    if (pauseMenu.pauseButton) {
-      pauseMenu.pauseButton.hide();
-    }
-  }*/
-
   gameManager.render();
 }
 
-  /*if (gameManager.state === "start") {
-    drawStartState();
+function keyPressed() {
+  if (keyCode === ENTER && gameManager.state === "start") {
+    freshGameScreen();
+    gameManager.switchState("game");
   }
-  if (gameManager.switchState("tutorial"){
-    noCursor();
-    tutorialEasyScreen();
-    wrongSliceText();
-    correctSliceText();
-    tutorialBtn.hide();
-   // soundBtn.hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-  } else {
-    cursor();
-  }
-  if (mode === 2){
-    gameScreen();
-    redBorder();
-    greenBorder();
-    completionText();
-    wrongSliceText();
-    
-    if (difficulty !== 'easy') {
-      makeRecipeButton();
-      recipeButton.show();
-    }
-    else if (recipeButton && difficulty === 'easy') {
-      recipeButton.hide();
-    }
-    tutorialBtn.hide();
-    //soundBtn.hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-    pauseMenu.pauseButton.show(); 
-    if (pauseMenu.pause) {
-      pauseMenu.drawPauseScreen(); 
-    }
-  }
-
-  if (mode === 3){
-    noLoop();
-    pauseMenu.drawPauseScreen(); 
-  }
-  if (mode === 4){
-    drawGameOver();
-    tutorialBtn.hide();
-    // soundBtn.hide();
-     onePlayerButton.hide();
-     twoPlayerButton.hide();
-     easyModeButton.hide();
-     hardModeButton.hide();
-    
-  }
-}*/
+}
 
 function windowResized() {
   let minW = 800; 
@@ -172,21 +104,6 @@ function playSound(soundLink, loop = false){
   }
   return sound;
 }
-
-/*function drawStartState() {
-  drawStartScreen();
-  tutorialBtn.show();
-  easyModeButton.show();
-  hardModeButton.show();
-  onePlayerButton.show();
-  twoPlayerButton.show();
-  if (recipeButton) {
-    recipeButton.hide();
-  }
-  if (pauseMenu.pauseButton) {
-    pauseMenu.pauseButton.hide();
-  }
-}*/
 
 /*
 function mousePressed() {
