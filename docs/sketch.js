@@ -41,8 +41,8 @@ let gameManager;
 function preload() {
   // loads material used in start screen
 
-  cutSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/soundSlicing.wav');
-  bombSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+  cutSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/2343e3efeadaef5a3f80b76c16b35c4e405ce81e/docs/sounds/soundSlicing.wav');
+  bombSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/2343e3efeadaef5a3f80b76c16b35c4e405ce81e/docs/sounds/bombSound.wav');
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
   bg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/923cd18c3e0c776d146c9cb4e9bf10b24d488e40/docs/Background%20Images/Game%20Screen%20Background.png');
