@@ -57,6 +57,10 @@ class ScreenStart {
       strokeWeight(6);
       textSize(100);
       text('Smoothie Operator', width / 2, height / 8);
+
+      textSize(30);
+      strokeWeight(3);
+      text('Choose your recipe for the game:', windowWidth / 2 , windowHeight / 2 - 40);
   }
 
   drawWaveText() {
@@ -73,7 +77,7 @@ class ScreenStart {
         let yWave = sin(frameCount * yWaveSpeed + i * 0.5 + yWaveOffset) * yWaveSize;
         let xWave = cos(frameCount * xWaveSpeed + i * 0.5 + xWaveOffset) * xWaveSize;
         let xPos = (windowWidth / 2 + 30) + xWave + (i - textLength / 2) * 32;
-        let yPos = windowHeight / 8 + 480 + yWave;
+        let yPos = windowHeight / 8 + 465 + yWave;
 
         text(char, xPos, yPos);
       }
@@ -145,15 +149,6 @@ function tutorialButton() {
   }
 
   function modeButtons() {
-
-    textSize(30);
-    textFont(gameFont);
-    textAlign(CENTER, CENTER);
-    fill('white');
-    stroke('black')
-    strokeWeight(2);
-    text('Choose your recipe for the game:', windowWidth / 2 , windowHeight / 2 - 40);
-
     if (!easyModeButton){
 
       easyModeButton = createButton('EASY MODE');

@@ -39,6 +39,8 @@ class RecipeButton {
 function makeRecipeButton() {
     textFont(gameFont);
     fill('white');
+    stroke('black');
+    strokeWeight(2);
     textSize(22);
     textAlign(CENTER, CENTER);
     text("RECIPE", windowWidth / 1.14, windowHeight / 1.23);
