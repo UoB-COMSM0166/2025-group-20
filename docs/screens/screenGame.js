@@ -3,15 +3,27 @@ function gameScreen() {
     background(bg);
     if (currentRecipe.ingredients.length === 0){
         recipeCompleteEffect();
-        gameScore.recipeComplete();
+        if(difficulty == 'easy'){
+            easyGameScore.recipeComplete();
+        } else {
+            hardGameScore.recipeComplete();
+        }
+        
         currentRecipe = new SmoothieRecipe();
         fruitOnScreen = [];
     }
     currentRecipe.display();
     lifeIcons.show();
-    highestScore.updateHighestScore(gameScore.pointsPerGame);
-    gameScore.display();
-    highestScore.display();
+
+    if (difficulty === 'easy') {
+        easyGameScore.display();
+        easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
+        easyHighestScore.display();
+      } else {
+        hardGameScore.display();
+        hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
+        hardHighestScore.display();
+      }
 
     if(frameCount % 60 === 0) {
         let x = fruitGenerator.randomFruitGen(1, currentRecipe);
@@ -53,7 +65,12 @@ function gameScreen() {
             else if (fruit[i].index === currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() === 'correct'){
                     currentRecipe.ingredients.shift();
-                    gameScore.correctCut();
+                    if(difficulty === 'easy'){
+                        easyGameScore.correctCut();
+                    } else{
+                        hardGameScore.correctCut();
+                    }
+                    //gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() === 'wrong'){
                     wrongSliceEffect();
@@ -83,6 +100,15 @@ function freshGameScreen() {
     fruitOnScreen = [];
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
-    gameScore = new PointSystem();
+
+    if (difficulty === 'easy') {
+        easyGameScore.display();
+        easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
+        easyHighestScore.display();
+    } else {
+        hardGameScore.display();
+        hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
+        hardHighestScore.display();
+    }
     gameManager.switchState("game");
 }

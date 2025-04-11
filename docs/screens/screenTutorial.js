@@ -47,10 +47,9 @@ class TutorialFruit {
         if(this.visible){
             image(this.fruitImg, this.xPos, this.yCurrentPos, this.size, this.size);
         }
-        
         if(!this.slicingGif){
                 this.slicingGif = createImg('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[currentFruitIndex] + '-slice.gif');
-                this.slicingGif.size(100, 100); // adjust size as needed
+                this.slicingGif.size(100, 100);
                 this.slicingGif.style('position', 'absolute');
                 this.slicingGif.style('z-index', '1000');
         }
@@ -69,8 +68,6 @@ class TutorialFruit {
         this.slicePat = new SlicePattern(this.currentSlicePattern, this.size);
         this.fruitImg = fruitImgs[currentFruitIndex];
     }
-
-    
 
 }
 
@@ -225,5 +222,3 @@ function drawArrows(){
    }
 
 }
-
-//why when click does it move to the 

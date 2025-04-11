@@ -38,10 +38,15 @@ class ScreenStart {
   render() {
       background(bg);
       this.createButtons();
-      highestScore.display();
       this.drawTitle();
       this.drawWaveText();
       this.border();
+      
+      if(difficulty === 'easy'){
+        easyHighestScore.display();
+      } else {
+        hardHighestScore.display();
+      }
   }
 
   drawTitle() {
@@ -138,34 +143,6 @@ function tutorialButton() {
       tutorialBtn.show();
     }
   }
-/*
-  let isSoundOn = true; 
-
-  function soundButton() {
-    if (!soundBtn) {
-      soundBtn = createButton('SOUND ON');
-      soundBtn.style('font-size', '20px');
-      soundBtn.style('font-family', 'gameFont');
-      soundBtn.style('text-align', 'center');
-      soundBtn.style('background-color', '#FCF3CF');
-      soundBtn.style('border', '3px solid black');
-      soundBtn.style('border-radius', '8px');
-      soundBtn.style('color', 'black');
-      soundBtn.size(75, 75);
-      soundBtn.position(windowWidth / 1.08, windowHeight / 1.15);
-  
-      soundBtn.mousePressed(() => {
-        if (isSoundOn) {
-          isSoundOn = false;  
-          soundBtn.html('SOUND OFF'); 
-        } else {
-          isSoundOn = true;  
-          introMusic.play();
-          soundBtn.html('SOUND ON');  
-        }
-      });
-    }
-  }  */
 
   function modeButtons() {
 
@@ -237,7 +214,7 @@ function tutorialButton() {
         easyModeButton.style('background-color', '#FCF3CF');
         hardModeButton.hide();
       })
-      hardModeButton.show;
+      hardModeButton.show();
     }
 
     easyModeButton.mousePressed(() => {

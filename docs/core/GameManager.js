@@ -6,26 +6,23 @@ class GameManager {
       this.lives = 3;
       this.difficulty = "easy";
     }
-  
+
     switchState(newState) {
       this.state = newState;
     }
-  
-    update() {
-      // we'll call this to update currentscreen
-    }
-  
+    
+
     render() {
       switch (this.state) {
         case "start":
-            this.startScreen.render();
-            this.startScreen.showButtons();
-            if (pauseMenu.pauseButton) {
-                pauseMenu.pauseButton.hide();
-            }
+          this.startScreen.render();
+          this.startScreen.showButtons();
+          if (pauseMenu.pauseButton) {
+              pauseMenu.pauseButton.hide();
+          }
+          if(gameOverScreen) gameOverScreen.hide();
           break;
         case "tutorial":
-        //this.startScreen.hideButtons();
           this.drawTutorialState();
           break;
         case "game":
@@ -40,21 +37,6 @@ class GameManager {
       }
     }
 
-    /*drawStartState() {
-        drawStartScreen();
-        tutorialBtn.show();
-        easyModeButton.show();
-        hardModeButton.show();
-        onePlayerButton.show();
-        twoPlayerButton.show();
-        if (recipeButton) {
-          recipeButton.hide();
-        }
-        if (pauseMenu.pauseButton) {
-          pauseMenu.pauseButton.hide();
-        }
-    }*/
-
     drawTutorialState(){
         noCursor();
         tutorialEasyScreen();
@@ -66,47 +48,58 @@ class GameManager {
         twoPlayerButton.hide();
         easyModeButton.hide();
         hardModeButton.hide();
-      } 
+    } 
 
-    drawGameState(){
-        gameScreen();
-        redBorder();
-        greenBorder();
-        completionText();
-        wrongSliceText();
-        
-        if (difficulty !== 'easy') {
-          makeRecipeButton();
-          recipeButton.show();
-        }
-        else if (recipeButton && difficulty === 'easy') {
-          recipeButton.hide();
-        }
-        tutorialBtn.hide();
-        //soundBtn.hide();
-        onePlayerButton.hide();
-        twoPlayerButton.hide();
-        easyModeButton.hide();
-        hardModeButton.hide();
-        pauseMenu.pauseButton.show(); 
-        if (pauseMenu.pause) {
-          pauseMenu.drawPauseScreen(); 
-        }
-      }
-      drawPauseState(){
-        noLoop();
-        pauseMenu.drawPauseScreen(); 
-      }
+  drawGameState(){
+    gameScreen();
+    redBorder();
+    greenBorder();
+    completionText();
+    wrongSliceText();
+    
+    if (difficulty !== 'easy') {
+      makeRecipeButton();
+      recipeButton.show();
+    }
+    else if (recipeButton && difficulty === 'easy') {
+      recipeButton.hide();
+    }
+    tutorialBtn.hide();
+    //soundBtn.hide();
+    onePlayerButton.hide();
+    twoPlayerButton.hide();
+    easyModeButton.hide();
+    hardModeButton.hide();
+    pauseMenu.pauseButton.show(); 
+    if (pauseMenu.pause) {
+      pauseMenu.drawPauseScreen(); 
+    }
+    if(gameOverScreen) gameOverScreen.hide();
+  }
+  drawPauseState(){
+    cursor();
+    noLoop();
+    pauseMenu.drawPauseScreen(); 
+  }
 
-      drawGameOverState(){
-        drawGameOver();
-        tutorialBtn.hide();
-        // soundBtn.hide();
-         onePlayerButton.hide();
-         twoPlayerButton.hide();
-         easyModeButton.hide();
-         hardModeButton.hide();
-      }
+  drawGameOverState(){
+    cursor();  
+    console.log("Rendering Game Over state");
+    loop();  
+
+    if (!gameOverScreen) {
+      gameOverScreen = new GameOverScreen();
+    }
+    gameOverScreen.render();
+    tutorialBtn.hide();
+    onePlayerButton.hide();
+    twoPlayerButton.hide();
+    easyModeButton.hide();
+    hardModeButton.hide();
+    if (pauseMenu.pauseButton) {
+      pauseMenu.pauseButton.hide();
+    }
+  }
 }
 
   

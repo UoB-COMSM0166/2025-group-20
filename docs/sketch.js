@@ -20,8 +20,10 @@ let splatters = [];
 let bg;
 let lifeIcons;
 let currentRecipe;
-let gameScore;
-let highestScore;
+let easyGameScore;
+let hardGameScore;
+let easyHighestScore;
+let hardHighestScore;
 let sound;
 let maxHeight;
 let difficulty = 'easy';
@@ -72,7 +74,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
-  highestScore = new HighestPointDisplay(0);
+  easyGameScore = new PointSystem();
+  hardGameScore = new PointSystem();
+  easyHighestScore = new HighestPointDisplay(0); // you can add mode if you want
+  hardHighestScore = new HighestPointDisplay(0);
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
   gameManager = new GameManager(); 
