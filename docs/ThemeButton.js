@@ -13,15 +13,14 @@ class ThemeButton {
       this.button.style('padding', '4px 12px');
   
       this.button.mousePressed(() => {
-        audioController.toggleOnOff();
+        audioController.toggleMusic();
         this.updateLabel();
       });
-  
       this.updateLabel();
     }
   
     updateLabel() {
-      this.button.html(audioController.isPaused ? "Play" : "Stop");
+      this.button.html(audioController.musicPaused ? "Play" : "Stop");
     }
   
     show() {
