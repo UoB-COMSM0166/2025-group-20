@@ -120,8 +120,8 @@ Table X: Raw Think Aloud (TA) feedback
 
 ## Quantitative: NASA TLX
 
-![Alt text](project-folder-images/NASA-TLX-Load-Index-Bar-Chart.png)
-![Alt text](project-folder-images/NASA-TLX-Load-Index-Pentagraph.png)
+![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
+![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
 
 
 - 15% ~750 words
