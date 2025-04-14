@@ -103,23 +103,33 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience (Nielsen, 1993). This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback—demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed four prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system, the learning curve associated with recipe memorisation, and the overall emotional experience. The richness of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic coding and categorised to identify patterns of friction, satisfaction, and emergent player strategies (see Table X). 
 
 Table X: Raw Think Aloud (TA) feedback
-| Theme | Positive | Negative | Suggested modifications |
+| Theme | Positive | Negative |
 | --- | --- | --- | --- |
-| Controls | <ul><li>The click control is very satisfying</li><li>The cursorEffect provides good user feedback</li></ul> | <ul><li>Touchpad is inelegant</li><li>Mousepressed functions bug after hearts lost</li><li>The mousepressed for slicing could be redundant</li></ul> |  |
-| Display | <ul><li>Good fruit sizes</li><li>Fruit slice visuals are very rewarding</li></ul> | <ul><li>Recipe aspect and order is unclear</li><li>cursorEffect does not remain long enough</li><li>Some fruits are generated stuck together</li></ul> | |
-| Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
-| Affective response |  | <ul><li>No time constraints cause monotony</li></ul> | |
+| Controls | <ul><li>The click control is very satisfying</li><li>The cursorEffect provides good user feedback</li></ul> | <ul><li>Touchpad is inelegant</li><li>The mousepressed function bugs after hearts lost</li><li>The mousepressed for slicing could be redundant</li></ul> |
+| Display | <ul><li>Good fruit sizes</li><li>Fruit slice visuals are very rewarding</li></ul> | <ul><li>Recipe aspect and order is unclear</li><li>cursorEffect does not remain long enough</li><li>Some fruits are generated stuck together</li></ul> |
+| Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> |
+| Affective response |  | <ul><li>No time constraints cause monotony</li></ul> |
 
 ### Controls 
+Feedback regarding the game’s controls was fairly consistent. There was a general consensus that adapting a game typically played on a touchscreen device (such as an iPad or phone) to a laptop or PC using a mouse or trackpad introduced a degree of disjointedness to the user experience. Our user tests were structured so that roughly a third of participants played using a mouse, a third with a trackpad, and a third tried both sequentially. The overall consensus was that using a mouse provided a more fluid and enjoyable gameplay experience.
+
+A minor bug was encountered — labelled in our test documentation as "the mousePressed function bugs after hearts lost" — but this was resolved early in development.
+
+One tester suggested that the "click and drag" mechanic for slicing might be redundant, and that gameplay might be smoother if users didn’t need to press down at all. While we carefully considered this feedback, we ultimately chose not to act on it for the following reasons:
+
+1. The blueberry’s "slice pattern" requires a single-click input, which would become unworkable without click detection.
+2. In easy mode, testers highlighted the satisfying, rapid clicking mechanic as a key positive feature.
+3. Removing the click would reduce user control, increasing the likelihood of accidental slices — especially problematic when users may be trying to pause the game or consult the recipe book.
 
 ### Display
+NEED TO ACTUALLY FIX SOME THINGS IN THE GAME - 1. CURSOREFFECT DOES NOT REMAIN FOR LONG ENOUGH 2. RECIPE ASPECT ORDER UNCLEAR 3. FRUIT GENERATED STUCK TOGETHER
 
 ### Learning Curve
 
 ### Affective Response 
 
 ## Quantitative: NASA TLX
-
+One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013)), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected a data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and that it makes sense to opt for the easier option when studies report back mixed results for raw vs. weighted TLX scores (Hart (2006)).
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
 
