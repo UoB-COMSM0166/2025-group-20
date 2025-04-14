@@ -26,23 +26,18 @@ let sound;
 let maxHeight;
 let difficulty = 'easy';
 let appleSliceImg;
-let muteButton;
-let muted = true;
-let startScreenMusic;
-let musicPlaying = false;
 let leftImg, rightImg;
-let cutSound;
-let bombSound;
 
 let gameManager;
-
+let audioController;
+let themeButton;
 
 
 function preload() {
   // loads material used in start screen
 
-  cutSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/soundSlicing.wav');
-  bombSound = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/bombSound.wav');
+  audioController = new AudioController();
+  audioController.preload();
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
   appleImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/apple.png');
   bg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/923cd18c3e0c776d146c9cb4e9bf10b24d488e40/docs/Background%20Images/Game%20Screen%20Background.png');
@@ -76,10 +71,16 @@ function setup() {
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
   gameManager = new GameManager(); 
+  themeButton = new ThemeButton(20, 20); 
 }
 
 function draw() {
   gameManager.render();
+  if (gameManager.state === "start") {
+    themeButton.setPosition(20, 20);
+  } else {
+    themeButton.setPosition(20, windowHeight - 60);
+  }
 }
 
 function keyPressed() {
@@ -94,30 +95,3 @@ function windowResized() {
   let minH = 600; 
   resizeCanvas(max(windowWidth, minW), max(windowHeight, minH));
 }
-
-function playSound(soundLink, loop = false){
-  sound = createAudio(soundLink);
-  if (loop) {
-    sound.loop();
-  } else {
-    sound.play();
-  }
-  return sound;
-}
-
-/*
-function mousePressed() {
-  if (mode === 0 && !musicPlaying) {
-    startScreenMusic = playSound("https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/smoothieOperatorStart.wav", true);
-    startScreenMusic.elt.muted = muted;
-    musicPlaying = true;
-  }
-}
-
-function toggleMute() {
-  muted = !muted;
-  if (startScreenMusic) {
-    startScreenMusic.elt.muted = muted;
-  }
-  muteButton.html(muted ? "Unmute" : "Mute");
-}*/
