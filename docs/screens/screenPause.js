@@ -26,7 +26,7 @@ class PauseMenu {
       btn.style('border-radius', '8px');
       btn.style('border-color', 'black');
       btn.style('border-style', 'solid');
-      btn.style('border-width', '4.5px');
+      btn.style('border-width', '4px');
       btn.style('background-color', '#FCF3CF');
       btn.style('font-family', 'sans-serif');
       btn.style('font-size', '65px');
@@ -36,6 +36,13 @@ class PauseMenu {
       btn.style('color', 'black');
       btn.size(75, 75);
       btn.position(windowWidth / 1.08, windowHeight / 1.15);
+
+      btn.mouseMoved(() => {
+        btn.style('box-shadow', '5px 5px 5px seagreen');
+      })
+      btn.mouseOut(() => {
+        btn.style('box-shadow', 'none');
+      });
       btn.mousePressed(() => {
         gameManager.switchState("pause"); // pause mode
       });
@@ -52,6 +59,12 @@ class PauseMenu {
       btn.size(200, 50);
       btn.position((windowWidth / 2) - 100, (windowHeight / 2) + yOffset);
       btn.mousePressed(callback);
+      btn.mouseMoved(() => {
+        btn.style('text-shadow', '5px 5px 5px seagreen');
+      });
+      btn.mouseOut(() => {
+        btn.style('text-shadow', 'none');        
+      });
       return btn;
     }
   
@@ -64,6 +77,8 @@ class PauseMenu {
       textAlign(CENTER, CENTER);
       textSize(40);
       fill('white');
+      stroke('black');
+      strokeWeight(4);
       textFont('gameFont');
       text("GAME PAUSED", windowWidth / 2, windowHeight / 2 - 90);
   

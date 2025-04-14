@@ -22,7 +22,7 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 
 # Project Report
 
-## Introduction
+# Introduction
 
 - 5% ~250 words 
 - Describe your game, what is based on, what makes it novel?
@@ -48,13 +48,13 @@ Player immersion - No timer, immersive visuals etc.
 
 - Summary of the overall vision 
 
-## Requirements (Ziyan)
+# Requirements (Ziyan)
 .
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
 
 We've actually already written all of this! Will find a way of structuring it more succinctly at some point in this section :)
-### Design (Barney)
+# Design (Barney)
 
 - 15% ~750 words 
 - System architecture. Class diagrams, behavioural diagrams.
@@ -86,13 +86,13 @@ Game → UI: gameScreen() (should update the display as necessary)
 - Design Decisions and Subsquent Justification
 - In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
 
-## Implementation (Omnia)
+# Implementation (Omnia)
 
 - 15% ~750 words
 
 - Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
 
-## Evaluation (Matilda)
+# Evaluation (Matilda)
 
 ## Abstract
 
@@ -110,13 +110,19 @@ Table X: Raw Think Aloud (TA) feedback
 | Learning Curve |  | <ul><li>Initial difficulty remembering rules</li><li>Initial difficulty remembering slice patterns</li><li>Once slice patterns are internalised, they're too easy to remember</li></ul> | |
 | Affective response |  | <ul><li>No time constraints cause monotony</li></ul> | |
 
-# Controls 
+### Controls 
 
-# Display
+### Display
 
-# Learning Curve
+### Learning Curve
 
-# Affective Response 
+### Affective Response 
+
+## Quantitative: NASA TLX
+
+![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
+![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
+
 
 - 15% ~750 words
 
@@ -124,7 +130,7 @@ Table X: Raw Think Aloud (TA) feedback
 
 - Description of how code was tested. 
 
-## Process (May)
+# Process (May)
 
 - 15% ~750 words
 
@@ -132,7 +138,7 @@ Table X: Raw Think Aloud (TA) feedback
 
   ## Sustainability (Scarlett)
 
-## Conclusion
+# Conclusion
 
 - 10% ~500 words
 
