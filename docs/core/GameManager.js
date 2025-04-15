@@ -68,7 +68,7 @@ class GameManager {
     else if (recipeButton && difficulty === 'easy') {
       recipeButton.hide();
     }
-    tutorialBtn.hide();
+    startScreen.tutorialButton.getButton().hide();
     //soundBtn.hide();
     onePlayerButton.hide();
     twoPlayerButton.hide();
@@ -95,7 +95,7 @@ class GameManager {
       gameOverScreen = new GameOverScreen();
     }
     gameOverScreen.render();
-    tutorialBtn.hide();
+    startScreen.tutorialButton.getButton().hide();
     onePlayerButton.hide();
     twoPlayerButton.hide();
     easyModeButton.hide();
