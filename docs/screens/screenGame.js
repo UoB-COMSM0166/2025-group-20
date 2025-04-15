@@ -48,6 +48,14 @@ function gameScreen() {
     for (let i = fruit.length - 1; i >= 0; i--) {
         fruit[i].show();
         fruit[i].move();
+        if (twoPlayer && fruit[i].slicePat.type === 'inert' && Math.round(fruit[i].yPos) === windowHeight
+            && (Math.round(fruit[i].xPos) > gameManager.basket.x+110 || Math.round(fruit[i].xPos) < gameManager.basket.x-110)){
+            if(difficulty === 'easy'){
+                easyGameScore.uncaughtFruit();
+            } else{
+                hardGameScore.uncaughtFruit();
+            }
+        }
         if (fruit[i].slicePat.isSliced() === 'correct' || fruit[i].slicePat.isSliced() === 'wrong'){
             if(fruit[i].fruitName === 'dragonfruit'){
                 console.log('Dragonfruit sliced!');
