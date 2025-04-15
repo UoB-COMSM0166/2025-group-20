@@ -2,9 +2,10 @@ class GameManager {
     constructor() {
       this.state = "start";
       this.startScreen = new ScreenStart(this);
+      this.gameOverScreen = new GameOverScreen();
       this.score = 0;
       this.lives = 3;
-      this.difficulty = "easy";
+      this.difficulty = 'easy';
       this.basket = new Basket();
       this.twoPlayer = false;
     }
@@ -19,10 +20,7 @@ class GameManager {
         case "start":
           this.startScreen.render();
           this.startScreen.showButtons();
-          if (pauseMenu.pauseButton) {
-              pauseMenu.pauseButton.hide();
-          }
-          if(gameOverScreen) gameOverScreen.hide();
+          this.gameOverScreen.hide();
           break;
         case "tutorial":
           this.drawTutorialState();
@@ -44,12 +42,7 @@ class GameManager {
         tutorialEasyScreen();
         wrongSliceText();
         correctSliceText();
-        this.startScreen.tutorialButton.getButton().hide();
-       // soundBtn.hide();
-        onePlayerButton.hide();
-        twoPlayerButton.hide();
-        easyModeButton.hide();
-        hardModeButton.hide();
+        this.startScreen.hideButtons();
     } 
 
   drawGameState(){
@@ -68,17 +61,12 @@ class GameManager {
     else if (recipeButton && difficulty === 'easy') {
       recipeButton.hide();
     }
-    this.startScreen.tutorialButton.getButton().hide();
-    //soundBtn.hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-    pauseMenu.pauseButton.show(); 
+    this.startScreen.hideButtons();
+    pauseMenu.pauseButton.getButton().show();
     if (pauseMenu.pause) {
       pauseMenu.drawPauseScreen(); 
     }
-    if(gameOverScreen) gameOverScreen.hide();
+    this.gameOverScreen.hide();
   }
   drawPauseState(){
     cursor();
@@ -89,20 +77,11 @@ class GameManager {
   drawGameOverState(){
     cursor();  
     console.log("Rendering Game Over state");
-    loop();  
-
-    if (!gameOverScreen) {
-      gameOverScreen = new GameOverScreen();
-    }
-    gameOverScreen.render();
-    this.startScreen.tutorialButton.getButton().hide();
-    onePlayerButton.hide();
-    twoPlayerButton.hide();
-    easyModeButton.hide();
-    hardModeButton.hide();
-    if (pauseMenu.pauseButton) {
-      pauseMenu.pauseButton.hide();
-    }
+    loop();
+    this.gameOverScreen.show();
+    this.gameOverScreen.render();
+    this.startScreen.hideButtons();
+    pauseMenu.pauseButton.getButton().hide();
   }
 }
 
