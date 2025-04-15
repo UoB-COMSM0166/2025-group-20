@@ -5,6 +5,7 @@ class GameManager {
       this.score = 0;
       this.lives = 3;
       this.difficulty = "easy";
+      this.basket = new Basket();
     }
 
     switchState(newState) {
@@ -56,7 +57,9 @@ class GameManager {
     greenBorder();
     completionText();
     wrongSliceText();
-    
+    if (this.twoPlayer){
+      this.basket.show();
+    }
     if (difficulty !== 'easy') {
       makeRecipeButton();
       recipeButton.show();
