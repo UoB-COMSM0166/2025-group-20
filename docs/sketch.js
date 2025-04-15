@@ -93,6 +93,12 @@ function keyPressed() {
     freshGameScreen();
     gameManager.switchState("game");
   }
+  if (keyCode === LEFT_ARROW){
+    gameManager.basket.move('left');
+  }
+  else if (keyCode === RIGHT_ARROW){
+    gameManager.basket.move('right');
+  }
 }
 
 function windowResized() {
