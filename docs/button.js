@@ -4,7 +4,7 @@ class TextButton{
         this.button.style('font-size', '27px');
         this.button.style('font-family', 'gameFont');
         this.button.style('text-align', 'center');
-        this.button.style('background-color', '#c2ac53');
+        this.button.style('background-color', '#FCF3CF');
         this.button.style('border', '3px solid black');
         this.button.style('border-radius', '8px');
         this.button.style('color', 'black');
