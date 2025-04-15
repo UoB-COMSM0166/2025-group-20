@@ -1,4 +1,4 @@
-let currentFruitIndex = 0;;
+let currentFruitIndex = 0;
 let autoAdvanceTimeout = null;
 
 class TutorialFruit {
