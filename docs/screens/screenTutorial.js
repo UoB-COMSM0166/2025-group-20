@@ -1,82 +1,189 @@
-// === State Variables ===
+
+class TutorialScreen {
+    constructor() {
+      this.currentFruitIndex = 0;
+      this.currentFruit = null;
+      this.autoAdvanceTimeout = null;
+      this.correctSlice = false;
+      this.showingButtons = false;
+      this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
+          gameManager.switchState("start");
+          this.currentFruit?.slicingGif?.remove();
+        }
+      );
+      this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', () => {
+          this.currentFruit?.slicingGif?.remove();
+          this.currentFruit = null;
+          this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length - 2) % (fruitList.length - 2);
+        }
+      );
+      this.rightArrowButton = new TextButton(
+        windowWidth - 70,
+        (windowHeight - 50) / 2,
+        '>',
+        () => {
+          this.currentFruit?.slicingGif?.remove();
+          this.currentFruit = null;
+          this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 2);
+        }
+      );
+      this.leftArrowButton.getButton().style('font-size', '20px');
+      this.leftArrowButton.getButton().size(50, 50);
+      
+      this.rightArrowButton.getButton().style('font-size', '20px');
+      this.rightArrowButton.getButton().size(50, 50);
+      
+      this.leftArrowButton.getButton().hide();
+      this.rightArrowButton.getButton().hide();
+      this.backButton.getButton().hide();
+    }
+  
+    render() {
+      background(bg);
+      textAlign(CENTER, CENTER);
+      textFont(gameFont);
+      textSize(70);
+      fill("#FCF3CF");
+      stroke(30, 15, 5);
+      strokeWeight(8);
+  
+      const narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
+      text(narration, width / 2, 50);
+
+  
+      if (!this.currentFruit) {
+        this.currentFruit = new TutorialFruit(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex], fruitList[this.currentFruitIndex]);
+      }
+  
+      if (!this.currentFruit.visible) {
+        this.currentFruit.reset(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex]);
+      }
+  
+      this.currentFruit.move();
+      this.currentFruit.show();
+  
+      const sliceResult = this.currentFruit.slicePat.isSliced();
+      if (sliceResult === "correct" || sliceResult === "wrong") {
+        if (sliceResult === "correct") {
+          this.correctSliceEffect();
+          console.log("Correct Slice detected!!");
+  
+          if (!this.autoAdvanceTimeout) {
+            this.autoAdvanceTimeout = setTimeout(() => {
+              goToNextTutorialStep();
+            }, 15000);
+          }
+        } else {
+          console.log("Wrong Slice detected!!");
+          wrongSliceEffect();
+        }
+  
+        const currentSplat = new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]);
+        currentSplat.show();
+  
+        this.currentFruit.fruitImg = loadImage(
+          `https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`
+        );
+        this.currentFruit.slicePat = new SlicePattern("inert", 0);
+      }
+  
+      /*if (this.correctSlice) {
+        textAlign(CENTER, CENTER);
+        textFont(gameFont);
+        fill("green");
+        textSize(100);
+        text("Well done! Go to next step", width / 2, 100);
+      }
+
+      if (this.wrongSlice) {
+        textAlign(CENTER, CENTER);
+        textFont(gameFont);
+        fill("red");
+        textSize(100);
+        text("Oops! Wrong slice!", width / 2, 100);
+      }*/
+
+      cursorEffect();
+    }
+
+    showButtons() {
+        this.showingButtons = true;
+        this.backButton.getButton().show();
+        this.leftArrowButton.getButton().show();
+        this.rightArrowButton.getButton().show();
+    }
+
+    hideButtons() {
+        this.showingButtons = false;
+        this.backButton.getButton().hide();
+        this.leftArrowButton.getButton().hide();
+        this.rightArrowButton.getButton().hide();
+    }   
+  
+    correctSliceEffect() {
+      this.correctSlice = true;
+      setTimeout(() => {
+        this.correctSlice = false;
+      }, 1000);
+    }
+  
+    handleMousePressed() {
+      let buttonWidth = 200;
+      let buttonHeight = 50;
+      let buttonX = (width - buttonWidth) / 2;
+      let buttonY = height - buttonHeight - 20;
+  
+      if (
+        mouseX > buttonX &&
+        mouseX < buttonX + buttonWidth &&
+        mouseY > buttonY &&
+        mouseY < buttonY + buttonHeight
+      ) {
+        if (gameManager.state === "tutorial") {
+          gameManager.switchState("start");
+          this.currentFruit?.slicingGif?.remove();
+        } else {
+          gameManager.switchState("tutorial");
+        }
+        return;
+      }
+  
+      let arrowWidth = 50;
+      let arrowHeight = 50;
+      let leftX = 20;
+      let leftY = (height - arrowHeight) / 2;
+      let rightX = width - arrowWidth - 20;
+      let rightY = (height - arrowHeight) / 2;
+  
+      if (
+        mouseX >= rightX &&
+        mouseX <= rightX + arrowWidth &&
+        mouseY >= rightY &&
+        mouseY <= rightY + arrowHeight
+      ) {
+        this.currentFruit?.slicingGif?.remove();
+        this.currentFruit = null;
+        this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 2);
+      } else if (
+        mouseX >= leftX &&
+        mouseX <= leftX + arrowWidth &&
+        mouseY >= leftY &&
+        mouseY <= leftY + arrowHeight
+      ) {
+        this.currentFruit?.slicingGif?.remove();
+        this.currentFruit = null;
+        this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length - 2) % (fruitList.length - 2);
+      }
+    }
+  }
+  
+
+/*// === State Variables ===
 let currentFruitIndex = 0;
 let autoAdvanceTimeout = null;
 let tutorialNarration = [];
 let currentTutorialFruit;
 let correctSlice = false;
-
-
-// === Tutorial Fruit Class ===
-/*class TutorialFruit {
-  constructor(img, slicePattern, fruitName) {
-    this.fruitImg = img;
-    this.fruitName = fruitName;
-    this.xPos = windowWidth / 2;
-    this.startYPos = windowHeight;
-    this.maxHeight = windowHeight * 0.25;
-    this.pauseY = windowHeight / 2;
-    this.yCurrentPos = this.startYPos;
-    this.ySpeed = -11;
-    this.slicingGif = null;
-    this.size = 110;
-    this.currentSlicePattern = slicePattern;
-    this.slicePat = new SlicePattern(slicePattern, this.size);
-    this.fruitState = "rising";
-    this.visible = true;
-  }
-
-  move() {
-    if (this.fruitState === "rising") {
-      this.yCurrentPos += this.ySpeed;
-      this.slicePat.move(this.xPos + this.size / 2, this.yCurrentPos + this.size / 2);
-      this.ySpeed += gravity;
-
-      if (this.yCurrentPos <= this.maxHeight) {
-        this.yCurrentPos = this.maxHeight;
-        this.fruitState = "falling";
-        this.ySpeed = Math.abs(this.ySpeed) - gravity;
-      }
-    } else if (this.fruitState === "falling") {
-      this.ySpeed += gravity;
-      this.yCurrentPos += this.ySpeed;
-    }
-
-    if (this.yCurrentPos > windowHeight) {
-      this.visible = false;
-    }
-  }
-
-  show() {
-    if (this.visible) {
-      image(this.fruitImg, this.xPos, this.yCurrentPos, this.size, this.size);
-    }
-
-    if (!this.slicingGif) {
-      this.slicingGif = createImg(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[currentFruitIndex]}-slice.gif`);
-      this.slicingGif.size(100, 100);
-      this.slicingGif.style("position", "absolute");
-      this.slicingGif.style("z-index", "1000");
-    }
-
-    this.slicingGif.position(this.xPos, this.yCurrentPos);
-  }
-
-  reset() {
-    this.yCurrentPos = this.startYPos;
-    this.ySpeed = -11;
-    this.fruitState = "rising";
-    this.visible = true;
-
-    if (this.slicingGif) {
-      this.slicingGif.remove();
-      this.slicingGif = null;
-    }
-
-    this.slicePat = new SlicePattern(this.currentSlicePattern, this.size);
-    this.fruitImg = fruitImgs[currentFruitIndex];
-  }
-}*/
-
 
 // === Main Tutorial Screen ===
 function tutorialEasyScreen() {
@@ -257,4 +364,4 @@ function drawArrows() {
     image(leftImg, xOffset, (height - leftImg.height) / 2, 50, 50);
     image(rightImg, width - rightImg.width + xOffset, (height - rightImg.height) / 2, 50, 50);
   }
-}
+}*/

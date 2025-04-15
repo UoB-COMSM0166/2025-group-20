@@ -17,7 +17,6 @@ class TutorialFruit {
       this.currentSlicePattern = slicePattern;
       this.slicePat = new SlicePattern(slicePattern, this.size);
   
-      // Fruit state
       this.fruitState = "rising";
     }
   
@@ -62,7 +61,7 @@ class TutorialFruit {
       this.slicingGif.position(this.xPos, this.yCurrentPos);
     }
   
-    reset() {
+    reset(fruitImg, slicePattern) {
       this.yCurrentPos = this.startYPos;
       this.ySpeed = -11;
       this.fruitState = "rising";
@@ -73,7 +72,7 @@ class TutorialFruit {
         this.slicingGif = null;
       }
   
-      this.slicePat = new SlicePattern(this.currentSlicePattern, this.size);
-      this.fruitImg = fruitImgs[currentFruitIndex];
+      this.slicePat = new SlicePattern(this.SlicePattern, this.size);
+      this.fruitImg = fruitImg;
     }
   }
