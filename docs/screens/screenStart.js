@@ -1,4 +1,4 @@
-let tutorialBtn;
+//let tutorialBtn;
 //let soundBtn;
 let easyModeButton;
 let hardModeButton;
@@ -9,18 +9,21 @@ class ScreenStart {
   constructor(gameManager) {
       this.gameManager = gameManager;
       this.buttonsCreated = false;
+      this.tutorialButton = new TextButton((windowWidth / 2) - 125, (windowHeight / 3 + 20), 'Tutorial', () => {
+          gameManager.switchState("tutorial"); // Goes to instructions screen
+      });
   }
 
   createButtons() {
       if (!this.buttonsCreated) {
-          tutorialButton();
+          //tutorialButton();
           modeButtons();
           this.buttonsCreated = true;
       }
   }
 
   showButtons() {
-    tutorialBtn.show();
+    this.tutorialButton.getButton().show();
     easyModeButton.show();
     hardModeButton.show();
     onePlayerButton.show();
@@ -28,7 +31,7 @@ class ScreenStart {
   }
 
   hideButtons() {
-    tutorialBtn.hide();
+    this.tutorialButton.getButton().hide();
     easyModeButton.hide();
     hardModeButton.hide();
     onePlayerButton.hide();
@@ -118,7 +121,7 @@ class ScreenStart {
   }
 }
 
-function tutorialButton() {
+/*function tutorialButton() {
     if (!tutorialBtn){
 
       tutorialBtn = createButton('TUTORIAL');
@@ -146,7 +149,7 @@ function tutorialButton() {
       });
       tutorialBtn.show();
     }
-  }
+  }*/
 
   function modeButtons() {
     if (!easyModeButton){
