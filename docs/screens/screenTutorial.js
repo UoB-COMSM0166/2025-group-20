@@ -6,6 +6,7 @@ class TutorialScreen {
       this.autoAdvanceTimeout = null;
       this.correctSlice = false;
       this.showingButtons = false;
+        this.sliceEffectTimer = null;       
       this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
           gameManager.switchState("start");
           this.currentFruit?.slicingGif?.remove();
@@ -46,9 +47,6 @@ class TutorialScreen {
       fill("#FCF3CF");
       stroke(30, 15, 5);
       strokeWeight(8);
-  
-      //const narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
-      //text(narration, width / 2, 50);
 
       this.drawNarrationBox();
 
@@ -65,18 +63,22 @@ class TutorialScreen {
   
       const sliceResult = this.currentFruit.slicePat.isSliced();
       if (sliceResult === "correct" || sliceResult === "wrong") {
+        audioController.play('slice');
         if (sliceResult === "correct") {
-          this.correctSliceEffect();
           console.log("Correct Slice detected!!");
-  
+          this.sliceFeedback = "correct";
+          this.showCorrectEffect();
           if (!this.autoAdvanceTimeout) {
             this.autoAdvanceTimeout = setTimeout(() => {
-              goToNextTutorialStep();
-            }, 15000);
+              this.gotoNextTutorialStep();
+            }, 10000);
+            return;
           }
-        } else {
+        } else if(sliceResult === "wrong"){
           console.log("Wrong Slice detected!!");
-          wrongSliceEffect();
+          audioController.play('lifeLost');
+          this.sliceFeedback = "wrong";
+          this.showWrongEffect();
         }
   
         const currentSplat = new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]);
@@ -87,23 +89,14 @@ class TutorialScreen {
         );
         this.currentFruit.slicePat = new SlicePattern("inert", 0);
       }
-  
-      /*if (this.correctSlice) {
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        fill("green");
-        textSize(100);
-        text("Well done! Go to next step", width / 2, 100);
+      if (this.sliceFeedback === "correct") {
+        correctSliceText();
+        greenBorder();
       }
-
-      if (this.wrongSlice) {
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        fill("red");
-        textSize(100);
-        text("Oops! Wrong slice!", width / 2, 100);
-      }*/
-
+      if (this.sliceFeedback === "wrong") {
+        wrongSliceText();
+        redBorder();
+      }
       cursorEffect();
     }
 
@@ -120,39 +113,10 @@ class TutorialScreen {
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
     }   
-  
-    correctSliceEffect() {
-      this.correctSlice = true;
-      setTimeout(() => {
-        this.correctSlice = false;
-      }, 1000);
-    }
 
     drawNarrationBox() {
-        /*const narrationBoxWidth = (width / 3);
-        const narrationBoxHeight = 120;
-      
-        const narrationBoxX = width - (narrationBoxWidth / 1.8); // 20px from right
-        const narrationBoxY = windowHeight - (narrationBoxHeight / 1.6); // above back button
-      
-        fill('#FCF3CF');
-        stroke(30, 15, 5);
-        strokeWeight(4);
-        rect(narrationBoxX, narrationBoxY, narrationBoxWidth, narrationBoxHeight, 12);
-      
-        noStroke();
-        fill('black');
-        textFont(gameFont);
-        textSize(28);
-        textLeading(32);
-        textAlign(CENTER, CENTER);
-      
-        const narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
-        text(narration, narrationBoxX, narrationBoxY);
-        //text(narration, narrationBoxX + narrationBoxWidth / 2, narrationBoxY + narrationBoxHeight / 2);*/
         const boxWidth = 330;
         const boxHeight = 100;
-      
         const boxX = width - (boxWidth / 1.8);
         const boxY = height - (boxHeight / 1.6);
       
@@ -192,5 +156,40 @@ class TutorialScreen {
             const lineY = startY + i * lineHeight;
           text(lines[i], boxX, lineY);
         }
+      }
+
+      showCorrectEffect() {
+        correctSliceEffect();
+        this.sliceFeedback = "correct";
+      
+        if (this.sliceEffectTimer) clearTimeout(this.sliceEffectTimer);
+        this.sliceEffectTimer = setTimeout(() => {
+          this.sliceFeedback = null;
+        }, 10000); 
+      }
+      
+      showWrongEffect() {
+        wrongSliceEffect();
+        this.sliceFeedback = "wrong";
+      
+        if (this.sliceEffectTimer) clearTimeout(this.sliceEffectTimer);
+        this.sliceEffectTimer = setTimeout(() => {
+          this.sliceFeedback = null;
+        }, 10000);
+      }
+      
+
+      gotoNextTutorialStep(){
+        if (this.currentFruit?.slicingGif) {
+        this.currentFruit.slicingGif.remove();
+        }
+        this.sliceFeedback = null;
+
+        clearTimeout(this.autoAdvanceTimeout);
+        this.autoAdvanceTimeout = null;
+
+        this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 2); // Exclude "heart"
+
+        this.currentFruit = null;
       }
   }

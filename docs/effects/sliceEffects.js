@@ -49,6 +49,23 @@ function wrongSliceEffect(){
   }, 1000);
 }
 
+function correctSliceText(){
+  if(correctSlice){
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill('green');
+    textSize(100);
+    text('Correct Slice!', width/2, 100);
+  }
+}
+
+function correctSliceEffect () {
+  correctSlice = true;
+  setTimeout(() => {
+    correctSlice = false
+  }, 1000);
+}
+
 function recipeCompleteEffect(){
   recipeComplete = true;
   setTimeout(() => {

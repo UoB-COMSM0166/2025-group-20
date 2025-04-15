@@ -7,6 +7,7 @@ let displayBorder = false;
 let displayGreen = false;
 let recipeComplete = false;
 let wrongSlice = false;
+let correctSlice = false;
 // array of the fruits and vegetables 
 let fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'watermelon', 'dragonfruit', 'bomb']; //one more fruit needed
 let sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'bomb']; //line up exactly with corresponding fruit above
