@@ -1,12 +1,14 @@
 class TextButton{
     constructor(x, y, text, callback){
         this.button = createButton(text);
-        this.button.style('font-size', '20px');
+        this.button.style('font-size', '27px');
         this.button.style('font-family', 'gameFont');
-        this.button.style('background-color', 'rgba(255, 0, 0, 0.0)');
-        this.button.style('border', 'none');
-        this.button.style('color', 'white');
-        this.button.size(200, 50);
+        this.button.style('text-align', 'center');
+        this.button.style('background-color', '#c2ac53');
+        this.button.style('border', '3px solid black');
+        this.button.style('border-radius', '8px');
+        this.button.style('color', 'black');
+        this.button.size(250, 50);
         this.button.position(x, y);
         this.button.mousePressed(callback);
         this.button.mouseMoved(() => {
