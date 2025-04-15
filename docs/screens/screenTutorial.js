@@ -143,10 +143,7 @@ class TutorialScreen {
         textAlign(CENTER, CENTER);
         textLeading(10);
         
-        let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
-        if (this.isDragonfruitStep()) {
-            narration += " to gain a life!";
-        }       
+        const narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;      
         const words = narration.split(' ');
         const lines = [];
         let currentLine = '';
