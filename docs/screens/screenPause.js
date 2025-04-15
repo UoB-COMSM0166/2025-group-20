@@ -17,7 +17,7 @@ class PauseMenu {
         gameManager.switchState("start");
         loop();
         this.hideMenuButtons();
-        this.pauseButton.hide();
+        this.pauseButton.getButton().hide();
       });
       this.pauseButton.getButton().hide();
       this.hideMenuButtons(); // hide initially
