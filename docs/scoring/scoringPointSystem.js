@@ -16,6 +16,15 @@ class PointSystem{
         this.pointsPerGame += 20;
     }
 
+    uncaughtFruit(){
+        if (this.pointsPerGame-10 < 0){
+            this.pointsPerGame = 0;
+        }
+        else{
+            this.pointsPerGame -= 10;
+        }
+    }
+
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
