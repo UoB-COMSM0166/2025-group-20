@@ -6,6 +6,7 @@ class GameManager {
       this.lives = 3;
       this.difficulty = "easy";
       this.basket = new Basket();
+      this.twoPlayer = false;
     }
 
     switchState(newState) {
