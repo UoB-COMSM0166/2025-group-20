@@ -44,7 +44,7 @@ class GameManager {
         tutorialEasyScreen();
         wrongSliceText();
         correctSliceText();
-        tutorialBtn.hide();
+        startScreen.tutorialButton.getButton().hide();
        // soundBtn.hide();
         onePlayerButton.hide();
         twoPlayerButton.hide();
