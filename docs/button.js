@@ -10,7 +10,13 @@ class TextButton{
         this.button.style('color', 'black');
         this.button.size(250, 50);
         this.button.position(x, y);
-        this.button.mousePressed(callback);
+        this.button.mousePressed (() =>{
+            if (typeof audioController !== 'undefined') {
+                audioController.play('button');
+            }
+            callback();
+        });
+        //(callback);
         this.button.mouseMoved(() => {
             this.button.style('box-shadow', '5px 5px 5px seagreen');
         });

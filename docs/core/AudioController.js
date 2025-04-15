@@ -9,7 +9,7 @@ class AudioController {
         this.sounds['slice'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundSlicing.wav');
         this.sounds['bomb'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/bombSound.wav');
         this.sounds['button'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundButtonClick.wav');
-        this.sounds['gameOver'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundGameOver.wav');
+        this.sounds['gameover'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundGameOver.wav');
         this.sounds['lifeGained'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundLifeGained.wav');
         this.sounds['lifeLost'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundLoseLife.wav');
         this.sounds['recipe'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundRecipeComplete.wav');
