@@ -30,7 +30,6 @@ class GameManager {
           //wrongSliceText();
           //correctSliceText();
           this.startScreen.hideButtons();
-          //this.drawTutorialState();
           break;
         case "game":
           this.drawGameState();
@@ -43,14 +42,6 @@ class GameManager {
           break;
       }
     }
-
-    /*drawTutorialState(){
-        noCursor();
-        tutorialEasyScreen();
-        wrongSliceText();
-        correctSliceText();
-        this.startScreen.hideButtons();
-    }*/
 
   drawGameState(){
     gameScreen();
