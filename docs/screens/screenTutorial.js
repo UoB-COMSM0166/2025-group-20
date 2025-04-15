@@ -6,7 +6,11 @@ class TutorialScreen {
       this.autoAdvanceTimeout = null;
       this.correctSlice = false;
       this.showingButtons = false;
-        this.sliceEffectTimer = null;       
+      this.sliceEffectTimer = null;
+      this.lifeIcons = new LifeIcons();
+      this.lifeIcons.lives = 2;
+      this.lifeIcons.heartStates = ['full', 'full', 'empty'];
+      this.lifeIcons.hearts[2] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png');
       this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
           gameManager.switchState("start");
           this.currentFruit?.slicingGif?.remove();
@@ -15,7 +19,7 @@ class TutorialScreen {
       this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', () => {
           this.currentFruit?.slicingGif?.remove();
           this.currentFruit = null;
-          this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length - 2) % (fruitList.length - 2);
+          this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length - 1) % (fruitList.length - 1);
         }
       );
       this.rightArrowButton = new TextButton(
@@ -25,7 +29,7 @@ class TutorialScreen {
         () => {
           this.currentFruit?.slicingGif?.remove();
           this.currentFruit = null;
-          this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 2);
+          this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 1);
         }
       );
       this.leftArrowButton.getButton().style('font-size', '20px');
@@ -57,6 +61,11 @@ class TutorialScreen {
       if (!this.currentFruit.visible) {
         this.currentFruit.reset(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex]);
       }
+
+      if (this.isDragonfruitStep()) {
+        this.lifeIcons.show();
+      }
+      
   
       this.currentFruit.move();
       this.currentFruit.show();
@@ -90,12 +99,14 @@ class TutorialScreen {
         this.currentFruit.slicePat = new SlicePattern("inert", 0);
       }
       if (this.sliceFeedback === "correct") {
+        if (this.isDragonfruitStep()) {
+            this.drawLifeGainedText(); 
+        } else {
         correctSliceText();
-        greenBorder();
+        }
       }
       if (this.sliceFeedback === "wrong") {
         wrongSliceText();
-        redBorder();
       }
       cursorEffect();
     }
@@ -131,8 +142,11 @@ class TutorialScreen {
         textSize(24);
         textAlign(CENTER, CENTER);
         textLeading(10);
-      
-        const narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
+        
+        let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
+        if (this.isDragonfruitStep()) {
+            narration += " to gain a life!";
+        }       
         const words = narration.split(' ');
         const lines = [];
         let currentLine = '';
@@ -158,14 +172,23 @@ class TutorialScreen {
         }
       }
 
+      isDragonfruitStep() {
+        return fruitList[this.currentFruitIndex] === "dragonfruit";
+      }
+
       showCorrectEffect() {
         correctSliceEffect();
         this.sliceFeedback = "correct";
+
+        if (this.isDragonfruitStep()) {
+            this.lifeIcons.gainLife();
+            audioController.play('lifeGained');
+        }
       
         if (this.sliceEffectTimer) clearTimeout(this.sliceEffectTimer);
         this.sliceEffectTimer = setTimeout(() => {
           this.sliceFeedback = null;
-        }, 10000); 
+        }, this.isDragonfruitStep() ? 3000 : 10000); 
       }
       
       showWrongEffect() {
@@ -177,8 +200,15 @@ class TutorialScreen {
           this.sliceFeedback = null;
         }, 10000);
       }
-      
 
+      drawLifeGainedText() {
+        textAlign(CENTER, CENTER);
+        textFont(gameFont);
+        fill("green");
+        textSize(100);
+        text("Life Gained!", width / 2, 100);
+      }
+      
       gotoNextTutorialStep(){
         if (this.currentFruit?.slicingGif) {
         this.currentFruit.slicingGif.remove();
@@ -188,7 +218,7 @@ class TutorialScreen {
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
 
-        this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 2); // Exclude "heart"
+        this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length - 1); // Exclude "heart"
 
         this.currentFruit = null;
       }

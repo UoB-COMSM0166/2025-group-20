@@ -23,10 +23,6 @@ class FruitGenerator {
     let fruitName = this.fruitList[index];
     let slicePat = this.sliceList[index];
 
-    if (fruitName === 'dragonfruit') {
-      slicePat = 'click'; // no slicing pattern for dragonfruit
-    }
-
     return new Fruit(fruitImg, fruitName, slicePat, index);
   }
 }
