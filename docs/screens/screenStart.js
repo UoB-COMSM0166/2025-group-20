@@ -248,6 +248,7 @@ function tutorialButton() {
       });
 
       onePlayerButton.mousePressed(() => {
+        gameManager.twoPlayer = false;
         twoPlayerButton.style('background-color', '#FCF3CF');
         onePlayerButton.style('background-color', '#c2ac53');
         onePlayerButton.hide();
@@ -279,6 +280,7 @@ function tutorialButton() {
       });
 
       twoPlayerButton.mousePressed(() => {
+        gameManager.twoPlayer = true;
         onePlayerButton.style('background-color', '#FCF3CF');
         twoPlayerButton.style('background-color', '#c2ac53');
         twoPlayerButton.hide();
