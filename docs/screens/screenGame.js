@@ -109,11 +109,11 @@ function freshGameScreen() {
 
     if (difficulty === 'easy') {
         easyGameScore.display();
-        easyHighestScore.updateHighestScore(0);
+        easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
         easyHighestScore.display();
     } else {
         hardGameScore.display();
-        hardHighestScore.updateHighestScore(0);
+        hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
         hardHighestScore.display();
     }
     gameManager.switchState("game");
