@@ -17,6 +17,7 @@ class TutorialScreen {
         this.bombCompleted = false;
 
         // -- Buttons setup --
+
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
             gameManager.switchState("start");
             this.currentFruit?.slicingGif?.remove();
@@ -50,91 +51,16 @@ class TutorialScreen {
     }
   
     render() {
-        noCursor();
-        background(bg);
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        textSize(70);
-        fill("#FCF3CF");
-        stroke(30, 15, 5);
-        strokeWeight(8);
-        this.drawNarrationBox();
-
-        if (!this.currentFruit) {
-            this.currentFruit = new TutorialFruit(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex], fruitList[this.currentFruitIndex]);
-        }
-        if (!this.currentFruit.visible) {
-            this.currentFruit.reset(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex]);
-        }
-
-        if (this.isDragonfruitStep()) {this.lifeIcons.show();}
-      
-        this.currentFruit.move();
-        this.currentFruit.show();
-  
-        const sliceResult = this.currentFruit.slicePat.isSliced();
-        if (sliceResult === "correct" || sliceResult === "wrong" || sliceResult === "bomb") {
-            audioController.play('slice');
-            if (sliceResult === "correct") {
-                this.sliceFeedback = "correct";
-                this.showCorrectEffect();
-            if (!this.autoAdvanceTimeout) {
-                this.autoAdvanceTimeout = setTimeout(() => {
-                this.gotoNextTutorialStep();
-                }, 10000);
-                return;
-            }
-            } else if(sliceResult === "wrong" || sliceResult === "bomb"){
-                audioController.play('lifeLost');
-                this.bombFailed = true;
-                this.sliceFeedback = "wrong";
-                this.showWrongEffect();
-            }
-  
-            const currentSplat = new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]);
-            currentSplat.show();
-            this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
-            this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
-        }
-
-        if(this.isBombStep()){
-            if (this.currentFruit.yCurrentPos > height && !this.bombFailed) {
-                this.bombCount++;
-                this.currentFruit = null;
-        
-                if (this.bombCount >= this.bombMax) {
-                    this.bombCompleted = true;
-                    this.sliceFeedback = "correct";
-                    this.showCorrectEffect();
-        
-                    if (!this.autoAdvanceTimeout) {
-                        this.autoAdvanceTimeout = setTimeout(() => {
-                        this.gotoNextTutorialStep();
-                        }, 5000);
-                    }
-                }
-            }
-        }
-
-        if (this.sliceFeedback === "correct") {
-            if (this.isDragonfruitStep()) {
-                this.drawLifeGainedText(); 
-            } else if (this.isBombStep()){
-                this.drawBombSuccessText();
-            } else {
-                correctSliceText();
-            }
-        }
-        if (this.sliceFeedback === "wrong") {
-            if (this.isBombStep()){
-                this.drawBombFailText();
-            } else {
-            wrongSliceText();
-            }
-        }
-
+        this.drawTutorialScreen();  
+        this.initializeTutorialFruit();
+        this.renderFruit();
+        this.handleisSlicedLogic();
+        this.handleBombTutorialLogic();
+        this.renderTutorialFeedback();
         cursorEffect();
     }
+
+    // -- button logic -- 
 
     showButtons() {
         this.showingButtons = true;
@@ -148,7 +74,19 @@ class TutorialScreen {
         this.backButton.getButton().hide();
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
-    }   
+    }  
+
+    drawTutorialScreen() {
+        noCursor();
+        background(bg);
+        textAlign(CENTER, CENTER);
+        textFont(gameFont);
+        textSize(70);
+        fill("#FCF3CF");
+        stroke(30, 15, 5);
+        strokeWeight(8);
+        this.drawNarrationBox();
+    }
 
     drawNarrationBox() {
         const boxWidth = 330;
@@ -197,6 +135,80 @@ class TutorialScreen {
         }
     }
 
+    initializeTutorialFruit() {
+        if (!this.currentFruit) {
+            this.currentFruit = new TutorialFruit(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex], fruitList[this.currentFruitIndex]);
+        }
+        if (!this.currentFruit.visible) {
+            this.currentFruit.reset(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex]);
+        }
+    }
+
+    renderFruit() {
+        if (this.isDragonfruitStep()) this.lifeIcons.show();
+        this.currentFruit.move();
+        this.currentFruit.show();
+    }
+
+    handleisSlicedLogic() {
+        const sliceResult = this.currentFruit.slicePat.isSliced();
+        if (["correct", "wrong", "bomb"].includes(sliceResult)) {
+            audioController.play('slice');
+            if (sliceResult === "correct") {
+                this.processCorrectSliceLogic();
+            } else {
+                this.processWrongSliceLogic();
+                /*audioController.play('lifeLost');
+                this.bombFailed = true;
+                this.sliceFeedback = "wrong";
+                this.showWrongEffect();*/
+            }
+  
+            const currentSplat = new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]);
+            currentSplat.show();
+            this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
+            this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
+        }
+    }
+
+    processCorrectSliceLogic(){
+        this.sliceFeedback = "correct";
+        this.showCorrectEffect();
+        if (!this.autoAdvanceTimeout) {
+            this.autoAdvanceTimeout = setTimeout(() => {
+            this.gotoNextTutorialStep();
+            }, 10000);
+            return;
+        }
+    }
+
+    processWrongSliceLogic(){
+        this.bombFailed = true;
+        this.sliceFeedback = "wrong";
+        this.showWrongEffect();
+    }
+
+    handleBombTutorialLogic() {
+        if(this.isBombStep()){
+            if (this.currentFruit.yCurrentPos > height && !this.bombFailed) {
+                this.bombCount++;
+                this.currentFruit = null;
+        
+                if (this.bombCount >= this.bombMax) {
+                    this.bombCompleted = true;
+                    this.sliceFeedback = "correct";
+                    this.showCorrectEffect();
+        
+                    if (!this.autoAdvanceTimeout) {
+                        this.autoAdvanceTimeout = setTimeout(() => {
+                        this.gotoNextTutorialStep();
+                        }, 5000);
+                    }
+                }
+            }
+        }
+    }
+
     // -- Custom steps --
 
     isDragonfruitStep() {
@@ -207,17 +219,29 @@ class TutorialScreen {
         return fruitList[this.currentFruitIndex] === "bomb";
     }
 
-
-
-
-
-
-
-
-      
+    renderTutorialFeedback() {
+        if (this.sliceFeedback === "correct") {
+            if (this.isDragonfruitStep()) {
+                this.drawLifeGainedText(); 
+            } else if (this.isBombStep()){
+                this.drawBombSuccessText();
+            } else {
+                correctSliceText();
+            }
+        }
+        if (this.sliceFeedback === "wrong") {
+            if (this.isBombStep()){
+                this.drawBombFailText();
+            } else {
+            wrongSliceText();
+            }
+        }
+    }
+ 
     // -- Effects Section -- (should be moved to a separate effects file later)
 
     showCorrectEffect() {
+        audioController.play('recipe');
         correctSliceEffect();
         this.sliceFeedback = "correct";
 
@@ -233,6 +257,7 @@ class TutorialScreen {
     }
       
     showWrongEffect() {
+        audioController.play('lifeLost');
         wrongSliceEffect();
         this.sliceFeedback = "wrong";
       
@@ -288,8 +313,6 @@ class TutorialScreen {
 
 
   // to do: 
-  // neaten up indentation, 
   // effects should be added to a separate effects file, 
-  // split up main render block into readable chunks, 
-  // fix incorrect 'wrong slice' recognition
+  //have splat images display on screen 
   // recipe tutorial added
