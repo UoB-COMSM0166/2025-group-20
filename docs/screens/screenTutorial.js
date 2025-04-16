@@ -182,6 +182,8 @@ class TutorialScreen {
     // -- Recipe Step (it's very big) --
 
     startRecipeTutorial() {
+        this.previousDifficulty = difficulty;
+        difficulty = "easy";
         this.recipeMode = true;
         this.recipeStarted = true;
         this.recipe = new SmoothieRecipe();
@@ -226,7 +228,7 @@ class TutorialScreen {
     }
       
       updateAndDrawRecipeFruits() {
-        for (let i = this.recipeFruits.length - 3; i >= 0; i--) {
+        for (let i = this.recipeFruits.length - 1; i >= 0; i--) {
           const fruit = this.recipeFruits[i];
           fruit.show();
           fruit.move();
@@ -242,52 +244,46 @@ class TutorialScreen {
     handleRecipeSlicing(){
         for (let i = this.recipeFruits.length - 1; i >= 0; i--) {
             const recipeFruit = this.recipeFruits[i];
+            if (recipeFruit.handled) continue;
             const result = recipeFruit.slicePat?.isSliced?.() || "none";
             if (result === "none") continue;
-        
-            this.recipeFruits.splice(i, 1);
-            const screenIndex = this.fruitOnScreen.indexOf(recipeFruit.index);
-            if (screenIndex !== -1) this.fruitOnScreen.splice(screenIndex, 1);
-        
+            recipeFruit.sliced = true;
+
             this.currentFruit = recipeFruit;
-            this.displayRecipeSliceEffects(recipeFruit);
+            this.displaySliceEffectsFeedback(recipeFruit);
 
             const expectedFruit = this.recipe.ingredients[0];
+            console.log("🎯 Expected (from recipe.ingredients[0]):", expectedFruit);
             if (recipeFruit.index === expectedFruit) {
-              this.recipe.ingredients.shift();
-              this.sliceFeedback = "correct";
-              this.showCorrectEffect();
-              audioController.play("recipe");
-              if (this.recipe.ingredients.length === 0) {
-                this.recipeComplete = true;
-                this.autoAdvanceTimeout = setTimeout(() => {
-                  this.recipeMode = false;
-                  this.recipeStarted = false;
-                  this.currentFruitIndex = 0;
-                  this.currentFruit = null;
-                  this.fruitSliced = false;
-                }, 3000);
-              }
+                console.log("✅ Sliced fruit matched:", recipeFruit.fruitName);
+                recipeFruit.handled = true;
+                this.processCorrectSliceLogic();
+                this.fruitSliced = false;
+                this.recipe.ingredients.shift();
+                if (this.recipe.ingredients.length === 0) {
+                    difficulty = this.previousDifficulty;
+                    this.recipeComplete = true;
+                    this.autoAdvanceTimeout = setTimeout(() => {
+                    this.recipeMode = false;
+                    this.recipeFruits = [];
+                    this.recipeStarted = false;
+                    this.currentFruitIndex = 0;
+                    this.currentFruit = null;
+                    this.fruitSliced = false;
+                    }, 3000);
+                }
+                //break;
             } else {
-              this.sliceFeedback = "wrong";
-              this.showWrongEffect();
-              this.lifeIcons.loseLife();
-              audioController.play("lifeLost");
-        
-              if (this.lifeIcons.lives === 0) {
-                this.recipeFailed = true;
-                audioController.play("gameover");
-                this.autoAdvanceTimeout = setTimeout(() => this.startRecipeTutorial(), 3000);
-              }
+                this.sliceFeedback = "wrong";
+                this.processWrongSliceLogic();
+                this.fruitSliced = false;
+                if (this.lifeIcons.lives === 0) {
+                    this.recipeFailed = true;
+                    audioController.play("gameover");
+                    this.autoAdvanceTimeout = setTimeout(() => this.startRecipeTutorial(), 3000);
+                }
             }
         }    
-    }
-
-    displayRecipeSliceEffects(fruit) {
-        audioController.play('slice');
-        this.splatters.push(new splat(fruit.xPos, fruit.yCurrentPos, fruit.name));
-        fruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruit.name}-slice.png`);
-        fruit.slicePat = new SlicePattern("click", fruit.size);
     }
 
     // --Normal Fruit List Array Steps -- 
@@ -328,11 +324,13 @@ class TutorialScreen {
     processCorrectSliceLogic(){
         this.sliceFeedback = "correct";
         this.showCorrectEffect();
-        if (!this.autoAdvanceTimeout) {
-            this.autoAdvanceTimeout = setTimeout(() => {
-            this.gotoNextTutorialStep();
-            }, 10000);
-            return;
+        if(!this.isRecipeStep){
+            if (!this.autoAdvanceTimeout) {
+                this.autoAdvanceTimeout = setTimeout(() => {
+                this.gotoNextTutorialStep();
+                }, 10000);
+                return;
+            }
         }
     }
 
@@ -342,12 +340,16 @@ class TutorialScreen {
         this.showWrongEffect();
     }
 
-    displaySliceEffectsFeedback() {
+    displaySliceEffectsFeedback(fruit) {
         audioController.play('slice');
-        this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos,fruitList[this.currentFruitIndex])); 
-        this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
-        this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
-
+        if(this.isRecipeStep()){
+            this.splatters.push(new splat(fruit.xPos, fruit.yCurrentPos, fruit.fruitName));
+            fruit.fruitImg= loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruit.fruitName}-slice.png`);
+        } else {
+            this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex])); 
+            this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
+            this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
+        }
     }
 
     handleBombTutorialLogic() {
