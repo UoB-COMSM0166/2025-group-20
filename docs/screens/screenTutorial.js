@@ -18,6 +18,17 @@ class TutorialScreen {
         this.bombFailed = false;
         this.bombCompleted = false;
 
+        // -- tutotiral recipe varialbe --
+
+        this.recipeMode = false;
+        this.recipeStarted = false;
+        this.recipeComplete = false;
+        this.recipeFruits = [];
+        this.fruitOnScreen = [];
+        this.frameCounter = 0;
+        this.fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
+
+
         // -- Buttons setup --
 
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
@@ -31,6 +42,10 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
+            if (!this.recipeStarted && this.currentFruitIndex === 0) {
+                this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
+                return;
+            }
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', () => {
@@ -41,6 +56,10 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
+            if (!this.recipeStarted && this.currentFruitIndex === fruitList.length - 1) {
+                this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
+                return;
+            }
             this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
         });
         this.leftArrowButton.getButton().style('font-size', '20px');
@@ -56,7 +75,12 @@ class TutorialScreen {
   
     render() {
         this.drawTutorialScreen();
-        this.drawSplats();  
+        this.drawSplats();
+        if (this.isRecipeStep()) {
+            this.renderRecipeStep();
+            cursorEffect();
+            return;
+        }
         this.initializeTutorialFruit();
         this.renderFruit();
         this.handleisSlicedLogic();
@@ -80,6 +104,8 @@ class TutorialScreen {
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
     }  
+
+    // -- drawing and visuals folders --
 
     drawTutorialScreen() {
         noCursor();
@@ -114,7 +140,9 @@ class TutorialScreen {
         let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
         if(this.isBombStep()){
             narration = `Don't ${narration}`;
-        }     
+        } else if(this.isRecipeStep()){
+            narration = 'Slice the correct fruit in the correct order or you will lose a life!';
+        }  
         const words = narration.split(' ');
         const lines = [];
         let currentLine = '';
@@ -151,6 +179,125 @@ class TutorialScreen {
         }
     }
 
+    // -- Recipe Step (it's very big) --
+
+    startRecipeTutorial() {
+        this.recipeMode = true;
+        this.recipeStarted = true;
+        this.recipe = new SmoothieRecipe();
+        this.lifeIcons = new LifeIcons();
+        this.recipeComplete = false;
+        this.recipeFailed = false;
+        this.currentFruitIndex = fruitList.indexOf(this.recipe.ingredients[0]);
+        this.currentFruit = null;
+        this.fruitSliced = false;
+      }
+      
+
+    renderRecipeStep() {
+        this.recipe.display();
+        this.lifeIcons.show();
+        this.handleRecipeFruitSpawning();
+        this.updateAndDrawRecipeFruits();
+        this.handleRecipeSlicing();
+        this.renderTutorialFeedback();
+    }
+
+    handleRecipeFruitSpawning() { //this mirrors the game logic (maybe best to make that into a separate method and call it?)
+        this.frameCounter++;
+      
+        if (this.frameCounter % 60 === 0) {
+          const extraFruit = this.fruitGenerator.randomFruitGen(1, this.recipe);
+          this.recipeFruits.push(extraFruit);
+          this.fruitOnScreen.push(extraFruit.index);
+        }
+      
+        if (!this.fruitOnScreen.includes(this.recipe.ingredients[0])) {
+          const neededFruit = this.fruitGenerator.randomFruitGen(0, this.recipe);
+          this.recipeFruits.push(neededFruit);
+          this.fruitOnScreen.push(neededFruit.index);
+        }
+      }
+      
+      updateAndDrawRecipeFruits() {
+        for (let i = this.recipeFruits.length - 1; i >= 0; i--) {
+          const f = this.recipeFruits[i];
+          f.show();
+          f.move();
+      
+          if (!f.visible) {
+            this.recipeFruits.splice(i, 1);
+            this.fruitOnScreen.splice(this.fruitOnScreen.indexOf(f.index), 1);
+          }
+        }
+      }
+      
+
+    handleRecipeSlicing(){
+        for (let i = this.recipeFruits.length - 1; i >= 0; i--) {
+            const f = this.recipeFruits[i];
+            const result = f.slicePat.isSliced();
+        
+            if (result === "correct" || result === "wrong") {
+              audioController.play("slice");
+              this.splatters.push(new splat(f.xPos, f.yPos, f.fruitName));
+              f.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${f.fruitName}-slice.png`);
+              f.slicePat = new SlicePattern("inert", 0);
+        
+              if (f.fruitName === "dragonfruit") {
+                this.lifeIcons.gainLife();
+                gainLifeEffect();
+                audioController.play("lifeGained");
+              }
+              else if (f.index !== this.recipe.ingredients[0]) {
+                this.lifeIcons.loseLife();
+                loseLifeEffect();
+                this.sliceFeedback = "wrong";
+                audioController.play("lifeLost");
+        
+                if (this.lifeIcons.lives === 0) {
+                  this.recipeFailed = true;
+                  audioController.play("gameover");
+                  this.autoAdvanceTimeout = setTimeout(() => this.startRecipeTutorial(), 3000);
+                }
+              }
+              else if (f.index === this.recipe.ingredients[0]) {
+                if (result === "correct") {
+                  this.recipe.ingredients.shift();
+                  this.sliceFeedback = "correct";
+        
+                  if (this.recipe.ingredients.length === 0) {
+                    this.recipeComplete = true;
+                    audioController.play("recipe");
+                    this.autoAdvanceTimeout = setTimeout(() => {
+                      this.recipeMode = false;
+                      this.recipeStarted = false;
+                      this.currentFruitIndex = 0;
+                      this.currentFruit = null;
+                      this.fruitSliced = false;
+                    }, 3000);
+                  }
+                } else {
+                  wrongSliceEffect();
+                  this.sliceFeedback = "wrong";
+                }
+              }
+        
+              this.recipeFruits.splice(i, 1);
+              this.fruitOnScreen.splice(this.fruitOnScreen.indexOf(f.index), 1);
+            }
+        
+            else if (result === "bomb") {
+              audioController.play("bomb");
+              audioController.play("gameover");
+              this.recipeFailed = true;
+              this.autoAdvanceTimeout = setTimeout(() => this.startRecipeTutorial(), 3000);
+            }
+          }
+    }
+
+    // --Normal Fruit List Array Steps -- 
+
     initializeTutorialFruit() {
         if (!this.currentFruit) {
             this.currentFruit = new TutorialFruit(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex], fruitList[this.currentFruitIndex]);
@@ -165,6 +312,8 @@ class TutorialScreen {
         this.currentFruit.move();
         this.currentFruit.show();
     }
+
+    // -- handles slicing logic --
 
     handleisSlicedLogic() {
         if (this.fruitSliced) return;
@@ -237,6 +386,12 @@ class TutorialScreen {
         return fruitList[this.currentFruitIndex] === "bomb";
     }
 
+    isRecipeStep() {
+        return this.recipeMode;
+      }
+
+        // -- Effects Section -- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
+
     renderTutorialFeedback() {
         if (this.sliceFeedback === "correct") {
             if (this.isDragonfruitStep()) {
@@ -255,8 +410,6 @@ class TutorialScreen {
             }
         }
     }
- 
-    // -- Effects Section -- (should be moved to a separate effects file later)
 
     showCorrectEffect() {
         correctSliceEffect();
@@ -313,23 +466,23 @@ class TutorialScreen {
         if (this.currentFruit?.slicingGif) {
         this.currentFruit.slicingGif.remove();
         }
-        this.fruitSliced = false;
         this.sliceFeedback = null;
         this.bombFailed = false;
         this.bombCompleted = false;
         this.bombCount = 0;     
-
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
-
+        if (!this.recipeStarted && this.currentFruitIndex === fruitList.length - 1) {
+            this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
+            return;
+        }
         this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
-
         this.currentFruit = null;
+        this.fruitSliced = false;
       }
   }
 
 
   // to do: 
   // effects should be added to a separate effects file, 
-  //have splat images display on screen 
   // recipe tutorial added

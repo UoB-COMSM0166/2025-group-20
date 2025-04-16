@@ -3,13 +3,11 @@ class TutorialFruit {
     constructor(img, slicePattern, fruitName) {
       this.fruitImg = img;
       this.fruitName = fruitName;
-  
       this.xPos = windowWidth / 2;
       this.startYPos = windowHeight;
       this.maxHeight = windowHeight * 0.25;
       this.yCurrentPos = this.startYPos;
       this.ySpeed = -11;
-  
       this.size = 110;
       this.visible = true;
       this.slicingGif = null;
