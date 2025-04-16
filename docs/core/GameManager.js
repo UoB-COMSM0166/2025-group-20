@@ -15,7 +15,6 @@ class GameManager {
       this.state = newState;
     }
     
-
     render() {
       switch (this.state) {
         case "start":
@@ -27,8 +26,6 @@ class GameManager {
         case "tutorial":
           this.tutorialScreen.render();
           this.tutorialScreen.showButtons();
-          //wrongSliceText();
-          //correctSliceText();
           this.startScreen.hideButtons();
           break;
         case "game":
