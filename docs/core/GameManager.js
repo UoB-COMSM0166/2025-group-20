@@ -57,6 +57,7 @@ class GameManager {
       recipeButton.hide();
     }
     this.startScreen.hideButtons();
+    this.gameOverScreen.explosion.hide();
     pauseMenu.pauseButton.getButton().show();
     if (pauseMenu.pause) {
       pauseMenu.drawPauseScreen(); 

@@ -37,17 +37,8 @@ class RecipeButton {
 }
 
 function makeRecipeButton() {
-    textFont(gameFont);
-    fill('white');
-    stroke('black');
-    strokeWeight(2);
-    textSize(22);
-    textAlign(CENTER, CENTER);
-    text("RECIPE", windowWidth / 1.14, windowHeight / 1.23);
-    text("BOOK", windowWidth / 1.14, windowHeight / 1.18);
-
     if (!recipeButton) {
-        recipeButton = new RecipeButton(windowWidth / 1.18, windowHeight / 1.152, 90);
+        recipeButton = new RecipeButton(windowWidth / 1.085, windowHeight / 2 + 85, 80);
         recipeButton.create();
     }
 
@@ -59,7 +50,8 @@ function makeRecipeButton() {
 function recipeScreen() {
     fill(252, 243, 207, 180);
     rectMode(CENTER);
-    rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 55);
+  //  rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 55);
+    rect(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2, 20);
 
     image(patImgs[0], windowWidth / 2 - 120, windowHeight / 2, 100, 100);
     image(patImgs[1], windowWidth / 2, windowHeight / 2, 100, 100);

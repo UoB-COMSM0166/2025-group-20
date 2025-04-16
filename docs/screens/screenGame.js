@@ -1,5 +1,5 @@
 function gameScreen() {
-
+    
     background(bg);
     if (currentRecipe.ingredients.length === 0){
         recipeCompleteEffect();
@@ -12,7 +12,7 @@ function gameScreen() {
         
         currentRecipe = new SmoothieRecipe();
         fruitOnScreen = [];
-    }
+    } 
     currentRecipe.display();
     lifeIcons.show();
 

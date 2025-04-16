@@ -29,3 +29,4 @@ class Basket{
         image(this.image, this.x-80, this.y-220, 220, 220);
     }
 }
+
