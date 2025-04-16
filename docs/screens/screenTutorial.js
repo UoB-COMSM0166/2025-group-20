@@ -4,9 +4,11 @@ class TutorialScreen {
         this.currentFruitIndex = 0;
         this.currentFruit = null;
         this.autoAdvanceTimeout = null;
+        this.fruitSliced = false;
         this.correctSlice = false;
         this.showingButtons = false;
         this.sliceEffectTimer = null;
+        this.splatters = [];
         this.lifeIcons = new LifeIcons();
         this.lifeIcons.lives = 2;
         this.lifeIcons.heartStates = ['full', 'full', 'empty'];
@@ -24,6 +26,7 @@ class TutorialScreen {
         });
         this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', () => {
             this.sliceFeedback = null;
+            this.fruitSliced = false;
             this.bombCompleted = false;
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
@@ -32,6 +35,7 @@ class TutorialScreen {
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', () => {
             this.sliceFeedback = null;
+            this.fruitSliced = false;
             this.bombFailed = false;
             this.bombCompleted = false;
             this.bombCount = 0;
@@ -51,7 +55,8 @@ class TutorialScreen {
     }
   
     render() {
-        this.drawTutorialScreen();  
+        this.drawTutorialScreen();
+        this.drawSplats();  
         this.initializeTutorialFruit();
         this.renderFruit();
         this.handleisSlicedLogic();
@@ -135,6 +140,17 @@ class TutorialScreen {
         }
     }
 
+    drawSplats() {
+        for (let i = this.splatters.length - 1; i >= 0; i--) {
+            this.splatters[i].update();
+            this.splatters[i].show();
+      
+            if (this.splatters[i].isDone()) {
+                this.splatters.splice(i, 1);
+            }
+        }
+    }
+
     initializeTutorialFruit() {
         if (!this.currentFruit) {
             this.currentFruit = new TutorialFruit(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex], fruitList[this.currentFruitIndex]);
@@ -151,23 +167,19 @@ class TutorialScreen {
     }
 
     handleisSlicedLogic() {
+        if (this.fruitSliced) return;
         const sliceResult = this.currentFruit.slicePat.isSliced();
         if (["correct", "wrong", "bomb"].includes(sliceResult)) {
+            this.fruitSliced = true;
             audioController.play('slice');
             if (sliceResult === "correct") {
+                audioController.play('recipe');
                 this.processCorrectSliceLogic();
             } else {
+                audioController.play('lifeLost');
                 this.processWrongSliceLogic();
-                /*audioController.play('lifeLost');
-                this.bombFailed = true;
-                this.sliceFeedback = "wrong";
-                this.showWrongEffect();*/
             }
-  
-            const currentSplat = new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]);
-            currentSplat.show();
-            this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
-            this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
+            this.displayVisualSliceFeedback();
         }
     }
 
@@ -186,6 +198,12 @@ class TutorialScreen {
         this.bombFailed = true;
         this.sliceFeedback = "wrong";
         this.showWrongEffect();
+    }
+
+    displayVisualSliceFeedback() {
+        this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos,fruitList[this.currentFruitIndex])); 
+        this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
+        this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
     }
 
     handleBombTutorialLogic() {
@@ -241,7 +259,6 @@ class TutorialScreen {
     // -- Effects Section -- (should be moved to a separate effects file later)
 
     showCorrectEffect() {
-        audioController.play('recipe');
         correctSliceEffect();
         this.sliceFeedback = "correct";
 
@@ -257,7 +274,6 @@ class TutorialScreen {
     }
       
     showWrongEffect() {
-        audioController.play('lifeLost');
         wrongSliceEffect();
         this.sliceFeedback = "wrong";
       
@@ -297,6 +313,7 @@ class TutorialScreen {
         if (this.currentFruit?.slicingGif) {
         this.currentFruit.slicingGif.remove();
         }
+        this.fruitSliced = false;
         this.sliceFeedback = null;
         this.bombFailed = false;
         this.bombCompleted = false;
