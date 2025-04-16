@@ -147,7 +147,7 @@ One of our primary goals was to create a game that was accessible to both casual
 
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
 
-  ## Sustainability (Scarlett)
+# Sustainability (Scarlett)
 
 # Conclusion
 
