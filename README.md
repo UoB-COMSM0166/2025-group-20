@@ -148,6 +148,9 @@ One of our primary goals was to create a game that was accessible to both casual
 - Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
 
 # Sustainability (Scarlett)
+- 10% ~750 words
+- Evidence of the impact of your game across the environment and two of the other areas:
+- Environmental + 2 of the following: social, economic, technical, individual
 
 # Conclusion
 
