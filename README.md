@@ -126,6 +126,13 @@ One tester suggested that the "click and drag" mechanic for slicing might be red
 NEED TO ACTUALLY FIX SOME THINGS IN THE GAME - 1. CURSOREFFECT DOES NOT REMAIN FOR LONG ENOUGH 2. RECIPE ASPECT ORDER UNCLEAR 3. FRUIT GENERATED STUCK TOGETHER
 
 ### Learning Curve
+Feedback surrounding the game's initial difficulty was flagged: at this stage in the development several features hadn't been implemented. Users though the games goals and rules were initially unclear and disliked the 'memory' aspect; having to remember specific slice patterns was tedious and created a slow, drudgy gameplay. 
+
+To combat this, we implemented two features to our gameplay:
+
+1. The recipe book: In hard mode, we inserted a book containing the game's slice patterns, so the user could easily refer to it during gameplay, eradicating any clunky, stop-and-start game flow from before.
+
+2. We added a tutorial feature on the start screen - so before gameplay, the user could practise the slice patterns, and learn the rules, in particular: the bomb slicing, the dragonfruit +1 life feature, and the recipe slicing order rule.
 
 ### Affective Response 
 
