@@ -15,6 +15,8 @@ class TutorialScreen {
         this.bombMax = 5;
         this.bombFailed = false;
         this.bombCompleted = false;
+
+        // -- Buttons setup --
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
             gameManager.switchState("start");
             this.currentFruit?.slicingGif?.remove();
@@ -283,3 +285,11 @@ class TutorialScreen {
         this.currentFruit = null;
       }
   }
+
+
+  // to do: 
+  // neaten up indentation, 
+  // effects should be added to a separate effects file, 
+  // split up main render block into readable chunks, 
+  // fix incorrect 'wrong slice' recognition
+  // recipe tutorial added

@@ -72,7 +72,7 @@ class TutorialFruit {
         this.slicingGif = null;
       }
   
-      this.slicePat = new SlicePattern(this.SlicePattern, this.size);
+      this.slicePat = new SlicePattern(slicePattern, this.size);
       this.fruitImg = fruitImg;
     }
   }
