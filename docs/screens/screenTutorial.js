@@ -31,11 +31,11 @@ class TutorialScreen {
 
         // -- Buttons setup --
 
-        this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', () => {
+        this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
             gameManager.switchState("start");
             this.currentFruit?.slicingGif?.remove();
         });
-        this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', () => {
+        this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', 50, 50, '20px', () => {
             this.sliceFeedback = null;
             this.fruitSliced = false;
             this.bombCompleted = false;
@@ -48,7 +48,7 @@ class TutorialScreen {
             }
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
-        this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', () => {
+        this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
             this.sliceFeedback = null;
             this.fruitSliced = false;
             this.bombFailed = false;
@@ -62,11 +62,11 @@ class TutorialScreen {
             }
             this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
         });
-        this.leftArrowButton.getButton().style('font-size', '20px');
+        /*this.leftArrowButton.getButton().style('font-size', '20px');
         this.leftArrowButton.getButton().size(50, 50);
       
         this.rightArrowButton.getButton().style('font-size', '20px');
-        this.rightArrowButton.getButton().size(50, 50);
+        this.rightArrowButton.getButton().size(50, 50);*/
       
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
