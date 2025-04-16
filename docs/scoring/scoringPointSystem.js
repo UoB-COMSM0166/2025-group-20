@@ -29,6 +29,8 @@ class PointSystem{
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
         textFont(gameFont);
+        stroke('black');
+        strokeWeight(2);
         fill('white');
         text('CURRENT POINTS: ', this.x - 40, this.y);
      
@@ -62,6 +64,8 @@ class HighestPointDisplay {
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(15);
         textFont(gameFont);
+        stroke('black');
+        strokeWeight(2);
         fill('white');
         text('HIGHEST SCORE: ',this.x - 40,this.y);
 

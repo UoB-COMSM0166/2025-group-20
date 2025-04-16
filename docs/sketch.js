@@ -76,16 +76,11 @@ function setup() {
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
   gameManager = new GameManager(); 
-  themeButton = new ThemeButton(20, 20); 
+  musicButton = new MusicButton(); 
 }
 
 function draw() {
   gameManager.render();
-  if (gameManager.state === "start") {
-    themeButton.setPosition(20, 20);
-  } else {
-    themeButton.setPosition(20, windowHeight - 60);
-  }
 }
 
 function keyPressed() {

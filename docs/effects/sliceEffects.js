@@ -2,7 +2,7 @@ function redBorder() {
   if(displayBorder === true){
     push();
     noFill();
-    stroke("red");
+    stroke('red');
     strokeWeight(20);
     rectMode(CORNER);
     rect(0, 0, width, height, 20);
@@ -14,7 +14,7 @@ function greenBorder() {
   if(displayGreen == true){
     push();
     noFill();
-    stroke("lime");
+    stroke('seagreen');
     strokeWeight(20);
     rectMode(CORNER);
     rect(0, 0, width, height, 20);
@@ -27,6 +27,8 @@ function completionText(){
     textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('white');
+    stroke('black');
+    strokeWeight(3);
     textSize(100);
     text('Recipe Complete!', width/2,100);
   }
@@ -37,8 +39,10 @@ function wrongSliceText(){
     textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('red');
+    stroke('black');
+    strokeWeight(3);
     textSize(100);
-    text('Wrong Slice!', width/2, 100);
+    text('Wrong Slice!', width/2, height/2 - 240);
   }
 }
 
