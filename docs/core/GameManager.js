@@ -3,6 +3,7 @@ class GameManager {
       this.state = "start";
       this.startScreen = new ScreenStart(this);
       this.gameOverScreen = new GameOverScreen();
+      this.tutorialScreen = new TutorialScreen();
       this.score = 0;
       this.lives = 3;
       this.difficulty = 'easy';
@@ -14,16 +15,18 @@ class GameManager {
       this.state = newState;
     }
     
-
     render() {
       switch (this.state) {
         case "start":
           this.startScreen.render();
           this.startScreen.showButtons();
           this.gameOverScreen.hide();
+          this.tutorialScreen.hideButtons();
           break;
         case "tutorial":
-          this.drawTutorialState();
+          this.tutorialScreen.render();
+          this.tutorialScreen.showButtons();
+          this.startScreen.hideButtons();
           break;
         case "game":
           this.drawGameState();
@@ -36,14 +39,6 @@ class GameManager {
           break;
       }
     }
-
-    drawTutorialState(){
-        noCursor();
-        tutorialEasyScreen();
-        wrongSliceText();
-        correctSliceText();
-        this.startScreen.hideButtons();
-    } 
 
   drawGameState(){
     gameScreen();

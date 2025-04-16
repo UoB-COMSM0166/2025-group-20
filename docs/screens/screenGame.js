@@ -3,6 +3,7 @@ function gameScreen() {
     background(bg);
     if (currentRecipe.ingredients.length === 0){
         recipeCompleteEffect();
+        audioController.play('recipe');
         if(difficulty == 'easy'){
             easyGameScore.recipeComplete();
         } else {
@@ -61,12 +62,15 @@ function gameScreen() {
                 console.log('Dragonfruit sliced!');
                 lifeIcons.gainLife();
                 gainLifeEffect();
+                audioController.play('lifeGained');
                 //I want to make a twinkle sound effect for when this is sliced.
             }
             else if (fruit[i].fruitName !== 'dragonfruit' && fruit[i].index !== currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
                 loseLifeEffect();
+                audioController.play('lifeLost');
                 if (lifeIcons.lives === 0){
+                    audioController.play('gameover');
                     gameManager.switchState("gameover");
                 }
             }
@@ -93,6 +97,7 @@ function gameScreen() {
         else if (fruit[i].slicePat.isSliced() === 'bomb'){
             audioController.play("bomb");
             fruit[i].slicePat = new SlicePattern('inert', 0);
+            audioController.play('gameover');
             gameManager.switchState("gameover");
         }
     }
