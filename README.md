@@ -132,6 +132,9 @@ To combat this, we implemented two features to our gameplay:
 
 1. The recipe book: In hard mode, we inserted a book containing the game's slice patterns, so the user could easily refer to it during gameplay, eradicating any clunky, stop-and-start game flow from before.
 
+![Recipe Book Evaluation](project-report-images/recipe-book-evaluation.gif)
+*Figure 1: Demo of the interactive recipe book feature.*
+
 2. We added a tutorial feature on the start screen - so before gameplay, the user could practise the slice patterns, and learn the rules, in particular: the bomb slicing, the dragonfruit +1 life feature, and the recipe slicing order rule.
 
 ### Affective Response 
@@ -139,7 +142,9 @@ To combat this, we implemented two features to our gameplay:
 ## Quantitative: NASA TLX
 One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013)), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected a data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and that it makes sense to opt for the easier option when studies report back mixed results for raw vs. weighted TLX scores (Hart (2006)).
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
+*Figure 2: NASA TLX Evaluation Bar Chart Feedback.*
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
+*Figure 3: NASA TLX Pentagraph demonstrating specific demand difference feedback.*
 
 
 - 15% ~750 words
