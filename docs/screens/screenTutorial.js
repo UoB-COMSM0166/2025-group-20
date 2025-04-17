@@ -53,6 +53,7 @@ class TutorialScreen {
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
+            console.log('the current fruit index is:', this.currentFruitIndex);
             this.sliceFeedback = null;
             this.fruitSliced = false;
             this.bombFailed = false;
@@ -252,23 +253,17 @@ class TutorialScreen {
             this.displaySliceEffectsFeedback(recipeFruit);
 
             const expectedFruit = this.recipe.ingredients[0];
-            console.log("🎯 Expected (from recipe.ingredients[0]):", expectedFruit);
             if (recipeFruit.index === expectedFruit) {
-                console.log("✅ Sliced fruit matched:", recipeFruit.fruitName);
                 recipeFruit.handled = true;
                 this.processCorrectSliceLogic();
                 this.fruitSliced = false;
                 this.recipe.ingredients.shift();
+
                 if (this.recipe.ingredients.length === 0) {
                     this.recipeComplete = true;
-                    this.autoAdvanceTimeout = setTimeout(() => {
-                    this.recipeMode = false;
-                    this.recipeFruits = [];
-                    this.currentFruit = null;
-                    this.fruitSliced = false;
-                    }, 3000);
+                    this.RecipeFruits = [];
                 }
-                //break;
+
             } else {
                 this.sliceFeedback = "wrong";
                 this.processWrongSliceLogic();
@@ -280,10 +275,6 @@ class TutorialScreen {
                 }
             }
         }    
-    }
-
-    closeRecipeTutorial() {
-
     }
 
     // --Normal Fruit List Array Steps -- 
@@ -325,7 +316,7 @@ class TutorialScreen {
     processCorrectSliceLogic(){
         this.sliceFeedback = "correct";
         this.showCorrectEffect();
-        if(!this.isRecipeStep){
+        if(this.recipeCompleted || !this.isRecipeStep){
             if (!this.autoAdvanceTimeout) {
                 this.autoAdvanceTimeout = setTimeout(() => {
                 this.gotoNextTutorialStep();
@@ -407,6 +398,12 @@ class TutorialScreen {
             wrongSliceText();
             }
         }
+        if(this.recipeComplete){
+            this.drawRecipeCompletedText();
+        }
+        if(this.recipeFailed){
+            this.drawBombFailText();
+        }
     }
 
     showCorrectEffect() {
@@ -458,6 +455,14 @@ class TutorialScreen {
         text("Well done!", width / 2, 100);
     }
 
+    drawRecipeCompletedText() {
+        textAlign(CENTER, CENTER);
+        textFont(gameFont);
+        fill("green");
+        textSize(80);
+        text("Recipe Completed!", width / 2, 100);
+    }
+
     // -- Auto Timeout Effect --
       
       gotoNextTutorialStep(){
@@ -467,16 +472,24 @@ class TutorialScreen {
         this.sliceFeedback = null;
         this.bombFailed = false;
         this.bombCompleted = false;
-        this.bombCount = 0;     
+        this.bombCount = 0;  
+        this.currentFruit = null;
+        this.fruitSliced = false;   
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
         if (this.currentFruitIndex === fruitList.length - 1) {
             this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
             return;
         }
+
+        if(this.currentFruitIndex === 9){
+            this.recipeMode = false;
+            this.currentFruitIndex = 0;
+            return;
+        } 
         this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
-        this.currentFruit = null;
-        this.fruitSliced = false;
+        //this.currentFruit = null;
+        //this.fruitSliced = false;
       }
   }
 
