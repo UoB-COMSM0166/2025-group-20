@@ -126,32 +126,52 @@ One tester suggested that the "click and drag" mechanic for slicing might be red
 NEED TO ACTUALLY FIX SOME THINGS IN THE GAME - 1. CURSOREFFECT DOES NOT REMAIN FOR LONG ENOUGH 2. RECIPE ASPECT ORDER UNCLEAR 3. FRUIT GENERATED STUCK TOGETHER
 
 ### Learning Curve
-Feedback surrounding the game's initial difficulty was flagged: at this stage in the development several features hadn't been implemented. Users though the games goals and rules were initially unclear and disliked the 'memory' aspect; having to remember specific slice patterns was tedious and created a slow, drudgy gameplay. 
+Early user feedback regarding the game's initial difficulty was flagged: at this stage in the development several core features hadn't been implemented. Users found the games objectives and rules were initially unclear and many disliked the reliance on memory; having to remember specific slice patterns was tedious and created a slow, tedious gameplay. 
 
-To combat this, we implemented two features to our gameplay:
+To address this, we implemented two features to our gameplay:
 
-1. The recipe book: In hard mode, we inserted a book containing the game's slice patterns, so the user could easily refer to it during gameplay, eradicating any clunky, stop-and-start game flow from before.
+1. The recipe book: In hard mode, we introduced an in-game recipe book, that displays slice patterns for fruit. This allowed the user to easily refer to it during gameplay, eradicating any clunky, stop-and-start flow from having to memorise them.
 
 ![Recipe Book Evaluation](project-report-images/Recipe-Book-Evaluation.gif)
+
 *Figure 1: Demo of the interactive recipe book feature.*
 
-2. We added a tutorial feature on the start screen - so before gameplay, the user could practise the slice patterns, and learn the rules, in particular: the bomb slicing, the dragonfruit +1 life feature, and the recipe slicing order rule.
+2. Tutorial Mode: We also added a tutorial accessible directing from the start screen. This faciliatated users to practise before gameplay. The player could internalise the slicing mechanics, and learn other essential gamplay features, such as:
+ - Avoiding the bomb
+ - The dragonfruit +1 life benefit
+ - The importance of slicing the fruit in the correct recipe order
+
+*Import gif when tutorial complete*
 
 ### Affective Response 
 
+No time constraints cause monotony? - don't know how to address this yet
+
 ## Quantitative: NASA TLX
 One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013)), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected a data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and that it makes sense to opt for the easier option when studies report back mixed results for raw vs. weighted TLX scores (Hart (2006)).
+
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
+
 *Figure 2: NASA TLX Evaluation Bar Chart Feedback.*
+
+The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers.
+
+- The accompanying pentagraph (below) reveals more granular differences:
+- A significant rise in effort and frustration
+- A moderate increase in mental demand and perceived performance
+- Minimal change in physical or temporal demand
+
+These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
+
 *Figure 3: NASA TLX Pentagraph demonstrating specific demand difference feedback.*
 
+The accompanying pentagraph (above) reveals more granular differences:
+- A significant increase in effort and frustration
+- A moderate increase in mental demand and perceived performance
+- Minimal or no change in physical or temporal demand
 
-- 15% ~750 words
-
-- One quantitative evaluation (of your choice) 
-
-- Description of how code was tested. 
+These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
 
 # Process (May)
 
