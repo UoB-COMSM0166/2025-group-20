@@ -62,11 +62,6 @@ class TutorialScreen {
             }
             this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
         });
-        /*this.leftArrowButton.getButton().style('font-size', '20px');
-        this.leftArrowButton.getButton().size(50, 50);
-      
-        this.rightArrowButton.getButton().style('font-size', '20px');
-        this.rightArrowButton.getButton().size(50, 50);*/
       
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
