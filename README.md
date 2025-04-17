@@ -132,7 +132,7 @@ To combat this, we implemented two features to our gameplay:
 
 1. The recipe book: In hard mode, we inserted a book containing the game's slice patterns, so the user could easily refer to it during gameplay, eradicating any clunky, stop-and-start game flow from before.
 
-![Recipe Book Evaluation](project-report-images/recipe-book-evaluation.gif)
+![Recipe Book Evaluation](project-report-images/Recipe-Book-Evaluation.gif)
 *Figure 1: Demo of the interactive recipe book feature.*
 
 2. We added a tutorial feature on the start screen - so before gameplay, the user could practise the slice patterns, and learn the rules, in particular: the bomb slicing, the dragonfruit +1 life feature, and the recipe slicing order rule.
