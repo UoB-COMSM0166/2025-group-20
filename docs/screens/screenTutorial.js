@@ -18,10 +18,9 @@ class TutorialScreen {
         this.bombFailed = false;
         this.bombCompleted = false;
 
-        // -- tutotiral recipe varialbe --
+        // -- tutorial recipe varialbe --
 
         this.recipeMode = false;
-        this.recipeStarted = false;
         this.recipeComplete = false;
         this.recipeFruits = [];
         this.fruitOnScreen = [];
@@ -42,10 +41,15 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
-            if (!this.recipeStarted && this.currentFruitIndex === 0) {
+            if (this.currentFruitIndex === 0) {
                 this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
                 return;
             }
+            if(this.currentFruitIndex === 9){
+                this.recipeMode = false;
+                this.currentFruitIndex = 8;
+                return;
+            } 
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
@@ -56,10 +60,15 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
-            if (!this.recipeStarted && this.currentFruitIndex === fruitList.length - 1) {
-                this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
+            if (this.currentFruitIndex === fruitList.length - 1) {
+                this.startRecipeTutorial();
                 return;
             }
+            if(this.currentFruitIndex === 9){
+                this.recipeMode = false;
+                this.currentFruitIndex = 0;
+                return;
+            } 
             this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
         });
       
@@ -177,10 +186,8 @@ class TutorialScreen {
     // -- Recipe Step (it's very big) --
 
     startRecipeTutorial() {
-        this.previousDifficulty = difficulty;
-        difficulty = "easy";
+        this.currentFruitIndex = 9;
         this.recipeMode = true;
-        this.recipeStarted = true;
         this.recipe = new SmoothieRecipe();
         this.lifeIcons = new LifeIcons();
         this.recipeComplete = false;
@@ -189,9 +196,6 @@ class TutorialScreen {
         const safeFruitImgs = safeFruits.map(f => fruitImgs[fruitList.indexOf(f)]);
         const safeSliceList = safeFruits.map(f => sliceList[fruitList.indexOf(f)]);
         this.fruitGenerator = new FruitGenerator(safeFruits, safeFruitImgs, safeSliceList);
-        this.currentFruitIndex = fruitList.indexOf(this.recipe.ingredients[0]);
-        this.currentFruit = null;
-        this.fruitSliced = false;
       }
       
 
@@ -256,13 +260,10 @@ class TutorialScreen {
                 this.fruitSliced = false;
                 this.recipe.ingredients.shift();
                 if (this.recipe.ingredients.length === 0) {
-                    difficulty = this.previousDifficulty;
                     this.recipeComplete = true;
                     this.autoAdvanceTimeout = setTimeout(() => {
                     this.recipeMode = false;
                     this.recipeFruits = [];
-                    this.recipeStarted = false;
-                    this.currentFruitIndex = 0;
                     this.currentFruit = null;
                     this.fruitSliced = false;
                     }, 3000);
@@ -279,6 +280,10 @@ class TutorialScreen {
                 }
             }
         }    
+    }
+
+    closeRecipeTutorial() {
+
     }
 
     // --Normal Fruit List Array Steps -- 
@@ -311,6 +316,7 @@ class TutorialScreen {
             } else {
                 audioController.play('lifeLost');
                 this.processWrongSliceLogic();
+                this.fruitSliced = false;
             }
             this.displaySliceEffectsFeedback();
         }
@@ -464,7 +470,7 @@ class TutorialScreen {
         this.bombCount = 0;     
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
-        if (!this.recipeStarted && this.currentFruitIndex === fruitList.length - 1) {
+        if (this.currentFruitIndex === fruitList.length - 1) {
             this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
             return;
         }

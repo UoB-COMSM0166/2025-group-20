@@ -32,7 +32,6 @@ let leftImg, rightImg;
 
 let gameManager;
 let audioController;
-//let themeButton;
 
 
 function preload() {
