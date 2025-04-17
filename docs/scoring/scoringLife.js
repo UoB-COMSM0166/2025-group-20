@@ -40,12 +40,11 @@ class LifeIcons {
                   this.heartStates[i] = 'full';
                   this.hearts[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart.png');
                   this.lives++;
-                  console.log("🩷 Gained a life! Updated heart at index", i, "- Lives now:", this.lives);
                   break;
                 }
               }
             } else {
-              console.log("❤️ Already full!");
+              console.log("Already full!");
             }
           }
           
