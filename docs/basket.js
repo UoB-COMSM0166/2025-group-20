@@ -7,26 +7,26 @@ class Basket{
 
     move(direction){
         if (direction === 'right'){
-            if (this.x+100 > windowWidth){
-                this.x = windowWidth;
+            if (this.x+110 > windowWidth-110){
+                this.x = windowWidth-110;
             }
             else{
-                this.x += 100;
+                this.x += 110;
             }
         }
         else if (direction === 'left'){
-            if (this.x-100 < 0){
-                this.x = 0;
+            if (this.x-110 < 110){
+                this.x = 110;
             }
             else{
-                this.x -= 100;
+                this.x -= 110;
             }
         }
     }
 
     show(){
-        //circle(this.x, this.y, 50);
-        image(this.image, this.x-80, this.y-220, 220, 220);
+        //circle(this.x, this.y, 220);
+        image(this.image, this.x-110, this.y-220, 220, 220);
     }
 }
 
