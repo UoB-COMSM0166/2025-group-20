@@ -7,19 +7,19 @@ class Basket{
 
     move(direction){
         if (direction === 'right'){
-            if (this.x+50 > windowWidth){
+            if (this.x+100 > windowWidth){
                 this.x = windowWidth;
             }
             else{
-                this.x += 50;
+                this.x += 100;
             }
         }
         else if (direction === 'left'){
-            if (this.x-50 < 0){
+            if (this.x-100 < 0){
                 this.x = 0;
             }
             else{
-                this.x -= 50;
+                this.x -= 100;
             }
         }
     }
