@@ -35,7 +35,15 @@ class Fruit {
   
   move() {
     // moving fruit along x and y axes
-    this.xPos += this.xSpeed;
+    if (this.xPos + this.xSpeed > windowWidth-110 && this.slicePat.type === 'inert'){
+      this.xPos = windowWidth-110;
+    }
+    else if (this.xPos + this.xSpeed < 0  && this.slicePat.type === 'inert'){
+      this.xPos = 0;
+    }
+    else{
+      this.xPos += this.xSpeed;
+    }
     this.yPos += this.ySpeed;
     this.ySpeed += gravity;
     this.slicePat.move(this.xPos+(this.size/2), this.yPos+(this.size/2));
