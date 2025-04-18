@@ -55,12 +55,12 @@ class SlicePattern{
                 this.sliceArrays[2].move(x, y + this.diameter);
             }
             else if (this.type == 'lrdown/rlup'){
-                this.sliceArrays[1].move(x + this.diameter/1.5, y - this.diameter/1.5);
-                this.sliceArrays[2].move(x - this.diameter/1.5, y + this.diameter/1.5);
+                this.sliceArrays[1].move(x + this.diameter/1.4, y - this.diameter/1.4);
+                this.sliceArrays[2].move(x - this.diameter/1.4, y + this.diameter/1.4);
             }
             else if (this.type == 'rldown/lrup'){
-                this.sliceArrays[1].move(x - this.diameter/1.5, y - this.diameter/1.5);
-                this.sliceArrays[2].move(x + this.diameter/1.5, y + this.diameter/1.5);
+                this.sliceArrays[1].move(x - this.diameter/1.4, y - this.diameter/1.4);
+                this.sliceArrays[2].move(x + this.diameter/1.4, y + this.diameter/1.4);
             }
         }
     }
@@ -117,12 +117,12 @@ class SliceArray{
             this.hits[2].move(x - this.diameter, y);
         }
         else if (this.type == 'lrdown/rlup'){
-            this.hits[1].move(x - this.diameter/1.5, y - this.diameter/1.5);
-            this.hits[2].move(x + this.diameter/1.5, y + this.diameter/1.5);
+            this.hits[1].move(x - this.diameter/1.4, y - this.diameter/1.4);
+            this.hits[2].move(x + this.diameter/1.4, y + this.diameter/1.4);
         }
         else if (this.type == 'rldown/lrup'){
-            this.hits[1].move(x + this.diameter/1.5, y - this.diameter/1.5);
-            this.hits[2].move(x - this.diameter/1.5, y + this.diameter/1.5);
+            this.hits[1].move(x + this.diameter/1.4, y - this.diameter/1.4);
+            this.hits[2].move(x - this.diameter/1.4, y + this.diameter/1.4);
         }
     }
 }
