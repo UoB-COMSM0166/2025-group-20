@@ -1,6 +1,7 @@
 function gameScreen() {
     
     background(bg);
+    scratchCursorEffect ()
     if (currentRecipe.ingredients.length === 0){
         recipeCompleteEffect();
         audioController.play('recipe');
