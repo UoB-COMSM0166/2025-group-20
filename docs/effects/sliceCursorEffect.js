@@ -2,9 +2,6 @@ let trail = [];
 const maxTrail = 50;
 let module;
 let scratchMarks = [];
-/*const baseColor = "#5e331c";   
-const darkScratch = "#3e2413";  
-const lightScratch = "#754528"; */
 
 
 function cursorEffect() {
@@ -17,7 +14,6 @@ function cursorEffect() {
   for (let i = 0; i < trail.length; i++) {
     let t = trail[i];
     fill(255, 255, 255, t.alpha);
-    // drawingContext.shadowBlur = 15;
     drawingContext.shadowColor = color(255, 255, 255, t.alpha);
     rectMode(CENTER);
     rect(t.x, t.y, 10, 10);
@@ -41,14 +37,12 @@ function scratchCursorEffect () {
     let s = scratchMarks[i];
     push();
 
-    // ⬅️ Outer lighter edge (wider glow)
     strokeWeight(10);  
-    stroke(117, 69, 40, s.alpha); // lighter than base brown
+    stroke(117, 69, 40, s.alpha);
     line(s.x1, s.y1, s.x2, s.y2);
 
-    // ⬛ Dark central scratch
     strokeWeight(5);
-    stroke(62, 36, 19, s.alpha); // dark inner line
+    stroke(62, 36, 19, s.alpha);
     line(s.x1, s.y1, s.x2, s.y2);
 
     pop();
