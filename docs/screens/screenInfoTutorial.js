@@ -23,6 +23,7 @@ class TutorialInfoScreen {
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
             gameManager.switchState("tutorial-entry");
         });
+        this.backButton.getButton().hide();
     }
 
     showButtons() {
@@ -44,7 +45,7 @@ class TutorialInfoScreen {
         this.currentIndex++;
 
         if (this.currentIndex >= this.screenshots.length) {
-            this.currentIndex = 0; // Loop back to first tutorial screen
+            this.currentIndex = 0;
         }
             this.updateButton();
     }
