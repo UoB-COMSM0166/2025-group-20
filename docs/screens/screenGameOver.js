@@ -7,7 +7,7 @@ class GameOverScreen {
       gameManager.switchState("start");
     });
 
-    this.explosion = createImg('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/boom.gif');
+    this.explosion = createImg('boom.gif');
     this.explosion.position(windowWidth / 2 - 250, windowHeight / 2 - 55);
     this.explosion.size(500, 200);
     this.explosion.style('z-index', '0');

@@ -6,14 +6,14 @@ class AudioController {
     }
 
     preload () {
-        this.sounds['slice'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundSlicing.wav');
-        this.sounds['bomb'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/bombSound.wav');
-        this.sounds['button'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundButtonClick.wav');
-        this.sounds['gameover'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundGameOver.wav');
-        this.sounds['lifeGained'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundLifeGained.wav');
-        this.sounds['lifeLost'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundLoseLife.wav');
-        this.sounds['recipe'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/soundRecipeComplete.wav');
-        this.sounds['theme'] = loadSound('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/sounds/smoothieOperatorStart.wav');
+        this.sounds['slice'] = loadSound('sounds/soundSlicing.wav');
+        this.sounds['bomb'] = loadSound('sounds/bombSound.wav');
+        this.sounds['button'] = loadSound('sounds/soundButtonClick.wav');
+        this.sounds['gameover'] = loadSound('sounds/soundGameOver.wav');
+        this.sounds['lifeGained'] = loadSound('sounds/soundLifeGained.wav');
+        this.sounds['lifeLost'] = loadSound('sounds/soundLoseLife.wav');
+        this.sounds['recipe'] = loadSound('sounds/soundRecipeComplete.wav');
+        this.sounds['theme'] = loadSound('sounds/smoothieOperatorStart.wav');
     }
 
     play(name) {

@@ -49,7 +49,7 @@ class TutorialFruit {
   
       if (!this.slicingGif) {
         this.slicingGif = createImg(
-          `https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${this.fruitName}-slice.gif`
+          `Images/${this.fruitName}-slice.gif`
         );
         this.slicingGif.size(100, 100);
         this.slicingGif.style("position", "absolute");

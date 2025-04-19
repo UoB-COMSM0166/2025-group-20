@@ -7,8 +7,8 @@ class RecipeButton {
         this.y = y;
         this.size = size;
         this.button = null;
-        this.closedImage = 'https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/cookbook.png';
-        this.openImage = 'https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/cookbook-open.png';
+        this.closedImage = 'Images/cookbook.png';
+        this.openImage = 'Images/cookbook-open.png';
     }
 
     create() {

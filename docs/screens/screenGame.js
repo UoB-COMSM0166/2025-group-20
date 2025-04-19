@@ -90,7 +90,7 @@ function gameScreen() {
                 }
             }
             audioController.play("slice");
-            fruit[i].fruitImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruit[i].fruitName + '-slice.png');
+            fruit[i].fruitImg = loadImage('Images/' + fruit[i].fruitName + '-slice.png');
             splatters.push(new splat(fruit[i].xPos, fruit[i].yPos, fruit[i].fruitName));
         //load splat image and update to slice fruit even if there's not corresponding splat (at the moment there is not a corresponding splat for banana, lemon, bomb)
             fruit[i].slicePat = new SlicePattern('inert', 0);

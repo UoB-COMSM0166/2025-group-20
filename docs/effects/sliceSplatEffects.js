@@ -3,7 +3,7 @@ class splat {
       this.x = x;
       this.y = y;
       this.alpha = 255;
-      this.img = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitName + '-splatter.png');
+      this.img = loadImage('Images/' + fruitName + '-splatter.png');
     }
   
     update() {

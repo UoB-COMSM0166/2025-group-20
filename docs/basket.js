@@ -2,7 +2,7 @@ class Basket{
     constructor(){
         this.x = windowWidth/2;
         this.y = windowHeight;
-        this.image = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/basket.png');
+        this.image = loadImage('Images/basket.png');
     }
 
     move(direction){

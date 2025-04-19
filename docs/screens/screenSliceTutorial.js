@@ -12,7 +12,7 @@ class TutorialSliceScreen {
         this.lifeIcons = new LifeIcons();
         this.lifeIcons.lives = 2;
         this.lifeIcons.heartStates = ['full', 'full', 'empty'];
-        this.lifeIcons.hearts[2] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png');
+        this.lifeIcons.hearts[2] = loadImage('Images/heart-empty.png');
 
         // --- bomb variables ---
         this.bombCount = 0;

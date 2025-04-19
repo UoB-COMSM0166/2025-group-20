@@ -40,23 +40,21 @@ function preload() {
   audioController = new AudioController();
   audioController.preload();
   gameFont = loadFont('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/gameFont.otf');
-  bg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/923cd18c3e0c776d146c9cb4e9bf10b24d488e40/docs/Background%20Images/Game%20Screen%20Background.png');
-  lifeImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/life.png');
-  lifelostImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/54b989cf2c28d627c787aa7f95a2c2dc414c2589/docs/Images/lifelost.png');
-  bombImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/bomb.png');
+  bg = loadImage('Images/Game%20Screen%20Background.png');
+  bombImg = loadImage('Images/bomb.png');
   //change the image path after pushing it to main
-  leftImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/left.png');
-  rightImg = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/right.png');
+  leftImg = loadImage('Images/left.png');
+  rightImg = loadImage('Images/right.png');
 
   // loads fruit images to the fruitImgs array
   for (let i = 0; i < fruitList.length; i++) {
-    fruitImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '.png');
+    fruitImgs[i] = loadImage('Images/' + fruitList[i] + '.png');
   }
   for (let i = 0; i < fruitList.length - 1; i++) {
-    sliceImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + '-slice.png');
+    sliceImgs[i] = loadImage('Images/' + fruitList[i] + '-slice.png');
   }
   for (let i = 0; i < fruitList.length; i++) {
-    patImgs[i] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/' + fruitList[i] + 'Pat.png');
+    patImgs[i] = loadImage('Images/' + fruitList[i] + 'Pat.png');
   }
 
 
