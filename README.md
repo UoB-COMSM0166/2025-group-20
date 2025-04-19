@@ -131,7 +131,7 @@ To address this, we implemented two features to our gameplay:
 
 1. The recipe book: In hard mode, we introduced an in-game recipe book, that displays slice patterns for fruit. This allowed the user to easily refer to it during gameplay, eradicating any clunky, stop-and-start flow from having to memorise them.
 
-![Recipe Book Evaluation](project-report-images/Recipe-Book-Evaluation.gif)
+![Recipe Book Evaluation](project-report-images/Think-Aloud-Recipe-Book.gif)
 
 *Figure 1: Demo of the interactive recipe book feature.*
 
