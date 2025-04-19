@@ -34,6 +34,7 @@ class GameManager {
         case "tutorial-slice":
           this.tutorialSliceScreen.render();
           this.tutorialSliceScreen.showButtons();
+          this.tutorialEntryScreen.hideButtons();
           break;
         case "tutorial-info":
           this.tutorialInfoScreen.render();
