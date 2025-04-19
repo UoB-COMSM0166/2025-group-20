@@ -5,23 +5,25 @@ class TutorialSliceScreen {
         this.currentFruit = null;
         this.autoAdvanceTimeout = null;
         this.fruitSliced = false;
-        this.correctSlice = false;
-        this.showingButtons = false;
         this.sliceEffectTimer = null;
         this.splatters = [];
+
+        // --- dragonfruit variables ---
         this.lifeIcons = new LifeIcons();
         this.lifeIcons.lives = 2;
         this.lifeIcons.heartStates = ['full', 'full', 'empty'];
         this.lifeIcons.hearts[2] = loadImage('https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/heart-empty.png');
+
+        // --- bomb variables ---
         this.bombCount = 0;
         this.bombMax = 5;
         this.bombFailed = false;
         this.bombCompleted = false;
 
-        // -- Buttons setup --
+        // -- Setting up Buttons --
 
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
-            gameManager.switchState("start");
+            gameManager.switchState("tutorial-entry");
             this.currentFruit?.slicingGif?.remove();
         });
         this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', 50, 50, '20px', () => {
@@ -61,23 +63,21 @@ class TutorialSliceScreen {
         cursorEffect();
     }
 
-    // -- button logic -- 
+    // -- Button Logic -- 
 
     showButtons() {
-        this.showingButtons = true;
         this.backButton.getButton().show();
         this.leftArrowButton.getButton().show();
         this.rightArrowButton.getButton().show();
     }
 
     hideButtons() {
-        this.showingButtons = false;
         this.backButton.getButton().hide();
         this.leftArrowButton.getButton().hide();
         this.rightArrowButton.getButton().hide();
     }  
 
-    // -- drawing and visuals folders --
+    // -- Drawing and Visual section --
 
     drawTutorialScreen() {
         noCursor();
@@ -149,7 +149,7 @@ class TutorialSliceScreen {
         }
     }
 
-    // --Normal Fruit List Array Steps -- 
+    // --- Initialising tutorial fruit logic --- 
 
     initializeTutorialFruit() {
         if (!this.currentFruit) {
@@ -166,7 +166,7 @@ class TutorialSliceScreen {
         this.currentFruit.show();
     }
 
-    // -- handles slicing logic --
+    // -- Handles ifSliced logic --
 
     handleisSlicedLogic() {
         if (this.fruitSliced) return;
@@ -202,7 +202,7 @@ class TutorialSliceScreen {
         this.showWrongEffect();
     }
 
-    displaySliceEffectsFeedback(fruit) {
+    displaySliceEffectsFeedback() {
         audioController.play('slice');
         this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex])); 
         this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
