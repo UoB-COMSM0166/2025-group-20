@@ -42,6 +42,7 @@ class GameManager {
           this.tutorialInfoScreen.render();
           this.tutorialInfoScreen.showButtons();
           this.tutorialEntryScreen.hideButtons();
+          break;
         case "game":
           this.drawGameState();
           break;
