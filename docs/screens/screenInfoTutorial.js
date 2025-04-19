@@ -28,10 +28,12 @@ class TutorialInfoScreen {
     showButtons() {
         this.updateButton();
         this.nextButton.getButton().show();
+        this.backButton.getButton().show();
     }
 
     hideButtons() {
         this.nextButton.getButton().hide();
+        this.backButton.getButton().hide();
     }
 
     updateButton() {
