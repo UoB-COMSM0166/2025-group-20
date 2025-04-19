@@ -127,7 +127,7 @@ class TutorialScreen {
     drawNarrationBox() {
         const boxWidth = 330;
         const boxHeight = 100;
-        const boxX = width - (boxWidth / 1.8);
+        const boxX = boxWidth / 1.8;
         const boxY = height - (boxHeight / 1.6);
       
         fill('#FCF3CF');
@@ -262,6 +262,7 @@ class TutorialScreen {
                 if (this.recipe.ingredients.length === 0) {
                     this.recipeComplete = true;
                     this.RecipeFruits = [];
+
                 }
 
             } else {
@@ -316,7 +317,7 @@ class TutorialScreen {
     processCorrectSliceLogic(){
         this.sliceFeedback = "correct";
         this.showCorrectEffect();
-        if(this.recipeCompleted || !this.isRecipeStep){
+        if(!this.isRecipeStep){
             if (!this.autoAdvanceTimeout) {
                 this.autoAdvanceTimeout = setTimeout(() => {
                 this.gotoNextTutorialStep();
