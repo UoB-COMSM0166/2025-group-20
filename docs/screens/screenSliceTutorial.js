@@ -1,5 +1,5 @@
 
-class TutorialScreen {
+class TutorialSliceScreen {
     constructor() {
         this.currentFruitIndex = 0;
         this.currentFruit = null;
@@ -20,12 +20,12 @@ class TutorialScreen {
 
         // -- tutorial recipe varialbe --
 
-        this.recipeMode = false;
+        /*this.recipeMode = false;
         this.recipeComplete = false;
         this.recipeFruits = [];
         this.fruitOnScreen = [];
         this.frameCounter = 0;
-        this.fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
+        this.fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);*/
 
 
         // -- Buttons setup --
@@ -41,7 +41,7 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
-            if (this.currentFruitIndex === 0) {
+            /*if (this.currentFruitIndex === 0) {
                 this.startRecipeTutorial(); // Hardwire recipe mode fingers crossed
                 return;
             }
@@ -49,7 +49,7 @@ class TutorialScreen {
                 this.recipeMode = false;
                 this.currentFruitIndex = 8;
                 return;
-            } 
+            } */
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
@@ -61,7 +61,7 @@ class TutorialScreen {
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
             this.currentFruit = null;
-            if (this.currentFruitIndex === fruitList.length - 1) {
+            /*if (this.currentFruitIndex === fruitList.length - 1) {
                 this.startRecipeTutorial();
                 return;
             }
@@ -69,7 +69,7 @@ class TutorialScreen {
                 this.recipeMode = false;
                 this.currentFruitIndex = 0;
                 return;
-            } 
+            } */
             this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
         });
       
@@ -81,11 +81,11 @@ class TutorialScreen {
     render() {
         this.drawTutorialScreen();
         this.drawSplats();
-        if (this.isRecipeStep()) {
+        /*if (this.isRecipeStep()) {
             this.renderRecipeStep();
             cursorEffect();
             return;
-        }
+        }*/
         this.initializeTutorialFruit();
         this.renderFruit();
         this.handleisSlicedLogic();
@@ -145,9 +145,9 @@ class TutorialScreen {
         let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
         if(this.isBombStep()){
             narration = `Don't ${narration}`;
-        } else if(this.isRecipeStep()){
+        } /*else if(this.isRecipeStep()){
             narration = 'Slice the correct fruit in the correct order or you will lose a life!';
-        }  
+        }  */
         const words = narration.split(' ');
         const lines = [];
         let currentLine = '';
@@ -186,7 +186,7 @@ class TutorialScreen {
 
     // -- Recipe Step (it's very big) --
 
-    startRecipeTutorial() {
+    /*startRecipeTutorial() {
         this.currentFruitIndex = 9;
         this.recipeMode = true;
         this.recipe = new SmoothieRecipe();
@@ -276,7 +276,7 @@ class TutorialScreen {
                 }
             }
         }    
-    }
+    }*/
 
     // --Normal Fruit List Array Steps -- 
 

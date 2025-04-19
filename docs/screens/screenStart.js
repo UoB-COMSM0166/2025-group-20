@@ -2,7 +2,7 @@
 class ScreenStart {
   constructor() {
       this.tutorialButton = new TextButton((windowWidth / 2) - 125, (windowHeight / 3 + 20), 'TUTORIAL', 250, 50, '25px', () => {
-          gameManager.switchState("tutorial"); // Goes to instructions screen
+          gameManager.switchState("tutorial-entry"); // Goes to tutorial screen screen
       });
       this.easyModeButton = new TextButton((windowWidth / 2) - 250, (windowHeight / 2), 'EASY MODE', 250, 50, '25px', () => {
           difficulty = 'easy';

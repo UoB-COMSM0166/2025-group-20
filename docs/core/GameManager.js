@@ -3,7 +3,9 @@ class GameManager {
       this.state = "start";
       this.startScreen = new ScreenStart(this);
       this.gameOverScreen = new GameOverScreen();
-      this.tutorialScreen = new TutorialScreen();
+      this.tutorialEntryScreen = new TutorialEntryScreen();
+      this.tutorialSliceScreen = new TutorialSliceScreen();
+      this.tutorialInfoScreen = new TutorialInfoScreen();
       this.score = 0;
       this.lives = 3;
       this.difficulty = 'easy';
@@ -21,13 +23,21 @@ class GameManager {
           this.startScreen.render();
           this.startScreen.showButtons();
           this.gameOverScreen.hide();
-          this.tutorialScreen.hideButtons();
+          this.tutorialSliceScreen.hideButtons();
+          this.tutorialEntryScreen.hideButtons();
           break;
-        case "tutorial":
-          this.tutorialScreen.render();
-          this.tutorialScreen.showButtons();
+        case "tutorial-entry":
+          this.tutorialEntryScreen.render();
+          this.tutorialEntryScreen.showButtons();
           this.startScreen.hideButtons();
           break;
+        case "tutorial-slice":
+          this.tutorialSliceScreen.render();
+          this.tutorialSliceScreen.showButtons();
+          break;
+        case "tutorial-info":
+          this.tutorialInfoScreen.render();
+          this.tutorialInfoScreen.showButtons();
         case "game":
           this.drawGameState();
           break;
