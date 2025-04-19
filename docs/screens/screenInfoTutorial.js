@@ -21,7 +21,7 @@ class TutorialInfoScreen {
         this.nextButton.getButton().hide();
 
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
-            gameManager.switchState("tutorial");
+            gameManager.switchState("tutorial-entry");
         });
     }
 
