@@ -49,9 +49,7 @@ Player immersion - No timer, immersive visuals etc.
 - Summary of the overall vision 
 
 # Requirements (Ziyan)
-.
-- 15% ~750 words
-- Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
+
 ## Ideation Processing
 <p>
   In the early stage of ideation process, we used both 
@@ -97,7 +95,7 @@ Eventually, we took a vote and decide on the third idea —an adaptation of <i>F
 ## Early Design Phase
 During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions. Consequently, this process helped us establish a clear, scalable structure, making the project less daunting for the team.
 
-We initially considered incorporating memory-based gameplay elements, wherein players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. As levels progressed, the complexity and number of fruits would increase, challenging the player's memory further. However, in the Game Testing Activity, feedback from other teams indicated this approach demanded excessive cognitive effort, as players would need to simultaneously remember recipes and master fruit-specific slicing techniques. Taking this feedback into consideration, we decided to keep the recipes visibly displayed on-screen to improve the playability and enjoyment of our game. 
+We initially considered incorporating memory-based gameplay elements, wherein players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. As levels progressed, the complexity and number of fruits would increase, challenging the player's memory further. However, in the Game Testing Activity, feedback from other teams indicated this approach demanded excessive cognitive effort, as players would need to simultaneously remember recipes and master fruit-specific slicing techniques. We took this feedback on board and decided to keep the recipes visibly displayed on-screen to improve the playability and enjoyment of our game. 
 
 
 ## Identifying Stakeholders
