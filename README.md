@@ -435,7 +435,7 @@ As part of the Software Engineering module, our first team building exercise let
 Since our main goal was to increase team effort, we decided to follow an agile framework which would allow us to prioritise collaboration and enhance our individual skills. The main agile principle we followed was breaking down our project into small and manageable iterations which would encourage us to continuously deliver working software, while working at a steady and sustainable pace. To help plan our iterations, we set up a Kanban board on our Github to organise smaller tasks and track their statuses. Before each sprint, we would have an in-person meeting to discuss which of the items on our to-do column had top priority and needed to be achieved in that iteration. Once those tasks were allocated to members of the team, we would then look to see if we could allocate other tasks with less priority. To help us plan the duration of each iteration (or sprint), we would agree on a story point for each task based on its relative size which would help us estimate the effort required. At the end, work on our game was spread across 3 sprint cycles throughout the term, with most of the features being implemented during the first sprint. We used the remaining sprints to carry out refinements and enhancements. This structure allowed us to reflect on our performance and assess our workflow. 
 <p align="center">
   <img src="project-report-images/sprint-review.png" width="50%"><br>
-  <b>Figure 1. </b> <i>sprint breakdown for the project</i>
+  <b>Figure 1. </b> <i>Sprint breakdown for the project</i>
 </p>
 <p align="center">
   <img src="project-report-images/kanban-board.png" width="50%"><br>
@@ -444,6 +444,11 @@ Since our main goal was to increase team effort, we decided to follow an agile f
 The agile iterative framework is desgined to embrace change by encouraging flexibility in handling evolving product requirements. This aspect was instrumental for us when we were asked to add a new difficulty level to the game because it meant that we could adapt to this new requirement without dsrupting the overall development process by updating our Kanban board, allocating the task and reassessing our priorities. This resulted in a fast delivery of a well-tested and fully-working easy mode for our game. 
 ## Communication
 Another agile principle we followed was face to face communication which was often oragnised by our Scrum Master, Ziyan. However, we found out that our team member's work style would benefit more from planned long sessions at the lab rather than quick daily standup meetings as suggested by the agile principle. Thus, our Scrum Master would help us plan these coding and creativity sessions on Whatsapp where we would agree on our goals. However, the infomral nature of the app proved to be tricky; one member of team reached out to the rest of us with concerns about the work not being clearly delegated. The rest of team agreed that our communication style had been too relaxed, and suggested that we move our discussions to Microsoft's Teams which is linked to our university accounts. We changed our communication style so that it would involve a clear breakdown of our meetings summarising what our goals were ahead of the meeting, what was successfully achieved and the key points for the following meeting. In addition, we found that this was a better way for document sharing and conducting voting polls. This was also a better alternative for members who were unable to attend a particular meeting in person. 
+<p align="center">
+  <img src="project-report-images/old-chat.png" width="49%">
+  <img src="project-report-images/new-chat.png" width="49%"><br>
+  <b>Figures 3 and 4. </b> <i>Side by side comparison between our old and new communication styles</i>
+</p>
 
 # Sustainability (Scarlett)
 - 10% ~750 words
