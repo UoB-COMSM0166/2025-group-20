@@ -59,7 +59,7 @@ Player immersion - No timer, immersive visuals etc.
    for brainstorming. We explore several ideas for this game: 
 </p>
 <p align="center">
-  <img src="project-report-images/Miro.png" width="50%"><br>
+  <img src="project-report-images/Miro.png" width="60%"><br>
   <b>Figure 2. </b> <i>Brainstorming on Miro</i>
 </p>
 
@@ -94,6 +94,11 @@ Eventually, we took a vote and decide on the third idea —an adaptation of <i>F
 
 ## Early Design Phase
 During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions. Consequently, this process helped us establish a clear, scalable structure, making the project less daunting for the team.
+
+<p align="center">
+  <img src="project-report-images/prototype.gif" width="50%"><br>
+  <b>Figure 5. </b> <i>Paper Prototype</i>
+</p>
 
 We initially considered incorporating memory-based gameplay elements, wherein players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. As levels progressed, the complexity and number of fruits would increase, challenging the player's memory further. However, in the Game Testing Activity, feedback from other teams indicated this approach demanded excessive cognitive effort, as players would need to simultaneously remember recipes and master fruit-specific slicing techniques. We took this feedback on board and decided to keep the recipes visibly displayed on-screen to improve the playability and enjoyment of our game. 
 
@@ -159,7 +164,7 @@ Although our project is primarily designed in an university setting, the Onion M
 </ul>
 
 <p align="center">
-  <img src="project-report-images/usecasemod.png" width="50%"><br>
+  <img src="project-report-images/usecasemod.png" width="70%"><br>
   <b>Figure 6. </b> <i>Use Case Diagram</i>
 </p>
 
