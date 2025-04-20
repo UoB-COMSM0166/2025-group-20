@@ -302,7 +302,7 @@ Although our project is primarily designed in an university setting, the Onion M
 | **Scenario**              | **Easy Mode**                                                                 | **Hard Mode**                                                                 |
 |---------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | Fruit missed by basket    | No points awarded.                                                           | No points awarded.                                                           |
-| Wrong fruit sliced        | -1 heart.                                                                    | -1 heart. Fruit not added to recipe.                                         |
+| Wrong fruit sliced        | -1 heart.                                                                    | -1 heart.                                         |
 | Sliced dragon fruit       | Gain 1 heart if under 3. No effect if already at 3.                          | Same as Easy.                                                                |
 | Bomb sliced               | Instant game over for both players.                                          | Instant game over for both players.                                          |
 | Incorrect slicing method  | Not applicable.                                                              | No score. -1 heart.                                                          |
