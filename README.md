@@ -70,7 +70,7 @@ Player immersion - No timer, immersive visuals etc.
   </li>
   <li>
     <b>Fashion-combat Game</b><br>
-    Combines fast-paced action gameplay with fashion customization, drawing influence from <i>Cowgirl Crusade</i> and <i>Dress to Impress</i>.
+    Combines fast-paced action gameplay with dress-up, drawing influence from <i>Cowgirl Crusade</i> and <i>Dress to Impress</i>.
   </li>
   <li>
     <b>Fruit-Ninja with Recipes</b><br>
