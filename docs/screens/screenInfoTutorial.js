@@ -15,7 +15,8 @@ class TutorialInfoScreen {
         ];
 
         this.currentIndex = 0;
-        this.nextButton = new TextButton(windowWidth / 15, windowHeight / 5, this.texts[this.currentIndex], 300, 200, '18px',
+        //this.nextButton = new TextButton(windowWidth / 15, windowHeight / 5, this.texts[this.currentIndex], 300, 200, '18px',
+        this.nextButton = new TextButton(windowWidth / 15, (windowHeight - 200) / 2, this.texts[this.currentIndex], 300, 200, '18px',
             () => this.advanceTutorial()
         );
         this.nextButton.getButton().hide();
@@ -53,9 +54,19 @@ class TutorialInfoScreen {
     render() {
         cursor();
         background('black');
+    
         let screenShot = this.screenshots[this.currentIndex];
-        image(screenShot, 0, 0, width, height, 0, 0, screenShot.width, screenShot.height, CONTAIN);
+    
+        let imgWidth = width * 0.6;
+        let imgHeight = height * 0.6;
+        let x = (width - imgWidth) / 2;
+        let y = (height - imgHeight) / 2;
+        x += 130;
+
+        image(screenShot, x, y, imgWidth, imgHeight);
+    
         cursorEffect();
     }
+    
 
 }

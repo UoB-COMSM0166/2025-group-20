@@ -52,8 +52,262 @@ Player immersion - No timer, immersive visuals etc.
 .
 - 15% ~750 words
 - Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop? 
+## Ideation Processing
+<p>
+  In the early stage of ideation process, we used both 
+  <a href="https://miro.com/app/board/uXjVLtyUR80=/Miro" target="_blank">Miro</a>
+  (Figure 2) and 
+  <a href="https://uob-my.sharepoint.com/:w:/r/personal/zy21368_bristol_ac_uk/_layouts/15/Doc.aspx?sourcedoc=%7B16215be5-ecc8-4461-980c-cd596f6d788d%7D&action=edit&wdPid=4e6e8707"target="_blank">Google Docs</a>
+   for brainstorming. We explore several ideas for this game: 
+</p>
+<p align="center">
+  <img src="project-report-images/Miro.png" width="50%"><br>
+  <b>Figure 2. </b> <i>Brainstorming on Miro</i>
+</p>
 
-We've actually already written all of this! Will find a way of structuring it more succinctly at some point in this section :)
+<ol>
+  <li>
+    <b>University Life Simulation</b><br>
+    Inspired by the narrative-driven gameplay of <i>Papers, Please</i>, this concept focuses on simulating student life at the University of Bristol.
+  </li>
+  <li>
+    <b>Fashion-combat Game</b><br>
+    Combines fast-paced action gameplay with fashion customization, drawing influence from <i>Cowgirl Crusade</i> and <i>Dress to Impress</i>.
+  </li>
+  <li>
+    <b>Fruit-Ninja with Recipes</b><br>
+    A gameplay concept adapted from <i>Fruit Ninja</i> and <i>Overcooked</i>, where players use slicing techniques to prepare ingredients and complete recipe-based objectives.
+  </li>
+</ol>
+
+At first, we considered developing a simulation game while integrating a two-player combat mode, thereby creating an engaging and multifaceted gameplay experience. However, following the second workshop on P5.js, we conducted a feasibility study to assess the project's scope and the technical requirements of implementing these functionalities using JavaScript. After breaking down the game into smaller sections, we concluded that the original simulation concept was slightly ambitious. The complexity involved in managing multiple intricate functionalities was identified as a significant challenge, which led us to reassess our game.
+
+Eventually, we took a vote and decide on the third idea —an adaptation of <i>Fruit Ninja</i>—due to its manageable scale and strong emphasis on engaging gameplay mechanics. The twist to our game involves following a specific order of the recipe, where each type of fruit requires distinct slicing technique.
+
+<p align="center">
+  <img src="project-report-images/fruit-ninja.png" width="50%"><br>
+  <b>Figure 3. </b> <i>Fruit Ninja</i>
+</p>
+
+<p align="center">
+  <img src="project-report-images/overcooked.png" width="50%"><br>
+  <b>Figure 4. </b> <i>Overcooked</i>
+</p>
+
+## Early Design Phase
+During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions. Consequently, this process helped us establish a clear, scalable structure, making the project less daunting for the team.
+
+We initially considered incorporating memory-based gameplay elements, wherein players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. As levels progressed, the complexity and number of fruits would increase, challenging the player's memory further. However, in the Game Testing Activity, feedback from other teams indicated this approach demanded excessive cognitive effort, as players would need to simultaneously remember recipes and master fruit-specific slicing techniques. Taking this feedback into consideration, we decided to keep the recipes visibly displayed on-screen to improve the playability and enjoyment of our game. 
+
+
+## Identifying Stakeholders
+We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. Their insights provided input on how to refine our functional requirements.
+
+<p align="center">
+  <img src="project-report-images/OnionModel.png" width="50%"><br>
+  <b>Figure 5. </b> <i>Onion Model of Smoothie Operator</i>
+</p>
+
+Although our project is primarily designed in an university setting, the Onion Model underscores the capacity of successful systems to shape broader social behaviors by providing engaging gameplay experiences tailored to relevant communities.
+
+<h2>Functional Requirements</h2>
+
+<p>Our group then approached defining requirements by focusing on how to make the game mechanics as intuitive and accessible as possible. We agreed that a successful game should allow players to grasp the core mechanics on their first attempt, ensuring an engaging and enjoyable experience. We used a Use-Case Diagram as guidance for what to include as a functional requirement.</p>
+
+<h3>1. User Interface</h3>
+
+<ul>
+  <li>The player must have access to a main menu where they can:
+    <ul>
+      <li>Adjust settings (audio, controls, graphics, etc.).</li>
+      <li>View tutorials explaining game mechanics.</li>
+      <li>Access information about the game, including lore and objectives.</li>
+      <li>See their current score and highest score.</li>
+    </ul>
+  </li>
+  <li>The player must have an option to start the game from the main menu.</li>
+  <li>The player must have an option to quit the game at any point.</li>
+  <li>The game must have a pause menu, allowing the player to:
+    <ul>
+      <li>Resume gameplay.</li>
+      <li>Quit and return to the main menu.</li>
+    </ul>
+  </li>
+  <li>The game must display a score counter and player’s lives.</li>
+  <li>The game must display the game’s outcome:
+    <ul>
+      <li>If the player loses, a <strong>Game Over</strong> screen is displayed with the score they achieved.</li>
+      <li>After losing, the system must return the player to the main menu.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>2. Controls</h3>
+
+<ul>
+  <li>The player uses the mouse cursor to cut the fruit/vegetables.</li>
+  <li>The player navigates through the menu using the mouse.</li>
+</ul>
+
+<h3>3. Core Game Mechanics</h3>
+
+<ul>
+  <li>Fruit/vegetables are thrown up onto the screen and then fall according to gravity.</li>
+  <li>The player must cut the correct fruit for the recipe displayed on the screen.</li>
+  <li>For certain fruits, they must slice them in the correct pattern.</li>
+  <li>If the player cuts the correct fruit in the wrong way or cuts the wrong fruit, they lose a life.</li>
+  <li>If the player cuts a bomb, they lose the game and must restart.</li>
+  <li>If they lose all their lives, they lose the game and must restart.</li>
+</ul>
+
+<p align="center">
+  <img src="project-report-images/usecasemod.png" width="50%"><br>
+  <b>Figure 6. </b> <i>Use Case Diagram</i>
+</p>
+
+<h2>User Stories</h2>
+
+<p>To further refine the user experience, we translated these functional requirements into user stories to reflect real-life players' motivations. By prioritising features using the <strong>MoSCoW method</strong>, we ensure that essential gameplay elements are implemented first while leaving room for potential enhancements to the game.</p>
+
+<table>
+        <thead>
+            <tr>
+                <th>Initiatives</th>
+                <th>Epics</th>
+                <th>User Stories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Simple Gameplay and Clarity</td>
+                <td>
+                    <ul>
+                        <li>Simple mouse movements</li>
+                        <li>Clear visual design and self-explanatory mechanics</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.</li>
+                        <li>As a casual player, I want a game with straightforward and intuitive gameplay that I can pick up quickly without a time-consuming learning curve.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Variety of Gameplay</td>
+                <td>
+                    <ul>
+                        <li>Various fruits</li>
+                        <li>Various recipes</li>
+                        <li>Various slicing patterns</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>As a player, I want a variety of fruits and features that introduce fresh experiences in each gameplay session.</li>
+                        <li>As a long-term gamer, I want a game that never ends, so that I can play the game for longer.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Progression of Difficulty</td>
+                <td>
+                    <ul>
+                        <li>As game goes on for longer recipes get more complex</li>
+                        <li>As game goes on slicing patterns get more complex</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>As someone who likes to be challenged, I want to experience more challenge as time goes on, thereby feeling a sense of achievement through overcoming difficulty.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Sense of Achievement</td>
+                <td>
+                    <ul>
+                        <li>Player gains points for slicing the correct fruit</li>
+                        <li>Player gains points for completing a recipe</li>
+                        <li>Player has their high score kept track of</li>
+                        <li>Player loses lives if they do something wrong</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
+                        <li>As an easily bored gamer, I want to have an element of danger in the game, so that I am kept on my toes and stay engaged.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<h3>User Stories – Prioritized using MoSCoW and Value vs Effort</h3>
+<strong>Must Have (High Value, Low Effort):</strong><br>
+<ul>
+  <li>As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.</li>
+  <li>As a casual player, I want a game with a straightforward and intuitive gameplay that I can pick up quicky without a time-consuming learning curve.</li>
+</ul>
+<strong>Should Have (High Value, High Effort):</strong><br>
+<ul>
+  <li>As a player, I want a variety of fruits and features that introduce fresh experiences in each gameplay session.</li>
+  <li>As a long-term gamer, I want a game that never ends, so that I can play the game for longer.</li>
+  <li>As someone who likes to be challenged, I want to experience more challenge as time goes on, thereby feeling a sense of achievement through overcoming difficulty.</li>
+  <li>As an easily bored gamer, I want to have an element of danger in the game, so that I am kept on my toes and stay engaged.</li>
+</ul>
+<strong>Could Have (Low Value, Low Effort):</strong><br>
+<ul>
+  <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
+</ul>
+
+## Use Case Specification
+### Single Player Mode
+
+<Strong>Basic Flow</Strong>
+
+| **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
+|---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| 1        | Player launches the game and selects Easy mode.                                                    | Player launches the game and selects Hard mode.                                                          |
+| 2        | Recipe icons appear at the top of the screen.                                                      | Recipe icons appear at the top + slicing methods found in recipe book (bottom-right corner).            |
+| 3        | Fruits appear and can be sliced freely using a mouse.                                                            | Fruits appear and must be sliced in the correct direction/method using a mouse.                                       |
+| 4        | Slice any correct fruit: +10 points.                                                               | Slice correct fruit **with correct method**: +10 points.                                                 |
+| 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points.                                                 |
+                                
+
+<Strong>Alternative Flow</Strong>
+
+| **Scenario**              | **Easy Mode**                                                                 | **Hard Mode**                                                                 |
+|---------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Wrong fruit sliced        | -1 heart. No effect on score.                                                 | -1 heart. No effect on score.                                           |
+| Sliced dragon fruit       | Gain 1 heart if under 3. No effect if already at 3.                           | Same as Easy.                                                                |
+| Sliced bomb               | Instant game over.                                                            | Instant game over.                                                           |
+| Fruit sliced in incorrect method  | Not applicable.                                                               | -1 heart. No score.                                                          |
+
+### Two Player Mode
+
+<Strong>Basic Flow</Strong>
+
+| **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
+|---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| 1        | Player 1 selects Easy + Two Player mode.                                                                      | Player 1 selects Hard + Two Player mode.                                                                       |
+| 2        | Player 1 slices fruits using the mouse.                                                                       | Player 1 slices fruits using correct direction/method.                                                         |
+| 3        | Player 2 moves basket using ⬅️ and ➡️ arrow keys to catch sliced fruit.                                        | Same as Easy mode.                                                                                             |
+| 4        | Correct sliced fruit caught: +10 points.                                                                      | Correctly sliced **and** caught fruit: +10 points.                                                             |
+| 5        | Recipe completion: +20 bonus points.                                                                          | Same, only if all fruits sliced correctly and caught.                                                          |
+
+
+<Strong>Alternative Flow</Strong>
+
+| **Scenario**              | **Easy Mode**                                                                 | **Hard Mode**                                                                 |
+|---------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Fruit missed by basket    | No points awarded.                                                           | No points awarded.                                                           |
+| Wrong fruit sliced        | -1 heart.                                                                    | -1 heart. Fruit not added to recipe.                                         |
+| Sliced dragon fruit       | Gain 1 heart if under 3. No effect if already at 3.                          | Same as Easy.                                                                |
+| Bomb sliced               | Instant game over for both players.                                          | Instant game over for both players.                                          |
+| Incorrect slicing method  | Not applicable.                                                              | No score. -1 heart.                                                          |
+
+
 # Design (Barney)
 
 - 15% ~750 words 
