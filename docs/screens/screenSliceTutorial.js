@@ -205,7 +205,7 @@ class TutorialSliceScreen {
         if (!this.autoAdvanceTimeout) {
             this.autoAdvanceTimeout = setTimeout(() => {
             this.gotoNextTutorialStep();
-            }, 10000);
+            }, 5000);
             return;
         }
     }
@@ -216,7 +216,6 @@ class TutorialSliceScreen {
     }
 
     displaySliceEffectsFeedback() {
-        audioController.play('slice');
         this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex])); 
         this.currentFruit.fruitImg = loadImage(`Images/${fruitList[this.currentFruitIndex]}-slice.png`);
         this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
