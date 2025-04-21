@@ -57,8 +57,9 @@ class Fruit {
     }
 
     // toggle off visibily off screen
-    if(this.yPos > windowHeight) {
+    if(this.yPos > windowHeight && this.visible) {
       this.visible = false;
+      this.removeFruit()
     }
   }
 
