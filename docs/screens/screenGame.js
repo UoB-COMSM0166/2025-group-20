@@ -127,13 +127,15 @@ freshGameScreen() {
     currentRecipe  = new SmoothieRecipe();
 
     if (difficulty === 'easy') {
-        easyGameScore.display();
         easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
         easyHighestScore.display();
+        easyGameScore.resetPoints();
+        easyGameScore.display();
     } else {
-        hardGameScore.display();
         hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
         hardHighestScore.display();
+        hardGameScore.resetPoints();
+        hardGameScore.display();
     }
     gameManager.switchState("game");
 }

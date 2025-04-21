@@ -90,7 +90,6 @@ class GameManager {
 
   drawGameOverState(){
     cursor();  
-    console.log("Rendering Game Over state");
     loop();
     this.gameOverScreen.show();
     this.gameOverScreen.render();

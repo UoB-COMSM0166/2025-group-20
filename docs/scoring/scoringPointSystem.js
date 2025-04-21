@@ -25,6 +25,10 @@ class PointSystem{
         }
     }
 
+    resetPoints() {
+        this.pointsPerGame = 0;
+    }
+
     display(){
         textAlign(RIGHT, TOP); // Align to top-right
         textSize(20);
