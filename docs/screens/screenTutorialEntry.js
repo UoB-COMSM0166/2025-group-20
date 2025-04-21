@@ -14,7 +14,7 @@ class TutorialEntryScreen {
         this.infoScreenButton = new TextButton((windowWidth - 500) / 2, windowHeight / 2, 'LEARN THE RULES', 250, 50, '27px', () => {
             gameManager.switchState("tutorial-info");
         });
-        this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
+        this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 150, 'BACK', 250, 50, '27px', () => {
             gameManager.switchState("start");
         });
     }
