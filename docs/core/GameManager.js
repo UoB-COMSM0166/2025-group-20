@@ -1,17 +1,77 @@
 class GameManager {
-    constructor() {
-      this.state = "start";
-      this.gameScreen = new GameScreen();
-      this.startScreen = new ScreenStart(this);
-      this.gameOverScreen = new GameOverScreen(this);
-      this.tutorialEntryScreen = new TutorialEntryScreen();
-      this.tutorialSliceScreen = new TutorialSliceScreen();
-      this.tutorialInfoScreen = new TutorialInfoScreen();
-      this.score = 0;
-      this.lives = 3;
-      this.difficulty = 'easy';
-      this.basket = new Basket();
-      this.twoPlayer = false;
+    // states :
+      // start --> start screen and main menu
+      // tutorial-entry --> tutorial entry screen
+      // slice --> practise slicing screen
+      // info --> learn the rules screens ////// ideally we would want all the tutorial screen to be one state
+      // game --> game screen
+      // pause --> pause screen mid game
+      // over --> game over screen
+  constructor() {
+    this.state = "start";
+    this.startScreen = new ScreenStart(this);
+    this.tutorialEntryScreen = new TutorialEntryScreen();
+    this.tutorialSliceScreen = new TutorialSliceScreen();
+    this.tutorialInfoScreen = new TutorialInfoScreen();
+    this.gameScreen = new GameScreen();
+    this.gameOverScreen = new GameOverScreen(this);
+    this.score = 0;
+    this.lives = 3;
+    this.difficulty = 'easy';
+    this.basket = new Basket();
+    this.twoPlayer = false;
+    this.easyGameScore = new PointSystem();
+    this.hardGameScore = new PointSystem();
+    this.easyHighestScore = new HighestPointDisplay(0);
+    this.hardHighestScore = new HighestPointDisplay(0);
+    }
+
+    setDifficulty(difficulty) {
+      this.difficulty = difficulty;
+    } 
+
+    getDifficulty() {
+      return this.difficulty;
+    }
+
+    setCoop(twoPlayer) {
+      this.twoPlayer = twoPlayer;
+    }
+
+    getCoop() {
+      return this.twoPlayer;
+    }
+
+    getEasyGameScore() {
+      return this.easyGameScore;
+    }
+
+    getHardGameScore() {
+      return this.hardGameScore;
+    }
+
+    getEasyHighestScore() {
+      return this.easyHighestScore;
+    }
+
+    getHardHighestScore() {
+      return this.hardHighestScore;
+    }
+
+    setDifficulty(difficulty) {
+      this.difficulty = difficulty;
+    } 
+
+    getDifficulty() {
+      return this.difficulty;
+    }
+
+    setCoop(twoPlayer) {
+      this.twoPlayer = twoPlayer;
+    }
+
+    getCoop() {
+      return this.twoPlayer;
     }
 
     getGameScreen() {
@@ -67,11 +127,11 @@ class GameManager {
     if (this.twoPlayer){
       this.basket.show();
     }
-    if (difficulty !== 'easy') {
+    if (this.difficulty !== 'easy') {
       makeRecipeButton();
       recipeButton.show();
     }
-    else if (recipeButton && difficulty === 'easy') {
+    else if (recipeButton && this.difficulty === 'easy') {
       recipeButton.hide();
     }
     this.startScreen.hideButtons();
@@ -82,11 +142,13 @@ class GameManager {
     }
     this.gameOverScreen.hide();
   }
+  
   drawPauseState(){
     cursor();
     noLoop();
     pauseMenu.drawPauseScreen(); 
   }
+  
 
   drawGameOverState(){
     cursor();  
@@ -97,5 +159,3 @@ class GameManager {
     pauseMenu.pauseButton.getButton().hide();
   }
 }
-
-  

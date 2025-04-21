@@ -40,12 +40,12 @@ class GameOverScreen {
     textFont(gameFont);
     text('GAME OVER', width / 2, height * 0.35);
 
-    if(difficulty === 'easy'){
-      easyGameScore.display();
-      easyHighestScore.display();
+    if(gameManager.getDifficulty === 'easy'){
+      gameManager.getEasyGameScore().display();
+      gameManager.getEasyHighestScore().display();
     }else {
-      hardGameScore.display();
-      hardHighestScore.display();
+      gameManager.getHardGameScore().display();
+      gameManager.getHardHighestScore().display();
     }
     this.show();
   }
