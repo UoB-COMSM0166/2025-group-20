@@ -1,9 +1,22 @@
 class GameScreen {
+    constructor() {
+        this.loseLifeEffect = new LoseLife();
+        this.gainLifeEffect = new GainLife();
+        this.recipeCompleteText = new RecipeComplete();
+        this.wrongSliceText = new WrongSlice();
+    }
+
+    draw() {
+        this.recipeCompleteText.active();
+        this.loseLifeEffect.active();
+        this.gainLifeEffect.active();
+        this.wrongSliceText.active();
+    }
     playingScreen() {
     background(bg);
     scratchCursorEffect ()
     if (currentRecipe.ingredients.length === 0){
-        recipeCompleteEffect();
+        this.recipeCompleteText.show();
         audioController.play('recipe');
         if(difficulty == 'easy'){
             easyGameScore.recipeComplete();
@@ -62,13 +75,13 @@ class GameScreen {
             if(fruit[i].fruitName === 'dragonfruit'){
                 console.log('Dragonfruit sliced!');
                 lifeIcons.gainLife();
-                gainLifeEffect();
+                this.gainLifeEffect.show();
                 audioController.play('lifeGained');
                 //I want to make a twinkle sound effect for when this is sliced.
             }
             else if (fruit[i].fruitName !== 'dragonfruit' && fruit[i].index !== currentRecipe.ingredients[0]){
                 lifeIcons.loseLife();
-                loseLifeEffect();
+                this.loseLifeEffect.show();
                 audioController.play('lifeLost');
                 if (lifeIcons.lives === 0){
                     audioController.play('gameover');
@@ -86,7 +99,7 @@ class GameScreen {
                     //gameScore.correctCut();
                 }
                 else if (fruit[i].slicePat.isSliced() === 'wrong'){
-                    wrongSliceEffect();
+                    this.wrongSliceText.show();
                 }
             }
             audioController.play("slice");

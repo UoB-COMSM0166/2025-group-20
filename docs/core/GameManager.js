@@ -51,6 +51,7 @@ class GameManager {
           break;
         case "game":
           this.drawGameState();
+          this.gameScreen.draw();
           break;
         case "pause":
           this.drawPauseState();
@@ -63,10 +64,6 @@ class GameManager {
 
   drawGameState(){
     this.gameScreen.playingScreen();
-    redBorder();
-    greenBorder();
-    completionText();
-    wrongSliceText();
     if (this.twoPlayer){
       this.basket.show();
     }
