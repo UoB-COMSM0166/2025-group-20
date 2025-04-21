@@ -24,11 +24,18 @@ class GameManager {
 
     setDifficulty(difficulty) {
       this.difficulty = difficulty;
-      console.log(this.difficulty);
     } 
+
+    getDifficulty() {
+      return this.difficulty;
+    }
 
     setCoop(twoPlayer) {
       this.twoPlayer = twoPlayer;
+    }
+
+    getCoop() {
+      return this.twoPlayer;
     }
 
     getGameScreen() {
