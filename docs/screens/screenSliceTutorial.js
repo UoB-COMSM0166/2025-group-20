@@ -230,13 +230,7 @@ class TutorialSliceScreen {
         
                 if (this.bombCount >= this.bombMax) {
                     this.bombCompleted = true;
-                    //this.sliceFeedback = "correct";
                     this.processCorrectSliceLogic();
-                    /*if (!this.autoAdvanceTimeout) {
-                        this.autoAdvanceTimeout = setTimeout(() => {
-                        this.gotoNextTutorialStep();
-                        }, 5000);
-                    }*/
                 }
             }
         }
@@ -252,7 +246,7 @@ class TutorialSliceScreen {
         return fruitList[this.currentFruitIndex] === "bomb";
     }
 
-    // --- Effects Section --- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
+    // --- Effects Section ---
 
     renderTutorialFeedback() {
         this.wrongSliceEffect.active();
@@ -276,7 +270,6 @@ class TutorialSliceScreen {
             this.gainLifeTextEffect.show();
             this.gainLifeBorderEffect.show();
             this.lifeIcons.gainLife();
-            audioController.play('lifeGained');
         } else if(this.isBombStep()){
             this.bombSuccessText.show();
         } else {
