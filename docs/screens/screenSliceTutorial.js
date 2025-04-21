@@ -60,7 +60,7 @@ class TutorialSliceScreen {
         this.handleisSlicedLogic();
         this.handleBombTutorialLogic();
         this.renderTutorialFeedback();
-        cursorEffect();
+        cursorEffects.cursorEffect();
     }
 
     // -- Button Logic -- 

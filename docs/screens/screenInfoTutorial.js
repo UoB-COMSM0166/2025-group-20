@@ -65,7 +65,7 @@ class TutorialInfoScreen {
 
         image(screenShot, x, y, imgWidth, imgHeight);
     
-        cursorEffect();
+        cursorEffects.cursorEffect();
     }
     
 

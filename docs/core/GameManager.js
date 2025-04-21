@@ -1,17 +1,34 @@
 class GameManager {
+    // states :
+      // start --> start screen and main menu
+      // tutorial-entry --> tutorial entry screen
+      // slice --> practise slicing screen
+      // info --> learn the rules screens ////// ideally we would want all the tutorial screen to be one state
+      // game --> game screen
+      // pause --> pause screen mid game
+      // over --> game over screen
     constructor() {
       this.state = "start";
-      this.gameScreen = new GameScreen();
       this.startScreen = new ScreenStart(this);
-      this.gameOverScreen = new GameOverScreen(this);
       this.tutorialEntryScreen = new TutorialEntryScreen();
       this.tutorialSliceScreen = new TutorialSliceScreen();
       this.tutorialInfoScreen = new TutorialInfoScreen();
+      this.gameScreen = new GameScreen();
+      this.gameOverScreen = new GameOverScreen(this);
       this.score = 0;
       this.lives = 3;
       this.difficulty = 'easy';
       this.basket = new Basket();
       this.twoPlayer = false;
+    }
+
+    setDifficulty(difficulty) {
+      this.difficulty = difficulty;
+      console.log(this.difficulty);
+    } 
+
+    setCoop(twoPlayer) {
+      this.twoPlayer = twoPlayer;
     }
 
     getGameScreen() {
@@ -67,11 +84,11 @@ class GameManager {
     if (this.twoPlayer){
       this.basket.show();
     }
-    if (difficulty !== 'easy') {
+    if (this.difficulty !== 'easy') {
       makeRecipeButton();
       recipeButton.show();
     }
-    else if (recipeButton && difficulty === 'easy') {
+    else if (recipeButton && this.difficulty === 'easy') {
       recipeButton.hide();
     }
     this.startScreen.hideButtons();

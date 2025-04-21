@@ -64,6 +64,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   maxHeight = windowHeight * 0.00125;
   frameRate(60); // most computers default to 60fps
+  cursorEffects = new GameCursorEffects();
   easyGameScore = new PointSystem();
   hardGameScore = new PointSystem();
   easyHighestScore = new HighestPointDisplay(0); // you can add mode if you want
