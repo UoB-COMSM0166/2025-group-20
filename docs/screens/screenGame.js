@@ -19,10 +19,10 @@ class GameScreen {
     if (currentRecipe.ingredients.length === 0){
         this.recipeCompleteText.show();
         audioController.play('recipe');
-        if(difficulty == 'easy'){
-            easyGameScore.recipeComplete();
+        if(gameManager.getDifficulty() == 'easy'){
+            gameManager.getEasyGameScore().recipeComplete();
         } else {
-            hardGameScore.recipeComplete();
+            gameManager.getHardGameScore().recipeComplete();
         }
         
         currentRecipe = new SmoothieRecipe();
@@ -31,14 +31,14 @@ class GameScreen {
     currentRecipe.display();
     lifeIcons.show();
 
-    if (difficulty === 'easy') {
-        easyGameScore.display();
-        easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
-        easyHighestScore.display();
+    if (gameManager.getDifficulty() === 'easy') {
+        gameManager.getEasyGameScore().display();
+        gameManager.getEasyHighestScore().updateHighestScore(gameManager.getEasyGameScore().pointsPerGame);
+        gameManager.getEasyHighestScore().display();
       } else {
-        hardGameScore.display();
-        hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
-        hardHighestScore.display();
+        gameManager.getHardGameScore().display();
+        gameManager.getHardHighestScore().updateHighestScore(gameManager.getHardGameScore().pointsPerGame);
+        gameManager.getHardHighestScore().display();
       }
 
     if(frameCount % 60 === 0) {
@@ -66,10 +66,10 @@ class GameScreen {
         fruit[i].move();
         if (gameManager.twoPlayer && fruit[i].slicePat.type === 'inert' && Math.round(fruit[i].yPos) === windowHeight
             && (Math.round(fruit[i].xPos) > gameManager.basket.x+110 || Math.round(fruit[i].xPos) < gameManager.basket.x-110)){
-            if(difficulty === 'easy'){
-                easyGameScore.uncaughtFruit();
+            if(gameManager.getDifficulty() === 'easy'){
+                gameManager.getEasyGameScore().uncaughtFruit();
             } else{
-                hardGameScore.uncaughtFruit();
+                gameManager.getHardGameScore().uncaughtFruit();
             }
         }
         if (fruit[i].slicePat.isSliced() === 'correct' || fruit[i].slicePat.isSliced() === 'wrong'){
@@ -92,10 +92,10 @@ class GameScreen {
             else if (fruit[i].index === currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() === 'correct'){
                     currentRecipe.ingredients.shift();
-                    if(difficulty === 'easy'){
-                        easyGameScore.correctCut();
+                    if(gameManager.getDifficulty() === 'easy'){
+                        gameManager.getEasyGameScore().correctCut();
                     } else{
-                        hardGameScore.correctCut();
+                        gameManager.getHardGameScore().correctCut();
                     }
                     //gameScore.correctCut();
                 }
@@ -127,16 +127,16 @@ freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
 
-    if (difficulty === 'easy') {
-        easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
-        easyHighestScore.display();
-        easyGameScore.resetPoints();
-        easyGameScore.display();
+    if (gameManager.getDifficulty() === 'easy') {
+        gameManager.getEasyHighestScore().updateHighestScore(gameManager.getEasyGameScore().pointsPerGame);
+        gameManager.getEasyHighestScore().display();
+        gameManager.getEasyGameScore().resetPoints();
+        gameManager.getEasyGameScore().display();
     } else {
-        hardHighestScore.updateHighestScore(hardGameScore.pointsPerGame);
-        hardHighestScore.display();
-        hardGameScore.resetPoints();
-        hardGameScore.display();
+        gameManager.getHardHighestScore().updateHighestScore(gameManager.getHardGameScore().pointsPerGame);
+        gameManager.getHardHighestScore().display();
+        gameManager.getHardGameScore().resetPoints();
+        gameManager.getHardGameScore().display();
     }
     gameManager.switchState("game");
 }

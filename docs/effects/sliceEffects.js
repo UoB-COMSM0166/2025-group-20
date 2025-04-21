@@ -92,25 +92,3 @@ function correctSliceEffect () {
     correctSlice = false
   }, 1000);
 }
-
-function recipeCompleteEffect(){
-  recipeComplete = true;
-  setTimeout(() => {
-    recipeComplete = false
-  }, 1000);
-}
-
-
-function gainLifeEffect(){
-  displayGreen = true;
-  setTimeout(() => {
-    displayGreen = false;
-  }, 1000);
-}
-
-function loseLifeEffect(){
-  displayBorder = true;
-  setTimeout(() => {
-     displayBorder = false;
-  }, 1000);
-}

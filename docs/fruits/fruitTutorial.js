@@ -11,6 +11,7 @@ class TutorialFruit {
       this.size = 110;
       this.visible = true;
       this.slicingGif = null;
+      this.gravity = 0.1;
   
       this.currentSlicePattern = slicePattern;
       this.slicePat = new SlicePattern(slicePattern, this.size);
@@ -25,15 +26,15 @@ class TutorialFruit {
           this.xPos + this.size / 2,
           this.yCurrentPos + this.size / 2
         );
-        this.ySpeed += gravity;
+        this.ySpeed += this.gravity;
   
         if (this.yCurrentPos <= this.maxHeight) {
           this.yCurrentPos = this.maxHeight;
           this.fruitState = "falling";
-          this.ySpeed = Math.abs(this.ySpeed) - gravity;
+          this.ySpeed = Math.abs(this.ySpeed) - this.gravity;
         }
       } else if (this.fruitState === "falling") {
-        this.ySpeed += gravity;
+        this.ySpeed += this.gravity;
         this.yCurrentPos += this.ySpeed;
       }
   
