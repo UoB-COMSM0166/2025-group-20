@@ -54,7 +54,7 @@ class ScreenStart {
       this.drawTitle();
       this.drawWaveText();
       this.fruitBorder.draw();
-      if(difficulty === 'easy'){
+      if(this.difficulty === 'easy'){
         gameManager.getEasyHighestScore().display();
       } else {
         gameManager.getHardHighestScore().display();
