@@ -71,10 +71,10 @@ function keyPressed() {
     gameManager.getGameScreen().freshGameScreen();
     gameManager.switchState("game");
   }
-  if (keyCode === LEFT_ARROW){
+  if (keyCode === LEFT_ARROW || key === 'a'){
     gameManager.basket.move('left');
   }
-  else if (keyCode === RIGHT_ARROW){
+  else if (keyCode === RIGHT_ARROW || key === 'd'){
     gameManager.basket.move('right');
   }
 }
