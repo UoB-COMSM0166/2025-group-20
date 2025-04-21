@@ -4,6 +4,7 @@ class GameScreen {
         this.gainLifeEffect = new GainLife();
         this.recipeCompleteText = new RecipeComplete();
         this.wrongSliceText = new WrongSlice();
+        this.cursorEffects = new GameCursorEffects();
     }
 
     draw() {
@@ -14,7 +15,7 @@ class GameScreen {
     }
     playingScreen() {
     background(bg);
-    scratchCursorEffect ()
+    this.cursorEffects.scratchCursorEffect ()
     if (currentRecipe.ingredients.length === 0){
         this.recipeCompleteText.show();
         audioController.play('recipe');
@@ -115,7 +116,7 @@ class GameScreen {
             gameManager.switchState("gameover");
         }
     }
-    cursorEffect();
+    this.cursorEffects.cursorEffect();
 }
 
 freshGameScreen() {
