@@ -312,35 +312,22 @@ Although our project is primarily designed in an university setting, the Onion M
 
 # Design (Barney)
 
-- 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams.
+Our game was built using the programming languages HTML, CSS and JavaScript with the files hosted on the popular code sharing website GitHub, allowing our game to be easily distributed and playable on any device with an internet browser. In addition to this we heavily utilised the P5.js JavaScript library for due to its easy and effective animation capabilities.
 
-Our design elements had a focus on maintability and Object-Oriented Principles, in order to create a robust foundation for the game. 
+The user interface is designed to be simply navigated with just the device cursor, ideally a mouse as during testing we found the game was significantly more difficult when using a trackpad, and limited key presses. The game can be played on mobile with touch replacing the cursor, however due to time constraints the game has not been optimized for these types of devices leading to numerous issues if done so.
 
-- System Architecture
-- This section should include our User Interface (How the user interacts with the game both visually and gesturally - ie. the mouse or trackpad sliding to simulate the slicing of the fruit), the Game Logic (the fruit generation, the mechanics behind the slicing patterns, the scoring, and the registering of incorrect slicing adnd slicing bombs) and the Data Management (Persistently tracking game state and player statistics) - let me know if I've missed anything!
-- This displays a modular approach to seperating the code, which instigates efficient testing and feature addition.
+We chose an Object-Oriented Design as it made visualising and designing the game easier as well as providing additional benefits of code efficiency and modularity, making it easier to maintain and scale up in the long run. This meant upholding the principles of Object-Orientation including encapsulation, abstraction, inheritance, polymorphism and composition. 
 
-- Object-Oriented Design 
-- Object-Oriented Design should display clarity and flexibility: Encapsulation, Abstraction, Inheritance, Polymorphism, Composition)
+With these principles in mind we devised the classes represented in the class diagram below: 
 
-- Class Diagrams
-- Explanation of our different classes, their different roles and relationships in accordance with the game and Object-Oriented Principles
-- So far looking at the code we have the: Fruit Class, Life Icons Class, Point System Class, Slice Pattern Class, Smoothie Recipe Class
-- These classes establish the relationships and associations clearly so the interactions within code are cohesive and gameplay retains data integrity
+The game loads with the main menu which features two buttons to choose between either easy mode or hard mode, two buttons to choose between one player and two player mode, a button to choose the tutorial mode and a text prompt directing the player to start the game by pressing enter to communicate clearly to the player about how to operate the game. For the buttons we decided to have a fixed style to save time and code when needing a new button. Buttons display specified text, become highlighted when being hovered over, go a darker colour and make a sound when having been pressed. This functionality of the buttons was designed to clearly and intuitively communicate to the player what pressing the buttons does and when they have been pressed. In addition to this the high score is also present within the top right corner so that the player doesn’t have to start the game to be reminded of it. The sound button is also present in the right-hand corner throughout the entire system to allow the player to easily turn off the music when desired.
 
-- Behavioural Diagrams
-- We need to include sequence diagrams here like in the pac-man slides (demonstrate the dynamics of the gameplay) I don't want to use this but I've made a simplified one below to show you what it could look like
-Player → Cursor: slice action cursorEffect()
-Cursor → Fruit: isSliced() (in SlicePattern class)
-Fruit → Fruit: isHit() (in HitBox class)
-Fruit → Game: correctCut || recipeComplete() (in PointSystem class)
-Game → Game (only if the highest score is reached): updateHighestScore(gameScore) (in HighestPointDisplay class)
-Game → UI: gameScreen() (should update the display as necessary)
+The tutorial was implemented so that new players could quickly learn the rules of the game and get playing as soon as possible and start enjoying it. When clicking the tutorial the player is presented with three further buttons, “learn the rules”, “slicing” and “back”. When learn the rules is clicked it takes the player to a series of slides they can click through showing screenshots from the game alongside explanations of the different modes and how to play them. When slicing is clicked it takes the player to a series of interactive animations that teach them how to slice each individual fruit with text prompts in the bottom left corner and arrows directing them. There are also arrows on the left and right of the screen to easily cycles through each fruit type in this section. The back button is present throughout the tutorial section to allow easy navigation and exit, upholding the design principle of …
 
+In the main game, randomly-generated fruits are thrown up on screen for the player to slice them. The player gains 10 points for correctly slicing the first fruit in the recipe displayed at the top of the screen and gains 20 points for completing the whole recipe. If the player slices the wrong fruit they lose a life. In addition to this there is also the dragon fruit which gives the player another life if sliced as well as a bomb which causes the player to lose all their lives if sliced. When the player loses all their lives they are taken to the game over screen where they are presented with two buttons to either start over or go to the main menu. The current score is displayed in the top right corner, the amount of lives the player has in the top left, the current recipe at the top middle and the pause button in the bottom right above the sound button which if pressed pauses the game and presents the player with three buttons to either resume the game, restart the game or quit the game. All of which is intended to provide all the relevant information and functionality to the player.
 
-- Design Decisions and Subsquent Justification
-- In designing our game we decided to use p5.js - it is easy to learn and easy to use, with good HTML/CSS/JAVASCRIPT integration as well was being really adaptable and easy to use in any modern browser. 
+In easy mode the player just has simply slice the relevant fruit in any direction whereas in hard mode there is a specific direction for each fruit for it to count as a correct slice. The player can remind themselves of the specific direction they need to cut the fruit by hovering over the recipe book on the right of the screen. In two player mode there is the addition of the basket that is controlled by the second player using the left and right arrow or ‘a’ and ‘d’ keys, which catches any sliced fruit. If the sliced fruit is not caught by the basket the points game from the slice are lost. There are various visual indicators within the main game to let them know of specific things such as losing or gaining life or completing a recipe.
+
 
 # Implementation (Omnia)
 
