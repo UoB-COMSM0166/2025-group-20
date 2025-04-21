@@ -9,10 +9,10 @@ class TutorialInfoScreen {
         ];
 
         this.texts = [
-            "Easy Mode: Slice the correct fruit in the correct order to complete the recipe! Careful not to click the wrong fruit, you'll lose a life! ->",
-            "Hard Mode: Slice the correct fruit in the correct order WITH the correct slicing pattern - or you lose a life! ->",
-            "Recipe Book: Use this to study the smoothie recipes — and remind yourself of slice patterns. ->",
-            "Two Player Mode: Work with a friend, when one of you slices a fruit, the other one catches it in the basket. ->"
+            "Easy Mode: Slice the correct fruit by holding down the left mouse button and moving the cursor across it in the correct order to complete the recipe! Careful not to click the wrong fruit, you'll lose a life! ->",
+            "Hard Mode: Slice the correct fruit by holding down the left mouse button and moving the cursor across it in the correct order WITH the correct slicing pattern - or you lose a life! ->",
+            "Recipe Book: Use this to study the smoothie recipes — and remind yourself of slice patterns by hovering over it with the cursor. ->",
+            "Two Player Mode: Work with a friend, when one of you slices a fruit, the other one catches it in the basket moving the basket by using the left and right arrow keys. ->"
         ];
 
         this.currentIndex = 0;
