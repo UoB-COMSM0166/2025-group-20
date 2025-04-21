@@ -34,9 +34,13 @@ class TutorialSliceScreen {
 
         // --- Slice Feedback Effects ---
 
-        this.gainLifeEffect = new GainLife();
-        this.loselifeEffect = new LoseLife();
+        this.gainLifeBorderEffect = new GainLife();
+        this.gainLifeTextEffect = new GainLifeText();
+        this.loseLifeBorderEffect = new LoseLife();
+        this.loseLifeTextEffect = new LoseLifeText();
         this.wrongSliceEffect = new WrongSlice();
+        this.correctSliceEffect = new CorrectSlice();
+        this.bombSuccessText = new BombSuccess();
 
         // --- Setting up Buttons ---
 
@@ -205,7 +209,6 @@ class TutorialSliceScreen {
 
     processCorrectSliceLogic(){
         this.sliceFeedback = "correct";
-        this.showCorrectEffect();
         if (!this.autoAdvanceTimeout) {
             this.autoAdvanceTimeout = setTimeout(() => {
             this.gotoNextTutorialStep();
@@ -217,13 +220,12 @@ class TutorialSliceScreen {
     processWrongSliceLogic(){
         this.bombFailed = true;
         this.sliceFeedback = "wrong";
-        this.showWrongEffect();
     }
 
     displaySliceEffectsFeedback() {
         audioController.play('slice');
         this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex])); 
-        this.currentFruit.fruitImg = loadImage(`https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/main/docs/Images/${fruitList[this.currentFruitIndex]}-slice.png`);
+        this.currentFruit.fruitImg = loadImage(`Images/${fruitList[this.currentFruitIndex]}-slice.png`);
         this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
     }
 
@@ -236,8 +238,7 @@ class TutorialSliceScreen {
                 if (this.bombCount >= this.bombMax) {
                     this.bombCompleted = true;
                     this.sliceFeedback = "correct";
-                    this.showCorrectEffect();
-        
+                    //this.showCorrectEffect();
                     if (!this.autoAdvanceTimeout) {
                         this.autoAdvanceTimeout = setTimeout(() => {
                         this.gotoNextTutorialStep();
@@ -262,67 +263,40 @@ class TutorialSliceScreen {
 
     renderTutorialFeedback() {
         this.wrongSliceEffect.active();
-        this.gainLifeEffect.active();
+        this.correctSliceEffect.active();
+        this.gainLifeBorderEffect.active();
+        this.gainLifeTextEffect.active();
+        this.loseLifeBorderEffect.active();
+        this.loseLifeTextEffect.active();
+        this.bombSuccessText.active();
+
         if (this.sliceFeedback === "correct") {
-            if (this.isDragonfruitStep()) {
-                this.drawLifeGainedText(); 
-            } else if (this.isBombStep()){
-                this.drawBombSuccessText();
-            } else {
-                correctSliceText();
-            }
+            this.showCorrectEffect();
         }
         if (this.sliceFeedback === "wrong") {
-            if (this.isBombStep()){
-                this.drawBombFailText();
-            } else {
-            this.wrongSliceEffect.show();
-            }
+            this.showWrongEffect();
         }
     }
 
     showCorrectEffect() {
-        correctSliceEffect();
-        //this.sliceFeedback = "correct";
-
         if (this.isDragonfruitStep()) {
-            this.gainLifeEffect.show();
+            this.gainLifeTextEffect.show();
+            this.gainLifeBorderEffect.show();
             this.lifeIcons.gainLife();
             audioController.play('lifeGained');
+        } else if(this.isBombStep()){
+            this.drawBombSuccessText.show();
+        } else {
+            this.correctSliceEffect.show();
         }
-      
-        if (this.sliceEffectTimer) clearTimeout(this.sliceEffectTimer);
-        this.sliceEffectTimer = setTimeout(() => {
-            this.sliceFeedback = null;
-        }, this.isDragonfruitStep() ? 3000 : 10000); 
     }
       
     showWrongEffect() {
+        if(this.isBombStep()){
+            this.loseLifeTextEffect.show();
+            this.loseLifeBorderEffect.show();;
+        }
         this.wrongSliceEffect.show();
-    }
-
-    drawLifeGainedText() {
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        fill("green");
-        textSize(100);
-        text("Life Gained!", width / 2, 100);
-    }
-
-    drawBombFailText() {
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        fill("red");
-        textSize(80);
-        text("You lose!", width / 2, 100);
-    }
-
-    drawBombSuccessText() {
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        fill("green");
-        textSize(80);
-        text("Well done!", width / 2, 100);
     }
 
     // --- Auto Timeout Effect ---
@@ -339,7 +313,6 @@ class TutorialSliceScreen {
         this.fruitSliced = false;   
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
-
         this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
       }
   }

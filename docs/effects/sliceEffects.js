@@ -36,7 +36,6 @@ class LoseLife extends SliceEffect{
   constructor() {
     super();
   }
-
   effect(){
     push();
     noFill();
@@ -45,6 +44,19 @@ class LoseLife extends SliceEffect{
     rectMode(CORNER);
     rect(0, 0, width, height, 20);
     pop();
+  }
+}
+
+class LoseLifeText extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill("red");
+    textSize(80);
+    text("You lost!", width / 2, 100);
   }
 }
 
@@ -63,6 +75,19 @@ class GainLife extends SliceEffect{
   }
 }
 
+class GainLifeText extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill("green");
+    textSize(100);
+    text("Life Gained!", width / 2, 100);
+  }
+}
+
 class WrongSlice extends SliceEffect{
   constructor() {
     super();
@@ -76,8 +101,11 @@ class WrongSlice extends SliceEffect{
   }
 }  
 
-function correctSliceText(){
-  if(correctSlice){
+class CorrectSlice extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
     textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('green');
@@ -86,31 +114,15 @@ function correctSliceText(){
   }
 }
 
-function correctSliceEffect () {
-  correctSlice = true;
-  setTimeout(() => {
-    correctSlice = false
-  }, 1000);
-}
-
-function recipeCompleteEffect(){
-  recipeComplete = true;
-  setTimeout(() => {
-    recipeComplete = false
-  }, 1000);
-}
-
-
-function gainLifeEffect(){
-  displayGreen = true;
-  setTimeout(() => {
-    displayGreen = false;
-  }, 1000);
-}
-
-function loseLifeEffect(){
-  displayBorder = true;
-  setTimeout(() => {
-     displayBorder = false;
-  }, 1000);
+class BombSuccess extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill("green");
+    textSize(80);
+    text("Well done!", width / 2, 100);
+  }
 }
