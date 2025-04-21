@@ -1,5 +1,5 @@
-function gameScreen() {
-    
+class GameScreen {
+    playingScreen() {
     background(bg);
     scratchCursorEffect ()
     if (currentRecipe.ingredients.length === 0){
@@ -105,7 +105,7 @@ function gameScreen() {
     cursorEffect();
 }
 
-function freshGameScreen() {
+freshGameScreen() {
     while (fruit.length !== 0){
         fruit.shift();
     }
@@ -123,4 +123,5 @@ function freshGameScreen() {
         hardHighestScore.display();
     }
     gameManager.switchState("game");
+}
 }
