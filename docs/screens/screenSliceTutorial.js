@@ -9,19 +9,30 @@ class TutorialSliceScreen {
         this.sliceEffectTimer = null;
         this.splatters = [];
 
+        // --- Narration Array ---
+
+        this.sliceNarration = [
+            'upwards', 'downwards','by clicking', 'to the left', 'to the right',
+            'top-left to bottom-right', 'top-right to bottom-left',
+            'to gain a life!', 'or you will lose!'
+          ];
+          
+
         // --- dragonfruit variables ---
+
         this.lifeIcons = new LifeIcons();
         this.lifeIcons.lives = 2;
         this.lifeIcons.heartStates = ['full', 'full', 'empty'];
         this.lifeIcons.hearts[2] = loadImage('Images/heart-empty.png');
 
         // --- bomb variables ---
+
         this.bombCount = 0;
         this.bombMax = 5;
         this.bombFailed = false;
         this.bombCompleted = false;
 
-        // -- Setting up Buttons --
+        // --- Setting up Buttons ---
 
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
             gameManager.switchState("tutorial-entry");
@@ -64,7 +75,7 @@ class TutorialSliceScreen {
         this.cursorEffects.cursorEffect();
     }
 
-    // -- Button Logic -- 
+    // --- Button Logic ---
 
     showButtons() {
         this.backButton.getButton().show();
@@ -78,7 +89,7 @@ class TutorialSliceScreen {
         this.rightArrowButton.getButton().hide();
     }  
 
-    // -- Drawing and Visual section --
+    // --- Drawing and Visual section ---
 
     drawTutorialScreen() {
         noCursor();
@@ -109,8 +120,10 @@ class TutorialSliceScreen {
         textSize(24);
         textAlign(CENTER, CENTER);
         textLeading(10);
+
+        let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${this.sliceNarration[this.currentFruitIndex]}`;
         
-        let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
+        //let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
         if(this.isBombStep()){
             narration = `Don't ${narration}`;
         }
@@ -167,7 +180,7 @@ class TutorialSliceScreen {
         this.currentFruit.show();
     }
 
-    // -- Handles ifSliced logic --
+    // --- Handles ifSliced logic ---
 
     handleisSlicedLogic() {
         if (this.fruitSliced) return;
@@ -231,7 +244,7 @@ class TutorialSliceScreen {
         }
     }
 
-    // -- Custom steps --
+    // --- Custom steps ---
 
     isDragonfruitStep() {
         return fruitList[this.currentFruitIndex] === "dragonfruit";
@@ -241,7 +254,7 @@ class TutorialSliceScreen {
         return fruitList[this.currentFruitIndex] === "bomb";
     }
 
-        // -- Effects Section -- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
+        // --- Effects Section --- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
 
     renderTutorialFeedback() {
         if (this.sliceFeedback === "correct") {
@@ -311,7 +324,7 @@ class TutorialSliceScreen {
         text("Well done!", width / 2, 100);
     }
 
-    // -- Auto Timeout Effect --
+    // --- Auto Timeout Effect ---
       
       gotoNextTutorialStep(){
         if (this.currentFruit?.slicingGif) {

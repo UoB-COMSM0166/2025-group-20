@@ -22,7 +22,6 @@ class TutorialEntryScreen {
     render() {
         noCursor();
         background(bg);
-        //this.startScreen.border();
         this.fruitBorder.draw();
         this.drawTutorialTitle();
         textAlign(CENTER, CENTER);
