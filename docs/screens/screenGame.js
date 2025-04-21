@@ -19,7 +19,7 @@ class GameScreen {
     if (currentRecipe.ingredients.length === 0){
         this.recipeCompleteText.show();
         audioController.play('recipe');
-        if(difficulty == 'easy'){
+        if(gameManager.getDifficulty() == 'easy'){
             easyGameScore.recipeComplete();
         } else {
             hardGameScore.recipeComplete();
@@ -31,7 +31,7 @@ class GameScreen {
     currentRecipe.display();
     lifeIcons.show();
 
-    if (difficulty === 'easy') {
+    if (gameManager.getDifficulty === 'easy') {
         easyGameScore.display();
         easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
         easyHighestScore.display();
@@ -66,7 +66,7 @@ class GameScreen {
         fruit[i].move();
         if (gameManager.twoPlayer && fruit[i].slicePat.type === 'inert' && Math.round(fruit[i].yPos) === windowHeight
             && (Math.round(fruit[i].xPos) > gameManager.basket.x+110 || Math.round(fruit[i].xPos) < gameManager.basket.x-110)){
-            if(difficulty === 'easy'){
+            if(gameManager.getDifficulty() === 'easy'){
                 easyGameScore.uncaughtFruit();
             } else{
                 hardGameScore.uncaughtFruit();
@@ -92,7 +92,7 @@ class GameScreen {
             else if (fruit[i].index === currentRecipe.ingredients[0]){
                 if (fruit[i].slicePat.isSliced() === 'correct'){
                     currentRecipe.ingredients.shift();
-                    if(difficulty === 'easy'){
+                    if(gameManager.getDifficulty() === 'easy'){
                         easyGameScore.correctCut();
                     } else{
                         hardGameScore.correctCut();
@@ -127,7 +127,7 @@ freshGameScreen() {
     lifeIcons = new LifeIcons();
     currentRecipe  = new SmoothieRecipe();
 
-    if (difficulty === 'easy') {
+    if (gameManager.getDifficulty() === 'easy') {
         easyHighestScore.updateHighestScore(easyGameScore.pointsPerGame);
         easyHighestScore.display();
         easyGameScore.resetPoints();
