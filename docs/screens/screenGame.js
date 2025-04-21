@@ -51,7 +51,6 @@ class GameScreen {
         let x = fruitGenerator.randomFruitGen(0, currentRecipe);
         fruit.push(x);
         fruitOnScreen.push(x.index);
-        console.log(fruitOnScreen);
     }
         //drawing and fading out splatter BEFORE the fruit is sliced, so it appears on the background
     for (let i = splatters.length - 1; i >= 0; i--) {
