@@ -356,7 +356,7 @@ Table X: Raw Think Aloud (TA) feedback
 ### Controls 
 Feedback regarding the game’s controls was fairly consistent. There was a general consensus that adapting a game typically played on a touchscreen device (such as an iPad or phone) to a laptop or PC using a mouse or trackpad introduced a degree of disjointedness to the user experience. Our user tests were structured so that roughly a third of participants played using a mouse, a third with a trackpad, and a third tried both sequentially. The overall consensus was that using a mouse provided a more fluid and enjoyable gameplay experience.
 
-A minor bug was encountered — labelled in our test documentation as "the mousePressed function bugs after hearts lost" — but this was resolved early in development.
+A minor bug was encountered — labelled in our test documentation as "the `mousePressed` function bugs after hearts lost" — but this was resolved early in development.
 
 One tester suggested that the "click and drag" mechanic for slicing might be redundant, and that gameplay might be smoother if users didn’t need to press down at all. While we carefully considered this feedback, we ultimately chose not to act on it for the following reasons:
 
@@ -365,7 +365,14 @@ One tester suggested that the "click and drag" mechanic for slicing might be red
 3. Removing the click would reduce user control, increasing the likelihood of accidental slices — especially problematic when users may be trying to pause the game or consult the recipe book.
 
 ### Display
-NEED TO ACTUALLY FIX SOME THINGS IN THE GAME - 1. CURSOREFFECT DOES NOT REMAIN FOR LONG ENOUGH 2. FRUIT GENERATED STUCK TOGETHER
+### Fruit generated stuck together  + improved wood scratch effect. 
+User feedback was exceptionally positive regarding the games visuals. Players appreciated the nostalgic 8-bit aesthetic, found slicing fruit satisfying, and enjoyed the responsive, engaging cursor. The overall visual style was noted as cohesive and well-executed throughout.
+
+However, two recurrent issues were identified during evaluation. First: participants highlighted that the occasional generation of overlapping fruits rendered both fruits unslicable. This was addressed and resolved quickly. The second concern was an obscurity around the slicing action: some users expressed difficulty discerning what the direction they had sliced in, and requested a longer lasting cursor. 
+
+Extending the `cursorEffect` risked cluttering the screen, so to resolve this, we implemented a `cursorWoodScratch` effect. When the user clicks and drags, a scratch trail appears beneath the cursor and fruit. This solution preserved visual clarity while providing intuitive feedback on slicing actions.
+
+*Insert woodscratch gif here*
 
 ### Learning Curve
 Early user feedback regarding the game's initial difficulty was flagged: at this stage in the development several core features hadn't been implemented. Users found the games objectives and rules were initially unclear and many disliked the reliance on memory; having to remember specific slice patterns was tedious and created a slow, tedious gameplay. 
@@ -410,6 +417,16 @@ The accompanying pentagraph (above) reveals more granular differences:
 - A significant increase in effort and frustration
 - A moderate increase in mental demand and perceived performance
 - Minimal or no change in physical or temporal demand
+
+These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
+
+**Statistical Analysis**
+
+While the data visually aTo confidently determine that the quantitative tests executed actually indicated a significant workload increase, we adopted the the Wilcoxon Signed Rank Test:
+- Wilcoxon result (where n = 10, a = 0.05):
+  - A value of 8 or less to quantify a significant difference. 
+  - W = 0 (0 < 8).
+  - An *extremely* significant difference.
 
 These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
 
