@@ -458,7 +458,7 @@ Another agile principle we followed was face to face communication which was oft
 </p>
 
 # Sustainability (Scarlett)
-With sustainability becoming an increasingly urgent global priority, it is imperative that we find simple, everyday ways to engage people in more environmentally friendly behaviours. Therefore, when designing our game, Smoothie Operator, we wanted to ensure that sustainable thinking was a part of the development process. 
+With sustainability becoming an increasingly urgent global priority, it is imperative that we find simple, everyday ways to engage people in more environmentally friendly behaviours. Therefore, when designing our game, Smoothie Operator, we wanted to ensure that sustainable thinking was part of the development process. 
 To do this, we first needed to understand the sustainability impact of our game. Our analysis was based on the Sustainability Awareness Framework (SusAF), which is divided into five sectors: individual, technical, social, environmental, economic (Becker et al., 2015). We decided to focus primarily on the environmental, individual and social dimensions as they were more relevant to our game than technical and economical at this stage:
 
 ### 1)	 The individual dimension refers to personal freedom and fulfilment : 
@@ -476,7 +476,7 @@ Smoothie Operator has a simple interface, with minimal instructions and a single
 ### 3)	The environmental dimension refers to the use and stewardship of natural resources :
 Our game has a minimalistic design, aligning with Jakob Nielsen’s heuristics for user-friendly interfaces (Nielsen, 1994). By implementing efficient, object-oriented programming, we’ve optimised performance and reduced unnecessary resource consumption. Together, these choices contribute to lower energy usage and potentially reduce e-waste over time. 
 
-Currently, our game is only hosted on GitHub; this is a platform committed to carbon negativity, 100% renewable energy use, and sever circularity (Brescia, 2021). Hosting our game only on GitHub allows us to contribute to these broader sustainability goals as well as minimising the need for new hardware, as it is accessible through any device, with internet access, via a public repository. It also does not require any downloads or installations, reducing storage needs.
+Currently, our game is only hosted on GitHub; this is a platform committed to carbon negativity, 100% renewable energy use, and server circularity (Brescia, 2021). Hosting our game only on GitHub allows us to contribute to these broader sustainability goals as well as minimising the need for new hardware, as it is accessible through any device, with internet access, via a public repository. It also does not require any downloads or installations, reducing storage needs.
 
 As a digital-only product, Smoothie Operator avoids carbon emissions associated with physical production. However, all digital games require energy, but we aim to offset the environmental impact of our game through using GitHub. In the future, we hope to explore more hosting platforms that have a similar carbon footprint to GitHub, in order to make our game even more accessible.
 
