@@ -1,5 +1,6 @@
 class TutorialEntryScreen {
     constructor(){
+    this.cursorEffects = new GameCursorEffects();
     this.tutorialSliceScreen = new TutorialSliceScreen();
     this.tutorialInfoTutorial = new TutorialInfoScreen();
 
@@ -26,7 +27,7 @@ class TutorialEntryScreen {
         fill("#FCF3CF");
         stroke(30, 15, 5);
         strokeWeight(8);
-        cursorEffect();
+        this.cursorEffects.cursorEffect();
     }
 
     showButtons() {

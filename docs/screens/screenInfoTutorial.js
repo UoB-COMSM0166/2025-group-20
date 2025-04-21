@@ -1,5 +1,6 @@
 class TutorialInfoScreen {
     constructor(){
+        this.cursorEffects = new GameCursorEffects();
         this.screenshots = [
             loadImage('Images/easy-mode-tutorial.png'),
             loadImage('Images/hard-mode.png'),
@@ -65,7 +66,7 @@ class TutorialInfoScreen {
 
         image(screenShot, x, y, imgWidth, imgHeight);
     
-        cursorEffect();
+        this.cursorEffects.cursorEffect();
     }
     
 
