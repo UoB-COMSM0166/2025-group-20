@@ -11,7 +11,6 @@ let correctSlice = false;
 // array of the fruits and vegetables 
 let fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'watermelon', 'dragonfruit', 'bomb']; //one more fruit needed
 let sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'click','bomb']; //line up exactly with corresponding fruit above
-//let sliceNarration = ['upwards', 'downwards','by clicking', 'to the left', 'to the right', 'top-left to bottom-right', 'top-right to bottom-left', 'to gain a life!', 'or you will lose!'];
 let fruitImgs = [];
 let sliceImgs = [];
 let patImgs = [];

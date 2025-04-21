@@ -25,12 +25,18 @@ class TutorialSliceScreen {
         this.lifeIcons.heartStates = ['full', 'full', 'empty'];
         this.lifeIcons.hearts[2] = loadImage('Images/heart-empty.png');
 
-        // --- bomb variables ---
+        // --- Bomb variables ---
 
         this.bombCount = 0;
         this.bombMax = 5;
         this.bombFailed = false;
         this.bombCompleted = false;
+
+        // --- Slice Feedback Effects ---
+
+        this.gainLifeEffect = new GainLife();
+        this.loselifeEffect = new LoseLife();
+        this.wrongSliceEffect = new WrongSlice();
 
         // --- Setting up Buttons ---
 
@@ -48,7 +54,6 @@ class TutorialSliceScreen {
             this.currentFruitIndex = (this.currentFruitIndex - 1 + fruitList.length) % (fruitList.length);
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
-            console.log('the current fruit index is:', this.currentFruitIndex);
             this.sliceFeedback = null;
             this.fruitSliced = false;
             this.bombFailed = false;
@@ -123,7 +128,6 @@ class TutorialSliceScreen {
 
         let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${this.sliceNarration[this.currentFruitIndex]}`;
         
-        //let narration = `Slice the ${fruitList[this.currentFruitIndex]} ${sliceNarration[this.currentFruitIndex]}`;
         if(this.isBombStep()){
             narration = `Don't ${narration}`;
         }
@@ -254,9 +258,11 @@ class TutorialSliceScreen {
         return fruitList[this.currentFruitIndex] === "bomb";
     }
 
-        // --- Effects Section --- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
+    // --- Effects Section --- (these should be moved to a different file) (if we have an effects handler, I could make an extended tutorialEffects file, that stores these)
 
     renderTutorialFeedback() {
+        this.wrongSliceEffect.active();
+        this.gainLifeEffect.active();
         if (this.sliceFeedback === "correct") {
             if (this.isDragonfruitStep()) {
                 this.drawLifeGainedText(); 
@@ -270,16 +276,17 @@ class TutorialSliceScreen {
             if (this.isBombStep()){
                 this.drawBombFailText();
             } else {
-            wrongSliceText();
+            this.wrongSliceEffect.show();
             }
         }
     }
 
     showCorrectEffect() {
         correctSliceEffect();
-        this.sliceFeedback = "correct";
+        //this.sliceFeedback = "correct";
 
         if (this.isDragonfruitStep()) {
+            this.gainLifeEffect.show();
             this.lifeIcons.gainLife();
             audioController.play('lifeGained');
         }
@@ -291,13 +298,7 @@ class TutorialSliceScreen {
     }
       
     showWrongEffect() {
-        wrongSliceEffect();
-        this.sliceFeedback = "wrong";
-      
-        if (this.sliceEffectTimer) clearTimeout(this.sliceEffectTimer);
-        this.sliceEffectTimer = setTimeout(() => {
-            this.sliceFeedback = null;
-        }, 10000);
+        this.wrongSliceEffect.show();
     }
 
     drawLifeGainedText() {
