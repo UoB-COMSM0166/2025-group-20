@@ -103,12 +103,6 @@ class TutorialSliceScreen {
     drawTutorialScreen() {
         noCursor();
         background(bg);
-        textAlign(CENTER, CENTER);
-        textFont(gameFont);
-        textSize(70);
-        fill("#FCF3CF");
-        stroke(30, 15, 5);
-        strokeWeight(8);
         this.drawNarrationBox();
     }
 
@@ -122,7 +116,6 @@ class TutorialSliceScreen {
         stroke(30, 15, 5);
         strokeWeight(4);
         rect(boxX, boxY, boxWidth, boxHeight, 12);
-      
         noStroke();
         fill('black');
         textFont(gameFont);
@@ -285,7 +278,7 @@ class TutorialSliceScreen {
             this.lifeIcons.gainLife();
             audioController.play('lifeGained');
         } else if(this.isBombStep()){
-            this.drawBombSuccessText.show();
+            this.bombSuccessText.show();
         } else {
             this.correctSliceEffect.show();
         }
