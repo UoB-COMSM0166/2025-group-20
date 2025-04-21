@@ -1,6 +1,7 @@
 
 class ScreenStart {
   constructor() {
+      this.fruitBorder = new FruitBorder();
       this.tutorialButton = new TextButton((windowWidth / 2) - 125, (windowHeight / 3 + 20), 'TUTORIAL', 250, 50, '25px', () => {
           gameManager.switchState("tutorial-entry"); // Goes to tutorial screen screen
       });
@@ -53,7 +54,8 @@ class ScreenStart {
       background(bg);
       this.drawTitle();
       this.drawWaveText();
-      this.border();
+      //this.border();
+      this.fruitBorder.draw();
       if(difficulty === 'easy'){
         easyHighestScore.display();
       } else {
@@ -96,7 +98,7 @@ class ScreenStart {
       }
   }
 
-  border() {
+  /*border() {
       let fruitTypes = [
           { img: fruitImgs[0], positions: [{x:windowWidth / 2 - 435, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 100},
               {x:windowWidth / 2 + 475, y: windowHeight / 8 + 310}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 520},
@@ -128,7 +130,7 @@ class ScreenStart {
               image(fruit.img, pos.x, pos.y, 50, 50);
           }
       }
-  }
+  }*/
 }
 
 let yWaveSpeed = 0.03;   
