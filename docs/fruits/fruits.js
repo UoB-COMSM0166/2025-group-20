@@ -1,4 +1,5 @@
 class Fruit {
+  gravity = 0.1;
   constructor(fruitImg, fruitName, slicePat, listIndex) {
     // setting up basic attributes
     this.fruitImg = fruitImg;
@@ -11,6 +12,7 @@ class Fruit {
       this.slicePat = new SlicePattern(slicePat, this.size);
     }
     this.index = listIndex;
+    this.maxHeight = windowHeight * 0.00125;
 
     // setting up physics attrbutes
     this.xPos = random(windowWidth);
@@ -18,6 +20,7 @@ class Fruit {
     this.xSpeed = this.randomXDirection(this.xPos);
     this.ySpeed = -11;
     this.visible = true;
+    this.gravity = 0.1;
     this.removeFruit();
   }
 
@@ -45,11 +48,11 @@ class Fruit {
       this.xPos += this.xSpeed;
     }
     this.yPos += this.ySpeed;
-    this.ySpeed += gravity;
+    this.ySpeed += this.gravity;
     this.slicePat.move(this.xPos+(this.size/2), this.yPos+(this.size/2));
 
     // fruit starts falling down when it reaches max height
-    if(this.yPos < maxHeight) {
+    if(this.yPos < this.maxHeight) {
       this.ySpeed = 0;
     }
 

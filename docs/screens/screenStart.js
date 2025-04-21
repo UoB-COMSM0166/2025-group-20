@@ -52,10 +52,10 @@ class ScreenStart {
    this.drawTitle();
    this.drawWaveText();
    this.border();
-   if(difficulty === 'easy'){
-      easyHighestScore.display();
+   if(gameManager.getDifficulty() === 'easy'){
+      gameManager.getEasyHighestScore().display();
    } else {
-      hardHighestScore.display();
+      gameManager.getHardHighestScore().display();
    }
   }
 

@@ -7,19 +7,23 @@ class GameManager {
       // game --> game screen
       // pause --> pause screen mid game
       // over --> game over screen
-    constructor() {
-      this.state = "start";
-      this.startScreen = new ScreenStart(this);
-      this.tutorialEntryScreen = new TutorialEntryScreen();
-      this.tutorialSliceScreen = new TutorialSliceScreen();
-      this.tutorialInfoScreen = new TutorialInfoScreen();
-      this.gameScreen = new GameScreen();
-      this.gameOverScreen = new GameOverScreen(this);
-      this.score = 0;
-      this.lives = 3;
-      this.difficulty = 'easy';
-      this.basket = new Basket();
-      this.twoPlayer = false;
+  constructor() {
+    this.state = "start";
+    this.startScreen = new ScreenStart(this);
+    this.tutorialEntryScreen = new TutorialEntryScreen();
+    this.tutorialSliceScreen = new TutorialSliceScreen();
+    this.tutorialInfoScreen = new TutorialInfoScreen();
+    this.gameScreen = new GameScreen();
+    this.gameOverScreen = new GameOverScreen(this);
+    this.score = 0;
+    this.lives = 3;
+    this.difficulty = 'easy';
+    this.basket = new Basket();
+    this.twoPlayer = false;
+    this.easyGameScore = new PointSystem();
+    this.hardGameScore = new PointSystem();
+    this.easyHighestScore = new HighestPointDisplay(0);
+    this.hardHighestScore = new HighestPointDisplay(0);
     }
 
     setDifficulty(difficulty) {
@@ -36,6 +40,22 @@ class GameManager {
 
     getCoop() {
       return this.twoPlayer;
+    }
+
+    getEasyGameScore() {
+      return this.easyGameScore;
+    }
+
+    getHardGameScore() {
+      return this.hardGameScore;
+    }
+
+    getEasyHighestScore() {
+      return this.easyHighestScore;
+    }
+
+    getHardHighestScore() {
+      return this.hardHighestScore;
     }
 
     getGameScreen() {
