@@ -1,5 +1,6 @@
 class ScreenStart {
-   constructor() {
+  constructor() {
+      this.fruitBorder = new FruitBorder();
       this.tutorialButton = new TextButton((windowWidth / 2) - 125, (windowHeight / 3 + 20), 'TUTORIAL', 250, 50, '25px', () => {
          gameManager.switchState("tutorial-entry"); // Goes to tutorial screen screen
       });
@@ -45,18 +46,19 @@ class ScreenStart {
   }
 
   render() {
-   if (recipeButton) {
-      recipeButton.hide();
-   }
-   background(bg);
-   this.drawTitle();
-   this.drawWaveText();
-   this.border();
-   if(gameManager.getDifficulty() === 'easy'){
-      gameManager.getEasyHighestScore().display();
-   } else {
-      gameManager.getHardHighestScore().display();
-   }
+
+      if (recipeButton) {
+        recipeButton.hide();
+      }
+      background(bg);
+      this.drawTitle();
+      this.drawWaveText();
+      this.fruitBorder.draw();
+      if(difficulty === 'easy'){
+        gameManager.getEasyHighestScore().display();
+      } else {
+        gameManager.getHardHighestScore().display();
+      }
   }
 
   drawTitle() {
@@ -90,40 +92,6 @@ class ScreenStart {
       let yPos = windowHeight / 8 + 445 + yWave;
       text(char, xPos, yPos);
    }
-  }
-
-  border() {
-   let fruitTypes = [
-      { img: fruitImgs[0], positions: [{x:windowWidth / 2 - 435, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 475, y: windowHeight / 8 + 310}, {x:windowWidth / 2 + 125, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 435, y: windowHeight / 8 + 520}] }, 
-      { img: fruitImgs[1], positions: [{x:windowWidth / 2 - 365, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 195, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 475, y: windowHeight / 8 + 380}, {x:windowWidth / 2 + 55, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 520}] },
-      { img: fruitImgs[2], positions: [{x:windowWidth / 2 - 295, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 265, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 475, y: windowHeight / 8 + 450}, {x:windowWidth / 2 - 15, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 450}] },
-      { img: fruitImgs[3], positions: [{x:windowWidth / 2 - 225, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 335, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 475, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 85, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 380}] },
-      { img: fruitImgs[4], positions: [{x:windowWidth / 2 - 155, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 405, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 405, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 155, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 310}] },
-      { img: fruitImgs[5], positions: [{x:windowWidth / 2 - 85, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 475, y: windowHeight / 8 + 100},
-         {x:windowWidth / 2 + 335, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 225, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 240}] },
-      { img: fruitImgs[6], positions: [{x:windowWidth / 2 - 15, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 475, y: windowHeight / 8 + 170},
-         {x:windowWidth / 2 + 265, y: windowHeight / 8 + 520}, {x:windowWidth / 2 - 295, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 505, y: windowHeight / 8 + 170}] },
-      { img: fruitImgs[7], positions: [{x:windowWidth / 2 - 505, y:windowHeight / 8 + 100}, {x:windowWidth / 2 + 55,  y:windowHeight / 8 + 100}, 
-         {x:windowWidth / 2 + 475, y: windowHeight / 8 + 240}, {x:windowWidth / 2 + 195, y: windowHeight / 8 + 520},
-         {x:windowWidth / 2 - 365, y: windowHeight / 8 + 520}] }
-      ]; 
-      for (let fruit of fruitTypes) {
-         for (let pos of fruit.positions) {
-            image(fruit.img, pos.x, pos.y, 50, 50);
-         }
-      }
   }
 }
 

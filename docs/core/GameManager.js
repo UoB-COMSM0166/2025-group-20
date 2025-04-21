@@ -58,6 +58,22 @@ class GameManager {
       return this.hardHighestScore;
     }
 
+    setDifficulty(difficulty) {
+      this.difficulty = difficulty;
+    } 
+
+    getDifficulty() {
+      return this.difficulty;
+    }
+
+    setCoop(twoPlayer) {
+      this.twoPlayer = twoPlayer;
+    }
+
+    getCoop() {
+      return this.twoPlayer;
+    }
+
     getGameScreen() {
       return this.gameScreen;
     }
@@ -126,11 +142,13 @@ class GameManager {
     }
     this.gameOverScreen.hide();
   }
+  
   drawPauseState(){
     cursor();
     noLoop();
     pauseMenu.drawPauseScreen(); 
   }
+  
 
   drawGameOverState(){
     cursor();  
@@ -141,5 +159,3 @@ class GameManager {
     pauseMenu.pauseButton.getButton().hide();
   }
 }
-
-  

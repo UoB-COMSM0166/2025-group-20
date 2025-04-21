@@ -5,7 +5,6 @@ let gameFont;
 // array of the fruits and vegetables 
 let fruitList = ['apple', 'banana', 'blueberry', 'lemon', 'cherry', 'grape', 'watermelon', 'dragonfruit', 'bomb']; //one more fruit needed
 let sliceList = ['up', 'down','click', 'left', 'right', 'lrdown/rlup', 'rldown/lrup', 'click','bomb']; //line up exactly with corresponding fruit above
-let sliceNarration = ['upwards', 'downwards','by clicking', 'to the left', 'to the right', 'top-left to bottom-right', 'top-right to bottom-left', 'to gain a life!', 'or you will lose!'];
 let fruitImgs = [];
 let sliceImgs = [];
 let patImgs = [];
@@ -16,7 +15,10 @@ let bg;
 let lifeIcons;
 let currentRecipe;
 let sound;
-let leftImg, rightImg;
+let maxHeight;
+let difficulty = 'easy';
+//let leftImg, rightImg;
+
 let gameManager;
 let audioController;
 
@@ -50,6 +52,11 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60); // most computers default to 60fps
+  cursorEffects = new GameCursorEffects();
+  easyGameScore = new PointSystem();
+  hardGameScore = new PointSystem();
+  easyHighestScore = new HighestPointDisplay(0); // you can add mode if you want
+  hardHighestScore = new HighestPointDisplay(0);
   cursorEffects = new GameCursorEffects();
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
