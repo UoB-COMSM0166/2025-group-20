@@ -15,8 +15,6 @@ let bg;
 let lifeIcons;
 let currentRecipe;
 let sound;
-let maxHeight;
-let difficulty = 'easy';
 //let leftImg, rightImg;
 
 let gameManager;
