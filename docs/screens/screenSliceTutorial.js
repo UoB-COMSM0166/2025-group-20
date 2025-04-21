@@ -1,6 +1,7 @@
 
 class TutorialSliceScreen {
     constructor() {
+        this.cursorEffects = new GameCursorEffects();
         this.currentFruitIndex = 0;
         this.currentFruit = null;
         this.autoAdvanceTimeout = null;
@@ -60,7 +61,7 @@ class TutorialSliceScreen {
         this.handleisSlicedLogic();
         this.handleBombTutorialLogic();
         this.renderTutorialFeedback();
-        cursorEffects.cursorEffect();
+        this.cursorEffects.cursorEffect();
     }
 
     // -- Button Logic -- 

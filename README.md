@@ -279,13 +279,12 @@ Although our project is primarily designed in an university setting, the Onion M
                                 
 
 <Strong>Alternative Flow</Strong>
-
-| **Scenario**              | **Easy Mode**                                                                 | **Hard Mode**                                                                 |
-|---------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| Wrong fruit sliced        | -1 heart. No effect on score.                                                 | -1 heart. No effect on score.                                           |
-| Sliced dragon fruit       | Gain 1 heart if under 3. No effect if already at 3.                           | Same as Easy.                                                                |
-| Sliced bomb               | Instant game over.                                                            | Instant game over.                                                           |
-| Fruit sliced in incorrect method  | Not applicable.                                                               | -1 heart. No score.                                                          |
+| **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
+|---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
+| 1        | Wrong fruit sliced: -1 heart. No effect on score.               | Wrong fruit sliced: Same as Easy mode.                 |
+| 2        | Sliced dragon fruit: +1 heart (max 3).                          | Sliced dragon fruit: +1 heart (max 3).                            |
+| 3        | Sliced bomb: Instant game over.                                 |  Sliced bomb: Instant game over.                                    |
+| 4        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
 ### Two Player Mode
 
@@ -302,13 +301,13 @@ Although our project is primarily designed in an university setting, the Onion M
 
 <Strong>Alternative Flow</Strong>
 
-| **Scenario**              | **Easy Mode**                                                                 | **Hard Mode**                                                                 |
-|---------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| Fruit missed by basket    | No points awarded.                                                           | No points awarded.                                                           |
-| Wrong fruit sliced        | -1 heart.                                                                    | -1 heart.                                         |
-| Sliced dragon fruit       | Gain 1 heart if under 3. No effect if already at 3.                          | Same as Easy.                                                                |
-| Bomb sliced               | Instant game over for both players.                                          | Instant game over for both players.                                          |
-| Incorrect slicing method  | Not applicable.                                                              | No score. -1 heart.                                                          |
+| **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
+|---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
+| 1        | Fruit missed by basket: No points awarded.                      | Fruit missed by basket: No points awarded.                          |
+| 2        | Wrong fruit sliced: -1 heart.                                   | Wrong fruit sliced: -1 heart.                                       |
+| 3        | Sliced dragon fruit: +1 heart (max 3).                          | Sliced dragon fruit: +1 heart (max 3).                             |
+| 4        | Bomb sliced: Instant game over for both players.               | Bomb sliced: Instant game over for both players.                    |
+| 5        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
 
 # Design (Barney)
