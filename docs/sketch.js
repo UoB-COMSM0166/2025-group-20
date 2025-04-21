@@ -17,7 +17,6 @@ let lifeIcons;
 let currentRecipe;
 let sound;
 let leftImg, rightImg;
-
 let gameManager;
 let audioController;
 
