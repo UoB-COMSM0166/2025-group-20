@@ -230,13 +230,13 @@ class TutorialSliceScreen {
         
                 if (this.bombCount >= this.bombMax) {
                     this.bombCompleted = true;
-                    this.sliceFeedback = "correct";
-                    //this.showCorrectEffect();
-                    if (!this.autoAdvanceTimeout) {
+                    //this.sliceFeedback = "correct";
+                    this.processCorrectSliceLogic();
+                    /*if (!this.autoAdvanceTimeout) {
                         this.autoAdvanceTimeout = setTimeout(() => {
                         this.gotoNextTutorialStep();
                         }, 5000);
-                    }
+                    }*/
                 }
             }
         }
