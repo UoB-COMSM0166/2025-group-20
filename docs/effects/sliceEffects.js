@@ -1,57 +1,80 @@
-function redBorder() {
-  if(displayBorder === true){
-    push();
-    noFill();
-    stroke('red');
-    strokeWeight(20);
-    rectMode(CORNER);
-    rect(0, 0, width, height, 20);
-    pop();
+class SliceEffect{
+  constructor(){
+    this.display = false;
   }
+
+  show(){
+    this.display = true;
+    setTimeout(() => {
+      this.display = false;
+    }, 1000);
+  }
+
+  active(){
+    if (this.display){
+      this.effect();
+    }
+  }
+
+  effect(){};
 }
 
-function greenBorder() {
-  if(displayGreen == true){
-    push();
-    noFill();
-    stroke('seagreen');
-    strokeWeight(20);
-    rectMode(CORNER);
-    rect(0, 0, width, height, 20);
-    pop();
+class RecipeComplete extends SliceEffect{
+  constructor() {
+    super();
   }
-}
-
-function completionText(){
-  if(recipeComplete){
+  effect(){
     textAlign(CENTER, CENTER);
     textFont(gameFont);
     fill('white');
-    stroke('black');
-    strokeWeight(3);
     textSize(100);
     text('Recipe Complete!', width/2,100);
   }
 }
 
-function wrongSliceText(){
-  if(wrongSlice){
-    textAlign(CENTER, CENTER);
-    textFont(gameFont);
-    fill('red');
-    stroke('black');
-    strokeWeight(3);
-    textSize(100);
-    text('Wrong Slice!', width/2, height/2 - 240);
+class LoseLife extends SliceEffect{
+  constructor() {
+    super();
+  }
+
+  effect(){
+    push();
+    noFill();
+    stroke("red");
+    strokeWeight(20);
+    rectMode(CORNER);
+    rect(0, 0, width, height, 20);
+    pop();
   }
 }
 
-function wrongSliceEffect(){
-  wrongSlice = true;
-  setTimeout(() => {
-    wrongSlice = false
-  }, 1000);
+class GainLife extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
+    push();
+    noFill();
+    stroke("lime");
+    strokeWeight(20);
+    rectMode(CORNER);
+    rect(0, 0, width, height, 20);
+    pop();
+  }
 }
+
+class WrongSlice extends SliceEffect{
+  constructor() {
+    super();
+  }
+  effect(){
+    textAlign(CENTER, CENTER);
+    textFont(gameFont);
+    fill('red');
+    textSize(100);
+    text('Wrong Slice!', width/2,100);
+  }
+}  
 
 function correctSliceText(){
   if(correctSlice){

@@ -1,8 +1,9 @@
 class GameManager {
     constructor() {
       this.state = "start";
+      this.gameScreen = new GameScreen();
       this.startScreen = new ScreenStart(this);
-      this.gameOverScreen = new GameOverScreen();
+      this.gameOverScreen = new GameOverScreen(this);
       this.tutorialEntryScreen = new TutorialEntryScreen();
       this.tutorialSliceScreen = new TutorialSliceScreen();
       this.tutorialInfoScreen = new TutorialInfoScreen();
@@ -11,6 +12,10 @@ class GameManager {
       this.difficulty = 'easy';
       this.basket = new Basket();
       this.twoPlayer = false;
+    }
+
+    getGameScreen() {
+      return this.gameScreen;
     }
 
     switchState(newState) {
@@ -46,6 +51,7 @@ class GameManager {
           break;
         case "game":
           this.drawGameState();
+          this.gameScreen.draw();
           break;
         case "pause":
           this.drawPauseState();
@@ -57,11 +63,7 @@ class GameManager {
     }
 
   drawGameState(){
-    gameScreen();
-    redBorder();
-    greenBorder();
-    completionText();
-    wrongSliceText();
+    this.gameScreen.playingScreen();
     if (this.twoPlayer){
       this.basket.show();
     }
@@ -88,7 +90,6 @@ class GameManager {
 
   drawGameOverState(){
     cursor();  
-    console.log("Rendering Game Over state");
     loop();
     this.gameOverScreen.show();
     this.gameOverScreen.render();

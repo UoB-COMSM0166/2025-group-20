@@ -15,10 +15,10 @@ class Fruit {
     // setting up physics attrbutes
     this.xPos = random(windowWidth);
     this.yPos = windowHeight;
-    this.xSpeed = randomXDirection(this.xPos);
+    this.xSpeed = this.randomXDirection(this.xPos);
     this.ySpeed = -11;
     this.visible = true;
-    removeFruit();
+    this.removeFruit();
   }
 
   show() { //adding a glow effect to the dragonfruit as it +1's life 
@@ -58,19 +58,19 @@ class Fruit {
       this.visible = false;
     }
   }
-}
 
-function randomXDirection(xPos) {
-  /* picks an x speed which moves the fruit in the opposte side of the
-  screen from where it spawned */
-  if(xPos > windowWidth / 2) {
-    return -5;
+  randomXDirection(xPos) {
+    /* picks an x speed which moves the fruit in the opposte side of the
+    screen from where it spawned */
+    if(xPos > windowWidth / 2) {
+      return -5;
+    }
+    return 5;
   }
-  return 5;
-}
-
-function removeFruit() {
-  if (!this.visible) {
-    fruitOnScreen.splice(fruitOnScreen.indexOf(this.index), 1);
+  
+  removeFruit() {
+    if (!this.visible) {
+      fruitOnScreen.splice(fruitOnScreen.indexOf(this.index), 1);
+    }
   }
 }

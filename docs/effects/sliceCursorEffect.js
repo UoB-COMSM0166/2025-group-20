@@ -1,18 +1,18 @@
-let trail = [];
-const maxTrail = 50;
-let module;
-let scratchMarks = [];
+class GameCursorEffects {
+trail = [];
+maxTrail = 50;
+module;
+scratchMarks = [];
 
+cursorEffect() {
 
-function cursorEffect() {
-
-  trail.push({ x: mouseX, y: mouseY, alpha: 255 });
-  if (trail.length > maxTrail) { trail.shift(); }
+  this.trail.push({ x: mouseX, y: mouseY, alpha: 255 });
+  if (this.trail.length > this.maxTrail) { this.trail.shift(); }
 
 
   noStroke();
-  for (let i = 0; i < trail.length; i++) {
-    let t = trail[i];
+  for (let i = 0; i < this.trail.length; i++) {
+    let t = this.trail[i];
     fill(255, 255, 255, t.alpha);
     drawingContext.shadowColor = color(255, 255, 255, t.alpha);
     rectMode(CENTER);
@@ -22,9 +22,9 @@ function cursorEffect() {
   }
 }
 
-function scratchCursorEffect () {
+scratchCursorEffect () {
   if (mouseIsPressed) {
-    scratchMarks.push({
+    this.scratchMarks.push({
       x1: pmouseX,
       y1: pmouseY,
       x2: mouseX,
@@ -33,8 +33,8 @@ function scratchCursorEffect () {
     });
   }
 
-  for (let i = scratchMarks.length - 1; i >= 0; i--) {
-    let s = scratchMarks[i];
+  for (let i = this.scratchMarks.length - 1; i >= 0; i--) {
+    let s = this.scratchMarks[i];
     push();
 
     strokeWeight(10);  
@@ -48,6 +48,7 @@ function scratchCursorEffect () {
     pop();
 
     s.alpha -= 2;
-    if (s.alpha <= 0) scratchMarks.splice(i, 1);
+    if (s.alpha <= 0) this.scratchMarks.splice(i, 1);
   }
+}
 }
