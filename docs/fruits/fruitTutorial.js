@@ -12,7 +12,6 @@ class TutorialFruit {
       this.visible = true;
       this.slicingGif = null;
       this.gravity = 0.1;
-  
       this.currentSlicePattern = slicePattern;
       this.slicePat = new SlicePattern(slicePattern, this.size);
   

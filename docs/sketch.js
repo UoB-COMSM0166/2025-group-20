@@ -30,8 +30,6 @@ function preload() {
   bg = loadImage('Images/Game%20Screen%20Background.png');
   bombImg = loadImage('Images/bomb.png');
   //change the image path after pushing it to main
-  leftImg = loadImage('Images/left.png');
-  rightImg = loadImage('Images/right.png');
 
   // loads fruit images to the fruitImgs array
   for (let i = 0; i < fruitList.length; i++) {
