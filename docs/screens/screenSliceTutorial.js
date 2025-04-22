@@ -201,7 +201,6 @@ class TutorialSliceScreen {
             this.lastSliceResult = sliceResult;
             this.fruitSliced = true;
             if (sliceResult === "correct") {
-                //this.fruitSliced = true;
                 audioController.play('recipe');
                 this.processCorrectSliceLogic();
             } else {
@@ -245,7 +244,7 @@ class TutorialSliceScreen {
             }
         } else {
             if(!this.splatterVisible){ 
-                this.splatters.push(new splat(this.currentFruit.xPos, this.currentFruit.yCurrentPos, fruitList[this.currentFruitIndex]));
+                this.splatters.push(new splat(this.currentFruit.xPos - 50 , this.currentFruit.yCurrentPos - 50 , fruitList[this.currentFruitIndex]));
                 this.splatterVisible = true;
             }
             this.currentFruit.fruitImg = loadImage(`Images/${fruitList[this.currentFruitIndex]}-slice.png`);
