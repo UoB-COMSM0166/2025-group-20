@@ -1,54 +1,91 @@
 class GameCursorEffects {
-trail = [];
-maxTrail = 50;
-module;
-scratchMarks = [];
-
-cursorEffect() {
-
-  this.trail.push({ x: mouseX, y: mouseY, alpha: 255 });
-  if (this.trail.length > this.maxTrail) { this.trail.shift(); }
-
-
-  noStroke();
-  for (let i = 0; i < this.trail.length; i++) {
-    let t = this.trail[i];
-    fill(255, 255, 255, t.alpha);
-    drawingContext.shadowColor = color(255, 255, 255, t.alpha);
-    rectMode(CENTER);
-    rect(t.x, t.y, 10, 10);
-
-    t.alpha -= 5;
-  }
-}
-
-scratchCursorEffect () {
-  if (mouseIsPressed) {
-    this.scratchMarks.push({
-      x1: pmouseX,
-      y1: pmouseY,
-      x2: mouseX,
-      y2: mouseY,
-      alpha: 255
-    });
+  constructor() {
+    this.trail = [];
+    this.maxTrail = 50;
+    this.scratchTrail = [];
+    this.fadeSpeed = 3;
+    this.maxScratchLength = 30;
+    this.baseTaper = 15;
   }
 
-  for (let i = this.scratchMarks.length - 1; i >= 0; i--) {
-    let s = this.scratchMarks[i];
-    push();
+  // --- general cursor effect ---
 
-    strokeWeight(10);  
-    stroke(117, 69, 40, s.alpha);
-    line(s.x1, s.y1, s.x2, s.y2);
-
-    strokeWeight(5);
-    stroke(62, 36, 19, s.alpha);
-    line(s.x1, s.y1, s.x2, s.y2);
-
-    pop();
-
-    s.alpha -= 2;
-    if (s.alpha <= 0) this.scratchMarks.splice(i, 1);
+  cursorEffect() {
+    this.trail.push({ x: mouseX, y: mouseY, alpha: 255 });
+    if (this.trail.length > this.maxTrail) { this.trail.shift(); }
+    noStroke();
+    for (let i = 0; i < this.trail.length; i++) {
+      let t = this.trail[i];
+      fill(255, 255, 255, t.alpha);
+      drawingContext.shadowColor = color(255, 255, 255, t.alpha);
+      rectMode(CENTER);
+      rect(t.x, t.y, 10, 10);
+      t.alpha -= 5;
+    }
   }
-}
+
+  // --- mousePressed indent cursor effect ---
+
+  scratchCursorEffect () {
+      if (mouseIsPressed) {
+        this.scratchTrail.push({
+          x: mouseX,
+          y: mouseY,
+          alpha: 255
+        });
+        if (this.scratchTrail.length > this.maxScratchLength) { 
+          this.scratchTrail.shift(); 
+        }
+      } else if (this.scratchTrail.length > 0) {
+        for (let point of this.scratchTrail) {
+          point.alpha -= this.fadeSpeed;
+        }
+        this.scratchTrail = this.scratchTrail.filter(p => p.alpha > 0);
+      }
+  
+      push();
+      noStroke();
+      for (let i = 1; i < this.scratchTrail.length; i++) {
+        let p1 = this.scratchTrail[i - 1];
+        let p2 = this.scratchTrail[i];
+  
+        let dx = p2.x - p1.x;
+        let dy = p2.y - p1.y;
+        let angle = atan2(dy, dx);
+  
+        let progress = i / this.scratchTrail.length;
+        let taper = this.baseTaper * (1 - abs(0.5 - progress) * 2); 
+        let alpha = min(p1.alpha, p2.alpha);
+
+        // --- light brown edges on the shape for dimension ---
+
+        fill(150, 95, 45, alpha * 0.3);
+        beginShape();
+        vertex(p1.x - taper * 0.3 * sin(angle), p1.y + taper * 0.3 * cos(angle));
+        vertex(p1.x - taper * 0.15 * sin(angle), p1.y + taper * 0.15 * cos(angle));
+        vertex(p2.x - taper * 0.15 * sin(angle), p2.y + taper * 0.15 * cos(angle));
+        vertex(p2.x - taper * 0.3 * sin(angle), p2.y + taper * 0.3 * cos(angle));
+        endShape(CLOSE);
+  
+        beginShape();
+        vertex(p1.x + taper * 0.3 * sin(angle), p1.y - taper * 0.3 * cos(angle));
+        vertex(p1.x + taper * 0.15 * sin(angle), p1.y - taper * 0.15 * cos(angle));
+        vertex(p2.x + taper * 0.15 * sin(angle), p2.y - taper * 0.15 * cos(angle));
+        vertex(p2.x + taper * 0.3 * sin(angle), p2.y - taper * 0.3 * cos(angle));
+        endShape(CLOSE);
+
+        // --- dark brown indent/scratch/burn line ---
+  
+        fill(62, 35, 25, alpha);
+        beginShape();
+        vertex(p1.x - taper * 0.2 * sin(angle), p1.y + taper * 0.2 * cos(angle));
+        vertex(p1.x + taper * 0.2 * sin(angle), p1.y - taper * 0.2 * cos(angle));
+        vertex(p2.x + taper * 0.2 * sin(angle), p2.y - taper * 0.2 * cos(angle));
+        vertex(p2.x - taper * 0.2 * sin(angle), p2.y + taper * 0.2 * cos(angle));
+        endShape(CLOSE);
+      }
+  
+      pop();
+
+  }
 }
