@@ -1,18 +1,16 @@
-
 class TutorialSliceScreen {
     constructor() {
         this.cursorEffects = new GameCursorEffects();
         this.currentFruitIndex = 0;
         this.currentFruit = null;
         this.autoAdvanceTimeout = null;
-        this.fruitSliced = false;
         this.lastSliceResult = null;
 
         // --- effects ---
 
+        this.cursorEffects = new GameCursorEffects();
         this.sliceEffectTimer = null;
         this.splatters = [];
-        this.splatterVisible = false;
 
         // --- Narration Array ---
 
@@ -34,7 +32,6 @@ class TutorialSliceScreen {
 
         this.bombCount = 0;
         this.bombMax = 5;
-        this.bombFailed = false;
         this.bombCompleted = false;
         this.bombGif = null;
 
@@ -56,10 +53,7 @@ class TutorialSliceScreen {
         });
         this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', 50, 50, '20px', () => {
             this.sliceFeedback = null;
-            this.splatterVisible = false; 
             this.lastSliceResult = null;
-
-            this.fruitSliced = false;
             this.bombCompleted = false;
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
@@ -68,10 +62,7 @@ class TutorialSliceScreen {
         });
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
             this.sliceFeedback = null;
-            this.splatterVisible = false; 
             this.lastSliceResult = null;
-            this.fruitSliced = false;
-            this.bombFailed = false;
             this.bombCompleted = false;
             this.bombCount = 0;
             this.currentFruit?.slicingGif?.remove();
@@ -183,6 +174,8 @@ class TutorialSliceScreen {
         }
         if (!this.currentFruit.visible && !this.bombGif) {
             this.currentFruit.reset(fruitImgs[this.currentFruitIndex], sliceList[this.currentFruitIndex]);
+            this.fruitSliced = false;
+            this.lastSliceResult = null;
         }
     }
 
@@ -201,12 +194,11 @@ class TutorialSliceScreen {
             this.lastSliceResult = sliceResult;
             this.fruitSliced = true;
             if (sliceResult === "correct") {
-                audioController.play('recipe');
+                    audioController.play('recipe');
                 this.processCorrectSliceLogic();
-            } else {
+            } else if (sliceResult === "wrong" || sliceResult === "bomb"){
                 audioController.play('lifeLost');
                 this.processWrongSliceLogic();
-                this.fruitSliced = false;
             }
             this.displaySliceEffectsFeedback();
         }
@@ -214,6 +206,7 @@ class TutorialSliceScreen {
 
     processCorrectSliceLogic(){
         this.sliceFeedback = "correct";
+        this.showCorrectEffect();
         if (!this.autoAdvanceTimeout) {
             this.autoAdvanceTimeout = setTimeout(() => {
             this.gotoNextTutorialStep();
@@ -223,8 +216,8 @@ class TutorialSliceScreen {
     }
 
     processWrongSliceLogic(){
-        this.bombFailed = true;
         this.sliceFeedback = "wrong";
+        this.showWrongEffect();
     }
 
     displaySliceEffectsFeedback() {
@@ -243,10 +236,7 @@ class TutorialSliceScreen {
                 }, 1500);
             }
         } else {
-            if(!this.splatterVisible){ 
-                this.splatters.push(new splat(this.currentFruit.xPos - 50 , this.currentFruit.yCurrentPos - 50 , fruitList[this.currentFruitIndex]));
-                this.splatterVisible = true;
-            }
+            this.splatters.push(new splat(this.currentFruit.xPos - 50 , this.currentFruit.yCurrentPos - 50 , fruitList[this.currentFruitIndex]));
             this.currentFruit.fruitImg = loadImage(`Images/${fruitList[this.currentFruitIndex]}-slice.png`);
             this.currentFruit.slicePat = new SlicePattern (sliceList[this.currentFruitIndex], this.currentFruit.size);
         }
@@ -254,10 +244,8 @@ class TutorialSliceScreen {
 
     handleBombTutorialLogic() {
         if(this.isBombStep()){
-            if (this.currentFruit.yCurrentPos > height && !this.bombFailed) {
+            if (this.currentFruit.yCurrentPos > height) {
                 this.bombCount++;
-                this.currentFruit = null;
-        
                 if (this.bombCount >= this.bombMax) {
                     this.bombCompleted = true;
                     this.processCorrectSliceLogic();
@@ -286,13 +274,6 @@ class TutorialSliceScreen {
         this.loseLifeBorderEffect.active();
         this.loseLifeTextEffect.active();
         this.bombSuccessText.active();
-
-        if (this.sliceFeedback === "correct") {
-            this.showCorrectEffect();
-        }
-        if (this.sliceFeedback === "wrong") {
-            this.showWrongEffect();
-        }
     }
 
     showCorrectEffect() {
@@ -312,7 +293,7 @@ class TutorialSliceScreen {
             this.loseLifeTextEffect.show();
             this.loseLifeBorderEffect.show();
         } else {
-        this.wrongSliceEffect.show();
+            this.wrongSliceEffect.show();
         }
     }
 
@@ -324,12 +305,9 @@ class TutorialSliceScreen {
         }
         this.lastSliceResult = null;
         this.sliceFeedback = null;
-        this.bombFailed = false;
         this.bombCompleted = false;
         this.bombCount = 0;  
         this.currentFruit = null;
-        this.fruitSliced = false;   
-        this.splatterVisible = false; 
         clearTimeout(this.autoAdvanceTimeout);
         this.autoAdvanceTimeout = null;
         this.currentFruitIndex = (this.currentFruitIndex + 1) % (fruitList.length);
