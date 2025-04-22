@@ -6,8 +6,10 @@ class TutorialSliceScreen {
         this.currentFruit = null;
         this.autoAdvanceTimeout = null;
         this.fruitSliced = false;
+        this.lastSliceResult = null;
 
         // --- effects ---
+
         this.sliceEffectTimer = null;
         this.splatters = [];
         this.splatterVisible = false;
@@ -55,6 +57,8 @@ class TutorialSliceScreen {
         this.leftArrowButton = new TextButton(20, (windowHeight - 50) / 2, '<', 50, 50, '20px', () => {
             this.sliceFeedback = null;
             this.splatterVisible = false; 
+            this.lastSliceResult = null;
+
             this.fruitSliced = false;
             this.bombCompleted = false;
             this.bombCount = 0;
@@ -65,6 +69,7 @@ class TutorialSliceScreen {
         this.rightArrowButton = new TextButton(windowWidth - 70, (windowHeight - 50) / 2, '>', 50, 50, '20px', () => {
             this.sliceFeedback = null;
             this.splatterVisible = false; 
+            this.lastSliceResult = null;
             this.fruitSliced = false;
             this.bombFailed = false;
             this.bombCompleted = false;
@@ -192,9 +197,11 @@ class TutorialSliceScreen {
     handleisSlicedLogic() {
         if (this.fruitSliced) return;
         const sliceResult = this.currentFruit.slicePat.isSliced();
-        if (["correct", "wrong", "bomb"].includes(sliceResult)) {
+        if (["correct", "wrong", "bomb"].includes(sliceResult) && sliceResult !== this.lastSliceResult) {
+            this.lastSliceResult = sliceResult;
             this.fruitSliced = true;
             if (sliceResult === "correct") {
+                //this.fruitSliced = true;
                 audioController.play('recipe');
                 this.processCorrectSliceLogic();
             } else {
@@ -316,6 +323,7 @@ class TutorialSliceScreen {
         if (this.currentFruit?.slicingGif) {
         this.currentFruit.slicingGif.remove();
         }
+        this.lastSliceResult = null;
         this.sliceFeedback = null;
         this.bombFailed = false;
         this.bombCompleted = false;
