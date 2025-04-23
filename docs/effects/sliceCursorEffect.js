@@ -3,7 +3,7 @@ class GameCursorEffects {
     this.trail = [];
     this.maxTrail = 50;
     this.scratchTrail = [];
-    this.fadeSpeed = 3;
+    this.fadeSpeed = 1.5;
     this.maxScratchLength = 30;
     this.baseTaper = 15;
   }
@@ -61,27 +61,27 @@ class GameCursorEffects {
 
         fill(150, 95, 45, alpha * 0.3);
         beginShape();
-        vertex(p1.x - taper * 0.3 * sin(angle), p1.y + taper * 0.3 * cos(angle));
-        vertex(p1.x - taper * 0.15 * sin(angle), p1.y + taper * 0.15 * cos(angle));
-        vertex(p2.x - taper * 0.15 * sin(angle), p2.y + taper * 0.15 * cos(angle));
-        vertex(p2.x - taper * 0.3 * sin(angle), p2.y + taper * 0.3 * cos(angle));
+        vertex(p1.x - taper * 0.4 * sin(angle), p1.y + taper * 0.4 * cos(angle));
+        vertex(p1.x - taper * 0.2 * sin(angle), p1.y + taper * 0.2 * cos(angle));
+        vertex(p2.x - taper * 0.2 * sin(angle), p2.y + taper * 0.2 * cos(angle));
+        vertex(p2.x - taper * 0.4 * sin(angle), p2.y + taper * 0.4 * cos(angle));
         endShape(CLOSE);
   
         beginShape();
-        vertex(p1.x + taper * 0.3 * sin(angle), p1.y - taper * 0.3 * cos(angle));
-        vertex(p1.x + taper * 0.15 * sin(angle), p1.y - taper * 0.15 * cos(angle));
-        vertex(p2.x + taper * 0.15 * sin(angle), p2.y - taper * 0.15 * cos(angle));
-        vertex(p2.x + taper * 0.3 * sin(angle), p2.y - taper * 0.3 * cos(angle));
+        vertex(p1.x + taper * 0.4 * sin(angle), p1.y - taper * 0.4 * cos(angle));
+        vertex(p1.x + taper * 0.2 * sin(angle), p1.y - taper * 0.2 * cos(angle));
+        vertex(p2.x + taper * 0.2 * sin(angle), p2.y - taper * 0.2 * cos(angle));
+        vertex(p2.x + taper * 0.4 * sin(angle), p2.y - taper * 0.4 * cos(angle));
         endShape(CLOSE);
 
         // --- dark brown indent/scratch/burn line ---
   
         fill(62, 35, 25, alpha);
         beginShape();
-        vertex(p1.x - taper * 0.2 * sin(angle), p1.y + taper * 0.2 * cos(angle));
-        vertex(p1.x + taper * 0.2 * sin(angle), p1.y - taper * 0.2 * cos(angle));
-        vertex(p2.x + taper * 0.2 * sin(angle), p2.y - taper * 0.2 * cos(angle));
-        vertex(p2.x - taper * 0.2 * sin(angle), p2.y + taper * 0.2 * cos(angle));
+        vertex(p1.x - taper * 0.3 * sin(angle), p1.y + taper * 0.3 * cos(angle));
+        vertex(p1.x + taper * 0.3 * sin(angle), p1.y - taper * 0.3 * cos(angle));
+        vertex(p2.x + taper * 0.3 * sin(angle), p2.y - taper * 0.3 * cos(angle));
+        vertex(p2.x - taper * 0.3 * sin(angle), p2.y + taper * 0.3 * cos(angle));
         endShape(CLOSE);
       }
   
