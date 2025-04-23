@@ -159,7 +159,6 @@ class TutorialSliceScreen {
         for (let i = this.splatters.length - 1; i >= 0; i--) {
             this.splatters[i].update();
             this.splatters[i].show();
-      
             if (this.splatters[i].isDone()) {
                 this.splatters.splice(i, 1);
             }
@@ -210,7 +209,7 @@ class TutorialSliceScreen {
         if (!this.autoAdvanceTimeout) {
             this.autoAdvanceTimeout = setTimeout(() => {
             this.gotoNextTutorialStep();
-            }, 5000);
+            }, 2000);
             return;
         }
     }
