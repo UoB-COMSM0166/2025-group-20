@@ -243,7 +243,7 @@ class TutorialSliceScreen {
 
     handleBombTutorialLogic() {
         if(this.isBombStep()){
-            if (this.currentFruit.yCurrentPos > height) {
+            if (this.currentFruit.yCurrentPos > height && !this.bombGif) {
                 this.bombCount++;
                 if (this.bombCount >= this.bombMax) {
                     this.bombCompleted = true;

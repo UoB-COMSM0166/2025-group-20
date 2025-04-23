@@ -46,7 +46,7 @@ class ScreenStart {
   }
 
   render() {
-
+      cursor();
       if (recipeButton) {
         recipeButton.hide();
       }
