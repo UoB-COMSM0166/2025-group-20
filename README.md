@@ -339,11 +339,11 @@ In easy mode the player just has simply slice the relevant fruit in any directio
 
 ## Abstract
 
-This section presents the HCI evaluations of Smoothie Operator, with a particular focus on assessing balanced usability, cognitive load, and player engagement. To assess the game's key issues early in the design process, we employed a mixed-methods approach - combining qualitative feedback from Think Aloud evaluations with quantitative data collected using the NASA Task Load Index (TLX). Evaluations were conducted with a range of participants to encapsulate a comprehensive picture of potential user behaviours and perceptions. The primary objectives were to identify the usability key issues and measure player workload and demand across gameplay tasks to inform iterative design improvements. Results from the evaluations provided clear and direct feedback on the game's task flow and cognitive demands, leading to straightforward problem-solving to gameplay.
+This section presents the HCI evaluations of Smoothie Operator, with a particular focus on assessing balanced usability, cognitive load, and enthusiastic player engagement. To assess the game's key issues early in the design process, we employed a mixed-methods approach - combining qualitative feedback from Think Aloud evaluations with quantitative data collected using the NASA Task Load Index (TLX). Evaluations were conducted with a range of participants to encapsulate a comprehensive picture of potential user behaviours and perceptions. The primary objectives were to identify the usability key issues and measure player workload across gameplay tasks to inform iterative design improvements. Results from the evaluations provided clear and direct feedback on the game's task flow and cognitive demands, leading to straightforward problem-solving to gameplay.
 
 ## Qualitative: Think Aloud
 
-To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience (Nielsen, 1993). This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback—demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed four prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system, the learning curve associated with recipe memorisation, and the overall emotional experience. The richness of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic coding and categorised to identify patterns of friction, satisfaction, and emergent player strategies (see Table X). 
+To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience (Nielsen, 1993). This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table X). 
 
 Table X: Raw Think Aloud (TA) feedback
 | Theme           | Positive                                                                                                                                 | Negative                                                                                                                            |
@@ -364,15 +364,16 @@ One tester suggested that the "click and drag" mechanic for slicing might be red
 2. In easy mode, testers highlighted the satisfying, rapid clicking mechanic as a key positive feature.
 3. Removing the click would reduce user control, increasing the likelihood of accidental slices — especially problematic when users may be trying to pause the game or consult the recipe book.
 
-### Display
-### Fruit generated stuck together  + improved wood scratch effect. 
+### Display 
 User feedback was exceptionally positive regarding the games visuals. Players appreciated the nostalgic 8-bit aesthetic, found slicing fruit satisfying, and enjoyed the responsive, engaging cursor. The overall visual style was noted as cohesive and well-executed throughout.
 
-However, two recurrent issues were identified during evaluation. First: participants highlighted that the occasional generation of overlapping fruits rendered both fruits unslicable. This was addressed and resolved quickly. The second concern was an obscurity around the slicing action: some users expressed difficulty discerning what the direction they had sliced in, and requested a longer lasting cursor. 
+However, two recurrent issues were identified during evaluation. First: participants highlighted that the occasional generation of overlapping fruits rendered both fruits unslicable. This was addressed and resolved quickly. The second concern was obscurity around the slicing action: some users expressed difficulty discerning what the direction they had sliced in, and requested a longer lasting cursor. 
 
 Extending the `cursorEffect` risked cluttering the screen, so to resolve this, we implemented a `cursorWoodScratch` effect. When the user clicks and drags, a scratch trail appears beneath the cursor and fruit. This solution preserved visual clarity while providing intuitive feedback on slicing actions.
 
-*Insert woodscratch gif here*
+![Recipe Book Evaluation](project-report-images/Wood-Scratch-Effect.gif)
+
+*Figure: `cursorWoodScratch` implentation.*
 
 ### Learning Curve
 Early user feedback regarding the game's initial difficulty was flagged: at this stage in the development several core features hadn't been implemented. Users found the games objectives and rules were initially unclear and many disliked the reliance on memory; having to remember specific slice patterns was tedious and created a slow, tedious gameplay. 
@@ -386,16 +387,16 @@ To address this, we implemented two features to our gameplay:
 *Figure 1: Demo of the interactive recipe book feature.*
 
 2. Tutorial Mode: We also added a tutorial accessible directing from the start screen. This faciliatated users to practise before gameplay. The player could internalise the slicing mechanics, and learn other essential gamplay features, such as:
- - Avoiding the bomb
- - The dragonfruit +1 life benefit
- - The importance of slicing the fruit in the correct recipe order
+ - Avoiding the bomb.
+ - The dragonfruit +1 life benefit.
+ - The importance of slicing the fruit in the correct recipe order.
 
 ![Recipe Book Evaluation](project-report-images/Dragonfruit-Tutorial-Example.gif)
 
 *Figure 2: Clear, informative dragonfruit explanation feature in tutorial mode.*
 
 ## Quantitative: NASA TLX
-One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013)), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected a data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and that it makes sense to opt for the easier option when studies report back mixed results for raw vs. weighted TLX scores (Hart (2006)).
+One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013)), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)).
 
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
 
@@ -403,10 +404,10 @@ One of our primary goals was to create a game that was accessible to both casual
 
 The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers.
 
-- The accompanying pentagraph (below) reveals more granular differences:
-- A significant rise in effort and frustration
-- A moderate increase in mental demand and perceived performance
-- Minimal change in physical or temporal demand
+The accompanying pentagraph (below) reveals more granular differences:
+- A significant rise in effort and frustration.
+- A moderate increase in mental demand and perceived performance.
+- Minimal change in physical or temporal demand.
 
 These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
@@ -414,15 +415,15 @@ These findings suggest that the added difficulty in Hard mode effectively challe
 *Figure 3: NASA TLX Pentagraph demonstrating specific demand difference feedback.*
 
 The accompanying pentagraph (above) reveals more granular differences:
-- A significant increase in effort and frustration
-- A moderate increase in mental demand and perceived performance
-- Minimal or no change in physical or temporal demand
+- A significant increase in effort and frustration.
+- A moderate increase in mental demand and perceived performance.
+- Minimal or no change in physical or temporal demand.
 
-These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
+Player frustration's significant increase was a small pitfall - reportedly due to the afforementioned defects collected in the TA test - all were resolved elegantly.
 
 **Statistical Analysis**
 
-While the data visually aTo confidently determine that the quantitative tests executed actually indicated a significant workload increase, we adopted the the Wilcoxon Signed Rank Test:
+While the data visually and confidently determined that the quantitative tests executed actually indicated a significant workload increase, we adopted the the Wilcoxon Signed Rank Test:
 - Wilcoxon result (where n = 10, a = 0.05):
   - A value of 8 or less to quantify a significant difference. 
   - W = 0 (0 < 8).
