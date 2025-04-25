@@ -66,7 +66,7 @@ function draw() {
 
 function keyPressed() {
   if (keyCode === ENTER && gameManager.state === "start") {
-    gameManager.getGameScreen().freshGameScreen();
+    gameManager.resetGameScreen();
     gameManager.switchState("game");
   }
   if (keyCode === LEFT_ARROW || key === 'a'){
