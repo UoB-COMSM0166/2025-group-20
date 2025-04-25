@@ -13,7 +13,6 @@ class GameManager {
     this.tutorialEntryScreen = new TutorialEntryScreen();
     this.tutorialSliceScreen = new TutorialSliceScreen();
     this.tutorialInfoScreen = new TutorialInfoScreen();
-    this.gameScreen = new GameScreen();
     this.gameOverScreen = new GameOverScreen(this);
     this.score = 0;
     this.lives = 3;
@@ -76,6 +75,10 @@ class GameManager {
 
     getGameScreen() {
       return this.gameScreen;
+    }
+
+    resetGameScreen(){
+      this.gameScreen = new GameScreen();
     }
 
     switchState(newState) {
