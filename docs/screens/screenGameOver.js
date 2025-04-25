@@ -1,7 +1,8 @@
 class GameOverScreen {
   constructor(gameManager) {
     this.startOverButton = new TextButton(width / 2 - 125, height / 2 - 30, 'START OVER', 250, 50, '25px', () => {
-      gameManager.getGameScreen().freshGameScreen();
+      gameManager.resetGameScreen();
+      gameManager.switchState("game");
     });
     this.homeButton = new TextButton(width / 2 - 75, height / 2 + 50, 'HOME', 150, 50, '25px', () => {
       gameManager.switchState("start");

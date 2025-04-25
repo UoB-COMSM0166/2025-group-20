@@ -20,12 +20,11 @@ class TutorialInfoScreen {
         this.nextButton = new TextButton(windowWidth / 15, (windowHeight - 200) / 2, this.texts[this.currentIndex], 300, 200, '18px',
             () => this.advanceTutorial()
         );
-        this.nextButton.getButton().hide();
 
         this.backButton = new TextButton((windowWidth - 250) / 2, windowHeight - 80, 'BACK', 250, 50, '27px', () => {
             gameManager.switchState("tutorial-entry");
         });
-        this.backButton.getButton().hide();
+        this.hideButtons();
     }
 
     showButtons() {

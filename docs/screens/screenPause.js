@@ -9,7 +9,8 @@ class PauseMenu {
      this.hideMenuButtons();
    });
    this.restartButton = new TextButton((windowWidth/2)-100, (windowHeight/2)+25, 'RESTART', 200, 50, '25px', () => {
-     gameManager.getGameScreen().freshGameScreen();
+     gameManager.resetGameScreen();
+     gameManager.switchState("game");
      loop();
      this.hideMenuButtons();
    });
