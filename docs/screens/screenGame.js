@@ -47,7 +47,10 @@ class GameScreen {
 
             currentRecipe = new SmoothieRecipe();
             fruitOnScreen = [];
-            this.spawnRate = this.spawnRate-2;
+            if (this.spawnRate-2 >= 1){
+                this.spawnRate = this.spawnRate-2;
+            }
+            else this.spawnRate = 1;
         }
         currentRecipe.display();
         lifeIcons.show();
