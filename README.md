@@ -330,10 +330,31 @@ In easy mode the player just has simply slice the relevant fruit in any directio
 
 
 # Implementation (Omnia)
+**Challenge 1: Hitboxes**
+One of the first challenges we faced was designing an intuitive slicing system that worked smoothly with a mouse or trackpad. Unlike touchscreen swipes, mouse movements are less fluid and often less precise, which made it harder to translate natural slicing gestures into accurate in-game interactions.
+Our initial attempt involved placing three circular hitboxes vertically inside each fruit to simulate a swipe. This worked for vertical slicing but was too limited for other directions. It also introduced accuracy issues, where even slight misalignment caused correct slices to go unregistered. To improve this, we expanded the model into a 3x3 grid of hitboxes, which allowed us to detect slices in multiple directions—up, down, left, right, and diagonals—based on predefined recipes.
+To manage the slicing logic, we implemented three key classes. HitBox represents a small circular area that detects if the mouse is pressed within its bounds. SliceArray groups three HitBoxes in a specific orientation, such as horizontal or diagonal, forming a recognizable slicing pattern. Finally, SlicePattern wraps everything together. In easy mode, it contains only one HitBox, so the player can simply click the fruit. In hard mode, it contains three SliceArray objects, meaning the player needs to slice across multiple hitboxes in a defined direction.
+However, the 3x3 hitbox system introduced new issues. Players often encountered false negatives when their slice was correct but slightly missed a hitbox, and false positives when they hit nearby hitboxes unintentionally. To solve this, we made two key changes. First, we adjusted the logic so that hitting two correct hitboxes in sequence was enough to count as a valid slice, instead of requiring all three. Second, we allowed the hitboxes to slightly overlap, which widened the valid slicing area and reduced the chance of accidental failure.
+    
 
-- 15% ~750 words
+    ![alt text](project-report-images/implementation_challenge1.png)
+*Figure 1: Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.*
 
-- Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game. 
+
+**Challenge 2: Balancing Challenging and Playability**
+After completing the first functional version of the game, we faced a significant challenge: finding the right balance between maintaining the core memory-action gameplay loop and ensuring that the game remained playable, intuitive, and enjoyable. Our original design required players to memorize both the order of fruits and the slicing technique for each one (e.g., vertical, horizontal, or diagonal). However, this created a steep difficulty curve and led to a frustrating experience—particularly in the absence of visual aids or directional hints.
+We initially resisted simplifying the mechanics, as the memorisation aspect was fundamental to the game’s identity. However, during user testing, it became evident that players struggled with remembering all the slicing patterns, especially as the number of fruits increased and the gameplay intensified. Additionally, our first version only supported unidirectional slicing (e.g., a single diagonal direction), which limited flexibility and made certain patterns feel unnecessarily punishing. To address this, we made three major design changes:
+1.	Introducing the Recipe Book UI: We added an on-screen recipe book showing the list of required fruits and their slicing methods. Players could consult this at any time, and we observed that it significantly improved usability during evaluations. Moreover, because there was no time limit, users could pause and refer to it without pressure, which slightly reduced the challenge.
+2.	Supporting Bidirectional Diagonal Slicing: Based on user feedback, we updated the slicing logic to allow for mirrored diagonal directions (e.g., both left-to-right and right-to-left diagonals), making gameplay more forgiving while still retaining a level of difficulty for vertical and horizontal slices.
+3.	Aligning with Nielsen’s ‘Recognition Over Recall’ Principle: In a later sprint, we reflected on Nielsen’s usability heuristics and realized that our original approach violated the principle of “recognition rather than recall.” To reduce cognitive load, we decided to display the full recipe sequence at the top of the screen. As players sliced fruits correctly, those fruits would disappear from the sequence, giving users clear and continuous visual feedback on their progress.
+Throughout development, we continued to tweak the scoring system, fruit spawn rate and movement speed, iteratively testing until we found a pace that was engaging in both easy and hard modes.
+ 
+ ![alt text](project-report-images/implemetation_challenge2.gif)
+*Figure 2: Demonstrates the Recipe Book (left) with its support bidirectional diagonal slices and the recipe line (top)*
+
+**Challenge 3: UI and Logic Coordination**
+As we introduced more slicing directions, the codebase and UI logic grew significantly more complex. Each new direction required custom logic for hitbox placement and movement within the SlicePattern and SliceArray classes. This meant more calculations per frame, especially when multiple fruits were on screen. On the UI side, we had to reflect these patterns clearly showing accurate icons, updating the recipe bar, and visually removing fruits in real time. Managing this dynamic UI alongside constantly updating hitboxes created a performance bottleneck. The recipe bar needed to sync perfectly with slicing logic, requiring careful coordination between state updates and canvas rendering. This increase in both UI rendering and logic checks led to noticeable lag and a bloated update loop, especially in hard mode, where fruit patterns are more demanding.
+
 
 # Evaluation (Matilda)
 
