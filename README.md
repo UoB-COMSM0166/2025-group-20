@@ -337,7 +337,7 @@ To manage the slicing logic, we implemented three key classes. HitBox represents
 However, the 3x3 hitbox system introduced new issues. Players often encountered false negatives when their slice was correct but slightly missed a hitbox, and false positives when they hit nearby hitboxes unintentionally. To solve this, we made two key changes. First, we adjusted the logic so that hitting two correct hitboxes in sequence was enough to count as a valid slice, instead of requiring all three. Second, we allowed the hitboxes to slightly overlap, which widened the valid slicing area and reduced the chance of accidental failure.
     
 
-    ![alt text](project-report-images/implementation_challenge1.png)
+   ![alt text](project-report-images/implementation_challenge1.png)
 *Figure 1: Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.*
 
 
@@ -350,6 +350,8 @@ We initially resisted simplifying the mechanics, as the memorisation aspect was 
 Throughout development, we continued to tweak the scoring system, fruit spawn rate and movement speed, iteratively testing until we found a pace that was engaging in both easy and hard modes.
  
  ![alt text](project-report-images/implemetation_challenge2.gif)
+
+
 *Figure 2: Demonstrates the Recipe Book (left) with its support bidirectional diagonal slices and the recipe line (top)*
 
 **Challenge 3: UI and Logic Coordination**
