@@ -21,8 +21,8 @@ class GameManager {
     this.twoPlayer = false;
     this.easyGameScore = new PointSystem();
     this.hardGameScore = new PointSystem();
-    this.easyHighestScore = new HighestPointDisplay(0);
-    this.hardHighestScore = new HighestPointDisplay(0);
+    this.easyHighestScore = new HighestPointDisplay();
+    this.hardHighestScore = new HighestPointDisplay();
     }
 
     setDifficulty(difficulty) {
