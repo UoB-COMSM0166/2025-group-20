@@ -51,8 +51,8 @@ function setup() {
   cursorEffects = new GameCursorEffects();
   easyGameScore = new PointSystem();
   hardGameScore = new PointSystem();
-  easyHighestScore = new HighestPointDisplay(0); // you can add mode if you want
-  hardHighestScore = new HighestPointDisplay(0);
+  easyHighestScore = new HighestPointDisplay(); // you can add mode if you want
+  hardHighestScore = new HighestPointDisplay();
   cursorEffects = new GameCursorEffects();
   fruitGenerator = new FruitGenerator(fruitList, fruitImgs, sliceList);
   pauseMenu = new PauseMenu();
