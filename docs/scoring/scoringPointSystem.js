@@ -46,7 +46,7 @@ class PointSystem{
 }
 
 class HighestPointDisplay {
-    constructor(highestPoint) {
+    constructor() {
         if (document.cookie.length === 0){
             this.highestPoint = 0;
         }
