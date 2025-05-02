@@ -10,12 +10,40 @@ class GameManager {
     this.score = new GameScore();
     this.recipeBook = new RecipeBook();
     this.cursorScreenEffects = new CursorEffect();
-    this.loseLifeEffect = new LoseLife();
-    this.wrongSliceText = new WrongSlice();
-    this.recipeCompleteEffect = new RecipeComplete();
-    this.gainLifeEffect = new GainLife();
+    this.loseLifeEffect = new SliceEffect(()=>{
+      push();
+      noFill();
+      stroke("red");
+      strokeWeight(20);
+      rectMode(CORNER);
+      rect(0, 0, width, height, 20);
+      pop();
+    });
+    this.wrongSliceText = new SliceEffect(()=>{
+      overlay.textAlign(CENTER, CENTER);
+      overlay.textFont(gameFont);
+      overlay.fill('red');
+      overlay.textSize(100);
+      overlay.text('Wrong Slice!', width/2,100);
+    });
+    this.recipeCompleteEffect = new SliceEffect(()=>{
+      overlay.textAlign(CENTER, CENTER);
+      overlay.textFont(gameFont);
+      overlay.fill('white');
+      overlay.textSize(100);
+      overlay.text('Recipe Complete!', width/2,100);
+    });
+    this.gainLifeEffect = new SliceEffect(()=>{
+      push();
+      noFill();
+      stroke("lime");
+      strokeWeight(20);
+      rectMode(CORNER);
+      rect(0, 0, width, height, 20);
+      pop();
+    });
     this.fruitNames = ['blueberry', 'apple', 'banana', 'cherry', 'lemon', 'grape', 'watermelon', 'bomb', 'dragonfruit'];
-    this.slicePatterns = ['click', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'bomb', 'click'];
+    this.slicePatterns = ['click', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'bomb', 'easy'];
     this.fruitImages = [];
     this.sliceImages = [];
     this.splatImages = [];
