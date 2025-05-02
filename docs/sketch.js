@@ -14,8 +14,10 @@ let height;
 let optionsTitle; let optionsP2; let optionsSound; let optionsCursor;
 let backButton;
 let bg;
+let clicked;
 
 function setup() {
+  clicked = false;
   bg = loadImage('Design/Images/gameBg.png');
   container = document.getElementById('gameContainer');
   width = container.clientWidth;
@@ -420,4 +422,11 @@ function windowResized() {
   height = container.clientHeight;
 
   resizeCanvas(width, height);
+}
+
+function mouseClicked(){
+  clicked = true;
+  setTimeout(() => {
+    clicked = false;
+  }, 1);
 }
