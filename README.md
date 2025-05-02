@@ -113,55 +113,6 @@ We first developed an Onion Model to identify key stakeholders to help us unders
 
 Although our project is primarily designed in an university setting, the Onion Model underscores the capacity of successful systems to shape broader social behaviors by providing engaging gameplay experiences tailored to relevant communities.
 
-<h2>Functional Requirements</h2>
-
-<p>Our group then approached defining requirements by focusing on how to make the game mechanics as intuitive and accessible as possible. We agreed that a successful game should allow players to grasp the core mechanics on their first attempt, ensuring an engaging and enjoyable experience. We used a Use-Case Diagram as guidance for what to include as a functional requirement.</p>
-
-<h3>1. User Interface</h3>
-
-<ul>
-  <li>The player must have access to a main menu where they can:
-    <ul>
-      <li>Adjust settings (audio, controls, graphics, etc.).</li>
-      <li>View tutorials explaining game mechanics.</li>
-      <li>Access information about the game, including lore and objectives.</li>
-      <li>See their current score and highest score.</li>
-    </ul>
-  </li>
-  <li>The player must have an option to start the game from the main menu.</li>
-  <li>The player must have an option to quit the game at any point.</li>
-  <li>The game must have a pause menu, allowing the player to:
-    <ul>
-      <li>Resume gameplay.</li>
-      <li>Quit and return to the main menu.</li>
-    </ul>
-  </li>
-  <li>The game must display a score counter and player’s lives.</li>
-  <li>The game must display the game’s outcome:
-    <ul>
-      <li>If the player loses, a <strong>Game Over</strong> screen is displayed with the score they achieved.</li>
-      <li>After losing, the system must return the player to the main menu.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3>2. Controls</h3>
-
-<ul>
-  <li>The player uses the mouse cursor to cut the fruit/vegetables.</li>
-  <li>The player navigates through the menu using the mouse.</li>
-</ul>
-
-<h3>3. Core Game Mechanics</h3>
-
-<ul>
-  <li>Fruit/vegetables are thrown up onto the screen and then fall according to gravity.</li>
-  <li>The player must cut the correct fruit for the recipe displayed on the screen.</li>
-  <li>For certain fruits, they must slice them in the correct pattern.</li>
-  <li>If the player cuts the correct fruit in the wrong way or cuts the wrong fruit, they lose a life.</li>
-  <li>If the player cuts a bomb, they lose the game and must restart.</li>
-  <li>If they lose all their lives, they lose the game and must restart.</li>
-</ul>
 
 <p align="center">
   <img src="project-report-images/usecasemod.png" width="70%"><br>
