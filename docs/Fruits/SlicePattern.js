@@ -146,13 +146,13 @@ class HitBox {
   }
 
   isHit(){
-      if (mouseIsPressed){
-          if (mouseX <= this.umx && mouseX >= this.lmx && mouseY <= this.umy && mouseY >= this.lmy){
+      if (mouseX <= this.umx && mouseX >= this.lmx && mouseY <= this.umy && mouseY >= this.lmy) {
+          if ((this.type !== 'click' && mouseIsPressed) || (this.type === 'click' && clicked)) {
               this.hit = true;
           }
-      }
-      else{
-          this.hit = false;
+          else {
+              this.hit = false;
+          }
       }
   }
 
