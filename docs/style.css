@@ -1,20 +1,178 @@
+body {
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  user-select: none;
+}
 
-@media only screen and (min-width: 800px) {
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    min-width: 800px; 
-    min-height: 600px; 
-    overflow: hidden;
-    background-color: black;
-  }
+.container {
+  width: 90%;
+  height: 790px;
+  margin: 0 auto;
+  border: 10px solid #F6BE9E;
+  border-radius: 6px;
+  background-color: #FFF3CC;
+  box-sizing: border-box;
+  overflow: scroll;
+  position: relative;
+}
 
-  canvas {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
+.fruit {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.button {
+  font-family: 'BlockBlueprint';
+  color: #DDB78E;
+  padding: 16px 32px;
+  font-size: 38px;
+  border: 4px;
+  border-style: solid;
+  border-color: rgb(221, 183, 142, 0.6);
+  border-radius: 20px;
+  background-color: rgb(244, 218, 169, 0.9);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 300px;
+}
+
+.modeButton {
+  font-family: 'BlockBlueprint';
+  color: #DDB78E;
+  padding: 16px 32px;
+  font-size: 30px;
+  text-align: center;
+  border: 4px;
+  border-style: solid;
+  border-color: rgb(221, 183, 142, 0.6);
+  border-radius: 30px;
+  background-color: rgb(244, 218, 169, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  width: 70px;
+  
+}
+
+.modeButton:hover {
+  background-color: #F4DAA9;
+  border-color: #DDB78E;
+}
+
+.imageButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.imageButton img {
+  width: 250px;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+
+button:hover img {
+  opacity: 1;
+}
+
+.button:hover {
+  background-color: #F4DAA9;
+  border-color: #DDB78E;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  height: 100;
+  width: 100%;
+  position: relative;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+.horizontal-group {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.title {
+  user-select: none;
+  text-align: center;
+  font-family: 'BlockBlueprint';
+  color: #DDB78E;
+  font-size: 180px;
+  white-space: pre-wrap;
+  margin-top: 0; 
+  border: none;
+  word-wrap: break-word;
+  background-color: #FFF3CC;
+  margin-bottom: 10px;
+}
+
+.top-left-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+}
+
+.bottom-right-container {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.center-container {
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  width: 300px;
+  height: 200px;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes flashEffect {
+  0%, 100% {
+    opacity: 0.6;
   }
+  50% {
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: 'BlockBlueprint';
+  src: url('Design/Blockblueprint-LV7z5.ttf') format('truetype');
 }
