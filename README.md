@@ -23,13 +23,13 @@ Include a demo video of your game here (you don't have to wait until the end, yo
 # Project Report
 
 # Introduction
-<p>Our game, Smoothie Operator, is inspired by the game Fruit Ninja, where players slice fruits and avoid bombs to advance through levels. Our game aims to create an accessible yet challenging experience, designed to engage players continuously while providing a sense of achievement. We also drew inspiration from games like Overcooked, a simulation game where players must prepare dishes using specific ingredients in the correct sequence. In contrast to Fruit Ninja, which lacks defined objectives, our game introduces a recipe bar at the top of the screen, requiring players to slice fruits in a precise order to complete each recipe. Incorrectly slicing fruits not included in the recipe results in health penalties.</p>
+<p>Our game, <strong>Smoothie Operator</strong>, is inspired by the game <i>Fruit Ninja</i>, where players slice fruits and avoid bombs to advance through levels. Our game aims to create an accessible yet challenging experience, designed to engage players continuously while providing a sense of achievement. We also drew inspiration from games like <i>Overcooked</i>, a simulation game where players must prepare dishes using specific ingredients in the correct sequence. In contrast to <i>Fruit Ninja</i>, which lacks defined objectives, our game introduces a recipe bar at the top of the screen, requiring players to slice fruits in a precise order to complete each recipe. Incorrectly slicing fruits not included in the recipe results in health penalties.</p>
 
 <p>To accommodate varying skill levels of players, we introduced a hard mode where players must slice different fruits using designated slicing patterns. While slicing a correct fruit with an incorrect pattern does not lead to a health penalty, it will not count towards recipe completion, adding complexity and precision to the gameplay.</p>
 
-<p>To encourage social interaction and collaboration, Smoothie Operator also features a two-player mode: One player uses the mouse to slice fruits, while the other manages a basket at the bottom of the screen using keyboard arrow keys, fostering teamwork and cooperation. </p>
+<p>To encourage social interaction and collaboration, <strong>Smoothie Operator</strong> also features a two-player mode: One player uses the mouse to slice fruits, while the other manages a basket at the bottom of the screen using keyboard arrow keys, fostering teamwork and cooperation. </p>
 
-<p>Overall, Smoothie Operator expands upon the classic fruit-slicing genre by offering varied and engaging gameplay experiences, encouraging social interactions, and implementing a high-score system to enhance player achievement and clearly demonstrate progression.</p>
+<p>Overall, <strong>Smoothie Operator</strong> expands upon the classic fruit-slicing genre by offering varied and engaging gameplay experiences, encouraging social interactions, and implementing a high-score system to enhance player achievement and clearly demonstrate progression.</p>
 
 
 # Requirements (Ziyan)
