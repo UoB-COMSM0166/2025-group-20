@@ -6,6 +6,7 @@ class Lives {
   gameOver = loadSound('Design/Audio/gameOver.wav');
   lifeCount = 3;
 
+  //Adds a life if lives aren't full
   gainLife() {
     if (this.lifeCount < 3) {
       this.lifeCount++;
@@ -15,6 +16,7 @@ class Lives {
     }
   }
 
+  //Removes a life if lives aren't empty
   loseLife() {
     this.lifeCount--;
     if (gameManager.getSoundEffect()) {
@@ -29,10 +31,12 @@ class Lives {
     return this.lifeCount;
   }
 
+  //resets lifecount
   resetLife() {
     this.lifeCount = 3;
   }
 
+  //sets lives to 0
   zeroLives() {
     this.lifeCount = 0;
     if (gameManager.getSoundEffect()) {
@@ -40,6 +44,7 @@ class Lives {
     }  
   }
 
+  //display life count
   drawLife() {
     let xPosition = 10;
     let yPosition = 10;

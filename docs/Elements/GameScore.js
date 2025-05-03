@@ -4,6 +4,7 @@ class GameScore {
     this.currentScore = 0;
   }
 
+  //Uses cookies to remember and initially set the highscore
   setHighScore() {
     if (document.cookie.length === 0) {
       this.highScore = 0;
@@ -12,16 +13,19 @@ class GameScore {
     this.highScore = document.cookie.split('=')[1];
   }
 
+  //Updates highscore to current score if current score is larger
   updateHighScore() {
     if (this.currentScore > this.highScore) {
       this.highScore = this.currentScore;
     }
   }
 
+  //adds a given amount of points to the score
   addScore(score) {
     this.currentScore += score;
   }
 
+  //removes a given number of points from the score
   loseScore(score) {
     if (this.currentScore === 0) {
       return;
@@ -29,10 +33,12 @@ class GameScore {
     this.currentScore -= score;
   }
 
+  //resets score to 0
   resetScore() {
     this.currentScore = 0;
   }
 
+  //displays the highscore
   drawHighScore() {
     let xPosition = 10;
     let yPosition = 90;
@@ -44,6 +50,7 @@ class GameScore {
     text('high score: ' + this.highScore, xPosition, yPosition);
   }
 
+  //displays the current score
   drawCurrentScore() {
     let xPosition = 10;
     let yPosition = 120;

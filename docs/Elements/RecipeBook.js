@@ -5,6 +5,7 @@ class RecipeBook {
     this.createRecipeBook();
   }
 
+  //Loads relevant graphics and behaviour
   createRecipeBook() {
     this.bookButton = document.createElement('button');
     this.bookButton.classList.add('imageButton');
@@ -26,10 +27,12 @@ class RecipeBook {
     this.bookButton.style.display = 'none';
   }
 
+  //displays recipe book in hard mode
   displayBook() {
     this.bookButton.style.display = 'block';
   }
 
+  //hides recipe book in easy mode
   hideBook() {
     this.bookButton.style.display = 'none';
   }
