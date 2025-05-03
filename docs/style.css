@@ -6,6 +6,7 @@ body {
   display: flex;
   height: 100vh;
   user-select: none;
+  overflow: hidden;
 }
 
 .container {
@@ -16,7 +17,7 @@ body {
   border-radius: 6px;
   background-color: #FFF3CC;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow: hidden;
   position: relative;
 }
 

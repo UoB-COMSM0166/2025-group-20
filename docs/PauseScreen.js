@@ -3,6 +3,7 @@ class PauseScreen {
     this.pauseButtons();
   }
 
+  //draws pause screen
   drawScreen() {
     if (!buttonWrapper.contains(this.pauseTitle)) {
       console.log('here');
@@ -19,6 +20,7 @@ class PauseScreen {
     }
   }
 
+  //loads in pause screen buttons
   pauseButtons() {
   // title 
   this.pauseTitle = document.createElement('button');

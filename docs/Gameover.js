@@ -3,6 +3,7 @@ class Gameover {
     this.gameoverScreen();
   }
 
+  //draws game over screen
   draw() {
     background(bg);
     pauseButton.style.display = 'none';
@@ -21,6 +22,7 @@ class Gameover {
     this.gameoverTitle.style.display = 'block';
   }
 
+  //runs all game over button logic
   gameoverScreen() {
     // title
     this.gameoverTitle = document.createElement('button');

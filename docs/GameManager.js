@@ -50,12 +50,11 @@ class GameManager {
     this.loadFruitImages();
     this.currentRecipe = new RecipeGeneration();
     this.noiseSeedVal = Math.random() * 1000;
-    this.spawnRate = 100;
+    this.spawnRate = 120;
     this.fruitGenerator = new FruitGenerator();
     this.playingFruits = [];
     this.fruitOnScreen = [];
     this.basket = new Basket();
-    this.inertPat = new SlicePattern('inert', 0);
     this.slicingSound = loadSound('Design/Audio/soundSlicing.wav');
     this.gameLost = false;
     this.splatters = [];
@@ -96,10 +95,6 @@ class GameManager {
     this.cursorEffect = effect;
   }
 
-  getCursorEffect() {
-    return this.cursorEffect;
-  }
-
   setStartGame(start) {
     this.startGame = start;
   }
@@ -120,6 +115,7 @@ class GameManager {
     return this.gameLost;
   }
 
+  //Makes effects active so they can be deployed when needed
   activateEffects() {
     this.loseLifeEffect.active();
     this.wrongSliceText.active();
@@ -130,7 +126,8 @@ class GameManager {
   getScore() {
     return this.score;
   }
- 
+
+  //runs all main game logic
   gameState() {  
     background(bg);
     // Enables cursor effect
@@ -159,6 +156,9 @@ class GameManager {
       this.recipeCompleteEffect.show();
       this.currentRecipe = new RecipeGeneration();
       this.score.addScore(20);
+      if (this.spawnRate-1 !== 0){
+        this.spawnRate--;
+      }
     }
 
     // Display random fruit on screen
@@ -186,7 +186,6 @@ class GameManager {
       this.score.updateHighScore();
       this.gameLost = true;
       this.startGame = false;
-      //this.score.resetScore();
     }
 
     for (let i = this.splatters.length - 1; i >= 0; i--) {
@@ -197,6 +196,7 @@ class GameManager {
       }
   }
 
+    //runs through all the fruits, moving, showing and checking for slices
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
@@ -231,11 +231,10 @@ class GameManager {
         if (this.playingFruits[i].getName() !== 'bomb') {
           this.playingFruits[i].fruitImg = this.sliceImages[this.playingFruits[i].getIndex()];
         }
-        //splatters.push(new splat(fruit[i].xPos, fruit[i].yPos, fruit[i].fruitName));
-        this.playingFruits[i].slicePat = this.inertPat;
+        this.playingFruits[i].makeInert();
       }
       else if (this.playingFruits[i].slicePat.isSliced() === 'bomb') {
-        this.playingFruits[i].slicePat = this.inertPat;
+        this.playingFruits[i].makeInert();
         this.lives.zeroLives();
       }
 
@@ -246,8 +245,9 @@ class GameManager {
     this.recipeBook.hideBook();
   }
 
+  //loads in relevant images to arrays
   loadFruitImages() {
-    let i = 0;
+    let i;
     for (i = 0; i < this.fruitNames.length - 2; i++) {
       this.fruitImages[i] = loadImage('Design/Images/' + this.fruitNames[i] + '.png');
       this.sliceImages[i] = loadImage('Design/Images/' + this.fruitNames[i]  + '-slice.png');
@@ -276,14 +276,11 @@ class GameManager {
     return this.currentRecipe;
   }
 
-  getPlayingFruits() {
-    return this.playingFruits;
-  }
-
   getFruitOnScreen() {
     return this.fruitOnScreen;
   }
 
+  //Resets all relevant variables when game is lost or restarted
   resetGame() {
     this.playingFruits = [];
     this.fruitOnScreen = [];
@@ -293,5 +290,6 @@ class GameManager {
     this.score.resetScore();
     this.lives.resetLife();
     this.basket.resetBasket();
+    this.spawnRate = 120;
   }
 }
