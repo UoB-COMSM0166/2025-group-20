@@ -66,21 +66,16 @@ Player immersion - No timer, immersive visuals etc.
 <ol>
   <li>
     <b>University Life Simulation</b><br>
-    Inspired by the narrative-driven gameplay of <i>Papers, Please</i>, this concept focuses on simulating student life at the University of Bristol.
   </li>
   <li>
     <b>Fashion-combat Game</b><br>
-    Combines fast-paced action gameplay with dress-up, drawing influence from <i>Cowgirl Crusade</i> and <i>Dress to Impress</i>.
   </li>
   <li>
     <b>Fruit-Ninja with Recipes</b><br>
-    A gameplay concept adapted from <i>Fruit Ninja</i> and <i>Overcooked</i>, where players use slicing techniques to prepare ingredients and complete recipe-based objectives.
   </li>
 </ol>
 
-At first, we considered developing a simulation game while integrating a two-player combat mode, thereby creating an engaging and multifaceted gameplay experience. However, following the second workshop on P5.js, we conducted a feasibility study to assess the project's scope and the technical requirements of implementing these functionalities using JavaScript. After breaking down the game into smaller sections, we concluded that the original simulation concept was slightly ambitious. The complexity involved in managing multiple intricate functionalities was identified as a significant challenge, which led us to reassess our game.
-
-Eventually, we took a vote and decide on the third idea —an adaptation of <i>Fruit Ninja</i>—due to its manageable scale and strong emphasis on engaging gameplay mechanics. The twist to our game involves following a specific order of the recipe, where each type of fruit requires distinct slicing technique.
+Eventually, our team took a vote and decide on the third idea —an adaptation of <i>Fruit Ninja</i> and <i>Overcooked</i>—due to its manageable scale and strong emphasis on engaging gameplay mechanics. The twist to our game involves following a specific order of the recipe, where each type of fruit requires distinct slicing technique.
 
 <p align="center">
   <img src="project-report-images/fruit-ninja.png" width="50%"><br>
@@ -93,18 +88,18 @@ Eventually, we took a vote and decide on the third idea —an adaptation of <i>F
 </p>
 
 ## Early Design Phase
-During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions. This helped us establish a clear, scalable structure, making the project less daunting for the team.
+During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions.
 
 <p align="center">
   <img src="project-report-images/prototype.gif" width="50%"><br>
   <b>Figure 5. </b> <i>Paper Prototype</i>
 </p>
 
-We also considered incorporating memory-based gameplay elements, wherein players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. As levels progressed, the complexity and number of fruits would increase, challenging the player's memory further. However, in the Game Testing Activity, feedback from other teams indicated this approach demanded excessive cognitive effort, as players would need to simultaneously remember recipes and master fruit-specific slicing techniques. We took this feedback on board and decided to keep the recipes visible on-screen to improve the playability of our game. 
+We also considered incorporating memory-based gameplay elements: players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. However, we received feedback from other teams indicated this approach demanded excessive cognitive effort. We took this feedback on board and decided to keep the recipes visible on-screen to improve the playability of our game.
 
 
 ## Identifying Stakeholders
-We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. Their insights provided input on how to refine our functional requirements.
+We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. 
 
 <p align="center">
   <img src="project-report-images/OnionModel.png" width="50%"><br>
@@ -120,9 +115,6 @@ Although our project is primarily designed in an university setting, the Onion M
 </p>
 
 <h2>User Stories</h2>
-
-<p>To further refine the user experience, we translated these functional requirements into user stories to reflect real-life players' motivations. By prioritising features using the <strong>MoSCoW method</strong>, we ensure that essential gameplay elements are implemented first while leaving room for potential enhancements to the game.</p>
-
 <table>
         <thead>
             <tr>
@@ -196,25 +188,7 @@ Although our project is primarily designed in an university setting, the Onion M
             </tr>
         </tbody>
     </table>
-
-<h3>User Stories – Prioritized using MoSCoW and Value vs Effort</h3>
-<strong>Must Have (High Value, Low Effort):</strong><br>
-<ul>
-  <li>As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.</li>
-  <li>As a casual player, I want a game with a straightforward and intuitive gameplay that I can pick up quicky without a time-consuming learning curve.</li>
-</ul>
-<strong>Should Have (High Value, High Effort):</strong><br>
-<ul>
-  <li>As a player, I want a variety of fruits and features that introduce fresh experiences in each gameplay session.</li>
-  <li>As a long-term gamer, I want a game that never ends, so that I can play the game for longer.</li>
-  <li>As someone who likes to be challenged, I want to experience more challenge as time goes on, thereby feeling a sense of achievement through overcoming difficulty.</li>
-  <li>As an easily bored gamer, I want to have an element of danger in the game, so that I am kept on my toes and stay engaged.</li>
-</ul>
-<strong>Could Have (Low Value, Low Effort):</strong><br>
-<ul>
-  <li>As a long-term gamer, I want a game that has my high score, so that I can have a sense of achievement over time.</li>
-</ul>
-
+    
 ## Use Case Specification
 ### Single Player Mode
 
