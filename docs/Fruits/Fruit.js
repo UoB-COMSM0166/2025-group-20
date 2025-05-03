@@ -1,11 +1,10 @@
 class Fruit {
-  gravity = 0.1;
   constructor(fruitImg, fruitName, slicePat, listIndex) {
     // setting up basic attributes
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    if (gameManager.getMode() == 'easy'){
+    if (gameManager.getMode() === 'easy'){
       this.slicePat = new SlicePattern('easy', this.size);
     }
     else {
@@ -15,8 +14,8 @@ class Fruit {
     this.maxHeight = height * 0.00125;
 
     // setting up physics attributes
-    this.xPos = random(windowWidth);
-    this.yPos = windowHeight;
+    this.xPos = random(width);
+    this.yPos = height;
     this.xSpeed = this.randomXDirection(this.xPos);
     this.ySpeed = -11;
     this.visible = true;
@@ -38,8 +37,8 @@ class Fruit {
   
   move() {
     // moving fruit along x and y axes
-    if (this.xPos + this.xSpeed > windowWidth-110 && this.slicePat.type === 'inert'){
-      this.xPos = windowWidth-110;
+    if (this.xPos + this.xSpeed > width-this.size && this.slicePat.type === 'inert'){
+      this.xPos = width-this.size;
     }
     else if (this.xPos + this.xSpeed < 0  && this.slicePat.type === 'inert'){
       this.xPos = 0;
@@ -57,7 +56,7 @@ class Fruit {
     }
 
     // toggle off visibily off screen
-    if(this.yPos > windowHeight && this.visible) {
+    if(this.yPos > height && this.visible) {
       this.visible = false;
       this.removeFruit();
     }
@@ -66,14 +65,19 @@ class Fruit {
   randomXDirection(xPos) {
     /* picks an x speed which moves the fruit in the opposte side of the
     screen from where it spawned */
-    if(xPos > windowWidth / 2) {
+    if(xPos > width / 2) {
       return -5;
     }
     return 5;
   }
-  
+
+  //removes fruit from screen
   removeFruit() {
     if (!this.visible) {
+      //Remove button if click slicePattern
+      if (this.fruitName === 'blueberry' && gameManager.getMode() === 'hard' && this.slicePat.type !== 'inert'){
+        this.slicePat.hit.remove();
+      }
       gameManager.getFruitOnScreen().splice(gameManager.getFruitOnScreen().indexOf(this.index), 1);
     }
   }
@@ -84,5 +88,10 @@ class Fruit {
 
   getName() {
     return this.fruitName;
+  }
+
+  //makes slice pattern inert to stop it from affecting game attributes after being sliced
+  makeInert(){
+    this.slicePat = new SlicePattern('inert', 0);
   }
 }

@@ -7,18 +7,8 @@ class RecipeGeneration {
    this.y = 20; 
   }
 
+  //displays recipe on screen
   display() {
-   /*const container = document.getElementById('gameContainer');
-   let xPos = this.x;
-   for (let i = 0; i < this.ingredients.length; i++) {
-      const img = document.createElement('img');
-      img.src = gameManager.getFruitImages()[this.ingredients[i]];
-      img.className = 'fruit';
-      img.style.left = `${xPos}px`;
-      img.style.top = `${this.y}px`;
-      container.appendChild(img);
-      xPos += 60;
-   }*/
      let xPos = this.x;
      for (var i = 0; i < this.ingredients.length; i++){
         image(gameManager.getFruitImages()[this.ingredients[i]], xPos, this.y, 50, 50);
