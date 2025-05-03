@@ -4,6 +4,7 @@ class SliceEffect{
     this.effect = callback;
   }
 
+  //Displays effect for 1000ms giving player time to read
   show(){
     this.display = true;
     setTimeout(() => {
@@ -12,6 +13,7 @@ class SliceEffect{
     }, 1000);
   }
 
+  //Effect is active so that it is ready to be drawn when needed
   active(){
     if (this.display){
       this.effect();
