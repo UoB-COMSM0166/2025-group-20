@@ -12,7 +12,7 @@ class Basket{
               this.x = width-110;
           }
           else{
-              this.x += 10;
+              this.x += 15;
           }
       }
       else if (direction === 'left'){
@@ -20,7 +20,7 @@ class Basket{
               this.x = 110;
           }
           else{
-              this.x -= 10;
+              this.x -= 15;
           }
       }
   }

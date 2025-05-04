@@ -200,7 +200,7 @@ class GameManager {
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
-      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && Math.round(this.playingFruits[i].yPos) === windowHeight
+      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && Math.round(this.playingFruits[i].yPos) === height
       && (Math.round(this.playingFruits[i].xPos) > this.basket.x+110 || Math.round(this.playingFruits[i].xPos) < this.basket.x-110)) {
         this.score.loseScore(10);
       }
