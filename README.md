@@ -170,8 +170,8 @@ Although our project is primarily designed in an university setting, the Onion M
     
 ## Use Case Specification
 ### Single Player Mode
-<Strong>Basic Flow</Strong>
-<em>Table 1b: Single Player + Basic Flow<em>
+**Basic Flow**
+*Table 1b: Single Player + Basic Flow*
 
 | **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
 |---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -181,9 +181,8 @@ Although our project is primarily designed in an university setting, the Onion M
 | 4        | Slice any correct fruit: +10 points.                                                               | Slice correct fruit **with correct method**: +10 points.                                                 |
 | 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points.                                                 |
                                 
-
-<Strong>Alternative Flow</Strong>
-<em>Table 1c: Single Player + Alternative Flow</em>
+**Alternative Flow**
+*Table 1c: Single Player + Alternative Flow*
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
 | 1        | Wrong fruit sliced: -1 heart. No effect on score.               | Wrong fruit sliced: Same as Easy mode.                 |
@@ -193,8 +192,8 @@ Although our project is primarily designed in an university setting, the Onion M
 
 ### Two Player Mode
 
-<Strong>Basic Flow</Strong>
-<em>Table 1d: Two Player + Basic Flow</em>
+**Basic Flow**
+*Table 1d: Two Player + Basic Flow*
 
 | **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
 |---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -205,8 +204,8 @@ Although our project is primarily designed in an university setting, the Onion M
 | 5        | Recipe completion: +20 bonus points.                                                                          | Same, only if all fruits sliced correctly and caught.                                                          |
 
 
-<Strong>Alternative Flow</Strong>
-<em>Table 1e: Two Player + Alternative Flow</em>
+**Alternative Flow**
+*Table 1e: Two Player + Alternative Flow*
 
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
