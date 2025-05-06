@@ -290,6 +290,7 @@ function tutorialScreen() {
 
 function optionsScreen() {
   clearMainMenu();
+  buttonWrapper.style.marginTop = '30px';
   buttonWrapper.appendChild(optionsTitle);
   buttonWrapper.appendChild(optionsP2);
   buttonWrapper.appendChild(optionsSound);
@@ -335,7 +336,6 @@ function makeMenuButtons() {
   optionsTitle.textContent = 'settings';
   optionsTitle.style.fontSize = '80px';
   optionsTitle.style.borderBlockStyle = 'solid';
-  optionsTitle.style.borderColor = '#DDB78E';
   optionsTitle.style.marginTop = '-10px';
   optionsTitle.style.marginBottom = '90px';
 

@@ -6,7 +6,6 @@ class PauseScreen {
   //draws pause screen
   drawScreen() {
     if (!buttonWrapper.contains(this.pauseTitle)) {
-      console.log('here');
       buttonWrapper.appendChild(this.pauseTitle);
     }
     if (!buttonWrapper.contains(this.resume)) {
@@ -26,6 +25,7 @@ class PauseScreen {
   this.pauseTitle = document.createElement('button');
   this.pauseTitle.className = 'title';
   this.pauseTitle.textContent = 'pause';
+  this.pauseTitle.style.borderBlockStyle = 'solid';
   this.pauseTitle.style.background = 'none';
   this.pauseTitle.style.fontSize = '100px';
   this.pauseTitle.style.marginTop = '100px';

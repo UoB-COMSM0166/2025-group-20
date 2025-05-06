@@ -29,14 +29,14 @@ body {
 
 .button {
   font-family: 'BlockBlueprint';
-  color: #d48e29;
+  color: white;
   padding: 16px 32px;
   font-size: 38px;
   border: 4px;
   border-style: solid;
-  border-color: rgb(212, 142, 41, 0.6);
+  border-color: rgb(153, 88, 34, 0.9);
   border-radius: 20px;
-  background-color: rgb(255, 214, 142, 0.9);
+  background-color: rgb(138, 83, 31, 0.9);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: normal;
@@ -46,7 +46,7 @@ body {
 
 .modeButton {
   font-family: 'BlockBlueprint';
-  color: #DDB78E;
+  color: white;
   padding: 16px 32px;
   font-size: 30px;
   text-align: center;
@@ -89,8 +89,8 @@ button:hover img {
 }
 
 .button:hover {
-  background-color: #ffd68e;
-  border-color: #d48e29;
+  background-color: #8A531F;
+  border-color: #995822;
 }
 
 .center-buttons {
