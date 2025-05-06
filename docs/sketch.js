@@ -39,6 +39,7 @@ function setup() {
   makeMenuButtons();
   gameover = new Gameover();
   pauseScreen = new PauseScreen();
+  tutorialManager = new TutorialManager();
   tutorial = false;
   startScreen();
 }
@@ -52,7 +53,6 @@ function draw() {
     gameManager.activateEffects();
   }
   else if (gameManager.getLostGame()) {
-    buttonWrapper.style.marginTop = '210px';
     gameover.draw();
   }
   else {
@@ -91,6 +91,7 @@ function startScreen() {
   gameManager.setMode(null);
   gameManager.setStartGame(false);
   gameManager.resetGame();
+  tutorialManager.resetTutorial();
   pauseButton.style.display = 'none'
   // draws settings button on the screen
   const topLeftContainer = document.createElement('div');
@@ -179,8 +180,16 @@ function startScreen() {
   trainingBtn.appendChild(trainingImg);
   centerButtons2.appendChild(trainingBtn);
   trainingBtn.addEventListener('click', function() {
-    tutorialManager = new TutorialManager();
+    clearMainMenu();
     tutorial = true;
+    const backBtn = document.createElement('button');
+    backBtn.className = 'button';
+    backBtn.textContent = 'back';
+    buttonWrapper.appendChild(backBtn);
+    backBtn.addEventListener('click', function(){
+      tutorial = false;
+      startScreen();
+    });
   });
   // draws quit button on screen
   const exitBtn = document.createElement('button');
@@ -272,26 +281,16 @@ function selectGame() {
 }
 
 function tutorialScreen() {
-  // clears main menu
-  clearMainMenu();
+
 
   // draws tutorial screen
   tutorialManager.drawTutorialScreen();
-
   // draws back button on screen
-  const bottomBtn = document.createElement('button');
-  bottomBtn.className = 'button';
-  bottomBtn.textContent = 'back';
-  buttonWrapper.appendChild(bottomBtn);
-  bottomBtn.addEventListener('click', function(){
-    tutorial = false;
-    startScreen();
-  });
+
 }
 
 function optionsScreen() {
   clearMainMenu();
-  buttonWrapper.style.marginTop = '30px';
   buttonWrapper.appendChild(optionsTitle);
   buttonWrapper.appendChild(optionsP2);
   buttonWrapper.appendChild(optionsSound);
@@ -337,6 +336,7 @@ function makeMenuButtons() {
   optionsTitle.textContent = 'settings';
   optionsTitle.style.fontSize = '80px';
   optionsTitle.style.borderBlockStyle = 'solid';
+  optionsTitle.style.borderColor = '#DDB78E';
   optionsTitle.style.marginTop = '-10px';
   optionsTitle.style.marginBottom = '90px';
 

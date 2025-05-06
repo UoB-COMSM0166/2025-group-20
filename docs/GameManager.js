@@ -9,7 +9,7 @@ class GameManager {
     this.lives = new Lives();
     this.score = new GameScore();
     this.recipeBook = new RecipeBook();
-    this.cursorScreenEffects = new CursorEffect();
+    this.cursorScreenEffect = new CursorEffect();
     this.loseLifeEffect = new SliceEffect(()=>{
       push();
       noFill();
@@ -132,7 +132,7 @@ class GameManager {
     background(bg);
     // Enables cursor effect
     if (this.cursorEffect) {
-      this.cursorScreenEffects.cursorEffect();
+      this.cursorScreenEffect.cursorEffect();
     }
     // Draws recipe book if mode === hard
     if (this.mode === 'hard') {
@@ -289,7 +289,7 @@ class GameManager {
     this.playingFruits = [];
     this.fruitOnScreen = [];
     this.splatters = [];
-    this.cursorScreenEffects.resetCursor();
+    this.cursorScreenEffect.resetCursor();
     this.currentRecipe = new RecipeGeneration();
     this.score.resetScore();
     this.lives.resetLife();

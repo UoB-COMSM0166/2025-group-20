@@ -1,24 +1,8 @@
-class TutorialManager {
+class TutorialManager extends GameManager {
     constructor() {
+        super();
         this.fruitIndex = 0;
-        this.fruitGenerator = new FruitGenerator();
         this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-        this.wrongSliceText = new SliceEffect(()=>{
-            overlay.textAlign(CENTER, CENTER);
-            overlay.textFont(gameFont);
-            overlay.fill('red');
-            overlay.textSize(100);
-            overlay.text('Wrong Slice!', width/2,100);
-        });
-        this.gainLifeEffect = new SliceEffect(()=>{
-            push();
-            noFill();
-            stroke('lime');
-            strokeWeight(20);
-            rectMode(CORNER);
-            rect(0, 0, width, height, 20);
-            pop();
-        });
         this.correctSliceText = new SliceEffect(()=>{
             textAlign(CENTER, CENTER);
             textFont(gameFont);
@@ -26,35 +10,42 @@ class TutorialManager {
             textSize(100);
             text('Correct Slice!', width/2, 100);
         });
-        this.cursorEffect = false;
-        this.cursorScreenEffect = new CursorEffect();
-        this.lives = new Lives();
-        this.lives.loseLife();
+        this.tutorialText = new SliceEffect(()=>{
+            overlay.textAlign(CENTER, CENTER);
+            overlay.textFont(gameFont);
+            overlay.fill('white');
+            overlay.textSize(100);
+            overlay.text('Tutorial Complete!', width/2,100);
+        })
         this.bombGif = loadImage('Design/Images/boom.gif');
         this.tutorialEnd = false;
+        this.lives.loseLife();
+        this.narrationBox = document.createElement('p');
     }
 
     drawTutorialScreen() {
         background(bg);
-        this.wrongSliceText.active();
         this.correctSliceText.active();
-        this.gainLifeEffect.active();
+        this.tutorialText.active();
+        this.activateEffects();
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
             this.tutorialFruit.move();
         }
-        if (!this.tutorialFruit.visible){
-            this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-        }
         if (this.cursorEffect) {
             this.cursorScreenEffect.cursorEffect();
         }
-        if (this.tutorialFruit.fruitName === 'dragonfruit' || this.tutorialFruit.fruitName === 'bomb'){
+        if (!this.tutorialFruit.visible){
+            this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
+            this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + " " + this.slicePatterns[this.fruitIndex];
+            buttonWrapper.append(this.narrationBox);
+        }
+        if (this.tutorialFruit.getName() === 'dragonfruit' || this.tutorialFruit.getName() === 'bomb'){
             this.lives.drawLife();
         }
         if (this.tutorialFruit.slicePat.isSliced() === 'correct') {
             this.correctSliceText.show();
-            if (this.tutorialFruit.fruitName === 'dragonfruit'){
+            if (this.tutorialFruit.getName() === 'dragonfruit'){
                 this.lives.gainLife();
                 this.gainLifeEffect.show();
             }
@@ -74,32 +65,22 @@ class TutorialManager {
                 this.tutorialEnd = false
                 this.lives.resetLife();
             }, 2000)
-            if (!this.tutorialFruit.visible) {
-                this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-            }
         }
-        if (this.tutorialFruit.fruitName === 'bomb'){
+        if (this.tutorialFruit.getName() === 'bomb'){
             setTimeout(() => {
                 if (this.tutorialFruit.slicePat.isSliced() !== 'bomb' && this.tutorialFruit.yPos === height){
-                    overlay.textAlign(CENTER, CENTER);
-                    overlay.textFont(gameFont);
-                    overlay.fill('white');
-                    overlay.textSize(100);
-                    overlay.text('Tutorial Complete!', width/2,100);
+                    this.tutorialText.show();
                     this.tutorialEnd = true;
                 }
-            }, 5000);
+            }, 4000);
         }
     }
 
     sliceHandle(){
+        this.slicingSound.play();
         this.tutorialFruit.fruitImg = gameManager.getSliceImages()[this.fruitIndex];
         this.tutorialFruit.slicingGif = null;
         this.tutorialFruit.makeInert();
-    }
-
-    setCursorEffect(effect){
-        this.cursorEffect = effect;
     }
 
     resetTutorial(){
@@ -107,5 +88,7 @@ class TutorialManager {
         this.lives = new Lives();
         this.lives.loseLife();
         this.cursorScreenEffect.resetCursor();
+        this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
+        this.tutorialEnd = false;
     }
 }
