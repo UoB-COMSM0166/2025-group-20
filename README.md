@@ -93,6 +93,7 @@ Although our project is primarily designed in an university setting, the Onion M
 </p>
 
 <h2>User Stories</h2>
+<em>Table 1a: Initiative, Epics and User Stories</em>
 <table>
         <thead>
             <tr>
