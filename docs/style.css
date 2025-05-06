@@ -15,7 +15,7 @@ body {
   margin: 0 auto;
   border: 10px solid #F6BE9E;
   border-radius: 6px;
-  background-color: #FFF3CC;
+  background: url('Design/Images/gameBg.png') center/cover no-repeat;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
@@ -29,14 +29,14 @@ body {
 
 .button {
   font-family: 'BlockBlueprint';
-  color: #DDB78E;
+  color: #d48e29;
   padding: 16px 32px;
   font-size: 38px;
   border: 4px;
   border-style: solid;
-  border-color: rgb(221, 183, 142, 0.6);
+  border-color: rgb(212, 142, 41, 0.6);
   border-radius: 20px;
-  background-color: rgb(244, 218, 169, 0.9);
+  background-color: rgb(255, 214, 142, 0.9);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: normal;
@@ -64,8 +64,8 @@ body {
 }
 
 .modeButton:hover {
-  background-color: #F4DAA9;
-  border-color: #DDB78E;
+  background-color: #ffd68e;
+  border-color: #d48e29;
 }
 
 .imageButton {
@@ -89,8 +89,8 @@ button:hover img {
 }
 
 .button:hover {
-  background-color: #F4DAA9;
-  border-color: #DDB78E;
+  background-color: #ffd68e;
+  border-color: #d48e29;
 }
 
 .center-buttons {
@@ -125,13 +125,14 @@ button:hover img {
   user-select: none;
   text-align: center;
   font-family: 'BlockBlueprint';
-  color: #DDB78E;
+  color: #ffd68e;
+ /*-webkit-text-stroke: 3px #d48e29;*/
   font-size: 180px;
   white-space: pre-wrap;
   margin-top: 0; 
   border: none;
   word-wrap: break-word;
-  background-color: #FFF3CC;
+  background-color: transparent;
   margin-bottom: 10px;
 }
 

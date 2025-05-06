@@ -83,7 +83,7 @@ function startScreen() {
   gameManager.setMode(null);
   gameManager.setStartGame(false);
   gameManager.resetGame();
-  pauseButton.style.display = 'none';
+  pauseButton.style.display = 'none'
   // draws settings button on the screen
   const topLeftContainer = document.createElement('div');
   topLeftContainer.className = 'top-left-container';
