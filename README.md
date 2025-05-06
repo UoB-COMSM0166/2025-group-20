@@ -32,7 +32,7 @@ Second, our hard mode designates specific slicing patterns for each fruit which 
 <p>
   In the early stage of ideation process, we used both 
   <a href="https://miro.com/app/board/uXjVLtyUR80=/Miro" target="_blank">Miro</a>
-  (Figure 2) and 
+  (Figure 1a) and 
   <a href="https://uob-my.sharepoint.com/:w:/r/personal/zy21368_bristol_ac_uk/_layouts/15/Doc.aspx?sourcedoc=%7B16215be5-ecc8-4461-980c-cd596f6d788d%7D&action=edit&wdPid=4e6e8707"target="_blank">Google Docs</a>
    for brainstorming. We explore several ideas for this game: 
 </p>
@@ -171,7 +171,8 @@ Although our project is primarily designed in an university setting, the Onion M
 ## Use Case Specification
 ### Single Player Mode
 **Basic Flow**
-*Table 1b: Single Player + Basic Flow*
+
+**Table 1b**: *Single Player + Basic Flow*
 
 | **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
 |---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -182,7 +183,8 @@ Although our project is primarily designed in an university setting, the Onion M
 | 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points.                                                 |
                                 
 **Alternative Flow**
-*Table 1c: Single Player + Alternative Flow*
+
+**Table 1c**: *Single Player + Alternative Flow*
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
 | 1        | Wrong fruit sliced: -1 heart. No effect on score.               | Wrong fruit sliced: Same as Easy mode.                 |
@@ -193,7 +195,8 @@ Although our project is primarily designed in an university setting, the Onion M
 ### Two Player Mode
 
 **Basic Flow**
-*Table 1d: Two Player + Basic Flow*
+
+**Table 1d**: *Two Player + Basic Flow*
 
 | **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
 |---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -205,7 +208,8 @@ Although our project is primarily designed in an university setting, the Onion M
 
 
 **Alternative Flow**
-*Table 1e: Two Player + Alternative Flow*
+
+**Table 1e**: *Two Player + Alternative Flow*
 
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -244,7 +248,7 @@ However, the 3x3 hitbox system introduced new issues. Players often encountered 
     
 
    ![alt text](project-report-images/implementation_challenge1.png)
-*Figure 3a: Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.*
+**Figure 3a**: *Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.*
 
 
 **Challenge 2: Balancing Challenging and Playability**
@@ -258,7 +262,7 @@ Throughout development, we continued to tweak the scoring system, fruit spawn ra
  ![alt text](project-report-images/implemetation_challenge2.gif)
 
 
-*Figure 3b: Demonstrates the Recipe Book (left) with its support bidirectional diagonal slices and the recipe line (top)*
+**Figure 3b**: *Demonstrates the Recipe Book (left) with its support bidirectional diagonal slices and the recipe line (top)*
 
 **Challenge 3: UI and Logic Coordination**
 As we introduced more slicing directions, the codebase and UI logic grew significantly more complex. Each new direction required custom logic for hitbox placement and movement within the SlicePattern and SliceArray classes. This meant more calculations per frame, especially when multiple fruits were on screen. On the UI side, we had to reflect these patterns clearly showing accurate icons, updating the recipe bar, and visually removing fruits in real time. Managing this dynamic UI alongside constantly updating hitboxes created a performance bottleneck. The recipe bar needed to sync perfectly with slicing logic, requiring careful coordination between state updates and canvas rendering. This increase in both UI rendering and logic checks led to noticeable lag and a bloated update loop, especially in hard mode, where fruit patterns are more demanding.
@@ -274,7 +278,7 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 
 To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience. This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table 2a). 
 
-*Table 2a: Raw Think Aloud (TA) feedback*
+**Table 2a**: *Raw Think Aloud (TA) feedback*
 | Theme           | Positive                                                                                                                                 | Negative                                                                                                                            |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Controls        | - The click control is very satisfying<br>- The `cursorEffect` provides good user feedback                                              | - Trackpad is inelegant<br>- The `mousepressed` function bugs after hearts lost<br>- The `mousepressed` for slicing could be redundant |
@@ -302,7 +306,7 @@ Extending the `cursorEffect` risked cluttering the screen, so to resolve this, w
 
 ![Recipe Book Evaluation](project-report-images/Wood-Scratch-Effect.gif)
 
-*Figure 4a: `cursorWoodScratch` implentation.*
+**Figure 4a**: *`cursorWoodScratch` implentation.*
 
 ### Learning Curve
 Early user feedback regarding the game's initial difficulty was flagged: at this stage in the development several core features hadn't been implemented. Users found the games objectives and rules were initially unclear and many disliked the reliance on memory; having to remember specific slice patterns was tedious and created a slow, tedious gameplay. 
@@ -313,7 +317,7 @@ To address this, we implemented two features to our gameplay:
 
 ![Recipe Book Evaluation](project-report-images/Think-Aloud-Recipe-Book.gif)
 
-*Figure 4b: Demo of the interactive recipe book feature.*
+**Figure 4b**: *Demo of the interactive recipe book feature.*
 
 2. Tutorial Mode: We also added a tutorial accessible directing from the start screen. This faciliatated users to practise before gameplay. The player could internalise the slicing mechanics, and learn other essential gamplay features, such as:
  - Avoiding the bomb.
@@ -322,14 +326,14 @@ To address this, we implemented two features to our gameplay:
 
 ![Recipe Book Evaluation](project-report-images/Dragonfruit-Tutorial-Example.gif)
 
-*Figure 4c: Clear, informative dragonfruit explanation feature in tutorial mode.*
+*Figure 4c**: *Clear, informative dragonfruit explanation feature in tutorial mode.*
 
 ## Quantitative: NASA TLX
 One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)).
 
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
 
-*Figure 4d: NASA TLX Evaluation Bar Chart Feedback.*
+**Figure 4d**: *NASA TLX Evaluation Bar Chart Feedback.*
 
 The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers.
 
@@ -341,7 +345,7 @@ The accompanying pentagraph (below) reveals more granular differences:
 These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
 
-*Figure 4e: NASA TLX Pentagraph demonstrating specific demand difference feedback.*
+**Figure 4e**: *NASA TLX Pentagraph demonstrating specific demand difference feedback.*
 
 The accompanying pentagraph (above) reveals more granular differences:
 - A significant increase in effort and frustration.
