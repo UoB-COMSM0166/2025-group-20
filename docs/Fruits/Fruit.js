@@ -4,7 +4,7 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    if (gameManager.getMode() === 'easy'){
+    if (gameManager.getMode() === 'easy' && !tutorial){
       this.slicePat = new SlicePattern('easy', this.size);
     }
     else {
@@ -23,16 +23,8 @@ class Fruit {
     this.removeFruit();
   }
 
-  show() { //adding a glow effect to the dragonfruit as it +1's life 
-    if (this.fruitName === 'dragonfruit') {
-      push();
-      tint(255, 220, 150); // this should be a yellowish glow
-      image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
-      pop();
-    } 
-    else {
-      image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
-    }
+  show() {
+    image(this.fruitImg, this.xPos, this.yPos, this.size, this.size);
   }
   
   move() {

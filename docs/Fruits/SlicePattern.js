@@ -8,10 +8,7 @@ class SlicePattern{
     }
     else if (this.type === 'click'){
         //click slicepattern composed of button
-        this.hit = createButton('');
-        this.hit.size(size, size);
-        this.hit.style('opacity: 0');
-        this.hit.mousePressed(()=>{this.clicked = true;})
+        //this.hit.addEventListener("click", ()=>{this.clicked=true});
     }
     else {
         //Hard mode pattern composed of several slice arrays to make it easier to slice

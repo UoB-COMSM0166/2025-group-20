@@ -42,8 +42,8 @@ class GameManager {
       rect(0, 0, width, height, 20);
       pop();
     });
-    this.fruitNames = ['blueberry', 'apple', 'banana', 'cherry', 'lemon', 'grape', 'watermelon', 'bomb', 'dragonfruit'];
-    this.slicePatterns = ['click', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'bomb', 'easy'];
+    this.fruitNames = ['blueberry', 'apple', 'banana', 'cherry', 'lemon', 'grape', 'watermelon', 'dragonfruit', 'bomb'];
+    this.slicePatterns = ['easy', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'easy', 'bomb'];
     this.fruitImages = [];
     this.sliceImages = [];
     this.splatImages = [];
@@ -200,7 +200,7 @@ class GameManager {
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
-      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && Math.round(this.playingFruits[i].yPos) === height
+      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && Math.round(this.playingFruits[i].yPos) === windowHeight
       && (Math.round(this.playingFruits[i].xPos) > this.basket.x+110 || Math.round(this.playingFruits[i].xPos) < this.basket.x-110)) {
         this.score.loseScore(10);
       }
@@ -248,7 +248,7 @@ class GameManager {
   //loads in relevant images to arrays
   loadFruitImages() {
     let i;
-    for (i = 0; i < this.fruitNames.length - 2; i++) {
+    for (i = 0; i < this.fruitNames.length - 1; i++) {
       this.fruitImages[i] = loadImage('Design/Images/' + this.fruitNames[i] + '.png');
       this.sliceImages[i] = loadImage('Design/Images/' + this.fruitNames[i]  + '-slice.png');
       this.splatImages[i] = loadImage('Design/Images/' + this.fruitNames[i] + '-splatter.png');
@@ -262,6 +262,10 @@ class GameManager {
 
   getFruitImages() {
     return this.fruitImages;
+  }
+
+  getSliceImages(){
+    return this.sliceImages;
   }
 
   getSplatImages() {
