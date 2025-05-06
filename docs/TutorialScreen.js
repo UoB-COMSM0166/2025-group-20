@@ -3,14 +3,14 @@ class TutorialManager extends GameManager {
         super();
         this.fruitIndex = 0;
         this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-        this.correctSliceText = new SliceEffect(()=>{
+        this.sliceEffects['correctSlice'] = new SliceEffect(()=>{
             textAlign(CENTER, CENTER);
             textFont(gameFont);
             fill('lime');
             textSize(100);
             text('Correct Slice!', width/2, 100);
         });
-        this.tutorialText = new SliceEffect(()=>{
+        this.sliceEffects['tutorialComplete'] = new SliceEffect(()=>{
             overlay.textAlign(CENTER, CENTER);
             overlay.textFont(gameFont);
             overlay.fill('white');
@@ -25,8 +25,8 @@ class TutorialManager extends GameManager {
 
     drawTutorialScreen() {
         background(bg);
-        this.correctSliceText.active();
-        this.tutorialText.active();
+        this.sliceEffects['correctSlice'].active();
+        this.sliceEffects['tutorialComplete'].active();
         this.activateEffects();
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
@@ -44,7 +44,7 @@ class TutorialManager extends GameManager {
             this.lives.drawLife();
         }
         if (this.tutorialFruit.slicePat.isSliced() === 'correct') {
-            this.correctSliceText.show();
+            this.sliceEffects['correctSlice'].show();
             if (this.tutorialFruit.getName() === 'dragonfruit'){
                 this.lives.gainLife();
                 this.gainLifeEffect.show();
@@ -69,7 +69,7 @@ class TutorialManager extends GameManager {
         if (this.tutorialFruit.getName() === 'bomb'){
             setTimeout(() => {
                 if (this.tutorialFruit.slicePat.isSliced() !== 'bomb' && this.tutorialFruit.yPos === height){
-                    this.tutorialText.show();
+                    this.sliceEffects['tutorialComplete'].show();
                     this.tutorialEnd = true;
                 }
             }, 4000);

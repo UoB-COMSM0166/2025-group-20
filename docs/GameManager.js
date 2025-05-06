@@ -10,7 +10,8 @@ class GameManager {
     this.score = new GameScore();
     this.recipeBook = new RecipeBook();
     this.cursorScreenEffect = new CursorEffect();
-    this.loseLifeEffect = new SliceEffect(()=>{
+    this.sliceEffects = {};
+    this.sliceEffects['loseLife'] = new SliceEffect(()=>{
       push();
       noFill();
       stroke("red");
@@ -19,21 +20,21 @@ class GameManager {
       rect(0, 0, width, height, 20);
       pop();
     });
-    this.wrongSliceText = new SliceEffect(()=>{
+    this.sliceEffects['wrongSlice'] = new SliceEffect(()=>{
       overlay.textAlign(CENTER, CENTER);
       overlay.textFont(gameFont);
       overlay.fill('red');
       overlay.textSize(100);
       overlay.text('Wrong Slice!', width/2,100);
     });
-    this.recipeCompleteEffect = new SliceEffect(()=>{
+    this.sliceEffects['recipeComplete'] = new SliceEffect(()=>{
       overlay.textAlign(CENTER, CENTER);
       overlay.textFont(gameFont);
       overlay.fill('white');
       overlay.textSize(100);
       overlay.text('Recipe Complete!', width/2,100);
     });
-    this.gainLifeEffect = new SliceEffect(()=>{
+    this.sliceEffects['gainLife'] = new SliceEffect(()=>{
       push();
       noFill();
       stroke("lime");
@@ -117,10 +118,10 @@ class GameManager {
 
   //Makes effects active so they can be deployed when needed
   activateEffects() {
-    this.loseLifeEffect.active();
-    this.wrongSliceText.active();
-    this.recipeCompleteEffect.active();
-    this.gainLifeEffect.active();
+    this.sliceEffects['loseLife'].active();
+    this.sliceEffects['wrongSlice'].active();
+    this.sliceEffects['recipeComplete'].active();
+    this.sliceEffects['gainLife'].active();
   }
 
   getScore() {
@@ -153,7 +154,7 @@ class GameManager {
 
     // Update recipe when finished
     if (this.currentRecipe.getRecipe().length === 0) {
-      this.recipeCompleteEffect.show();
+      this.sliceEffects['recipeComplete'].show();
       this.currentRecipe = new RecipeGeneration();
       this.score.addScore(20);
       if (this.spawnRate-1 !== 0){
@@ -213,10 +214,10 @@ class GameManager {
         }
         if (this.playingFruits[i].getName() === 'dragonfruit'){
             this.lives.gainLife();
-            this.gainLifeEffect.show();
+            this.sliceEffects['gainLife'].show();
         }
         else if (this.playingFruits[i].getName() !== 'dragonfruit' && this.playingFruits[i].getIndex() !== this.currentRecipe.getRecipe()[0]){
-          this.loseLifeEffect.show();
+          this.sliceEffects['loseLife'].show();
           this.lives.loseLife();
         }
         else if (this.playingFruits[i].getIndex() === this.currentRecipe.getRecipe()[0]){
@@ -225,7 +226,7 @@ class GameManager {
             this.currentRecipe.getRecipe().shift();
           }
           else if (this.playingFruits[i].slicePat.isSliced() === 'wrong'){
-            this.wrongSliceText.show();
+            this.sliceEffects['wrongSlice'].show();
           }
         }
         if (this.playingFruits[i].getName() !== 'bomb') {
