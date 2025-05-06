@@ -126,10 +126,12 @@ function startScreen() {
     toggleSound();
   })
   // draws the title on screen
-  const titleBtn = document.createElement('button');
-  titleBtn.className = 'title';
-  titleBtn.textContent = 'smoothie\noperator';
-  buttonWrapper.appendChild(titleBtn);
+  const titleImg = document.createElement('img');
+  titleImg.src = 'Design/Images/game-title.png';
+  titleImg.alt = 'title';
+  titleImg.style.width = '900px';
+  titleImg.style.height = 'auto';
+  buttonWrapper.appendChild(titleImg);
   //container.prepend(optionsBtn);
   // draws player buttons on screen
   const centerButtons = document.createElement('div');
