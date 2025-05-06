@@ -85,6 +85,7 @@ function keyPressed() {
 function startScreen() {
   // clears screen
   clearMainMenu();
+  buttonWrapper.style.marginTop = '5px';
   gameManager.hideRecipeBook();
   gameManager.setMode(null);
   gameManager.setStartGame(false);
@@ -203,13 +204,14 @@ function clearMainMenu() {
 function selectGame() {
   // clears main menu
   clearMainMenu();
+  buttonWrapper.style.marginTop = '30px';
   // draws title on screen
   const titleBtn = document.createElement('button');
   titleBtn.className = 'title';
   titleBtn.textContent = 'choose your recipe';
   titleBtn.style.fontSize = '80px';
   titleBtn.style.borderBlockStyle = 'solid';
-  titleBtn.style.borderColor = '#DDB78E';
+  titleBtn.style.borderColor = 'white';
   titleBtn.style.marginTop = '-10px';
   titleBtn.style.marginBottom = '90px';
   buttonWrapper.appendChild(titleBtn);
@@ -236,12 +238,12 @@ function selectGame() {
   centerButtons.appendChild(samuraiBtn);
   ninjaBtn.addEventListener('click', function() {
     ninjaImg.style.opacity = '1.0';
-    samuraiImg.style.opacity = '0.6';
+    samuraiImg.style.opacity = '0.3';
     gameManager.setMode('easy');
   });
   samuraiBtn.addEventListener('click', function() {
     samuraiImg.style.opacity = '1.0';
-    ninjaImg.style.opacity = '0.6';
+    ninjaImg.style.opacity = '0.3';
     gameManager.setMode('hard');
   });
   // draws back button on screen

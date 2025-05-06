@@ -52,9 +52,9 @@ body {
   text-align: center;
   border: 4px;
   border-style: solid;
-  border-color: rgb(221, 183, 142, 0.6);
+  border-color: rgb(153, 88, 34, 0.6);
   border-radius: 30px;
-  background-color: rgb(244, 218, 169, 0.6);
+  background-color: rgb(138, 83, 31, 0.6);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: normal;
@@ -64,8 +64,8 @@ body {
 }
 
 .modeButton:hover {
-  background-color: #ffd68e;
-  border-color: #d48e29;
+  background-color: #8A531F;
+  border-color: #995822;
 }
 
 .imageButton {
@@ -79,7 +79,7 @@ body {
 .imageButton img {
   width: 250px;
   height: auto;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: opacity 0.3s ease;
   user-select: none;
 }
@@ -125,7 +125,8 @@ button:hover img {
   user-select: none;
   text-align: center;
   font-family: 'BlockBlueprint';
-  color: #ffd68e;
+  /*color: #ffd68e;*/
+  color: white;
  /*-webkit-text-stroke: 3px #d48e29;*/
   font-size: 180px;
   white-space: pre-wrap;
