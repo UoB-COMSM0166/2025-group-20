@@ -170,8 +170,8 @@ Although our project is primarily designed in an university setting, the Onion M
     
 ## Use Case Specification
 ### Single Player Mode
-
 <Strong>Basic Flow</Strong>
+<em>Table 1b: Single Player + Basic Flow<em>
 
 | **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
 |---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -183,6 +183,7 @@ Although our project is primarily designed in an university setting, the Onion M
                                 
 
 <Strong>Alternative Flow</Strong>
+<em>Table 1c: Single Player + Alternative Flow</em>
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
 | 1        | Wrong fruit sliced: -1 heart. No effect on score.               | Wrong fruit sliced: Same as Easy mode.                 |
@@ -193,6 +194,7 @@ Although our project is primarily designed in an university setting, the Onion M
 ### Two Player Mode
 
 <Strong>Basic Flow</Strong>
+<em>Table 1d: Two Player + Basic Flow</em>
 
 | **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
 |---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -204,6 +206,7 @@ Although our project is primarily designed in an university setting, the Onion M
 
 
 <Strong>Alternative Flow</Strong>
+<em>Table 1e: Two Player + Alternative Flow</em>
 
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -270,9 +273,9 @@ This section presents the HCI evaluations of Smoothie Operator, with a particula
 
 ## Qualitative: Think Aloud
 
-To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience. This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table X). 
+To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience. This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table 2a). 
 
-Table X: Raw Think Aloud (TA) feedback
+*Table 2a: Raw Think Aloud (TA) feedback*
 | Theme           | Positive                                                                                                                                 | Negative                                                                                                                            |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Controls        | - The click control is very satisfying<br>- The `cursorEffect` provides good user feedback                                              | - Trackpad is inelegant<br>- The `mousepressed` function bugs after hearts lost<br>- The `mousepressed` for slicing could be redundant |
