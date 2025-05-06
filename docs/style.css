@@ -34,9 +34,9 @@ body {
   font-size: 38px;
   border: 4px;
   border-style: solid;
-  border-color: rgb(153, 88, 34, 0.9);
+  border-color: rgb(64, 35, 19, 0.9);
   border-radius: 20px;
-  background-color: rgb(138, 83, 31, 0.9);
+  background-color: rgb(197, 139, 82, 0.9);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: normal;
@@ -52,9 +52,9 @@ body {
   text-align: center;
   border: 4px;
   border-style: solid;
-  border-color: rgb(153, 88, 34, 0.6);
+  border-color: rgb(64, 35, 19, 0.6);
   border-radius: 30px;
-  background-color: rgb(138, 83, 31, 0.6);
+  background-color: rgb(197, 139, 82, 0.6);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: normal;
@@ -64,8 +64,8 @@ body {
 }
 
 .modeButton:hover {
-  background-color: #8A531F;
-  border-color: #995822;
+  background-color: #C58B52;
+  border-color: #402313;
 }
 
 .imageButton {
@@ -89,8 +89,8 @@ button:hover img {
 }
 
 .button:hover {
-  background-color: #8A531F;
-  border-color: #995822;
+  background-color: #C58B52;
+  border-color: #402313;
 }
 
 .center-buttons {
