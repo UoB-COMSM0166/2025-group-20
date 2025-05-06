@@ -87,7 +87,7 @@ Although our project is primarily designed in an university setting, the Onion M
 
 
 <p align="center">
-  <img src="project-report-images/usecasemod.png" width="70%"><br>
+  <img src="project-report-images/usecasediagram.png" width="70%"><br>
   <b>Figure 2c. </b> <i>Use Case Diagram</i>
 </p>
 
