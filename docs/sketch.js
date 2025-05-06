@@ -138,8 +138,13 @@ function startScreen() {
   centerButtons.className = 'center-buttons';
   buttonWrapper.appendChild(centerButtons);
   const onePlayerBtn = document.createElement('button');
-  onePlayerBtn.className = 'button';
-  onePlayerBtn.textContent = 'one player';
+  onePlayerBtn.classList.add('imageButton');
+  const p1Img = document.createElement('img');
+  p1Img.src = 'Design/Images/one-player.png';
+  p1Img.alt = 'one player';
+  p1Img.style.width = '180px';
+  p1Img.style.height = 'auto';
+  onePlayerBtn.appendChild(p1Img);
   const twoPlayerBtn = document.createElement('button');
   twoPlayerBtn.className = 'button';
   twoPlayerBtn.textContent = 'two player';
