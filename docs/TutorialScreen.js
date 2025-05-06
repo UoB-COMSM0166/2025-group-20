@@ -37,8 +37,8 @@ class TutorialManager {
         background(bg);
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
+            this.tutorialFruit.move();
         }
-        this.tutorialFruit.move();
         this.wrongSliceText.active();
         this.correctSliceText.active();
         if (!this.tutorialFruit.visible){
