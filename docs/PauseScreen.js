@@ -5,6 +5,7 @@ class PauseScreen {
 
   //draws pause screen
   drawScreen() {
+    buttonWrapper.style.marginTop = '110px';
     if (!buttonWrapper.contains(this.pauseTitle)) {
       buttonWrapper.appendChild(this.pauseTitle);
     }
