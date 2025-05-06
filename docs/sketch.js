@@ -146,8 +146,13 @@ function startScreen() {
   p1Img.style.height = 'auto';
   onePlayerBtn.appendChild(p1Img);
   const twoPlayerBtn = document.createElement('button');
-  twoPlayerBtn.className = 'button';
-  twoPlayerBtn.textContent = 'two player';
+  twoPlayerBtn.classList.add('imageButton');
+  const p2Img = document.createElement('img');
+  p2Img.src = 'Design/Images/two-player.png';
+  p2Img.alt = 'two player';
+  p2Img.style.width = '180px';
+  p2Img.style.height = 'auto';
+  twoPlayerBtn.appendChild(p2Img);
   centerButtons.appendChild(onePlayerBtn);
   centerButtons.appendChild(twoPlayerBtn);
   onePlayerBtn.addEventListener('click', function() {
@@ -158,21 +163,34 @@ function startScreen() {
     gameManager.setCoop(true);
     selectGame();
   });
+  const centerButtons2 = document.createElement('div');
+  centerButtons2.className = 'center-buttons';
+  buttonWrapper.appendChild(centerButtons2);
   // draws tutorial button on screen
   const trainingBtn = document.createElement('button');
-  trainingBtn.className = 'button';
-  trainingBtn.textContent = 'training dojo';
-  buttonWrapper.appendChild(trainingBtn);
+  trainingBtn.classList.add('imageButton');
+  const trainingImg = document.createElement('img');
+  trainingImg.src = 'Design/Images/training-dojo.png';
+  trainingImg.alt = 'training dojo';
+  trainingImg.style.width = '180px';
+  trainingImg.style.height = 'auto';
+  trainingBtn.appendChild(trainingImg);
+  centerButtons2.appendChild(trainingBtn);
   trainingBtn.addEventListener('click', function() {
     tutorialManager = new TutorialManager();
     tutorial = true;
   });
   // draws quit button on screen
-  const bottomBtn = document.createElement('button');
-  bottomBtn.className = 'button';
-  bottomBtn.textContent = 'quit';
-  buttonWrapper.appendChild(bottomBtn);
-  bottomBtn.addEventListener('click', function() {
+  const exitBtn = document.createElement('button');
+  exitBtn.classList.add('imageButton');
+  const exitImg = document.createElement('img');
+  exitImg.src = 'Design/Images/quit-game.png';
+  exitImg.alt = 'exit game';
+  exitImg.style.width = '140px';
+  exitImg.style.height = 'auto';
+  exitBtn.appendChild(exitImg);
+  centerButtons2.appendChild(exitBtn);
+  exitBtn.addEventListener('click', function() {
     window.history.back();
   });
 }
