@@ -14,6 +14,8 @@ let height;
 let optionsTitle; let optionsP2; let optionsSound; let optionsCursor;
 let backButton;
 let bg;
+let tutorialManager;
+let tutorial;
 
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
@@ -37,11 +39,15 @@ function setup() {
   makeMenuButtons();
   gameover = new Gameover();
   pauseScreen = new PauseScreen();
+  tutorial = false;
   startScreen();
 }
 
 function draw() {
-  if (gameManager.getMode() !== null && gameManager.getStartGame()) {
+  if (tutorial){
+    tutorialScreen();
+  }
+  else if (gameManager.getMode() !== null && gameManager.getStartGame()) {
     gameManager.gameState();
     gameManager.activateEffects();
   }
@@ -151,7 +157,8 @@ function startScreen() {
   trainingBtn.textContent = 'training dojo';
   buttonWrapper.appendChild(trainingBtn);
   trainingBtn.addEventListener('click', function() {
-    tutorialScreen();
+    tutorialManager = new TutorialManager();
+    tutorial = true;
   });
   // draws quit button on screen
   const bottomBtn = document.createElement('button');
@@ -239,16 +246,17 @@ function selectGame() {
 function tutorialScreen() {
   // clears main menu
   clearMainMenu();
-  background(bg);
-  if (this.cursorEffect) {
-    this.cursorScreenEffects.cursorEffect();
-  }
+
+  // draws tutorial screen
+  tutorialManager.drawTutorialScreen();
+
   // draws back button on screen
   const bottomBtn = document.createElement('button');
   bottomBtn.className = 'button';
   bottomBtn.textContent = 'back';
   buttonWrapper.appendChild(bottomBtn);
-  bottomBtn.addEventListener('click', function() {
+  bottomBtn.addEventListener('click', function(){
+    tutorial = false;
     startScreen();
   });
 }
