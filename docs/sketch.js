@@ -52,6 +52,7 @@ function draw() {
     gameManager.activateEffects();
   }
   else if (gameManager.getLostGame()) {
+    buttonWrapper.style.marginTop = '210px';
     gameover.draw();
   }
   else {

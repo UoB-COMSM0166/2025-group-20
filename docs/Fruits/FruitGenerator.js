@@ -9,7 +9,7 @@ class FruitGenerator {
     if (genType === 0) {
       index = gameManager.getCurrentRecipe().getRecipe()[0];
     } else if (genType === 1) {
-      index = round(random(1, gameManager.getFruitNames().length - 1));
+      index = round(random(1, gameManager.getFruitNames().length - 3));
     } else if (genType === 3) {
       index = gameManager.getFruitNames().length - 2;
     }

@@ -28,6 +28,8 @@ class Gameover {
     this.gameoverTitle = document.createElement('button');
     this.gameoverTitle.className = 'title';
     this.gameoverTitle.textContent = 'game over!';
+    this.gameoverTitle.style.borderBlockStyle = 'solid';
+    this.gameoverTitle.style.marginBottom = '70px';
     this.gameoverTitle.style.background = 'none';
     this.gameoverTitle.style.fontSize = '150px';
     this.gameoverTitle.style.display = 'none';
