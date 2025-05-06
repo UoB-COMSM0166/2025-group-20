@@ -26,7 +26,8 @@ class TutorialManager {
             textSize(100);
             text('Correct Slice!', width/2, 100);
         });
-        this.cursorEffect = new CursorEffect();
+        this.cursorEffect = false;
+        this.cursorScreenEffect = new CursorEffect();
         this.lives = new Lives();
         this.lives.loseLife();
         this.bombGif = loadImage('Design/Images/boom.gif');
@@ -35,19 +36,20 @@ class TutorialManager {
 
     drawTutorialScreen() {
         background(bg);
+        this.wrongSliceText.active();
+        this.correctSliceText.active();
+        this.gainLifeEffect.active();
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
             this.tutorialFruit.move();
         }
-        this.wrongSliceText.active();
-        this.correctSliceText.active();
         if (!this.tutorialFruit.visible){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
         }
         if (this.cursorEffect) {
-            this.cursorEffect.cursorEffect();
+            this.cursorScreenEffect.cursorEffect();
         }
-        if (this.tutorialFruit.fruitName === 'dragonfruit'){
+        if (this.tutorialFruit.fruitName === 'dragonfruit' || this.tutorialFruit.fruitName === 'bomb'){
             this.lives.drawLife();
         }
         if (this.tutorialFruit.slicePat.isSliced() === 'correct') {
@@ -65,7 +67,13 @@ class TutorialManager {
         }
         else if (this.tutorialFruit.slicePat.isSliced() === 'bomb'){
             this.tutorialFruit.makeInert();
+            this.lives.zeroLives();
+            this.tutorialEnd = true;
             image(this.bombGif, this.tutorialFruit.xPos, this.tutorialFruit.yPos, 400, 300);
+            setTimeout(()=>{
+                this.tutorialEnd = false
+                this.lives.resetLife();
+            }, 2000)
             if (!this.tutorialFruit.visible) {
                 this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
             }
@@ -88,5 +96,16 @@ class TutorialManager {
         this.tutorialFruit.fruitImg = gameManager.getSliceImages()[this.fruitIndex];
         this.tutorialFruit.slicingGif = null;
         this.tutorialFruit.makeInert();
+    }
+
+    setCursorEffect(effect){
+        this.cursorEffect = effect;
+    }
+
+    resetTutorial(){
+        this.fruitIndex = 0;
+        this.lives = new Lives();
+        this.lives.loseLife();
+        this.cursorScreenEffect.resetCursor();
     }
 }
