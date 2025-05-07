@@ -38,7 +38,7 @@ Second, our hard mode designates specific slicing patterns for each fruit which 
 </p>
 <p align="center">
   <img src="project-report-images/Miro.png" width="60%"><br>
-  <b>Figure 1a. </b> <i>Brainstorming on Miro</i>
+  <b>Figure 1. </b> <i>Brainstorming on Miro</i>
 </p>
 
 <ol>
@@ -57,12 +57,12 @@ Eventually, our team took a vote and decided on the third idea —an adaptation 
 
 <p align="center">
   <img src="project-report-images/fruit-ninja.png" width="50%"><br>
-  <b>Figure 1b. </b> <i>Fruit Ninja</i>
+  <b>Figure 2a. </b> <i>Fruit Ninja</i>
 </p>
 
 <p align="center">
   <img src="project-report-images/overcooked.png" width="50%"><br>
-  <b>Figure 1c. </b> <i>Overcooked</i>
+  <b>Figure 2b. </b> <i>Overcooked</i>
 </p>
 
 ## Early Design Phase
@@ -70,7 +70,7 @@ During the third workshop, we designed a Paper Prototype to refine and expand ou
 
 <p align="center">
   <img src="project-report-images/prototype.gif" width="50%"><br>
-  <b>Figure 1e. </b> <i>Paper Prototype</i>
+  <b>Figure 3. </b> <i>Paper Prototype</i>
 </p>
 
 We also considered incorporating memory-based gameplay elements: players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. However, we received feedback from other teams indicated this approach demanded excessive cognitive effort. We took this feedback on board and decided to keep the recipes visible on-screen to improve the playability of our game.
@@ -81,7 +81,7 @@ We first developed an Onion Model to identify key stakeholders to help us unders
 
 <p align="center">
   <img src="project-report-images/OnionModel.png" width="50%"><br>
-  <b>Figure 1d. </b> <i>Onion Model of Smoothie Operator</i>
+  <b>Figure 4. </b> <i>Onion Model of Smoothie Operator</i>
 </p>
 
 Although our project is primarily designed in a university setting, the Onion Model underscores the capacity of successful systems to shape broader social behaviors by providing engaging gameplay experiences tailored to relevant communities.
@@ -89,7 +89,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 
 <p align="center">
   <img src="project-report-images/usecasediagram.png" width="70%"><br>
-  <b>Figure 1e. </b> <i>Use Case Diagram</i>
+  <b>Figure 5. </b> <i>Use Case Diagram</i>
 </p>
 
 <h2>User Stories</h2>
@@ -166,7 +166,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
             </tr>
         </tbody>
     </table>
-    <b>Table 1a. </b> <i>User requirements divided into initiatives, epics, and user stories. </i>
+    <b>Table 1. </b> <i>User requirements divided into initiatives, epics, and user stories. </i>
     
 ## Use Case Specification
 ### Single Player Mode
@@ -180,7 +180,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Slice any correct fruit: +10 points.                                                               | Slice correct fruit **with correct method**: +10 points.                                                 |
 | 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points. 
 
-<b>Table 1b. </b> <i>Single Player + Basic Flow.</i>
+<b>Table 2a. </b> <i>Single Player + Basic Flow.</i>
                                 
 **Alternative Flow**
 
@@ -191,7 +191,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 3        | Sliced bomb: Instant game over.                                 |  Sliced bomb: Instant game over.                                    |
 | 4        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
-<b>Table 1c. </b> <i>Single Player + Alternative Flow.</i>
+<b>Table 2b. </b> <i>Single Player + Alternative Flow.</i>
 
 ### Two Player Mode
 
@@ -205,7 +205,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Correct sliced fruit caught: +10 points.                                                                      | Correctly sliced **and** caught fruit: +10 points.                                                             |
 | 5        | Recipe completion: +20 bonus points.                                                                          | Same, only if all fruits sliced correctly and caught.                                                          |
 
-<b>Table 1d. </b> <i>Single Player + Basic Flow.</i>
+<b>Table 3a. </b> <i>Single Player + Basic Flow.</i>
 
 #### Alternative Flow
 
@@ -217,7 +217,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Bomb sliced: Instant game over for both players.               | Bomb sliced: Instant game over for both players.                    |
 | 5        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
-<b>Table 1e. </b> <i>Two Player + Alternative Flow.</i>
+<b>Table 3b. </b> <i>Two Player + Alternative Flow.</i>
 
 # Design 
 
@@ -253,7 +253,7 @@ In our final implementation, we maintained the 3x3 grid of hitboxes, but we chan
 
 <p align="center">
   <img src="project-report-images/implementation_challenge1.png" width="70%"><br>
-  <b>Figure 3a. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
+  <b>Figure . </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
 
 ## Challenge 2: Balancing Challenging and Playability**
