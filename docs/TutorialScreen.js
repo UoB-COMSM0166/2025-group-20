@@ -47,7 +47,7 @@ class TutorialManager extends GameManager {
             this.sliceEffects['correctSlice'].show();
             if (this.tutorialFruit.getName() === 'dragonfruit'){
                 this.lives.gainLife();
-                this.gainLifeEffect.show();
+                this.sliceEffects['gainLife'].show();
             }
             this.sliceHandle();
             this.fruitIndex++;
