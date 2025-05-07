@@ -50,7 +50,7 @@ function setup() {
 
 function draw() {
   if (tutorial){
-    tutorialScreen();
+    tutorialManager.drawTutorialScreen();
   }
   else if (gameManager.getMode() !== null && gameManager.getStartGame()) {
     gameManager.gameState();
@@ -217,15 +217,6 @@ function startScreen() {
 
 function clearMainMenu() {
   buttonWrapper.innerHTML = '';
-
-}
-
-function tutorialScreen() {
-
-
-  // draws tutorial screen
-  tutorialManager.drawTutorialScreen();
-  // draws back button on screen
 
 }
 
@@ -471,8 +462,12 @@ function windowResized() {
 }
 
 function showCursor() {
-  cursorTrail.push({ x: mouseX, y: mouseY, alpha: 255 });
-  if (cursorTrail.length > 50) { cursorTrail.shift(); }
+  if (mouseIsPressed) {
+    cursorTrail.push({x: mouseX, y: mouseY, alpha: 255});
+  }
+  if (cursorTrail.length > 50) {
+    cursorTrail.shift();
+  }
 
   for (let i = 0; i < cursorTrail.length; i++) {
     let t = cursorTrail[i];
