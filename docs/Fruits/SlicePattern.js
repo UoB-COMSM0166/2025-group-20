@@ -41,15 +41,47 @@ class SlicePattern{
             return 'correct';
         }
     }
+    else if (this.type === 'lrdown/rlup' || this.type === 'rldown/lrup'){
+        let firstTwo = false;
+        let endTwo = false;
+        for (let j = 0; j < 3; ++j){
+            if (this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+                firstTwo = true;
+            }
+            if (this.sliceArrays[j].hits[1].hit && this.sliceArrays[j].hits[0].hit){
+                endTwo = true;
+            }
+            if (!this.sliceArrays[j].hits[2].hit && !this.sliceArrays[j].hits[1].hit && this.sliceArrays[j].hits[0].hit){
+                return 'wrong';
+            }
+        }
+        for (let i = 0; i < 3; ++i){
+            if ((this.sliceArrays[i].hits[1].hit && firstTwo) || (this.sliceArrays[i].hits[2].hit && endTwo)){
+                return 'correct';
+            }
+            if ((this.sliceArrays[i].hits[1].hit && !firstTwo) && (this.sliceArrays[i].hits[2].hit && !endTwo)){
+                return 'wrong';
+            }
+        }
+    }
     else {
-      for (let i = 0; i < 3; ++i){
-        if (this.sliceArrays[i].isSliced() === 'correct'){
-          return 'correct';
+        let firstTwo = false;
+        for (let j = 0; j < 3; ++j){
+            if (this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+                firstTwo = true;
+            }
+            if (!this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+                return 'wrong';
+            }
         }
-        else if (this.sliceArrays[i].isSliced() === 'wrong'){
-          return 'wrong';
+        for (let i = 0; i < 3; ++i){
+            if (this.sliceArrays[i].hits[1].hit && firstTwo){
+                return 'correct';
+            }
+            if (this.sliceArrays[i].hits[1].hit && !firstTwo){
+                return 'wrong';
+            }
         }
-      }
     }
   }
 
@@ -92,29 +124,6 @@ class SliceArray{
       this.hits[0] = new HitBox(this.diameter);
       this.hits[1] = new HitBox(this.diameter);
       this.hits[2] = new HitBox(this.diameter);
-  }
-
-  //checks if hitboxes have been sliced in correct order
-  isSliced(){
-      if (this.type === 'inert'){
-          return 'inert';
-      }
-      else if (this.type === 'lrdown/rlup' || this.type === 'rldown/lrup'){
-          if (this.hits[0].hit && !this.hits[2].hit && !this.hits[1].hit){
-              return 'wrong';
-          }
-          else if (this.hits[0].hit && this.hits[1].hit && this.hits[2].hit){
-              return 'correct';
-          }
-      }
-      else{
-          if (this.hits[2].hit && this.hits[0].hit && this.hits[1].hit){
-              return 'correct';
-          }
-          else if (!this.hits[2].hit && (this.hits[0].hit || this.hits[1].hit)) {
-              return 'wrong';
-          }
-      }
   }
 
   //hitboxes arranged and moved in specific order depending on direction
