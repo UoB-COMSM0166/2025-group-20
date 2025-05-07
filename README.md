@@ -243,7 +243,7 @@ In easy mode the player just has simply slice the relevant fruit in any directio
 
 # Implementation
 
-## Challenge 1: An appropriate hitbox mechanism
+## Challenge 1: A suitable hitbox mechanism
 Smoothie Operator is based on Fruit Ninja which was developed for mobile devices, allowing players to smoothly swipe the fruits on their touchscreens in any direction. Our easy mode, which only requires the player to follow a specified smoothie recipe, followed that pattern and its implementation was straightforward. However, our hard mode introduces a further twist which involved crafting a unique slicing mechanism for each fruit. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mouses and trackpads.
 
 Our initial approach was to generate 3 invisible circular hitboxes on each fruit that followed the direction of the designated slicing pattern and moved with the fruit on the screen. If the cursor touches all three hitboxes in the correct order, a correct slice will be registered and the user will move to the next fruit in the recipe. Otherwise, the user will be informed of the wrong slice and they will try slicing the same fruit again. However, during the early evaluation stages of our game, users reported that the design required highly accurate swipes which were difficult to achieve while the fruit was moving across the screen. This first implementation was flawed because the hitboxes did not cover the entire fruit and even a slight misalignment would cause an objectively correct slice to go unregistered. This not only caused fraustration for our users, but to us as well because we wanted our game to be stimulating yet enjoyable.
