@@ -222,6 +222,8 @@ Although our project is primarily designed in an university setting, the Onion M
 
 # Design (Barney)
 
+![Report Class DIagram Final](https://github.com/user-attachments/assets/5b22ad59-0db5-4298-9167-8b214936a317)
+
 Our game was built using the programming languages HTML, CSS and JavaScript with the files hosted on the popular code sharing website GitHub, allowing our game to be easily distributed and playable on any device with an internet browser. In addition to this we heavily utilised the P5.js JavaScript library for due to its easy and effective animation capabilities.
 
 The user interface is designed to be simply navigated with just the device cursor, ideally a mouse as during testing we found the game was significantly more difficult when using a trackpad, and limited key presses. The game can be played on mobile with touch replacing the cursor, however due to time constraints the game has not been optimized for these types of devices leading to numerous issues if done so.
