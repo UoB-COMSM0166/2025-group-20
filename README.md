@@ -3,7 +3,7 @@
 
 ## Your Game
 <div align="center"> 
-  <img src='docs/Design/Images/watch-our-video.png' width='200'> [<img src='docs/Design/Images/play-our-game.png' width='200'>](https://uob-comsm0166.github.io/2025-group-20/) <img src='docs/Design/Images/meet-our-team.png' width='200'>
+  <img src='docs/Design/Images/watch-our-video.png' width='200'> <img src='docs/Design/Images/play-our-game.png' width='200'>(https://uob-comsm0166.github.io/2025-group-20/) <img src='docs/Design/Images/meet-our-team.png' width='200'>
 </div>
 
 ## Your Group
