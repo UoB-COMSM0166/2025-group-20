@@ -16,6 +16,8 @@ let backButton;
 let bg;
 let tutorialManager;
 let tutorial;
+let cursorEffect;
+let cursorTrail;
 
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
@@ -40,7 +42,9 @@ function setup() {
   gameover = new Gameover();
   pauseScreen = new PauseScreen();
   tutorialManager = new TutorialManager();
+  cursorTrail = [];
   tutorial = false;
+  cursorEffect = false;
   startScreen();
 }
 
@@ -57,7 +61,12 @@ function draw() {
   }
   else {
     canvas.clear();
-  }  
+  }
+
+  if (cursorEffect) {
+    showCursor();
+  }
+
   if (gameManager.get2Control() === 'arrow') {
     if (keyIsDown(RIGHT_ARROW)) {
       gameManager.getBasket().move('right');
@@ -324,8 +333,7 @@ function makeMenuButtons() {
   pauseButton.textContent = 'II';
   bottomCorner.appendChild(pauseButton);
   pauseButton.style.display = 'none';
-  pauseButton.addEventListener('click', () => { 
-    cursor();
+  pauseButton.addEventListener('click', () => {
     noLoop();
     pauseScreen.drawScreen();
   });
@@ -433,12 +441,13 @@ function makeMenuButtons() {
   optionsCursor.style.gap = '110px';
 
   onButton.addEventListener('click', function() {
-    gameManager.setCursorEffect(true);
+    cursorEffect = true;
     onButton.style.opacity = '1.0';
     offButton.style.opacity = '0.6';
   });
   offButton.addEventListener('click', function() {
-    gameManager.setCursorEffect(false);
+    cursorEffect = false;
+    cursorTrail = [];
     offButton.style.opacity = '1.0';
     onButton.style.opacity = '0.6';
   });
@@ -459,4 +468,19 @@ function windowResized() {
   height = container.clientHeight;
 
   resizeCanvas(width, height);
+}
+
+function showCursor() {
+  cursorTrail.push({ x: mouseX, y: mouseY, alpha: 255 });
+  if (cursorTrail.length > 50) { cursorTrail.shift(); }
+
+  for (let i = 0; i < cursorTrail.length; i++) {
+    let t = cursorTrail[i];
+    fill(255, 255, 255, t.alpha);
+    stroke(255, 255, 255, t.alpha);
+    drawingContext.shadowColor = color(255, 255, 255, t.alpha);
+    rectMode(CENTER);
+    rect(t.x, t.y, 10, 10);
+    t.alpha -= 5;
+  }
 }

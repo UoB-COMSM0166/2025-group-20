@@ -32,9 +32,6 @@ class TutorialManager extends GameManager {
             this.tutorialFruit.show();
             this.tutorialFruit.move();
         }
-        if (this.cursorEffect) {
-            this.cursorScreenEffect.cursorEffect();
-        }
         if (!this.tutorialFruit.visible){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
             this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + " " + this.slicePatterns[this.fruitIndex];
@@ -87,7 +84,6 @@ class TutorialManager extends GameManager {
         this.fruitIndex = 0;
         this.lives = new Lives();
         this.lives.loseLife();
-        this.cursorScreenEffect.resetCursor();
         this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
         this.tutorialEnd = false;
     }

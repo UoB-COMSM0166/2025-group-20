@@ -4,12 +4,10 @@ class GameManager {
     this.mode = null;
     this.player2Control = 'aswd';
     this.soundEffect = false;
-    this.cursorEffect = false;
     this.startGame = false;
     this.lives = new Lives();
     this.score = new GameScore();
     this.recipeBook = new RecipeBook();
-    this.cursorScreenEffect = new CursorEffect();
     this.sliceEffects = {};
     this.sliceEffects['loseLife'] = new SliceEffect(()=>{
       push();
@@ -92,10 +90,6 @@ class GameManager {
     return this.soundEffect;
   }
 
-  setCursorEffect(effect) {
-    this.cursorEffect = effect;
-  }
-
   setStartGame(start) {
     this.startGame = start;
   }
@@ -131,10 +125,6 @@ class GameManager {
   //runs all main game logic
   gameState() {  
     background(bg);
-    // Enables cursor effect
-    if (this.cursorEffect) {
-      this.cursorScreenEffect.cursorEffect();
-    }
     // Draws recipe book if mode === hard
     if (this.mode === 'hard') {
       this.recipeBook.displayBook();
@@ -290,7 +280,6 @@ class GameManager {
     this.playingFruits = [];
     this.fruitOnScreen = [];
     this.splatters = [];
-    this.cursorScreenEffect.resetCursor();
     this.currentRecipe = new RecipeGenerator();
     this.score.resetScore();
     this.lives.resetLife();
