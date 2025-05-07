@@ -244,6 +244,7 @@ In easy mode the player just has simply slice the relevant fruit in any directio
 # Implementation (Omnia)
 **Challenge 1: Hitboxes**
 
+
 One of the first challenges we faced was designing an intuitive slicing system that worked smoothly with a mouse or trackpad. Unlike touchscreen swipes (like the real Fruit Ninja), mouse movements are less fluid and often less precise, which made it harder to translate natural slicing gestures into accurate in-game interactions. Our initial attempt involved placing three circular hitboxes vertically inside each fruit to simulate a swipe. This worked for vertical slicing but was too limited for other directions. It also introduced accuracy issues, where even slight misalignment caused correct slices to go unregistered. To improve this, we expanded the model into a 3x3 grid of hitboxes, which allowed us to detect slices in multiple directions—up, down, left, right, and diagonals—based on predefined recipes. To manage the slicing logic, we implemented three main classes: HitBox, SliceArray, and SlicePattern.  
 
 HitBox represents a small circular area that detects if the mouse is pressed within its bounds. SliceArray groups three HitBoxes in a specific orientation, such as horizontal or diagonal, forming a slicing pattern. The constructor initializes three individual HitBox objects and places them spatially depending on the array’s type (e.g., "up", "down", or diagonal variants). SlicePattern wraps everything together. In easy mode, it contains only one HitBox, so the player can simply click the fruit. In hard mode, it contains three SliceArray objects, meaning the player needs to slice across multiple hitboxes in a defined direction. The move() method aligns them on screen with the fruit, and isSliced() delegates to the hitboxes or arrays to determine whether the interaction was successful. This logic is triggered in the main game loop handled by GameManager.gameState(), where each fruit’s slicePat.isSliced() result determines whether to register a correct slice, trigger a life penalty, or handle a bomb. 
@@ -270,8 +271,7 @@ Aligning with Nielsen’s ‘Recognition Over Recall’ Principle: In a later sp
 
 **Figure 3b**: *Demonstrates the Recipe Book (left) with its support bidirectional diagonal slices and the recipe line (top)*
 
-**Challenge 3: UI and Logic Coordination**
-As we introduced more slicing directions, the codebase and UI logic grew significantly more complex. Each new direction required custom logic for hitbox placement and movement within the SlicePattern and SliceArray classes. This meant more calculations per frame, especially when multiple fruits were on screen. On the UI side, we had to reflect these patterns clearly showing accurate icons, updating the recipe bar, and visually removing fruits in real time. Managing this dynamic UI alongside constantly updating hitboxes created a performance bottleneck. The recipe bar needed to sync perfectly with slicing logic, requiring careful coordination between state updates and canvas rendering. This increase in both UI rendering and logic checks led to noticeable lag and a bloated update loop, especially in hard mode, where fruit patterns are more demanding.
+
 
 
 # Evaluation (Matilda)
