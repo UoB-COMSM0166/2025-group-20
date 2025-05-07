@@ -3,7 +3,7 @@
 
 ## Your Game
 
-[<img src='docs/Design/Images/play-our-game.png' width='50'>](https://uob-comsm0166.github.io/2025-group-20/)
+[<img src='docs/Design/Images/watch-our-video.png' width='300'>] [<img src='docs/Design/Images/play-our-game.png' width='300'>](https://uob-comsm0166.github.io/2025-group-20/) [<img src='docs/Design/Images/meet-our-team.png' width='300'>]
 
 Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
 
