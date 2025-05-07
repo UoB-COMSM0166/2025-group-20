@@ -2,13 +2,9 @@
 2025 COMSM0166 group 20
 
 ## Your Game
-
-Link to your game [PLAY HERE](https://uob-comsm0166.github.io/2025-group-20/)
-git 
-
-Your game lives in the [/docs](/docs) folder, and is published using Github pages to the link above.
-
-Include a demo video of your game here (you don't have to wait until the end, you can insert a work in progress video)
+<div align="center"> 
+  <img src='docs/Design/Images/watch-our-video.png' width='200'> <img src='docs/Design/Images/play-our-game.png' width='200'>(https://uob-comsm0166.github.io/2025-group-20/) <img src='docs/Design/Images/meet-our-team.png' width='200'>
+</div>
 
 ## Your Group
 ![Image](https://github.com/user-attachments/assets/958abe85-ba1e-46ad-b516-df34557794ae)
