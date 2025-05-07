@@ -17,7 +17,13 @@ class TutorialManager extends GameManager {
             overlay.textSize(100);
             overlay.text('Tutorial Complete!', width/2,100);
         })
-        this.bombGif = loadImage('Design/Images/boom.gif');
+        this.sliceEffects['bombSlice'] = new SliceEffect(()=>{
+            overlay.textAlign(CENTER, CENTER);
+            overlay.textFont(gameFont);
+            overlay.fill('red');
+            overlay.textSize(100);
+            overlay.text('Bomb Sliced!', width/2,100);
+        })
         this.tutorialEnd = false;
         this.lives.loseLife();
         this.narrationBox = document.createElement('p');
@@ -27,6 +33,7 @@ class TutorialManager extends GameManager {
         background(bg);
         this.sliceEffects['correctSlice'].active();
         this.sliceEffects['tutorialComplete'].active();
+        this.sliceEffects['bombSlice'].active();
         this.activateEffects();
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
@@ -57,7 +64,7 @@ class TutorialManager extends GameManager {
             this.tutorialFruit.makeInert();
             this.lives.zeroLives();
             this.tutorialEnd = true;
-            image(this.bombGif, this.tutorialFruit.xPos, this.tutorialFruit.yPos, 400, 300);
+            this.sliceEffects['bombSlice'].show();
             setTimeout(()=>{
                 this.tutorialEnd = false
                 this.lives.resetLife();
