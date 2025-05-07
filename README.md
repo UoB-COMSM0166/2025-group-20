@@ -424,7 +424,7 @@ Currently, our game is only hosted on GitHub; this is a platform committed to ca
 As a digital-only product, Smoothie Operator avoids carbon emissions associated with physical production. However, all digital games require energy, but we aim to offset the environmental impact of our game through using GitHub. In the future, we hope to explore more hosting platforms that have a similar carbon footprint to GitHub, in order to make our game even more accessible.
 
 <p align="center">
-  <img src="project-report-images/Chainofeffects.jpg" width="50%"><br>
+  <img src="project-report-images/Chainofeffects.jpg" width="70%"><br>
   <b>Figure 5a. </b> <i>Chain of Effects across Time and Dimensions. Red and green outined boxes represent potential negative and positive impacts. Boxes with a black, dashed outline represent our design responses to negate the negative impacts. </i>
 </p>
 
