@@ -35,11 +35,11 @@ function setup() {
   buttonWrapper.className = 'button-wrapper';
   container.appendChild(buttonWrapper);
   gameFont = loadFont('Design/Blockblueprint-LV7z5.ttf');
-  tutorialManager = new TutorialManager();
   gameManager = new GameManager();
   makeMenuButtons();
   gameover = new Gameover();
   pauseScreen = new PauseScreen();
+  tutorialManager = new TutorialManager();
   tutorial = false;
   startScreen();
 }
