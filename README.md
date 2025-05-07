@@ -3,6 +3,7 @@
 
 ## Your Game
 <div align="center"> 
+  <img src='docs/Design/Images/game-title.png'><br>
   <img src='docs/Design/Images/watch-our-video.png' width='150'> 
   <a href="https://uob-comsm0166.github.io/2025-group-20/"> 
     <img src='docs/Design/Images/play-our-game.png' width='150'>
