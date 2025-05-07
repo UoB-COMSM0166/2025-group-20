@@ -53,7 +53,7 @@ class TutorialManager extends GameManager {
             this.fruitIndex++;
         }
         else if (this.tutorialFruit.slicePat.isSliced() === 'wrong'){
-            this.wrongSliceText.show();
+            this.sliceEffects['wrongSlice'].show();
             this.sliceHandle();
         }
         else if (this.tutorialFruit.slicePat.isSliced() === 'bomb'){
