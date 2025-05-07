@@ -49,7 +49,7 @@ class GameManager {
     this.sliceImages = [];
     this.splatImages = [];
     this.loadFruitImages();
-    this.currentRecipe = new RecipeGeneration();
+    this.currentRecipe = new RecipeGenerator();
     this.noiseSeedVal = Math.random() * 1000;
     this.spawnRate = 120;
     this.fruitGenerator = new FruitGenerator();
@@ -155,7 +155,7 @@ class GameManager {
     // Update recipe when finished
     if (this.currentRecipe.getRecipe().length === 0) {
       this.sliceEffects['recipeComplete'].show();
-      this.currentRecipe = new RecipeGeneration();
+      this.currentRecipe = new RecipeGenerator();
       this.score.addScore(20);
       if (this.spawnRate-1 !== 0){
         this.spawnRate--;
@@ -291,7 +291,7 @@ class GameManager {
     this.fruitOnScreen = [];
     this.splatters = [];
     this.cursorScreenEffect.resetCursor();
-    this.currentRecipe = new RecipeGeneration();
+    this.currentRecipe = new RecipeGenerator();
     this.score.resetScore();
     this.lives.resetLife();
     this.basket.resetBasket();
