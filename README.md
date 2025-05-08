@@ -8,9 +8,7 @@
   <a href="https://uob-comsm0166.github.io/2025-group-20/"> 
     <img src='docs/Design/Images/play-our-game.png' width='150'>
   </a>
-  <a href="[###contribution-statement]">
-    <img src='docs/Design/Images/meet-our-team.png' width='150'>
-  </a>  
+  <img src='docs/Design/Images/meet-our-team.png' width='150'>
 </div>
 
 ## Our Group
