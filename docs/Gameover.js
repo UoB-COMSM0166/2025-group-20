@@ -10,6 +10,7 @@ class Gameover {
     gameManager.hideRecipeBook();
     gameManager.getScore().drawHighScore();
     gameManager.getScore().drawCurrentScore();
+    buttonWrapper.style.marginTop = '110px';
     if (!buttonWrapper.contains(this.gameoverTitle)) {
       buttonWrapper.appendChild(this.gameoverTitle);
     }

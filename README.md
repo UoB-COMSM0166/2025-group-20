@@ -14,13 +14,6 @@
 ## Your Group
 ![Image](https://github.com/user-attachments/assets/958abe85-ba1e-46ad-b516-df34557794ae)
 
-- Omnia Ali, dc24201@bristol.ac.uk
-- May Daoud, zy21368@bristol.ac.uk
-- Barney Evershed, b.evershed.2021@bristol.ac.uk
-- Scarlett Hurford, cy21903@bristol.ac.uk
-- Matilda Stokes, jl21579@bristol.ac.uk and matildarosevin@gmail.com (please note both matildarosevin and jl21579 are attributed to this team member)
-- Ziyan Zhao, rw24449@bristol.ac.uk
-
 # Introduction
 When designing our game, we wanted to create something that paid homage to a game we all knew and loved growing up, but with a twist that makes it more mentally engaging. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator—a slicing game that emphasizes accuracy and mental focus! 
 
@@ -185,32 +178,26 @@ In easy mode, the player just has to simply slice the relevant fruit in any dire
 # Implementation
 
 ## Challenge 1: A suitable hitbox mechanism
-Smoothie Operator is based on Fruit Ninja which was developed for mobile devices, allowing players to smoothly swipe the fruits on their touchscreens in any direction. Our easy mode, which only requires the player to follow a specified smoothie recipe, followed that pattern and its implementation was straightforward. However, our hard mode introduces a further twist which involves crafting a unique slicing mechanism for each fruit. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mice and trackpads.
+Smoothie Operator is based on Fruit Ninja, which was developed for mobile devices, allowing players to smoothly swipe the fruits on their touchscreens in any direction. Our easy mode, which only requires the player to follow a specified smoothie recipe, followed that pattern and its implementation was straightforward. However, our hard mode introduces a further twist which involves crafting a unique slicing mechanism for each fruit. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mice and trackpads. 
 
-Our initial approach was to generate 3 invisible circular hitboxes on each fruit that followed the direction of the designated slicing pattern and moved with the fruit on the screen. If the cursor touches all three hitboxes in the correct order, a correct slice will be registered and the user will move to the next fruit in the recipe. Otherwise, the user will be informed of the wrong slice and they will try slicing the same fruit again. However, during the early evaluation stages of our game, users reported that the design required highly accurate swipes which were difficult to achieve while the fruit was moving across the screen. This first implementation was flawed because the hitboxes did not cover the entire fruit and even a slight misalignment would cause an objectively correct slice to go unregistered. This not only caused frustration for our users, but for us as well because we wanted our game to be stimulating yet enjoyable.
+Our initial approach was to generate 3 invisible circular hitboxes on each fruit that followed the direction of the designated slicing pattern and moved with the fruit on the screen. If the cursor touches all three hitboxes in the correct order, a correct slice will be registered, and the user will move to the next fruit in the recipe. Otherwise, the user will be informed of the wrong slice, and they will try slicing the same fruit again. However, during the early evaluation stages of our game, users reported that the design required highly accurate swipes which were difficult to achieve while the fruit was moving across the screen. This first implementation was flawed because the hitboxes did not cover the entire fruit and even a slight misalignment would cause an objectively correct slice to go unregistered. This not only caused frustration for our users, but for us as well because we wanted our game to be stimulating yet enjoyable. 
 
-Upon examination, we decided to extend the hitboxes to represent a 3x3 grid that covered the entire fruit. This meant that a correct slice can be registered if the user aimed for the edges of the fruit. However, the cursor still needed to hit 3 consecutive hitboxes in the same row/column. Users again reported that it was difficult to keep the curosr in a straight line if the fruit was moving along the screen. This impacted our users' experiences because the system was still registering objectively correct slices as false negatives. Even after adjusting the fruits' speed, or allowing the hitboxes to overlap, we were still encountering difficulties with this design and so we brainstormed one last time.
+Upon examination, we decided to extend the hitboxes to represent a 3x3 grid that covered the entire fruit. This meant that a correct slice can be registered if the user aimed for the edges of the fruit. However, the cursor still needed to hit 3 consecutive hitboxes in the same row/column. Users again reported that it was difficult to keep the cursor in a straight line if the fruit was moving along the screen. This impacted our users' experiences because the system was still registering objectively correct slices as false negatives. Even after adjusting the fruits' speed, or allowing the hitboxes to overlap, we were still encountering difficulties with this design and so we brainstormed one last time. 
 
-In our final implementation, we maintained the 3x3 grid of hitboxes, but we changed the threshold for a correct slice. A more lenient appraoch required the cursor to hit the first two hitboxes in the same row/column. After that, as long as the cursor hits any of the boxes in the remaining row/column, a correct slice will be registered. This makes up for the stress of following the fruit along the screen with a mouse or a trackpad while maintaining the challenging yet exciting aspect of following a specific slicing pattern.
+In our final implementation, we maintained the 3x3 grid of hitboxes, but we changed the threshold for a correct slice. A more lenient approach required the cursor to hit the first two hitboxes in the same row/column. After that, if the cursor hits any of the boxes in the remaining row/column, a correct slice will be registered. This makes up for the stress of following the fruit along the screen with a mouse or a trackpad while maintaining the challenging yet exciting aspect of following a specific slicing pattern 
 
 <p align="center">
-  <img src="project-report-images/implementation_challenge1.png" width="70%"><br>
+  <img src="project-report-images/challenges1.png" width="70%"><br>
   <b>Figure . </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
 
-## Challenge 2: Balancing Challenging and Playability
+## Challenge 2: UI Optimisation
 
-After completing the first functional version of the game, we faced a significant challenge: finding the right balance between maintaining the core memory-action gameplay loop and ensuring that the game remained playable, intuitive, and enjoyable. Our original design required players to memorize both the order of fruits and the slicing technique for each one (e.g., vertical, horizontal, or diagonal). However, this created a steep difficulty curve and led to a frustrating experience—particularly in the absence of visual aids or directional hints. We initially resisted simplifying the mechanics, as the memorisation aspect was fundamental to the game’s identity. However, during user testing, it became clear that players struggled with remembering all the slicing patterns, especially as the number of fruits increased and the gameplay intensified. To address this, we made three major design changes: 
+After implementing most of the game features, we noticed performance issues regarding the loading phase and fruit spawn timing. Through testing, we traced these issues to an overreliance on JavaScript for managing the game’s UI layout and screen transitions. 
+Our initial codebase mainly used JavaScript to manage button placement and interactions across multiple screens, including the difficulty mode selection, recipe, start, pause and tutorial screen. Clicking a button would often trigger several JavaScript functions and DOM manipulations, which introduced noticeable delays and complications. 
+We were able to use CSS and handle these tasks and their layout more efficiently. We shifted layout responsibilities to CSS using Flexbox, where certain segments oversaw different button layouts for example, i.e. centre-buttons (horizontal),. button-wrapper (vertical) and. horizontal. This simplified alignment and spacing without relying on JS positioning logic. We also found an opportunity to add even more visual feedback, including hover effects, a flash effect when user does not click on an option and titles, reducing the need for additional event listeners or styles toggles in JS. We transformed, what previously was a scattered style logic, into a single CSS file. This organised classes such as .button and .imageButton for reuse across different game screens and button types. Additionally, we used a custom font with @font-face to ensure stylistic consistency without additional JS font loading. 
+This CSS-first approach greatly improved UI responsiveness, reduced code duplication, and made the layout far easier to manage and understand. It also freed up JS to focus solely on gameplay logic, such as scoring, fruit behaviour, and player interaction. 
 
-Introducing the Recipe Book UI: We added an on-screen recipe book showing the list of required fruits and their slicing methods. Players could consult this at any time, and it significantly improved usability and visibility. Because there was no time limit, users could refer to it without pressure. This was implemented via the RecipeBook class. In GameManager.gameState(), we check if the game mode is "hard" and call this.recipeBook.displayBook() to show the guide. 
-
-Supporting Bidirectional Diagonal Slicing: Based on feedback, we updated the slicing logic to allow mirrored diagonal directions (e.g., both left-to-right and right-to-left), making gameplay more forgiving while preserving challenges. This involved defining new types like "lrdown/rlup" and "rldown/lrup" in both SliceArray and SlicePattern. 
-
-Aligning with Nielsen’s ‘Recognition Over Recall’ Principle: In a later sprint, we realized our original approach violated this principle. To reduce cognitive load, we displayed the full recipe sequence at the top of the screen. As players sliced fruits correctly, those fruits disappeared from the sequence, providing clear visual progress. This is handled in GameManager—where a correct match and slice triggers this.currentRecipe.getRecipe().shift(), updating the recipe queue and helping users stay focused. 
-
-![Alt text](project-report-images/implemetation_challenge2.gif)
-<br>
-<b>Figure 3a. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 
 
 # Evaluation 
@@ -461,32 +448,46 @@ Our individual contributions can be found below.
   <tr>
    <th>Developer</th>
    <th>Contribution</th>
+    <th>Email</th>
+    <th>Github username</th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <td>Omnia Ali</td>
    <td>1.0</td>
+    <td>dc24201@bristol.ac.uk</td>
+    <td>omnia18o8</td>
   </tr>
   <tr>
    <td>May Daoud</td>
    <td>1.0</td>
+    <td>zy21368@bristol.ac.uk</td>
+    <td>may03d</td>
   </tr>
   <tr>
    <td>Barney Evershed</td>
    <td>1.0</td>
+    <td>b.evershed.2021@bristol.ac.uk</td>
+    <td>bever1tbev</td>
   </tr>
   <tr>
    <td>Scarlett Hurford</td>
    <td>1.0</td>
+    <td>cy21903@bristol.ac.uk</td>
+    <td>constscarlett</td>
   </tr>
   <tr>
    <td>Matilda Stokes</td>
    <td>1.0</td>
+    <td>jl21579@bristol.ac.uk</td>
+    <td>jl21579 <b>and</b><br>matildarosevin</td>
   </tr>
   <tr>
    <td>Ziyan Zhao</td>
    <td>1.0</td>
+    <td>rw24449@bristol.ac.uk</td>
+    <td>ziziyan02</td>
   </tr>
  </tbody>
 </table>
