@@ -18,7 +18,7 @@
 - May Daoud, zy21368@bristol.ac.uk
 - Barney Evershed, b.evershed.2021@bristol.ac.uk
 - Scarlett Hurford, cy21903@bristol.ac.uk
-- Matilda Stokes, jl21579@bristol.ac.uk and matildarosevin@gmail.com (please both matildarosevin and jl21579 are attributed to this team member)
+- Matilda Stokes, jl21579@bristol.ac.uk and matildarosevin@gmail.com (please note both matildarosevin and jl21579 are attributed to this team member)
 - Ziyan Zhao, rw24449@bristol.ac.uk
 
 # Introduction
