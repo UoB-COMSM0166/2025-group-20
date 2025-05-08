@@ -34,7 +34,7 @@ class GameManager {
     this.sliceEffects['gainLife'] = new SliceEffect(()=>{
       push();
       noFill();
-      stroke("lime");
+      stroke("seagreen");
       strokeWeight(20);
       rectMode(CORNER);
       rect(0, 0, width, height, 20);

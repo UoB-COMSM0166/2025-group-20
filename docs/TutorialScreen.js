@@ -6,13 +6,17 @@ class TutorialManager extends GameManager {
         this.sliceEffects['correctSlice'] = new SliceEffect(()=>{
             textAlign(CENTER, CENTER);
             textFont(gameFont);
-            fill('lime');
-            textSize(100);
-            text('Correct Slice!', width/2, 100);
+            stroke('black');
+            strokeWeight(4);
+            fill('seagreen');
+            textSize(120);
+            text('Correct Slice!', width/2, 100 + 5);
         });
         this.sliceEffects['tutorialComplete'] = new SliceEffect(()=>{
             overlay.textAlign(CENTER, CENTER);
             overlay.textFont(gameFont);
+            overlay.stroke(0); 
+            overlay.strokeWeight(4) 
             overlay.fill('white');
             overlay.textSize(100);
             overlay.text('Tutorial Complete!', width/2,100);
@@ -20,8 +24,10 @@ class TutorialManager extends GameManager {
         this.sliceEffects['bombSlice'] = new SliceEffect(()=>{
             overlay.textAlign(CENTER, CENTER);
             overlay.textFont(gameFont);
+            overlay.stroke(0); 
+            overlay.strokeWeight(4) 
             overlay.fill('red');
-            overlay.textSize(100);
+            overlay.textSize(120);
             overlay.text('Bomb Sliced!', width/2,100);
         })
         this.tutorialEnd = false;
@@ -41,7 +47,28 @@ class TutorialManager extends GameManager {
         }
         if (!this.tutorialFruit.visible){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-            this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + " " + this.slicePatterns[this.fruitIndex];
+            if (this.tutorialFruit.getName() === 'blueberry') {
+                this.narrationBox.textContent = 'Slice the blueberry by clicking it';
+            }
+            else { 
+                this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + " " + this.slicePatterns[this.fruitIndex];
+            }
+            this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
+            this.narrationBox.style.fontFamily = 'BlockBlueprint';
+            this.narrationBox.style.fontSize = '35px';
+            this.narrationBox.style.color = 'white'; 
+            this.narrationBox.style.backgroundColor = '#C58B52'; 
+            this.narrationBox.style.borderRadius = '12px';    
+            this.narrationBox.style.padding = '10px';
+            this.narrationBox.style.position = 'absolute';  
+            this.narrationBox.style.top = '650px'; 
+            this.narrationBox.style.left = '15px';
+            this.narrationBox.style.textShadow = `
+                -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000
+            `;
             buttonWrapper.append(this.narrationBox);
         }
         if (this.tutorialFruit.getName() === 'dragonfruit' || this.tutorialFruit.getName() === 'bomb'){

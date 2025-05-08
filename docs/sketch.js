@@ -325,7 +325,9 @@ function makeMenuButtons() {
   // Creates pause button
   pauseButton = document.createElement('button');
   pauseButton.className = 'button';
-  pauseButton.textContent = 'II';
+  pauseButton.textContent = '||';
+  pauseButton.style.fontSize = '40px'; 
+  pauseButton.style.fontWeight = '900'; 
   bottomCorner.appendChild(pauseButton);
   pauseButton.style.display = 'none';
   pauseButton.addEventListener('click', () => {

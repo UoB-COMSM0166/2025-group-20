@@ -40,10 +40,11 @@ class GameScore {
 
   //displays the highscore
   drawHighScore() {
-    let xPosition = 10;
+    let xPosition = 20;
     let yPosition = 90;
     textSize(26);
     textFont(gameFont);
+    textAlign('CENTER', 'CENTER');
     fill('white');
     stroke('black');
     strokeWeight(3);
@@ -52,7 +53,7 @@ class GameScore {
 
   //displays the current score
   drawCurrentScore() {
-    let xPosition = 10;
+    let xPosition = 20;
     let yPosition = 120;
     textSize(26);
     textFont(gameFont);
