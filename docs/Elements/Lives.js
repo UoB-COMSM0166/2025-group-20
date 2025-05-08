@@ -1,25 +1,31 @@
 class Lives {
-  fullHeart = loadImage('Design/Images/full-heart.png');
-  emptyHeart = loadImage('Design/Images/empty-heart.png');
-  gainSound = loadSound('Design/Audio/gainLife.wav');
-  loseSound = loadSound('Design/Audio/loseLife.wav');
-  gameOver = loadSound('Design/Audio/gameOver.wav');
-  lifeCount = 3;
+  constructor(){
+    this.fullHeart = loadImage('Design/Images/full-heart.png');
+    this.emptyHeart = loadImage('Design/Images/empty-heart.png');
+    this.gainSound = loadSound('Design/Audio/gainLife.wav');
+    this.loseSound = loadSound('Design/Audio/loseLife.wav');
+    this.gameOver = loadSound('Design/Audio/gameOver.wav');
+    this.lifeCount = 3;
+  }
+
 
   //Adds a life if lives aren't full
   gainLife() {
     if (this.lifeCount < 3) {
       this.lifeCount++;
-      if (gameManager.getSoundEffect()) {
+      if (soundEffect) {
         this.gainSound.play();
       }
     }
   }
 
+  setLives(lives){
+    this.lifeCount = lives;
+  }
   //Removes a life if lives aren't empty
   loseLife() {
     this.lifeCount--;
-    if (gameManager.getSoundEffect()) {
+    if (soundEffect) {
       this.loseSound.play();
       if (this.lifeCount === 0) {
         this.gameOver.play();
@@ -39,7 +45,7 @@ class Lives {
   //sets lives to 0
   zeroLives() {
     this.lifeCount = 0;
-    if (gameManager.getSoundEffect()) {
+    if (soundEffect) {
       this.gameOver.play();
     }  
   }
