@@ -4,7 +4,7 @@ class Fruit {
     this.fruitImg = fruitImg;
     this.fruitName = fruitName;
     this.size = 110;
-    if (gameManager.getMode() === 'easy' && !tutorial){
+    if (gameManager.getMode() === 'easy' && !tutorial && this.fruitName !== 'bomb'){
       this.slicePat = new SlicePattern('easy', this.size);
     }
     else {
