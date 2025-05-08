@@ -21,157 +21,98 @@
 - Matilda Stokes, jl21579@bristol.ac.uk
 - Ziyan Zhao, rw24449@bristol.ac.uk
 
-# Project Report
-
 # Introduction
-<p>Our game, <strong>Smoothie Operator</strong>, is inspired by the game <i>Fruit Ninja</i>, where players slice fruits and avoid bombs to gain points. We also drew inspiration from games like <i>Overcooked</i>, a simulation game where players must prepare dishes using specific ingredients in the correct sequence. As per our coursework specifications, we introduced two engaging twists to the traditional <i>Fruit Ninja</i>; first, the aim of fruit slicing is to complete the smoothie recipes shown at the top of the screen. Completing the recipe earns players extra points, and slicing fruits out of order costs them a life.</p> 
-Second, our hard mode designates specific slicing patterns for each fruit which the player must follow. These patterns are recorded in the recipe book shown on the screen which the player can access at any time during the game. While slicing the fruit incorrectly does not cost a life, it would not count towards completing the recipe, and the player would need to try slicing the same fruit again. This mode accommodates varying skills and adds complexity and precision to the gameplay. Therefore, we achieved our goal to create an accessible yet challenging experience, designed to engage players continuously while providing a sense of achievement. To encourage social interaction and collaboration, <strong>Smoothie Operator</strong> also features a multiplayer mode that fosters teamwork and collaboration: One player uses the mouse to slice fruits, while the other uses the keyboard to manage a basket at the bottom of the screen to catch the sliced fruits.
+When designing our game, we wanted to create something that paid homage to a game we all knew and loved growing up, but with a twist that makes it more mentally engaging. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator—a slicing game that emphasizes accuracy and mental focus! 
+
+We drew inspiration from two food-based games: Fruit Ninja, a fast-paced, endless slicer that tests reflexes but doesn’t engage the brain deeply, and Overcooked, a kitchen simulation that emphasizes completing tasks in a specific sequence but lacks pacing. From these two, we created a hybrid experience with two twists. First, players in ‘ninja’ mode slice fruits not just for fun, but to complete smoothie recipes in the order displayed at the top of the screen. Second, in Samurai mode, the challenge increases—players still need to follow the recipe order, but they must also slice fruits in specific directions, adding another layer of difficulty. This dual-mode approach makes the game both engaging and rewarding, supporting progression. 
+
+To further improve engagement, Smoothie Operator also includes a multiplayer mode that encourages teamwork. One player uses the mouse to slice fruits, while the other controls a basket with the keyboard to catch them. This cooperative play meant that our game could create communication and social interactions. We made sure to design our game based on the user experience, which led to us creating a game that was both mentally and physically engaging, has pace and simple to understand.
 
 # Requirements 
 
-## Ideation Processing
+<h3>Ideation Process</h3>
+
 <p>
-  In the early stage of ideation process, we used both 
-  <a href="https://miro.com/app/board/uXjVLtyUR80=/Miro" target="_blank">Miro</a>
-  (Figure 1a) and 
-  <a href="https://uob-my.sharepoint.com/:w:/r/personal/zy21368_bristol_ac_uk/_layouts/15/Doc.aspx?sourcedoc=%7B16215be5-ecc8-4461-980c-cd596f6d788d%7D&action=edit&wdPid=4e6e8707"target="_blank">Google Docs</a>
-   for brainstorming. We explore several ideas for this game: 
-</p>
-<p align="center">
-  <img src="project-report-images/Miro.png" width="60%"><br>
-  <b>Figure 1. </b> <i>Brainstorming on Miro</i>
+  In the early stages of development, we used both 
+  <a href="https://miro.com/app/board/uXjVLtyUR80=/Miro" target="_blank">Miro</a> (Figure 1) and 
+  <a href="https://uob-my.sharepoint.com/:w:/r/personal/zy21368_bristol_ac_uk/_layouts/15/Doc.aspx?sourcedoc=%7B16215be5-ecc8-4461-980c-cd596f6d788d%7D&action=edit&wdPid=4e6e8707" target="_blank">Google Docs</a> 
+  to collaboratively brainstorm and explore different game concepts. After multiple discussions, we narrowed our ideas down to three main options:
 </p>
 
 <ol>
-  <li>
-    <b>University Life Simulation</b><br>
-  </li>
-  <li>
-    <b>Fashion-combat Game</b><br>
-  </li>
-  <li>
-    <b>Fruit-Ninja with Recipes</b><br>
-  </li>
+  <li><b>University Life Simulation</b></li>
+  <li><b>Fashion-Combat Game</b></li>
+  <li><b>Fruit Ninja with Recipes</b></li>
 </ol>
 
-Eventually, our team took a vote and decided on the third idea —an adaptation of <i>Fruit Ninja</i> and <i>Overcooked</i>—due to its manageable scale and strong emphasis on engaging gameplay mechanics. The twist to our game involves following a specific order of the recipe, where each type of fruit requires a distinct slicing technique.
-
 <p align="center">
-  <img src="project-report-images/fruit-ninja.png" width="50%"><br>
-  <b>Figure 2a. </b> <i>Fruit Ninja</i>
+  <img src="project-report-images/Miro.png" width="60%"><br>
+  <b>Figure 1. </b> <i>Miro Board</i>
+</p>
+
+<p>
+  During the third workshop, we created a paper prototype to help refine our ideas. This hands-on approach allowed us to translate abstract concepts into tangible gameplay mechanics. By interacting with paper props, we were able to explore key aspects such as visual layout, control schemes, and optimal user interaction.
+</p>
+
+<p>
+  Following this exercise, we held a team vote and ultimately chose to develop a game inspired by <i>Fruit Ninja</i> with a slight adaptation from another game, <i>Overcooked</i>. We felt this concept offered a manageable scope for development while still providing creative flexibility to tailor the user experience. In particular, we were drawn to the idea of blending two game genres: mentally engaging mechanics with a casual arcade game.
 </p>
 
 <p align="center">
-  <img src="project-report-images/overcooked.png" width="50%"><br>
-  <b>Figure 2b. </b> <i>Overcooked</i>
+  <img src="project-report-images/fruit-ninja.png" width="45%">
+  <img src="project-report-images/overcooked.png" width="45%"><br>
+  <b>Figure 2. </b> <i>Ninja Fruit</i> &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Figure 3. </b> <i>Overcooked</i>
 </p>
-
-## Early Design Phase
-During the third workshop, we designed a Paper Prototype to refine and expand our ideas. This approach translates the complex yet abstract concepts into sets of tangible functionalities. By physically moving around the paper props, we gained further insights on visual design, controls, and optimal user interactions.
 
 <p align="center">
   <img src="project-report-images/prototype.gif" width="50%"><br>
-  <b>Figure 3. </b> <i>Paper Prototype</i>
+  <b>Figure 4. </b> <i>Paper Prototype</i>
 </p>
 
-We also considered incorporating memory-based gameplay elements: players would briefly see a recipe displayed with fruit icons and then need to recall it during gameplay. However, we received feedback from other teams indicated this approach demanded excessive cognitive effort. We took this feedback on board and decided to keep the recipes visible on-screen to improve the playability of our game.
 
 
-## Identifying Stakeholders
-We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. 
+<h2>Identifying Stakeholders</h2>
+We first developed an Onion Model to identify key stakeholders to help us understand the different perspectives that influence game design, including players, developers, and testers. We then sought feedback during the prototype demonstrations, asking individuals to evaluate the game both as stakeholders and as players. Although our project is primarily designed in a university setting, the Onion Model underscores the capacity of successful systems to shape broader social behaviours by providing engaging gameplay experiences tailored to relevant communities. 
 
 <p align="center">
   <img src="project-report-images/OnionModel.png" width="50%"><br>
-  <b>Figure 4. </b> <i>Onion Model of Smoothie Operator</i>
+  <b>Figure 5. </b> <i>Onion Model of Smoothie Operator</i>
 </p>
 
-Although our project is primarily designed in a university setting, the Onion Model underscores the capacity of successful systems to shape broader social behaviors by providing engaging gameplay experiences tailored to relevant communities.
+<h3>User Stories</h3>
 
+We used user stories to define our functional requirements because they provide a clear, stakeholder-centred way to communicate what to build, for whom, and why—making them accessible to both technical and non-technical team members. We began by identifying a broader strategic objective (initiative), then broke it down into epics and further into user stories. This structured approach was especially helpful in the early stages of game development, as it gave us a focused and actionable goals as to what to build. For example, we designed the game to have a tutorial page from the start, so our game maintains clarity. 
+
+| Initiatives                  | Epics                                           | User Stories |
+|-----------------------------|--------------------------------------------------|--------------|
+| Simple Gameplay and Clarity | Clear visual design and self-explanatory mechanics | - As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.<br>- As a casual player, I want a game with straightforward and intuitive gameplay that I can pick up quickly without a time-consuming learning curve.<br>- As a new player, I want the game to provide immediate feedback and clear instructions, so I can understand how to play and improve without needing external help. |
+| Simple Gameplay and Clarity | Simple mouse movements                          | - As a casual player, I want to slice objects using quick mouse movements, so I can enjoy fast-paced gameplay without complicated controls.<br>- As a regular player, I want the game to recognise my slicing directions accurately through mouse movements, so that I can feel in control and engaged from the start. |
+| Progression of Difficulty   | As game goes on for longer recipes get more complex | - As a regular player, I want the game to introduce faster objects over time, so that the game challenge increases and keeps me engaged.<br>- As a competitive player, I want the game to introduce more variety like combo traps, so I feel rewarded for improving my skills. |
+| Progression of Difficulty   | As game goes on slicing patterns get more complex | - As a focused player, I want slicing patterns to require specific directions as the game goes on, so I can feel a growing sense of improvement and precision.<br>- As a strategic player, I want the game pace to accelerate in pace, so I can find it more challenging to slice a fruit correctly and precisely. |
+| Sense of Achievement        | Player has their high score kept track of        | - As a competitive player, I want the game to record my highest score, so I can try to beat my personal best each time I play.<br>- As a motivated player, I want to see my high score displayed on the main menu, so I feel encouraged to keep improving and playing again.<br>- As a returning player, I want the game to display a history of my best scores, so I can stay motivated and see how much I’ve improved. |
+| Sense of Achievement        | Player loses lives if they do something wrong    | - As a new player, I want a clear visual when I make a slicing mistake that costs a life, so I can learn from my errors and improve without confusion.<br>- As a challenge-seeking player, I want to lose a life if I slice a forbidden object (i.e. bomb), so the game feels more intense and still requires precise decisions under pressure. |
+
+Table 1: <i>User requirements divided into initiatives, epics, and user stories.</i>
+
+<h3>Use Case Diagram and Specifications </h3>
+
+At this stage of development, we were still evaluating whether our game concept was feasible to implement and enjoyable to play. To better understand the functionality and expectations of different stakeholders, we used user stories and identified key roles to create a Use Case Diagram (Figure 5). This helped us visualise and define what different elements of the game should—and shouldn’t—do. 
 
 <p align="center">
   <img src="project-report-images/usecasediagram.png" width="70%"><br>
   <b>Figure 5. </b> <i>Use Case Diagram</i>
 </p>
 
-<h2>User Stories</h2>
-<table>
-        <thead>
-            <tr>
-                <th>Initiatives</th>
-                <th>Epics</th>
-                <th>User Stories</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Simple Gameplay and Clarity</td>
-                <td>
-                    <ul>
-                        <li>Simple mouse movements</li>
-                        <li>Clear visual design and self-explanatory mechanics</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>As a busy player with daily commitments, I want a game that is easily accessible and simple to follow, so I can play in brief sessions without feeling overwhelmed.</li>
-                        <li>As a casual player, I want a game with straightforward and intuitive gameplay that I can pick up quickly without a time-consuming learning curve.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Variety of Gameplay</td>
-                <td>
-                    <ul>
-                        <li>Various fruits</li>
-                        <li>Various recipes</li>
-                        <li>Various slicing patterns</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>As a player, I want a variety of fruits and features that introduce fresh experiences in each gameplay session.</li>
-                        <li>As a long-term gamer, I want a game that never ends, so that I can play the game for longer.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Progression of Difficulty</td>
-                <td>
-                    <ul>
-                        <li>As game goes on for longer recipes get more complex</li>
-                        <li>As game goes on slicing patterns get more complex</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>As someone who likes to be challenged, I want to experience more challenge as time goes on, thereby feeling a sense of achievement through overcoming difficulty.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Sense of Achievement</td>
-                <td>
-                    <ul>
-                        <li>Player gains points for slicing the correct fruit</li>
-                        <li>Player gains points for completing a recipe</li>
-                        <li>Player has their high score kept track of</li>
-                        <li>Player loses lives if they do something wrong</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>As a long-term gamer, I want a game that has a high score, so that I can have a sense of achievement over time.</li>
-                        <li>As an easily bored gamer, I want to have an element of danger in the game, so that I am kept on my toes and stay engaged.</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <b>Table 1. </b> <i>User requirements divided into initiatives, epics, and user stories. </i>
+In addition to the diagram, we developed detailed use case specifications to map out how players would interact with the game. This proved incredibly helpful, as it made us realize the importance of providing clear feedback and visibility within gameplay. For instance, players should be notified not only when they make a mistake but also when they achieve something. Including such feedback mechanisms became a core design priority to enhance user clarity. 
+
+As we worked through these use cases, we also saw an opportunity to introduce a multiplayer mode to encourage social interaction. As a result, we expanded our use case specifications to cover both single-player and multiplayer scenarios, ensuring each mode supported our overall gameplay goals and user experience. 
+
+
     
 ## Use Case Specification
-### Single Player Mode
-**Basic Flow**
+### 1.Single Player Mode
+**1.1 Basic Flow**
 
 | **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
 |---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -181,9 +122,9 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Slice any correct fruit: +10 points.                                                               | Slice correct fruit **with correct method**: +10 points.                                                 |
 | 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points. 
 
-<b>Table 2a. </b> <i>Single Player + Basic Flow.</i>
+<b>Table 2a. </b> <i>Use Case Specification of Basic Flow in Single Player.</i>
                                 
-**Alternative Flow**
+**1.2 Alternative Flow**
 
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -192,11 +133,11 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 3        | Sliced bomb: Instant game over.                                 |  Sliced bomb: Instant game over.                                    |
 | 4        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
-<b>Table 2b. </b> <i>Single Player + Alternative Flow.</i>
+<b>Table 2b. </b> <i>Use Case Specification of Alternative Flow in Single Player.</i>
 
-### Two Player Mode
+### 2. Multiple Player Mode
 
-#### Basic Flow
+#### 2.1 Basic Flow
 
 | **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
 |---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -206,9 +147,9 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Correct sliced fruit caught: +10 points.                                                                      | Correctly sliced **and** caught fruit: +10 points.                                                             |
 | 5        | Recipe completion: +20 bonus points.                                                                          | Same, only if all fruits sliced correctly and caught.                                                          |
 
-<b>Table 3a. </b> <i>Single Player + Basic Flow.</i>
+<b>Table 3a. </b> <i>Use Case Specification of Basic Flow in Multiple Player.</i>
 
-#### Alternative Flow
+#### 2.2 Alternative Flow
 
 | **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
 |---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -218,7 +159,7 @@ Although our project is primarily designed in a university setting, the Onion Mo
 | 4        | Bomb sliced: Instant game over for both players.               | Bomb sliced: Instant game over for both players.                    |
 | 5        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
 
-<b>Table 3b. </b> <i>Two Player + Alternative Flow.</i>
+<b>Table 3b. </b> <i>Use Case Specification of Alternative Flow in Multiple Player.</i>
 
 # Design 
 
@@ -257,7 +198,7 @@ In our final implementation, we maintained the 3x3 grid of hitboxes, but we chan
   <b>Figure . </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
 
-## Challenge 2: Balancing Challenging and Playability**
+## Challenge 2: Balancing Challenging and Playability
 
 After completing the first functional version of the game, we faced a significant challenge: finding the right balance between maintaining the core memory-action gameplay loop and ensuring that the game remained playable, intuitive, and enjoyable. Our original design required players to memorize both the order of fruits and the slicing technique for each one (e.g., vertical, horizontal, or diagonal). However, this created a steep difficulty curve and led to a frustrating experience—particularly in the absence of visual aids or directional hints. We initially resisted simplifying the mechanics, as the memorisation aspect was fundamental to the game’s identity. However, during user testing, it became clear that players struggled with remembering all the slicing patterns, especially as the number of fruits increased and the gameplay intensified. To address this, we made three major design changes: 
 
@@ -272,111 +213,112 @@ Aligning with Nielsen’s ‘Recognition Over Recall’ Principle: In a later sp
 <b>Figure 3a. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 
 
-## Challenge 3: UI and Logic Coordination**
-As we introduced more slicing directions, the codebase and UI logic grew significantly more complex. Each new direction required custom logic for hitbox placement and movement within the SlicePattern and SliceArray classes. This meant more calculations per frame, especially when multiple fruits were on screen. On the UI side, we had to reflect these patterns clearly showing accurate icons, updating the recipe bar, and visually removing fruits in real time. Managing this dynamic UI alongside constantly updating hitboxes created a performance bottleneck. The recipe bar needed to sync perfectly with slicing logic, requiring careful coordination between state updates and canvas rendering. This increase in both UI rendering and logic checks led to noticeable lag and a bloated update loop, especially in hard mode, where fruit patterns are more demanding.
-
-
 # Evaluation 
-
-## Abstract
-
-This section presents the HCI evaluations of Smoothie Operator, with a particular focus on assessing balanced usability, cognitive load, and enthusiastic player engagement. To assess the game's key issues early in the design process, we employed a mixed-methods approach - combining qualitative feedback from Think Aloud evaluations with quantitative data collected using the NASA Task Load Index (TLX). Evaluations were conducted with a range of participants to encapsulate a comprehensive picture of potential user behaviours and perceptions. The primary objectives were to identify the usability key issues and measure player workload across gameplay tasks to inform iterative design improvements. Results from the evaluations provided clear and direct feedback on the game's task flow and cognitive demands, leading to straightforward problem-solving to gameplay.
-
 ## Qualitative: Think Aloud
 
-To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience. This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table 2a). 
+To evaluate the usability and HCI design of Smoothie Operator, we employed the Think Aloud (TA) protocol—an established method that provides real-time insights into user behaviour and experience. This approach was selected over Heuristic Evaluation for several reasons: the dynamic nature of the gameplay—requiring rapid mouse-based gestures and immediate feedback-demanded direct observation of users in context. Heuristic methods are less effective in capturing real-time breakdowns in game interaction, particularly when evaluating unconventional input modalities. TA enables the collection of instantaneous verbal data from participants as they engage with the game. This revealed three prominent areas for improvement: confusion around input mapping, varied responses to the visual feedback system and the learning curve associated with recipe memorisation. The direct nature of these observations, particularly in relation to control fluency and gameplay clarity, significantly informed subsequent design iterations. Participant commentary was analysed using thematic categorisation that identified patterns of friction, satisfaction, and emergent player strategies (see Table 4a). 
 
-**Table 2a**: *Raw Think Aloud (TA) feedback*
+
 | Theme           | Positive                                                                                                                                 | Negative                                                                                                                            |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Controls        | - The click control is very satisfying<br>- The `cursorEffect` provides good user feedback                                              | - Trackpad is inelegant<br>- The `mousepressed` function bugs after hearts lost<br>- The `mousepressed` for slicing could be redundant |
 | Display         | - Good fruit sizes<br>- Fruit slice visuals are very rewarding                                                                          | - Recipe aspect and order is unclear<br>- `cursorEffect` does not remain long enough<br>- Some fruits are generated stuck together   |
 | Learning Curve  | *(None listed)*                                                                                                                         | - Initial difficulty remembering rules<br>- Initial difficulty remembering slice patterns<br>- Once slice patterns are internalised, they're too easy to remember |
 
+**Table 2a**: *Raw Think Aloud (TA) feedback*
 
 ## Controls 
-Feedback regarding the game’s controls was fairly consistent. There was a general consensus that adapting a game typically played on a touchscreen device (such as an iPad or phone) to a laptop or PC using a mouse or trackpad introduced a degree of disjointedness to the user experience. Our user tests were structured so that roughly a third of participants played using a mouse, a third with a trackpad, and a third tried both sequentially. The overall consensus was that using a mouse provided a more fluid and enjoyable gameplay experience.
+We found that adapting a game designed for touchscreens to laptop or PC input introduced some disjointedness. Our testing split participants evenly between mouse, trackpad, and both. The majority found the mouse offered a smoother, more enjoyable experience. 
 
-A minor bug was encountered — labelled in our test documentation as "the `mousePressed` function bugs after hearts lost" — but this was resolved early in development.
+One participant suggested removing the "click and drag" mechanic to simplify slicing. We considered this but decided against it for key reasons: 
 
-One tester suggested that the "click and drag" mechanic for slicing might be redundant, and that gameplay might be smoother if users didn’t need to press down at all. While we carefully considered this feedback, we ultimately chose not to act on it for the following reasons:
+1. The blueberry’s slice pattern relies on single-click input, which wouldn’t work without click detection. 
 
-1. The blueberry’s "slice pattern" requires a single-click input, which would become unworkable without click detection.
-2. In easy mode, testers highlighted the satisfying, rapid clicking mechanic as a key positive feature.
-3. Removing the click would reduce user control, increasing the likelihood of accidental slices — especially problematic when users may be trying to pause the game or consult the recipe book.
+2. In easy mode, rapid clicking was seen as a satisfying feature. 
+
+3. Removing click control could lead to accidental slices, especially when accessing menus or the recipe book. 
 
 ## Display 
-User feedback was exceptionally positive regarding the games visuals. Players appreciated the nostalgic 8-bit aesthetic, found slicing fruit satisfying, and enjoyed the responsive, engaging cursor. The overall visual style was noted as cohesive and well-executed throughout.
+User feedback on visuals was exceptionally positive. Players appreciated the nostalgic 8-bit style, satisfying fruit slicing, and the responsive, engaging cursor. The visual design was seen as cohesive and well-executed. 
 
-However, two recurrent issues were identified during evaluation. First: participants highlighted that the occasional generation of overlapping fruits rendered both fruits unslicable. This was addressed and resolved quickly. The second concern was obscurity around the slicing action: some users expressed difficulty discerning what the direction they had sliced in, and requested a longer lasting cursor. 
-
-Extending the `cursorEffect` risked cluttering the screen, so to resolve this, we implemented a `cursorWoodScratch` effect. When the user clicks and drags, a scratch trail appears beneath the cursor and fruit. This solution preserved visual clarity while providing intuitive feedback on slicing actions.
+However, two recurrent issues emerged. First, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting spawn rate and speed. Second, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect—a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback. 
 
 ![Recipe Book Evaluation](project-report-images/Wood-Scratch-Effect.gif)
 
-**Figure 4a**: *`cursorWoodScratch` implentation.*
+**Figure 9**: *`cursorWoodScratch` implentation.*
 
 ## Learning Curve
-Early user feedback regarding the game's initial difficulty was flagged: at this stage in the development several core features hadn't been implemented. Users found the games objectives and rules were initially unclear and many disliked the reliance on memory; having to remember specific slice patterns was tedious and created a slow, tedious gameplay. 
+Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features haven’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory—having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
 
-To address this, we implemented two features to our gameplay:
+Recipe Book (Figure 4b): In hard mode, we added an in-game recipe book displaying fruit slice patterns. This allowed players to refer to it during gameplay, removing the need for memorisation and improving flow. 
 
-1. The recipe book: In hard mode, we introduced an in-game recipe book, that displays slice patterns for fruit. This allowed the user to easily refer to it during gameplay, eradicating any clunky, stop-and-start flow from having to memorise them.
+Tutorial Mode (Figure 4c): Accessible from the start screen to let users practise core mechanics before playing. It introduces essential elements such as: 
+
+1. Avoiding bombs 
+
+2. The dragon fruit’s +1 life bonus 
+
+3. The importance of slicing fruit in the correct recipe order 
 
 ![Recipe Book Evaluation](project-report-images/Think-Aloud-Recipe-Book.gif)
 
-**Figure 4b**: *Demo of the interactive recipe book feature.*
+**Figure 10**: *Demo of the interactive recipe book feature.*
 
-2. Tutorial Mode: We also added a tutorial accessible directing from the start screen. This faciliatated users to practise before gameplay. The player could internalise the slicing mechanics, and learn other essential gamplay features, such as:
- - Avoiding the bomb.
- - The dragonfruit +1 life benefit.
- - The importance of slicing the fruit in the correct recipe order.
 
 ![Recipe Book Evaluation](project-report-images/Dragonfruit-Tutorial-Example.gif)
 
-*Figure 4c**: *Clear, informative dragonfruit explanation feature in tutorial mode.*
+**Figure 11**: *Clear, informative dragonfruit explanation feature in tutorial mode.*
 
 ## Quantitative: NASA TLX
-One of our primary goals was to create a game that was accessible to both casual players and highly-skilled users. As a result we devised two levels of difficulty within our game. We wanted a noticable increase in difficulty between the modes (this has been proven to increase player enjoyment from previous studies (Alexander et al., 2013), while having frustration levels remain relatively unchanged. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)).
+One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we devised two levels of difficulty within our game. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced.  
+
+We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)). 
 
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
 
-**Figure 4d**: *NASA TLX Evaluation Bar Chart Feedback.*
+**Figure 12**: *NASA TLX Evaluation Bar Chart Feedback.*
 
-The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers.
+The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers. The accompanying pentagraph (Figure 9) reveals more granular differences: 
 
-The accompanying pentagraph (below) reveals more granular differences:
-- A significant rise in effort and frustration.
-- A moderate increase in mental demand and perceived performance.
-- Minimal change in physical or temporal demand.
+ - A significant rise in effort and frustration. 
 
-These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
+ - A moderate increase in mental demand and perceived performance. 
+
+ - Minimal change in physical or temporal demand. 
+
+While frustration increased, it was largely attributed to earlier usability issues identified through TAE—all of which were later resolved. These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise. 
+
 ![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
 
-**Figure 4e**: *NASA TLX Pentagraph demonstrating specific demand difference feedback.*
-
-The accompanying pentagraph (above) reveals more granular differences:
-- A significant increase in effort and frustration.
-- A moderate increase in mental demand and perceived performance.
-- Minimal or no change in physical or temporal demand.
-
-Player frustration's significant increase was a small pitfall - reportedly due to the afforementioned defects collected in the TA test - all were resolved elegantly.
+**Figure 13**: *NASA TLX Pentagraph demonstrating specific demand difference feedback.*
 
 **Statistical Analysis**
 
-While the data visually and confidently determined that the quantitative tests executed actually indicated a significant workload increase, we adopted the the Wilcoxon Signed Rank Test:
+While the data visually and confidently determined that the quantitative tests executed indicated a significant workload increase, we adopted the Wilcoxon Signed Rank Test to test if there was a significant difference between the easy and hard mode: 
 - Wilcoxon result (where n = 10, a = 0.05):
   - A value of 8 or less to quantify a significant difference. 
   - W = 0 (0 < 8).
   - An *extremely* significant difference.
-
-These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise.
+These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise. 
 
 # Process
-Our team had great success working together, which was the result of a variety of software development techniques and team-building exercises. Effective communication was our main priority throughout the process because it allowed us to allocate tasks and track progress.
-
+Our team worked together successfully, due to a combination of software development techniques and team-building exercises. Effective communication was a top priority, as it enabled us to clearly allocate tasks and track progress throughout the process. 
 ## Working as a Team
 As part of the Software Engineering module, our first team-building exercise let us share the percentage of our levels of commitment to the project (ours ranged from 85% to 100%). The early weeks of development honestly reflected those levels, but we were missing a key aspect of software engineering; collaboration. Eager to start working on the project, we began implementing our ideas and goals, displaying a lack of clear communication. These independent efforts resulted in an incomplete and difficult-to-understand early prototype of the game because it did not benefit from any collaborative skills. We decided to take time to reflect on our process and think of a better approach. 
+
+## Communication 
+One Agile principle we aimed to follow was face-to-face communication, often facilitated by our Scrum Master, Ziyan. However, we soon discovered that our team worked more effectively through planned, extended lab sessions rather than the brief daily standups typically recommended in Agile. In response, our Scrum Master helped organise longer coding and brainstorming sessions, coordinating them through WhatsApp, where we collectively set goals in advance. 
+While this informal approach initially worked, it eventually led to communication challenges. One team member raised concerns about unclear task delegation, prompting a group discussion. We agreed that our communication had become too relaxed and lacked structure. As a solution, we migrated our discussions to Microsoft Teams, which is linked to our university accounts and better suited for project management. 
+This shift improved our workflow significantly. We began structuring our meetings with clear agendas, summaries of accomplishments, and defined next steps. Additionally, Teams proved more effective for document sharing, tracking progress, and conducting polls. It also supported flexible communication, allowing members who couldn’t attend meetings in person to stay informed and contribute. 
+<p align="center">
+  <img src="project-report-images/old-chat.png" width="20%"><br>
+  <b>Figure 14a. </b> <i>An example of our old communication style</i>
+</p>
+<p align="center">
+  <img src="project-report-images/new-chat.png" width="50%"><br>
+  <b>Figure 14b. </b> <i>An example of our new communication style</i>
+</p>
+
 ### Development Tools and Techniques
 Since our main goal was to increase team effort, we decided to follow an agile framework which would allow us to prioritise collaboration and enhance our skills. The main agile principle we followed was breaking down our project into small and manageable iterations which would encourage us to continuously deliver working software while working at a steady and sustainable pace. To help plan our iterations, we set up a Kanban board on our Github to organise smaller tasks and track their statuses. Before each sprint, we would have an in-person meeting to discuss which of the items on our to-do column had top priority and needed to be achieved in that iteration. Once those tasks were allocated to members of the team, we would then look to see if we could allocate other tasks with less priority. To help us plan the duration of each iteration (or sprint), we would agree on a story point for each task based on its relative size which would help us estimate the effort required. At the end, work on our game was spread across 3 sprint cycles throughout the term, with most of the features being implemented during the first sprint. We used the remaining sprints to carry out refinements and enhancements. This structure allowed us to reflect on our performance and assess our workflow. 
 <p align="center">
@@ -387,18 +329,9 @@ Since our main goal was to increase team effort, we decided to follow an agile f
   <img src="project-report-images/kanban-board.png" width="50%"><br>
   <b>Figure 5b. </b> <i>Our Kanban board</i>
 </p>
-The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This aspect was instrumental for us when we were asked to add a new difficulty level to the game because it meant that we could adapt to this new requirement without disrupting the overall development process by updating our Kanban board, allocating the task, and reassessing our priorities. This resulted in a fast delivery of a well-tested and fully working easy mode for our game. 
+The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning the task, and adjusting our priorities—without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Easy Mode in a short period. 
 
-## Communication 
-Another agile principle we followed was face-to-face communication which was often organised by our Scrum Master, Ziyan. However, we found out that our team member's work style would benefit more from planned long sessions at the lab rather than quick daily standup meetings as suggested by the agile principle. Thus, our Scrum Master would help us plan these coding and creativity sessions on Whatsapp where we would agree on our goals. However, the informal nature of the app proved to be tricky; one member of the team reached out to the rest of us with concerns about the work not being delegated. The rest of the team agreed that our communication style had been too relaxed, and suggested that we move our discussions to Microsoft's Teams which is linked to our university accounts. We changed our communication style so that it would involve a clear breakdown of our meetings summarising what our goals were ahead of the meeting, what was successfully achieved, and the key points for the following meeting. In addition, we found that this was a better way to document sharing and conducting voting polls. This was also a better alternative for members who were unable to attend a particular meeting in person. 
-<p align="center">
-  <img src="project-report-images/old-chat.png" width="20%"><br>
-  <b>Figure 5c. </b> <i>An example of our old communication style</i>
-</p>
-<p align="center">
-  <img src="project-report-images/new-chat.png" width="50%"><br>
-  <b>Figure 5d. </b> <i>An example of our new communication style</i>
-</p>
+
 
 # Sustainability 
 With sustainability becoming an increasingly urgent, global priority, we must find simple, everyday ways to engage people in more environmentally friendly behaviours. Therefore, when designing our game, Smoothie Opera2tor, we wanted to ensure that sustainable thinking was part of the development process. 
@@ -502,14 +435,23 @@ To make our game more sustainable, we implemented three green software patterns:
 
 # Conclusion
 
-This group project has provided us with valuable experience not only in technical development but also in teamwork, communication, organisation, and user-centred design. The development process encouraged each team member to think creatively during the design phase, while also training us to communicate clearly and collaboratively resolve challenges. For instance, when we encountered technical difficulties with the sensitivity of slicing detection using hitboxes, our consistent trial-and-error approach enabled us to gradually overcome the issue.</p>
-<p>Furthermore, we learned to strike a balance between technical functionality and user experience, particularly in the design of the hard mode. By using evaluation tools such as the NASA TLX questionnaire, we gained insight into user expectations and adjusted the game’s difficulty accordingly—ensuring it remained challenging yet enjoyable.</p>
-<p>We also learned how to write more efficient code to improve performance. By moving away from using a variety of classes for different game screens and buttons, and instead adopting a consistent CSS-based design across the game, we significantly simplified our code. This not only improved the loading time but also resulted in a more maintainable and well-structured code architecture.
+The Agile process allowed us to create a game that was user-focused by developing functional requirements through user stories. This helped us build a design from the start that ensured the game was challenging, usable, and accessible. Our qualitative evaluation helped us consider user feedback and visibility, while the quantitative evaluation highlighted the challenge of Hard Mode—which was exactly what we aimed for. Through this, we learned how to strike a balance between technical functionality and user experience, especially when designing Hard Mode. Using evaluation tools such as the NASA TLX questionnaire, we gained insight into user expectations and adjusted the game’s difficulty accordingly and ensuring it remained challenging yet enjoyable. 
 
-As a team, we benefited greatly from adopting Agile methodologies. Breaking down the project into smaller, doable sprints allowed us to track progress effectively and work at a sustainable pace. After each meeting, tasks were assigned to each member and then tracked using a GitHub Kanban board, making sure everyone is kept up to date. After our weekly meeting, our team leader will post a follow-up message that summarises the meeting objectives and results on our teams chat. This strengthened our communication, enhanced clarity, and reduced the risk of miscommunication.
+However, creating a game that was challenging but not frustrating wasn’t without its difficulties. Since the original inspiration, Fruit Ninja, was designed for touchscreen use, adapting it to mouse or trackpad input proved tricky. We discovered that slicing precision was harder to achieve, especially with trackpads. To address this, we kept refining our HitBoxes to be more lenient, reducing false positives and negatives when slicing fruit. 
 
-This project inspired us to consider wider concerns such as sustainability and user well-being in our design decisions. For the potential future refinements of the game, we would hope to improve the art design with a consistent yet distinctive visual style. Additionally, we aim to introduce customisation features—such as a coin-earning system that allows players to unlock and purchase different slicing effects—enhancing player engagement and personalisation. We believe our game would be better suited on mobile devices because it would provide for better control over the slicing mechanism. Therefore, we think the next step would be to adapt the game for IOS and android systems and conduct further evaluations to determine whether it provides the users with a more-pleasant experience.
-We came to view our game not just as a piece of functioning software, but as a socially relevant system—one that acknowledges its impact, meets diverse user needs, and carries a sense of responsibility in its design and implementation.
+We also learned how to write more efficient code to improve performance. Originally, we used multiple classes for different screens and buttons, which made the code more complex. By shifting to a CSS-based design across the game, we simplified the structure, improved loading times, and made the code easier to maintain. 
+
+As a team, we benefited greatly from adopting Agile methodologies. Breaking the project into smaller, manageable sprints allowed us to track progress effectively and work at a sustainable pace. After each meeting, tasks were assigned to team members and tracked on our GitHub Kanban board, ensuring everyone stayed up to date. Our team leader also posted follow-up messages summarising meeting objectives and outcomes on Microsoft Teams. This strengthened communication, improved clarity, and reduced miscommunication. 
+
+ 
+
+For future refinements, we hope to improve the game’s art design with a consistent yet distinctive visual style. We’d also like to introduce customisation features, such as a coin-earning system that allows players to unlock different slicing effects—enhancing both personalisation and engagement. 
+
+We also believe the game would be better suited to mobile devices, where touch controls could offer more natural slicing mechanics. Our next step would be to adapt the game for iOS and Android systems and conduct further evaluation to see if the experience is improved. Over time, we came to see the game not just as functional software, but as a socially relevant system—one that considers its impact, meets diverse user needs, and reflects responsibility in its design. 
+
+This group project gave us valuable experience not only in technical development but also in teamwork, communication, organisation, and user-centred design. It encouraged us to think creatively in the design phase and taught us the importance of clear communication throughout. The project also inspired us to consider broader issues like sustainability and user well-being when making design decisions. 
+
+Our individual contributions can be found below. 
 
 
 ### Contribution Statement
@@ -548,6 +490,9 @@ We came to view our game not just as a piece of functioning software, but as a s
   </tr>
  </tbody>
 </table>
+
+
+We also hope you got the [Smooth Operator](https://youtu.be/4TYv2PhG89A?si=Ua1qUIsa5WO5wfFF) reference!
 
 # References
 
