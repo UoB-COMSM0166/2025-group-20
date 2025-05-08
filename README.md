@@ -14,13 +14,6 @@
 ## Your Group
 ![Image](https://github.com/user-attachments/assets/958abe85-ba1e-46ad-b516-df34557794ae)
 
-- Omnia Ali, dc24201@bristol.ac.uk
-- May Daoud, zy21368@bristol.ac.uk
-- Barney Evershed, b.evershed.2021@bristol.ac.uk
-- Scarlett Hurford, cy21903@bristol.ac.uk
-- Matilda Stokes, jl21579@bristol.ac.uk and matildarosevin@gmail.com (please note both matildarosevin and jl21579 are attributed to this team member)
-- Ziyan Zhao, rw24449@bristol.ac.uk
-
 # Introduction
 When designing our game, we wanted to create something that paid homage to a game we all knew and loved growing up, but with a twist that makes it more mentally engaging. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator—a slicing game that emphasizes accuracy and mental focus! 
 
@@ -455,32 +448,46 @@ Our individual contributions can be found below.
   <tr>
    <th>Developer</th>
    <th>Contribution</th>
+    <th>Email</th>
+    <th>Github username</th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <td>Omnia Ali</td>
    <td>1.0</td>
+    <td>dc24201@bristol.ac.uk</td>
+    <td>omnia18o8</td>
   </tr>
   <tr>
    <td>May Daoud</td>
    <td>1.0</td>
+    <td>zy21368@bristol.ac.uk</td>
+    <td>may03d</td>
   </tr>
   <tr>
    <td>Barney Evershed</td>
    <td>1.0</td>
+    <td>b.evershed.2021@bristol.ac.uk</td>
+    <td>bever1tbev</td>
   </tr>
   <tr>
    <td>Scarlett Hurford</td>
    <td>1.0</td>
+    <td>cy21903@bristol.ac.uk</td>
+    <td>constscarlett</td>
   </tr>
   <tr>
    <td>Matilda Stokes</td>
    <td>1.0</td>
+    <td>jl21579@bristol.ac.uk</td>
+    <td>jl21579 <b>and</b><br>matildarosevin</td>
   </tr>
   <tr>
    <td>Ziyan Zhao</td>
    <td>1.0</td>
+    <td>rw24449@bristol.ac.uk</td>
+    <td>ziziyan02</td>
   </tr>
  </tbody>
 </table>
