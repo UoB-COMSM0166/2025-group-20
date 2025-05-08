@@ -25,7 +25,7 @@ class TutorialManager extends GameManager {
             overlay.text('Bomb Sliced!', width/2,100);
         })
         this.tutorialEnd = false;
-        this.lives.loseLife();
+        this.lives.setLives(2);
         this.narrationBox = document.createElement('p');
     }
 
@@ -81,7 +81,7 @@ class TutorialManager extends GameManager {
     }
 
     sliceHandle(){
-        this.slicingSound.play();
+        slicingSound.play();
         this.tutorialFruit.fruitImg = gameManager.getSliceImages()[this.fruitIndex];
         this.tutorialFruit.slicingGif = null;
         this.tutorialFruit.makeInert();
@@ -90,7 +90,7 @@ class TutorialManager extends GameManager {
     resetTutorial(){
         this.fruitIndex = 0;
         this.lives = new Lives();
-        this.lives.loseLife();
+        this.lives.setLives(2);
         this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
         this.tutorialEnd = false;
     }

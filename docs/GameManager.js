@@ -3,7 +3,6 @@ class GameManager {
     this.coop = false;
     this.mode = null;
     this.player2Control = 'aswd';
-    this.soundEffect = false;
     this.startGame = false;
     this.lives = new Lives();
     this.score = new GameScore();
@@ -54,7 +53,6 @@ class GameManager {
     this.playingFruits = [];
     this.fruitOnScreen = [];
     this.basket = new Basket();
-    this.slicingSound = loadSound('Design/Audio/soundSlicing.wav');
     this.gameLost = false;
     this.splatters = [];
   }
@@ -80,14 +78,6 @@ class GameManager {
 
   get2Control() {
     return this.player2Control;
-  }
-
-  setSoundEffect(effect) {
-    this.soundEffect = effect;
-  }
-
-  getSoundEffect() {
-    return this.soundEffect;
   }
 
   setStartGame(start) {
@@ -196,8 +186,8 @@ class GameManager {
         this.score.loseScore(10);
       }
       if (this.playingFruits[i].slicePat.isSliced() === 'correct' || this.playingFruits[i].slicePat.isSliced() === 'wrong') {
-        if (this.soundEffect) {
-          this.slicingSound.play();
+        if (soundEffect) {
+          slicingSound.play();
         }
         if (this.playingFruits[i].getName() !== 'bomb') {
           this.splatters.push(new Splatter(this.playingFruits[i].xPos, this.playingFruits[i].yPos, this.playingFruits[i]));

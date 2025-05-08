@@ -18,9 +18,12 @@ let tutorialManager;
 let tutorial;
 let cursorEffect;
 let cursorTrail;
+let soundEffect;
+let slicingSound;
 
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
+  slicingSound = loadSound('Design/Audio/soundSlicing.wav');
   container = document.getElementById('gameContainer');
   width = container.clientWidth;
   height = container.clientHeight;
@@ -45,6 +48,7 @@ function setup() {
   cursorTrail = [];
   tutorial = false;
   cursorEffect = false;
+  soundEffect = false;
   startScreen();
 }
 
@@ -400,12 +404,12 @@ function makeMenuButtons() {
   onButton1.style.opacity = '0.6';
 
   onButton1.addEventListener('click', function() {
-    gameManager.setSoundEffect(true);
+    soundEffect = true;
     onButton1.style.opacity = '1.0';
     offButton1.style.opacity = '0.6';
   });
   offButton1.addEventListener('click', function() {
-    gameManager.setSoundEffect(false);
+    soundEffect = false;
     offButton1.style.opacity = '1.0';
     onButton1.style.opacity = '0.6';
   });
