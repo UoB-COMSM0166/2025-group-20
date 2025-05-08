@@ -1,18 +1,22 @@
 # 2025-group-20
 2025 COMSM0166 group 20
 
-## Your Game
+## Our Game
 <div align="center"> 
   <img src='docs/Design/Images/game-title.png'><br>
   <img src='docs/Design/Images/watch-our-video.png' width='150'> 
   <a href="https://uob-comsm0166.github.io/2025-group-20/"> 
     <img src='docs/Design/Images/play-our-game.png' width='150'>
   </a>
+  <a href="[###contribution-statement]">
     <img src='docs/Design/Images/meet-our-team.png' width='150'>
+  </a>  
 </div>
 
-## Your Group
-![Image](https://github.com/user-attachments/assets/958abe85-ba1e-46ad-b516-df34557794ae)
+## Our Group
+<div align="center">
+  <img src='project-report-images/group-picture.png'>
+</div>
 
 # Introduction
 When designing our game, we wanted to create something that paid homage to a game we all knew and loved growing up, but with a twist that makes it more mentally engaging. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator—a slicing game that emphasizes accuracy and mental focus! 
