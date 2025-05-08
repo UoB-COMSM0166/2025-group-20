@@ -187,7 +187,7 @@ Upon examination, we decided to extend the hitboxes to represent a 3x3 grid that
 In our final implementation, we maintained the 3x3 grid of hitboxes, but we changed the threshold for a correct slice. A more lenient approach required the cursor to hit the first two hitboxes in the same row/column. After that, if the cursor hits any of the boxes in the remaining row/column, a correct slice will be registered. This makes up for the stress of following the fruit along the screen with a mouse or a trackpad while maintaining the challenging yet exciting aspect of following a specific slicing pattern 
 
 <p align="center">
-  <img src="project-report-images/implementation_challenge1.png" width="70%"><br>
+  <img src="project-report-images/challenge1.png" width="70%"><br>
   <b>Figure . </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
 
