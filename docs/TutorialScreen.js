@@ -47,8 +47,11 @@ class TutorialManager extends GameManager {
         }
         if (!this.tutorialFruit.visible){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
-            if (this.tutorialFruit.getName() === 'blueberry') {
-                this.narrationBox.textContent = 'Slice the blueberry by clicking it';
+            if (this.tutorialFruit.getName() === 'blueberry' || this.tutorialFruit.getName() === 'dragonfruit') {
+                this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + ' by clicking it';
+            }
+            else if (this.tutorialFruit.getName() === 'bomb') {
+                this.narrationBox.textContent = 'Do not slice the bomb';
             }
             else { 
                 this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + " " + this.slicePatterns[this.fruitIndex];
