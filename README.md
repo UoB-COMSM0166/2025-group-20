@@ -236,9 +236,12 @@ User feedback on visuals was exceptionally positive. Players appreciated the nos
 
 However, two recurrent issues emerged. First, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting spawn rate and speed. Second, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect—a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback. 
 
-![Recipe Book Evaluation](project-report-images/Wood-Scratch-Effect.gif)
+<div align="center">
+  <img src="project-report-images/scratchwoodEffect.gif" alt="`cursorWoodScratch` implementation." width="500">
+  <br>
+  <b>Figure 9. </b><i>`cursorWoodScratch` implementation.</i>
+</div>
 
-**Figure 9**: *`cursorWoodScratch` implentation.*
 
 ## Learning Curve
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features haven’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory—having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
@@ -251,16 +254,19 @@ Tutorial Mode (Figure 4c): Accessible from the start screen to let users practis
 
 2. The dragon fruit’s +1 life bonus 
 
-3. The importance of slicing fruit in the correct recipe order 
+3. The importance of slicing fruit in the correct recipe order
 
-![Recipe Book Evaluation](project-report-images/Think-Aloud-Recipe-Book.gif)
-
-**Figure 10**: *Demo of the interactive recipe book feature.*
-
-
-![Recipe Book Evaluation](project-report-images/Dragonfruit-Tutorial-Example.gif)
-
-**Figure 11**: *Clear, informative dragonfruit explanation feature in tutorial mode.*
+  <div align="center">
+    <img src="project-report-images/dragonfruitImplementation.gif" alt="Dragonfruit feature in tutorial mode" width="500">
+    <br>
+    <b>Figure 10. </b> <i>Dragonfruit feature in tutorial mode.</i>
+  </div>
+  <br>
+  <div align="center">
+    <img src="project-report-images/recipebookImplementation.gif" alt="Interactive recipe book feature" width="500">
+    <br>
+    <b>Figure 11. </b> <i>Demo of the interactive recipe book feature.</i>
+  </div>
 
 ## Quantitative: NASA TLX
 One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we devised two levels of difficulty within our game. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced.  
