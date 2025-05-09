@@ -132,6 +132,9 @@ class GameManager {
       this.basket.show();
     }
 
+    // Display scratch effect in background
+    scratchCursorEffect();
+
     // Update recipe when finished
     if (this.currentRecipe.getRecipe().length === 0) {
       this.sliceEffects['recipeComplete'].show();

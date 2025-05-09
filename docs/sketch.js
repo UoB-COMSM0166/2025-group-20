@@ -20,6 +20,10 @@ let cursorEffect;
 let cursorTrail;
 let soundEffect;
 let slicingSound;
+let scratchTrail = [];
+let fadeSpeed = 1.5;
+let maxScratchLength = 30;
+let baseTaper = 15;
 
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
@@ -295,6 +299,7 @@ function selectGame() {
 
 function optionsScreen() {
   clearMainMenu();
+  buttonWrapper.style.marginTop = '80px';
   buttonWrapper.appendChild(optionsTitle);
   buttonWrapper.appendChild(optionsP2);
   buttonWrapper.appendChild(optionsSound);
@@ -485,3 +490,68 @@ function showCursor() {
     t.alpha -= 5;
   }
 }
+
+function scratchCursorEffect() {
+  if (mouseIsPressed) {
+    scratchTrail.push({
+      x: mouseX,
+      y: mouseY,
+      alpha: 255
+    });
+    if (scratchTrail.length > maxScratchLength) { 
+      scratchTrail.shift(); 
+    }
+  } else {
+    // Clear trail when mouse is not pressed
+    scratchTrail = [];
+  }
+
+  // Fade and remove old points
+  for (let point of scratchTrail) {
+    point.alpha -= fadeSpeed;
+  }
+  scratchTrail = scratchTrail.filter(p => p.alpha > 0);
+
+  // Draw trail
+  push();
+  noStroke();
+  for (let i = 1; i < scratchTrail.length; i++) {
+    let p1 = scratchTrail[i - 1];
+    let p2 = scratchTrail[i];
+
+    let dx = p2.x - p1.x;
+    let dy = p2.y - p1.y;
+    let angle = atan2(dy, dx);
+
+    let progress = i / scratchTrail.length;
+    let taper = baseTaper * (1 - abs(0.5 - progress) * 2); 
+    let alpha = min(p1.alpha, p2.alpha);
+
+    // --- light brown edges on the shape for dimension ---
+    fill(150, 95, 45, alpha * 0.3);
+    beginShape();
+    vertex(p1.x - taper * 0.4 * sin(angle), p1.y + taper * 0.4 * cos(angle));
+    vertex(p1.x - taper * 0.2 * sin(angle), p1.y + taper * 0.2 * cos(angle));
+    vertex(p2.x - taper * 0.2 * sin(angle), p2.y + taper * 0.2 * cos(angle));
+    vertex(p2.x - taper * 0.4 * sin(angle), p2.y + taper * 0.4 * cos(angle));
+    endShape(CLOSE);
+
+    beginShape();
+    vertex(p1.x + taper * 0.4 * sin(angle), p1.y - taper * 0.4 * cos(angle));
+    vertex(p1.x + taper * 0.2 * sin(angle), p1.y - taper * 0.2 * cos(angle));
+    vertex(p2.x + taper * 0.2 * sin(angle), p2.y - taper * 0.2 * cos(angle));
+    vertex(p2.x + taper * 0.4 * sin(angle), p2.y - taper * 0.4 * cos(angle));
+    endShape(CLOSE);
+
+    // --- dark brown indent/scratch/burn line ---
+    fill(62, 35, 25, alpha);
+    beginShape();
+    vertex(p1.x - taper * 0.3 * sin(angle), p1.y + taper * 0.3 * cos(angle));
+    vertex(p1.x + taper * 0.3 * sin(angle), p1.y - taper * 0.3 * cos(angle));
+    vertex(p2.x + taper * 0.3 * sin(angle), p2.y - taper * 0.3 * cos(angle));
+    vertex(p2.x - taper * 0.3 * sin(angle), p2.y + taper * 0.3 * cos(angle));
+    endShape(CLOSE);
+  }
+  pop();
+}
+
