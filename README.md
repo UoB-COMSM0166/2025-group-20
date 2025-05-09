@@ -243,10 +243,6 @@ However, two recurrent issues emerged. First, the occasional generation of overl
   <b>Figure 9. </b><i>`cursorWoodScratch` implementation.</i>
 </div>
 
-<p align="center">
-  <img src="project-report-images/Wood-Scratch-Effect.gif" width="60%"><br>
-  <b>Figure 9. </b> <i>cursorWoodScratch` implentation.</i><br><br>
-</p>
 
 ## Learning Curve
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features haven’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory—having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
@@ -275,12 +271,6 @@ Tutorial Mode (Figure 4c): Accessible from the start screen to let users practis
 
 3. The importance of slicing fruit in the correct recipe order 
 
-<p align="center">
-  <img src="project-report-images/Think-Aloud-Recipe-Book.gif" width="60%"><br>
-  <b>Figure 10. </b> <i>Demo of the interactive recipe book feature.</i><br><br><br>
-    <img src="project-report-images/Dragonfruit-Tutorial-Example.gif" width="60%"><br>
-  <b>Figure 11. </b> <i>Clear, informative dragonfruit explanation feature in tutorial mode.</i><br><br>
-</p>
 
 ## Quantitative: NASA TLX
 One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we devised two levels of difficulty within our game. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced.  
