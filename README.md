@@ -2,14 +2,18 @@
 2025 COMSM0166 group 20
 
 ## Our Game
-<div align="center"> 
+<p align="center"> 
   <img src='docs/Design/Images/game-title.png'><br>
-  <img src='docs/Design/Images/watch-our-video.png' width='150'> 
+  <a href='https://www.youtube.com/watch?v=xvFZjo5PgG0'>
+    <img src='docs/Design/Images/watch-our-video.png' width='150'> 
+  </a>
   <a href="https://uob-comsm0166.github.io/2025-group-20/"> 
     <img src='docs/Design/Images/play-our-game.png' width='150'>
   </a>
-  <img src='docs/Design/Images/meet-our-team.png' width='150'>
-</div>
+  <a href="#our-team">
+    <img src="docs/Design/Images/meet-our-team.png" width="150">
+  </a>
+</p>
 
 ## Our Group
 <div align="center">
@@ -443,7 +447,7 @@ This group project gave us valuable experience not only in technical development
 Our individual contributions can be found below. 
 
 
-### Contribution Statement
+# Our Team
 
 <table>
  <thead>
