@@ -236,9 +236,10 @@ User feedback on visuals was exceptionally positive. Players appreciated the nos
 
 However, two recurrent issues emerged. First, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting spawn rate and speed. Second, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect—a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback. 
 
-![Recipe Book Evaluation](project-report-images/Wood-Scratch-Effect.gif)
-
-**Figure 9**: *`cursorWoodScratch` implentation.*
+<p align="center">
+  <img src="project-report-images/Wood-Scratch-Effect.gif" width="60%"><br>
+  <b>Figure 9. </b> <i>cursorWoodScratch` implentation.</i><br><br>
+</p>
 
 ## Learning Curve
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features haven’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory—having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
@@ -253,23 +254,22 @@ Tutorial Mode (Figure 4c): Accessible from the start screen to let users practis
 
 3. The importance of slicing fruit in the correct recipe order 
 
-![Recipe Book Evaluation](project-report-images/Think-Aloud-Recipe-Book.gif)
-
-**Figure 10**: *Demo of the interactive recipe book feature.*
-
-
-![Recipe Book Evaluation](project-report-images/Dragonfruit-Tutorial-Example.gif)
-
-**Figure 11**: *Clear, informative dragonfruit explanation feature in tutorial mode.*
+<p align="center">
+  <img src="project-report-images/Think-Aloud-Recipe-Book.gif" width="60%"><br>
+  <b>Figure 10. </b> <i>Demo of the interactive recipe book feature.</i><br><br><br>
+    <img src="project-report-images/Dragonfruit-Tutorial-Example.gif" width="60%"><br>
+  <b>Figure 11. </b> <i>Clear, informative dragonfruit explanation feature in tutorial mode.</i><br><br>
+</p>
 
 ## Quantitative: NASA TLX
 One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we devised two levels of difficulty within our game. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced.  
 
 We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)). 
 
-![Alt text](project-report-images/NASA-TLX-Load-Index-Bar-Chart.png)
-
-**Figure 12**: *NASA TLX Evaluation Bar Chart Feedback.*
+<p align="center">
+  <img src="project-report-images/NASA-TLX-Load-Index-Bar-Chart.png" width="60%"><br>
+  <b>Figure 12. </b> <i>NASA TLX Evaluation Bar Chart Feedback.</i><br><br>
+</p>
 
 The bar chart above shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives- we wanted to create an engaging learning curve to interest first-time players and long-term gamers. The accompanying pentagraph (Figure 9) reveals more granular differences: 
 
@@ -281,9 +281,10 @@ The bar chart above shows a notable increase in overall workload from Easy to Ha
 
 While frustration increased, it was largely attributed to earlier usability issues identified through TAE—all of which were later resolved. These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise. 
 
-![Alt text](project-report-images/NASA-TLX-Load-Index-Pentagraph.png)
-
-**Figure 13**: *NASA TLX Pentagraph demonstrating specific demand difference feedback.*
+<p align="center">
+  <img src="project-report-images/NASA-TLX-Load-Index-Pentagraph.png" width="60%"><br>
+  <b>Figure 13. </b> <i>NASA TLX Pentagraph demonstrating specific demand difference feedback.</i><br><br>
+</p>
 
 **Statistical Analysis**
 
@@ -305,9 +306,7 @@ While this informal approach initially worked, it eventually led to communicatio
 This shift improved our workflow significantly. We began structuring our meetings with clear agendas, summaries of accomplishments, and defined next steps. Additionally, Teams proved more effective for document sharing, tracking progress, and conducting polls. It also supported flexible communication, allowing members who couldn’t attend meetings in person to stay informed and contribute. 
 <p align="center">
   <img src="project-report-images/old-chat.png" width="20%"><br>
-  <b>Figure 14a. </b> <i>An example of our old communication style</i>
-</p>
-<p align="center">
+  <b>Figure 14a. </b> <i>An example of our old communication style</i><br><br>
   <img src="project-report-images/new-chat.png" width="50%"><br>
   <b>Figure 14b. </b> <i>An example of our new communication style</i>
 </p>
@@ -316,9 +315,7 @@ This shift improved our workflow significantly. We began structuring our meeting
 Since our main goal was to increase team effort, we decided to follow an agile framework which would allow us to prioritise collaboration and enhance our skills. The main agile principle we followed was breaking down our project into small and manageable iterations which would encourage us to continuously deliver working software while working at a steady and sustainable pace. To help plan our iterations, we set up a Kanban board on our Github to organise smaller tasks and track their statuses. Before each sprint, we would have an in-person meeting to discuss which of the items on our to-do column had top priority and needed to be achieved in that iteration. Once those tasks were allocated to members of the team, we would then look to see if we could allocate other tasks with less priority. To help us plan the duration of each iteration (or sprint), we would agree on a story point for each task based on its relative size which would help us estimate the effort required. At the end, work on our game was spread across 3 sprint cycles throughout the term, with most of the features being implemented during the first sprint. We used the remaining sprints to carry out refinements and enhancements. This structure allowed us to reflect on our performance and assess our workflow. 
 <p align="center">
   <img src="project-report-images/sprint-review.png" width="50%"><br>
-  <b>Figure 5a. </b> <i>Sprint breakdown for the project</i>
-</p>
-<p align="center">
+  <b>Figure 5a. </b> <i>Sprint breakdown for the project</i><br><br>
   <img src="project-report-images/kanban-board.png" width="50%"><br>
   <b>Figure 5b. </b> <i>Our Kanban board</i>
 </p>
