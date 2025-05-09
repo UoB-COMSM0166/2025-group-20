@@ -236,6 +236,13 @@ User feedback on visuals was exceptionally positive. Players appreciated the nos
 
 However, two recurrent issues emerged. First, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting spawn rate and speed. Second, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect—a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback. 
 
+
+<div align="center">
+  <img src="project-report-images/scratchwoodEffect.gif" alt="`cursorWoodScratch` implementation." width="500">
+  <br>
+  <b>Figure 9. </b><i>`cursorWoodScratch` implementation.</i>
+</div>
+
 <p align="center">
   <img src="project-report-images/Wood-Scratch-Effect.gif" width="60%"><br>
   <b>Figure 9. </b> <i>cursorWoodScratch` implentation.</i><br><br>
@@ -251,6 +258,20 @@ Tutorial Mode (Figure 4c): Accessible from the start screen to let users practis
 1. Avoiding bombs 
 
 2. The dragon fruit’s +1 life bonus 
+
+3. The importance of slicing fruit in the correct recipe order
+
+  <div align="center">
+    <img src="project-report-images/dragonfruitImplementation.gif" alt="Dragonfruit feature in tutorial mode" width="500">
+    <br>
+    <b>Figure 10. </b> <i>Dragonfruit feature in tutorial mode.</i>
+  </div>
+  <br>
+  <div align="center">
+    <img src="project-report-images/recipebookImplementation.gif" alt="Interactive recipe book feature" width="500">
+    <br>
+    <b>Figure 11. </b> <i>Demo of the interactive recipe book feature.</i>
+  </div>
 
 3. The importance of slicing fruit in the correct recipe order 
 
