@@ -269,8 +269,6 @@ Tutorial Mode (Figure 4c): Accessible from the start screen to let users practis
     <b>Figure 11. </b> <i>Demo of the interactive recipe book feature.</i>
   </div>
 
-3. The importance of slicing fruit in the correct recipe order 
-
 
 ## Quantitative: NASA TLX
 One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we devised two levels of difficulty within our game. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced.  
