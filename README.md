@@ -202,12 +202,12 @@ Other elements interact with the GameManager similarly. If GameManager sees that
 
 ## Sequence Diagram
 
-The way in which these classes communicate and interact whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
+The way in which these classes communicate and interact over time whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
 ![Mermaid Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Design/mermaid-diagram-2025-05-10-130109.svg)
 
 
-Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading.
+Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading. It demonstrates that due to the need for draw(), setup() and various other P5 library functions to be not attached to an object, the sketch.js contains these functions to act as a “main” file and as a user interface between the user and the Game Manager. 
 
 
 
