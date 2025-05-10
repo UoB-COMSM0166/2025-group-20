@@ -173,7 +173,7 @@ Within the diagram we have omitted constructors, getters and setters as well as 
 
 The way in which these classes communicate and interact whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
-![mermaid-diagram-2025-05-10-130109](https://github.com/user-attachments/assets/1c4b0f97-e081-4319-956c-614d0b0fc788)
+![Mermaid Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Design/mermaid-diagram-2025-05-10-130109.svg)
 
 
 Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading.
