@@ -171,9 +171,10 @@ With these principles in mind, we devised the classes represented in the class d
 
 Within the diagram we have omitted constructors, getters and setters as well as any attributes that are constant for simplicity and ease of reading. It centres around the GameManager class which organises and utilises the other objects to produce the gameplay loop. This class is also extended by the TutorialManager class to provide slightly different functionality for the tutorial. These classes get rum through the Sketch.js file which utilises the P5 library functions to act as a “main” file. The user interacts with this file and the objects within it through a system of on-screen buttons to navigate with the settings and between the different states as well as through use of the mouse and the left and right arrow keys or the “a” and “d” keys during gameplay to slice the fruit or move the basket in two player mode respectively. The aim was to make navigation and interaction with the system easy and intuitive to uphold Nielson’s usability principles.
 
-The way in which these classes communicate and interact whilst the user interacts with the system is detailed in the Sequence Diagram below: 
+The way in which these classes communicate and interact whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
-![mermaid-diagram-2025-05-10-130011](https://github.com/user-attachments/assets/eef0d6e2-a887-4a76-b2fc-16312b992b2a)
+![mermaid-diagram-2025-05-10-130109](https://github.com/user-attachments/assets/1c4b0f97-e081-4319-956c-614d0b0fc788)
+
 
 Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading.
 
