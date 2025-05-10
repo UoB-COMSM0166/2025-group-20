@@ -182,6 +182,18 @@ The following diagram illustrates Smoothie Operator’s final design. It shows t
 
 ![Report Class DIagram FINAL FINAL](https://github.com/user-attachments/assets/e5322b45-152f-4f30-b2ea-a0aa1e717d3f)
 
+The classes divised uphold the principles of orientation in the following ways:
+
+Encapsulation – Objects interact mainly through getters and setters and do not access the internals of each other directly.
+
+Abstraction – Objects have simplified and abstracted functionality. Within the GameManager and TutorialManager the objects that it’s composed interact through abstract interfaces and are loosely coupled. 
+
+Inheritance – TutorialManager extends GameManager and TutorialFruit extends Fruit to provide slightly different functionality for the tutorial yet minimise code reuse such as simplified fruit movement and a linear progression through the different fruit types.
+
+Polymorphism – The different Fruit respond to the user input from the mouse differently due to the difference between the SlicePatterns of the types. 
+
+Composition – The GameManager and its extending class TutorialManager are composed of all the other classes. Fruit and TutorialFruit are composed of the SlicePattern class which itself is composed of the SliceArray and HitBox classes.
+
 When the game is launched, the player can customise their game through a system of on-screen buttons. Their options include single/two player mode, easy (ninja) and hard (samurai) mode, preference for player 2 controls and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates the gameplay loop accordingly. In turn, the gameplay loop is controlled by the gameState() method which is only terminated when the player quits the game. 
 
 The player can either quit by pausing the game at any time and choosing the ‘main menu’ option, or similarly through the game over screen if they lose the game. Game loss is monitored by the Lives class which maintains the state of the player’s 3 lives. When the player runs out of lives, the GameManager checks with the GameScore class to update the player’s high score if necessary. 
