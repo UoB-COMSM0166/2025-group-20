@@ -161,15 +161,34 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
 <b>Table 3b. </b> <i>Use Case Specification of Alternative Flow in Multiple Player.</i>
 
 # Design 
+<p>
+  One of our early development stages required the planning of a comprehensive design and structure for our game. To help achieve a code-efficient and modular structure, we decided to utilise object-oriented programming principles that would organise our software around objects and their behaviour.<br><br>
+  Our first task was to identify the classes needed for our objects, for which we carried out an easy grammatical parse exercise which involved identifying nouns from a brief description of our game. Smoothie Operator is a game where <b>fruits</b> are <b>generated</b> on the screen, and the player must slice the fruits according to a <b>smoothie recipe</b> shown on the screen. If the player slices a fruit out of order, they lose a <b>life</b>. If the player is in samurai mode, they must also follow a unique <b>slicing pattern</b> for each fruit. The player gains <b>points</b> for each fruit, and for completing a recipe. If there are two players, the second player must control a <b>basket</b> to catch the fruit slices.<br><br>
+  Our core classes would therefore be:
+  <ul>
+    <li>Fruit</li>
+    <li>FruitGenerator</li>
+    <li>SmoothieRecipe</li>
+    <li>Lives</li>
+    <li>GameScore</li>
+    <li>SlicingPattern</li>
+    <li>Basket</li>
+  </ul>
+  This initial design was implemented using p5js, with a heavy reliance on javascript to manipulate different game screens and states. This prompted us to deal with more classes each time we wanted the player to move through a different dialogue in the game. As we progressed through the development, we started utilising other tools such as HTML and CSS for UI design and elements, which allowed for a cleaner code base. Our multiple game screen classes were replaced by one GameManager class which controlled all game states and facilitated the flow of the main gameplay loop.<br> 
+</p>
 
-We chose an Object-Oriented Design as it made visualising and designing the game easier as well as providing additional benefits of code efficiency and modularity, making it easier to maintain and scale up in the long run. This meant upholding the principles of Object-Orientation including encapsulation, abstraction, inheritance, polymorphism and composition. 
-
-With these principles in mind, we devised the classes represented in the class diagram below: 
+## Class Diagram
+The following diagram illustrates Smoothie Operator’s final design. It shows that the GameManager controls the behaviour of the rest of the classes used in our software. **NB:** Within the diagram we have omitted constructors, getters and setters as well as any attributes that are constant for simplicity and ease of reading.
 
 ![Report Class DIagram FINAL FINAL](https://github.com/user-attachments/assets/e5322b45-152f-4f30-b2ea-a0aa1e717d3f)
 
+When the game is launched, the player can customise their game through a system of on-screen buttons. Their options include single/two player mode, easy (ninja) and hard (samurai) mode, preference for player 2 controls and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates the gameplay loop accordingly. In turn, the gameplay loop is controlled by the gameState() method which is only terminated when the player quits the game. 
 
-Within the diagram we have omitted constructors, getters and setters as well as any attributes that are constant for simplicity and ease of reading. It centres around the GameManager class which organises and utilises the other objects to produce the gameplay loop. This class is also extended by the TutorialManager class to provide slightly different functionality for the tutorial. These classes get rum through the Sketch.js file which utilises the P5 library functions to act as a “main” file. The user interacts with this file and the objects within it through a system of on-screen buttons to navigate with the settings and between the different states as well as through use of the mouse and the left and right arrow keys or the “a” and “d” keys during gameplay to slice the fruit or move the basket in two player mode respectively. The aim was to make navigation and interaction with the system easy and intuitive to uphold Nielson’s usability principles.
+The player can either quit by pausing the game at any time and choosing the ‘main menu’ option, or similarly through the game over screen if they lose the game. Game loss is monitored by the Lives class which maintains the state of the player’s 3 lives. When the player runs out of lives, the GameManager checks with the GameScore class to update the player’s high score if necessary. 
+
+Other elements interact with the GameManager similarly. If GameManager sees that the player is in samurai mode, it will call the RecipeBook on the screen which will contain the different slicing patterns. If it sees that the players are in co-op mode, it will call the basket on screen and ensure that it is controlled using either ‘aswd’ or arrow controls based on the player’s preferences. 
+
+## Sequence Diagram
 
 The way in which these classes communicate and interact whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
