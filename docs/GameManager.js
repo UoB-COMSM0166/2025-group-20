@@ -130,9 +130,7 @@ class GameManager {
     this.score.drawHighScore();
     this.score.drawCurrentScore();
     this.currentRecipe.display();
-    if (this.coop) {
-      this.basket.show();
-    }
+    
 
     // Display scratch effect in background
     scratchCursorEffect();
@@ -246,6 +244,9 @@ class GameManager {
       }
 
     }  
+    if (this.coop) {
+      this.basket.show();
+    }
   }
 
   hideRecipeBook() {
