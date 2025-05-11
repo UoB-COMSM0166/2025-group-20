@@ -541,11 +541,12 @@ This group project gave us valuable experience not only in technical development
 
 Speaking of smooth, we also hope you got the [Smooth Operator](https://youtu.be/4TYv2PhG89A?si=Ua1qUIsa5WO5wfFF) reference!
 
-### Individual Contributions
+## Our Team
 <table>
  <thead>
   <tr>
    <th>Developer</th>
+    <th>Role</th>
    <th>Contribution</th>
     <th>Email</th>
     <th>Github username</th>
@@ -554,36 +555,42 @@ Speaking of smooth, we also hope you got the [Smooth Operator](https://youtu.be/
  <tbody>
   <tr>
    <td>Omnia Ali</td>
+    <td>Product Owner</td>
    <td>1.0</td>
     <td>dc24201@bristol.ac.uk</td>
     <td>omnia18o8</td>
   </tr>
   <tr>
    <td>May Daoud</td>
+    <td>Tech Lead</td>
    <td>1.0</td>
     <td>zy21368@bristol.ac.uk</td>
     <td>may03d</td>
   </tr>
   <tr>
    <td>Barney Evershed</td>
+    <td>Mechanics Programmer</td>
    <td>1.0</td>
     <td>b.evershed.2021@bristol.ac.uk</td>
     <td>bever1tbev</td>
   </tr>
   <tr>
    <td>Scarlett Hurford</td>
+    <td>UI Designer</td>
    <td>1.0</td>
     <td>cy21903@bristol.ac.uk</td>
     <td>constscarlett</td>
   </tr>
   <tr>
    <td>Matilda Stokes</td>
+    <td>Effects Designer</td>
    <td>1.0</td>
     <td>jl21579@bristol.ac.uk</td>
     <td>jl21579 <b>and</b><br>matildarosevin</td>
   </tr>
   <tr>
    <td>Ziyan Zhao</td>
+    <td>Scrum Master</td>
    <td>1.0</td>
     <td>rw24449@bristol.ac.uk</td>
     <td>ziziyan02</td>
