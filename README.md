@@ -355,7 +355,8 @@ Other elements interact with the GameManager similarly. If GameManager sees that
 
 The way in which these classes communicate and interact over time whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
-![Mermaid Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Design/mermaid-diagram-2025-05-10-232230.svg)
+![mermaid-diagram-2025-05-11-175506](https://github.com/user-attachments/assets/2522f7a8-d8da-401f-89d0-5b39e424f7ee)
+
 <p align="center">
   <b>Figure 6. </b><i>Sequence diagram of the game (linked)</i>
 </p>
