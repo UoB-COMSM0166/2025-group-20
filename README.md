@@ -71,9 +71,7 @@ We first developed an Onion Model to identify key stakeholders to help us unders
 
 
 <h3>User Stories</h3>
-We used user stories to define our functional requirements because they provide a clear, stakeholder-centred way to communicate what to build, for whom, and why—making them accessible to both technical and non-technical team members. We began by identifying a broader strategic objective (initiative), then broke it down into epics and further into user stories. This structured approach was especially helpful in the early stages of game development, as it gave us a focused and actionable goals as to what to build. For example, we designed the game to have a tutorial page from the start, so our game maintains clarity.
-
-
+We used user stories to define our functional requirements because they provide a clear, stakeholder-centred way to communicate what to build, for whom, and why—making them accessible to both technical and non-technical team members. We began by identifying a broader strategic objective (initiative), then broke it down into epics and further into user stories. This structured approach was especially helpful in the early stages of game development, as it gave us focused and actionable goals as to what to build. For example, we designed the game to have a tutorial page from the start, so our game maintains clarity.<br>
 <table>
   <thead>
     <tr>
