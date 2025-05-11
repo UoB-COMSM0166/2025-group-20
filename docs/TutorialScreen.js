@@ -41,11 +41,13 @@ class TutorialManager extends GameManager {
         this.sliceEffects['tutorialComplete'].active();
         this.sliceEffects['bombSlice'].active();
         this.activateEffects();
+        // Display scratch effect in background
+        scratchCursorEffect();
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
             this.tutorialFruit.move();
         }
-        if (!this.tutorialFruit.visible){
+        if (!this.tutorialFruit.getVisible()){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
             if (this.tutorialFruit.getName() === 'blueberry' || this.tutorialFruit.getName() === 'dragonfruit') {
                 this.narrationBox.textContent = 'Slice the ' + this.tutorialFruit.getName() + ' by clicking it';
@@ -77,7 +79,7 @@ class TutorialManager extends GameManager {
         if (this.tutorialFruit.getName() === 'dragonfruit' || this.tutorialFruit.getName() === 'bomb'){
             this.lives.drawLife();
         }
-        if (this.tutorialFruit.slicePat.isSliced() === 'correct') {
+        if (this.tutorialFruit.getSlice().isSliced() === 'correct') {
             this.sliceEffects['correctSlice'].show();
             if (this.tutorialFruit.getName() === 'dragonfruit'){
                 this.lives.gainLife();
@@ -86,11 +88,11 @@ class TutorialManager extends GameManager {
             this.sliceHandle();
             this.fruitIndex++;
         }
-        else if (this.tutorialFruit.slicePat.isSliced() === 'wrong'){
+        else if (this.tutorialFruit.getSlice().isSliced() === 'wrong'){
             this.sliceEffects['wrongSlice'].show();
             this.sliceHandle();
         }
-        else if (this.tutorialFruit.slicePat.isSliced() === 'bomb'){
+        else if (this.tutorialFruit.getSlice().isSliced() === 'bomb'){
             this.tutorialFruit.makeInert();
             this.lives.zeroLives();
             this.tutorialEnd = true;
@@ -102,7 +104,7 @@ class TutorialManager extends GameManager {
         }
         if (this.tutorialFruit.getName() === 'bomb'){
             setTimeout(() => {
-                if (this.tutorialFruit.slicePat.isSliced() !== 'bomb' && this.tutorialFruit.yPos === height && !this.tutorialEnd){
+                if (this.tutorialFruit.getSlice().isSliced() !== 'bomb' && this.tutorialFruit.getY() === height && !this.tutorialEnd){
                     this.sliceEffects['tutorialComplete'].show();
                     this.tutorialEnd = true;
                     setTimeout(()=>{
@@ -115,9 +117,11 @@ class TutorialManager extends GameManager {
     }
 
     sliceHandle(){
-        slicingSound.play();
-        this.tutorialFruit.fruitImg = gameManager.getSliceImages()[this.fruitIndex];
-        this.tutorialFruit.slicingGif = null;
+        if (soundEffect){
+            slicingSound.play();
+        }
+        this.tutorialFruit.setImage(gameManager.getSliceImages()[this.fruitIndex]);
+        this.tutorialFruit.setGif();
         this.tutorialFruit.makeInert();
     }
 

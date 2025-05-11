@@ -31,4 +31,8 @@ class TutorialFruit extends Fruit{
             image(this.slicingGif, this.xPos, this.yPos, this.size, this.size);
         }
     }
+
+    setGif(){
+        this.slicingGif = null;
+    }
 }

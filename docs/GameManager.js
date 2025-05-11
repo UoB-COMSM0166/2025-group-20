@@ -41,7 +41,7 @@ class GameManager {
       pop();
     });
     this.fruitNames = ['blueberry', 'apple', 'banana', 'cherry', 'lemon', 'grape', 'watermelon', 'dragonfruit', 'bomb'];
-    this.slicePatterns = ['easy', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'easy', 'bomb'];
+    this.slicePatterns = ['click', 'up', 'down', 'right', 'left', 'lrdown/rlup', 'rldown/lrup', 'click', 'bomb'];
     this.fruitImages = [];
     this.sliceImages = [];
     this.splatImages = [];
@@ -140,8 +140,11 @@ class GameManager {
       this.sliceEffects['recipeComplete'].show();
       this.currentRecipe = new RecipeGenerator();
       this.score.addScore(20);
-      if (this.spawnRate-1 !== 0){
-        this.spawnRate--;
+      if (this.spawnRate-2 > 0){
+        this.spawnRate -= 2;
+      }
+      else if (this.spawnRate-2 <= 0){
+        this.spawnRate = 1;
       }
     }
 
@@ -152,10 +155,14 @@ class GameManager {
       this.fruitOnScreen.push(x.getIndex());
     }
 
-    if(!this.fruitOnScreen.includes(this.currentRecipe.getRecipe()[0])){
+    if(!this.fruitOnScreen.includes(this.currentRecipe.getRecipe()[0]) && !this.recipeSpawn){
       let x = this.fruitGenerator.randomFruitGen(0);
-      this.playingFruits.push(x);
-      this.fruitOnScreen.push(x.getIndex());
+      this.recipeSpawn = true;
+      setTimeout(()=>{
+        this.playingFruits.push(x);
+        this.fruitOnScreen.push(x.getIndex());
+        this.recipeSpawn = false;
+      }, 3000);
     }
   
     let n = noise(frameCount * 0.01 + this.noiseSeedVal);
@@ -197,24 +204,24 @@ class GameManager {
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
-      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && this.playingFruits[i].yPos < windowHeight
-          && this.playingFruits[i].yPos > windowHeight-330
-          && this.playingFruits[i].xPos < this.basket.x+110 && this.playingFruits[i].xPos > this.basket.x-110){
+      if (this.coop && this.playingFruits[i].getSlice().getType() === 'inert' && this.playingFruits[i].getY() < windowHeight
+          && this.playingFruits[i].getY() > windowHeight-330
+          && this.playingFruits[i].getX() < this.basket.getX()+110 && this.playingFruits[i].getX() > this.basket.getX()-110){
           this.fruitOnScreen.splice(i, 1);
           this.playingFruits.splice(i, 1);
       }
-      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && this.playingFruits[i].yPos > windowHeight
-      && (this.playingFruits[i].xPos > this.basket.x+110 || this.playingFruits[i].xPos < this.basket.x-110)) {
+      if (this.coop && this.playingFruits[i].getSlice().getType() === 'inert' && this.playingFruits[i].getY() > windowHeight
+      && (this.playingFruits[i].getX() > this.basket.getX()+110 || this.playingFruits[i].getX() < this.basket.getX()-110)) {
         this.fruitOnScreen.splice(i, 1);
         this.playingFruits.splice(i, 1);
         this.score.loseScore(10);
       }
-      if (this.playingFruits[i].slicePat.isSliced() === 'correct' || this.playingFruits[i].slicePat.isSliced() === 'wrong') {
+      if (this.playingFruits[i].getSlice().isSliced() === 'correct' || this.playingFruits[i].getSlice().isSliced() === 'wrong') {
         if (soundEffect) {
           slicingSound.play();
         }
         if (this.playingFruits[i].getName() !== 'bomb') {
-          this.splatters.push(new Splatter(this.playingFruits[i].xPos, this.playingFruits[i].yPos, this.playingFruits[i]));
+          this.splatters.push(new Splatter(this.playingFruits[i].getX(), this.playingFruits[i].getY(), this.playingFruits[i]));
         }
         if (this.playingFruits[i].getName() === 'dragonfruit'){
             this.lives.gainLife();
@@ -225,20 +232,20 @@ class GameManager {
           this.lives.loseLife();
         }
         else if (this.playingFruits[i].getIndex() === this.currentRecipe.getRecipe()[0]){
-          if (this.playingFruits[i].slicePat.isSliced() === 'correct'){
+          if (this.playingFruits[i].getSlice().isSliced() === 'correct'){
             this.score.addScore(10);
             this.currentRecipe.getRecipe().shift();
           }
-          else if (this.playingFruits[i].slicePat.isSliced() === 'wrong'){
+          else if (this.playingFruits[i].getSlice().isSliced() === 'wrong'){
             this.sliceEffects['wrongSlice'].show();
           }
         }
         if (this.playingFruits[i].getName() !== 'bomb') {
-          this.playingFruits[i].fruitImg = this.sliceImages[this.playingFruits[i].getIndex()];
+          this.playingFruits[i].setImage(this.sliceImages[this.playingFruits[i].getIndex()]);
         }
         this.playingFruits[i].makeInert();
       }
-      else if (this.playingFruits[i].slicePat.isSliced() === 'bomb') {
+      else if (this.playingFruits[i].getSlice().isSliced() === 'bomb') {
         this.playingFruits[i].makeInert();
         this.lives.zeroLives();
       }

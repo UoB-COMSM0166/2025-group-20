@@ -24,6 +24,7 @@ let scratchTrail = [];
 let fadeSpeed = 1.5;
 let maxScratchLength = 30;
 let baseTaper = 15;
+let clicked;
 
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
@@ -53,6 +54,7 @@ function setup() {
   tutorial = false;
   cursorEffect = false;
   soundEffect = false;
+  clicked = false;
   startScreen();
 }
 
@@ -73,6 +75,10 @@ function draw() {
 
   if (cursorEffect) {
     showCursor();
+  }
+
+  if (!mouseIsPressed){
+    clicked = false;
   }
 
   if (gameManager.get2Control() === 'arrow') {
@@ -556,5 +562,9 @@ function scratchCursorEffect() {
     endShape(CLOSE);
   }
   pop();
+}
+
+function mouseClicked(){
+  clicked = true;
 }
 
