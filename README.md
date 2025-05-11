@@ -362,7 +362,7 @@ The way in which these classes communicate and interact over time whilst the use
 
 
 (To navigate the diagram file CTRL + Scroll to zoom, SHIFT + Click and Drag to move around)
-Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading. It models the standard interaction users will have with the system further showing the strong composition relationship between the GameManager, TutorialManager and the other classes. It demonstrates that due to the need for draw(), setup() and various other P5 library functions to be not attached to an object, the sketch.js contains these functions to act as a “main” file and as a user interface between the user and the Game Manager.
+Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as minor functions for simplicity and ease of reading. It models the standard interaction users will have with the system further showing the strong composition relationship between the GameManager, TutorialManager and the other classes and how integral they are to the game's logic and organisation. It demonstrates that due to the need for draw(), setup() and various other P5 library functions to be not attached to an object, the sketch.js contains these functions to act as a “main” file and as a user interface between the user and the Game Manager.
 
 
 ## Implementation
