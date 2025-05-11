@@ -40,6 +40,7 @@ Designing our game based on user experiences led us to create a game that was me
 
 
 <p align="center">
+  <br>
   <img src="project-report-images/miro.png"><br>
   <b>Figure 1. </b> <i>Miro Board</i>
 </p>
@@ -49,6 +50,7 @@ During the third workshop, we created a paper prototype to help refine our ideas
 Following this exercise, we held a team vote and ultimately chose to develop a game inspired by Fruit Ninja with a slight adaptation from another game, Overcooked. We felt this concept offered a manageable scope for development while still providing creative flexibility to tailor the user experience.
 
 <p align="center">
+  <br>
   <img src="project-report-images/prototype.gif" width="70%" ><br>
   <b>Figure 2. </b> <i> Smoothie Operator Paper Prototype</i>
 </p>
@@ -57,12 +59,13 @@ Following this exercise, we held a team vote and ultimately chose to develop a g
 We started by using the Onion Model to identify key stakeholders, such as players, developers, and testers, to understand the different perspectives that influence game design. We then gathered feedback during prototype demos, asking individuals to evaluate the game from their perspective as stakeholders. While our project has been primarily designed within a university setting, the Onion Model emphasises how well-designed systems can influence broader social behaviors by offering engaging gameplay experiences for specific communities.
 
 <p align="center">
+  <br>
   <img src="project-report-images/onion_model_apple.png" width="50%"><br>
   <b>Figure 3. </b> <i>Onion Model of Smoothie Operator (but in the shape of an apple!)</i>
 </p>
 
 <h3>User Stories</h3>
-We employed user stories to define our functional requirements because they provide a clear, stakeholder-centred way to communicate what to build, for whom, and why, making them accessible to both technical and non-technical team members. We began by identifying a broader strategic objective (initiative), then broke it down into epics and user stories. This structured approach was especially helpful in the early stages of game development, as it gave us focused and actionable goals as to what to build. For example, we designed the game to have a tutorial page from the start, so our game maintains clarity.<br>
+We employed user stories to define our functional requirements because they provide a clear, stakeholder-centred way to communicate what to build, for whom, and why, making them accessible to both technical and non-technical team members. We began by identifying a broader strategic objective (initiative), then broke it down into epics and user stories. This structured approach was especially helpful in the early stages of game development, as it gave us focused and actionable goals as to what to build. For example, we designed the game to have a tutorial page from the start, so our game maintains clarity.<br><br>
 <table>
   <thead>
     <tr>
@@ -355,21 +358,20 @@ It models the standard user interaction within the gameplay loop, while also hig
 
 ## Implementation
 <h3>Challenge 1: A suitable hitbox mechanism</h3>
-Originally, Fruit Ninja was designed for mobile, where players could smoothly swipe fruits using the touchscreen. Implementing Ninja (easy) Mode was straightforward, but the Samurai (hard) Mode required players to slice fruits in specific directions, therefore, we needed a way to accurately detect different slicing patterns. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mice and trackpads. To handle slicing, we created a system using three main classes: 
-<br><br>
-•<strong>HitBox</strong>: A small invisible circle that detects when the player’s mouse passes through it.
-<br><br>
-•<strong>SliceArray</strong>: A group of three HitBoxes arranged in a line to detect slicing direction (e.g. up, down, diagonal).
-<br><br>
-•<strong>SlicePattern</strong>: Combines multiple SliceArrays to define the full slicing rule for the fruit. In easy mode, it uses one large HitBox; in hard mode, it checks if the player slices through the correct pattern of hitboxes in the right direction.
-<br><br>
+Originally, Fruit Ninja was designed for mobile, where players could smoothly swipe fruits using the touchscreen. Implementing Ninja (easy) Mode was straightforward, but the Samurai (hard) Mode required players to slice fruits in specific directions, therefore, we needed a way to accurately detect different slicing patterns. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mice and trackpads. To handle slicing, we created a system using three main classes: <br><br> 
+
+•HitBox: A small invisible circle that detects when the player’s mouse passes through it. <br>
+•SliceArray: A group of three HitBoxes arranged in a line to detect slicing direction (e.g. up, down, diagonal).<br>
+•SlicePattern: Combines multiple SliceArrays to define the full slicing rule for the fruit. In Easy Mode, it uses one large HitBox; in hard mode, it checks if the player slices through the correct pattern of hitboxes in the right direction.
+
 Our initial approach placed 3 hitboxes on each fruit, aligned with the slicing direction and moving alongside it. A correct slice required the cursor to hit all three in order; otherwise, the player had to try again. During early testing, users found this too precise because slices often failed due to slight misalignment, even if the direction was correct. The limited hitbox fruit coverage made accurate slicing frustrating, which went against our goal of making the game both challenging and enjoyable.
 
-Upon examination, we decided to extend the hitboxes to represent a 3x3 grid that covered the entire fruit. This meant that a correct slice could be registered if the user aimed for the edges of the fruit. However, the cursor still needed to hit 3 consecutive hitboxes in the same row/column. Users again reported that it was difficult to keep the cursor in a straight line if the fruit was moving along the screen. This impacted our users' experiences because the system was still registering objectively correct slices as false negatives. Even after adjusting the fruits' speed, or allowing the hitboxes to overlap, we were still encountering difficulties with this design and so we brainstormed one last time.
+Upon examination, we decided to extend the hitboxes to represent a 3x3 grid that covered the entire fruit. This meant that a correct slice could be registered if the user aimed for the edges of the fruit. However, the cursor still needed to hit 3 consecutive hitboxes in the same row/column. Users again reported that it was difficult to keep the cursor in a straight line if the fruit was moving along the screen. This impacted our users' experiences because the system was still registering objectively correct slices as false negatives. Even after adjusting the fruits' speed, or allowing the hitboxes to overlap, we were still encountering difficulties with this design so we brainstormed one last time.
 
 In our final implementation, we maintained the 3x3 grid of hitboxes, but we changed the threshold for a correct slice. A more lenient approach required the cursor to hit the first two hitboxes in the same row/column. After that, if the cursor hits any of the boxes in the remaining row/column, a correct slice will be registered. This makes up for the stress of following the fruit along the screen with a mouse or a trackpad while maintaining the challenging yet exciting aspect of following a specific slicing pattern.
 
 <p align="center">
+  <br>
   <img src="project-report-images/challenges1.png" width="70%"><br>
   <b>Figure 7. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
@@ -468,7 +470,7 @@ One participant suggested removing the 'click and drag' mechanic to simplify sli
 
 •	The blueberry’s slice pattern relies on single-click input, which wouldn’t work without click detection.
 
-•	In easy mode, rapid clicking was seen as a satisfying feature.
+•	In Easy Mode, rapid clicking was seen as a satisfying feature.
 
 •	Removing click control could lead to accidental slices, especially when accessing menus or the recipe book.
 
@@ -476,38 +478,41 @@ One participant suggested removing the 'click and drag' mechanic to simplify sli
 <h4> Display </h4>
 User feedback on visuals was exceptionally positive. Players appreciated the nostalgic 8-bit style, satisfying fruit slicing, and the responsive, engaging cursor. The visual design was seen as cohesive and well-executed. 
 
-However, two recurrent issues emerged. Firstly, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting the spawn rate and speed. Secondly, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect — a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback. 
+However, two recurrent issues emerged. Firstly, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting the spawn rate and speed. Secondly, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect — a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback (Figure 9).
 
 <h4> Learning Curve </h4>
 <div align="center">
   <img src="project-report-images/scratchwoodEffect.gif" alt="`cursorWoodScratch` implementation." width="500">
   <br>
   <b>Figure 9. </b><i>cursorWoodScratch implementation.</i>
+  <br>
 </div>
+<br>
 
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features hadn’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory - having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
 
-Recipe Book (Figure 7): In hard mode, we added an in-game recipe book displaying fruit slice patterns. This allowed players to refer to it during gameplay, removing the need for memorisation and improving flow. 
 
-Tutorial Mode (Figure 8): Accessible from the start screen to let users practice core mechanics before playing. It introduces essential elements such as: 
+1. Recipe Book (Figure 10): In hard mode, we added an in-game recipe book displaying fruit slice patterns. This allowed players to refer to it during gameplay, removing the need for memorisation and improving flow. 
+
+2. Tutorial Mode: Accessible from the start screen to let users practice core mechanics before playing. It introduces essential elements such as: 
 
 •	Avoiding bombs
 
-•	The dragon fruit’s +1 life bonus
+•	The dragon fruit’s +1 life bonus (Figure 11)
 
 •	The importance of slicing fruit in the correct recipe order
 
-
-  <div align="center">
-    <img src="project-report-images/dragonfruitImplementation.gif" alt="Dragonfruit feature in tutorial mode" width="500">
-    <br>
-    <b>Figure 10. </b> <i>Dragonfruit feature in tutorial mode.</i>
-  </div>
   <br>
   <div align="center">
     <img src="project-report-images/recipebookImplementation.gif" alt="Interactive recipe book feature" width="500">
     <br>
-    <b>Figure 11. </b> <i>Demo of the interactive recipe book feature.</i>
+    <b>Figure 10. </b> <i>Demo of the interactive recipe book feature.</i>
+  </div>
+  <br>
+   <div align="center">
+    <img src="project-report-images/dragonfruitImplementation.gif" alt="Dragonfruit feature in tutorial mode" width="500">
+    <br>
+    <b>Figure 11. </b> <i>Dragonfruit feature in tutorial mode.</i>
   </div>
 
   <h3> Quantative Evaluation: NASA TLX </h3>
