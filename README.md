@@ -3,7 +3,7 @@
 ## Our Game
 <p align="center"> 
   <img src='docs/Design/Images/game-title.png'><br>
-  <a href='https://www.youtube.com/watch?v=xvFZjo5PgG0'>
+  <a href='https://drive.google.com/file/d/1Q1ofv2H2Ws0DuD6PFTD48T1dFwIvf5qa/view?usp=sharing'>
     <img src='docs/Design/Images/watch-our-video.png' width='150'> 
   </a>
   <a href="https://uob-comsm0166.github.io/2025-group-20/"> 
