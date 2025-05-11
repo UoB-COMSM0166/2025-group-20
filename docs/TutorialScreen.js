@@ -108,9 +108,11 @@ class TutorialManager extends GameManager {
                     this.sliceEffects['tutorialComplete'].show();
                     this.tutorialEnd = true;
                     setTimeout(()=>{
-                        tutorial = false;
-                        startScreen();
-                    }, 3000);
+                        if (tutorial){
+                            tutorial = false;
+                            startScreen();
+                        }
+                    }, 2000);
                 }
             }, 4000);
         }
