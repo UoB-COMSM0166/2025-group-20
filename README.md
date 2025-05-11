@@ -23,10 +23,10 @@
 As a team, we wanted to create something that paid homage to a game we all knew and loved growing up. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator—a fruit slicing game that requires movement accuracy and mental focus!
 
 
-We drew inspiration from two food-based games: Fruit Ninja, a fast-paced, endless slicer that tests reflexes but doesn’t really require mental focus, and Overcooked, a kitchen simulation that completes tasks in a specific sequence but lacks pacing. From these two, we created a hybrid experience with two twists. First, players in ‘ninja’/easy mode slice fruits not just for fun, but to complete smoothie recipes in the order displayed at the top of the screen. Second, in ‘samurai’/hard mode, players still need to follow the recipe order, but they must also slice fruits in specific directions, adding another layer of difficulty. 
+We drew inspiration from two food-based games: Fruit Ninja, an endless slicer that tests reflexes but doesn’t really require mental focus, and Overcooked, a kitchen simulation where players must complete tasks in a specific sequence and a chaotic environment. From these two, we created a hybrid experience with two twists. First, players in ‘ninja’/easy mode slice fruits not just for fun, but to complete smoothie recipes in the order displayed at the top of the screen. Second, in ‘samurai’/hard mode, players still need to follow the recipe order, but they must also slice fruits in specific directions, adding another layer of difficulty. 
 
 
-Additionally, we wanted to include an aspect of social interactions within our game, so we included a multiplayer mode where one player uses the mouse to slice fruits, while the other controls a basket with the keyboard to catch them. 
+Additionally, we wanted to include an aspect of social interactions within our game, so we included a multiplayer mode where one player uses the mouse or trackpad to slice fruits, while the other controls a basket with the keyboard to catch them. 
 
 
 We made sure to design our game based on user experiences, which led to us creating a game that was both mentally and physically engaging, has pace and simple to understand.
