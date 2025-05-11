@@ -404,7 +404,7 @@ This CSS-first approach greatly improved UI responsiveness, reduced code duplica
 <div align="center">
   <img src="project-report-images/old-diagram.gif" alt="Old Diagram" width="500">
   <br>
-  <b>Figure 7a. </b> <i> Sequence diagram before implementing CSS for UI</i>
+  <b>Figure 8. </b> <i> Sequence diagram before implementing CSS for UI</i>
 </div>
 
 
@@ -502,7 +502,7 @@ However, two recurrent issues emerged. First, the occasional generation of overl
 <div align="center">
   <img src="project-report-images/scratchwoodEffect.gif" alt="`cursorWoodScratch` implementation." width="500">
   <br>
-  <b>Figure 6. </b><i>`cursorWoodScratch` implementation.</i>
+  <b>Figure 9. </b><i>cursorWoodScratch implementation.</i>
 </div>
 
 
@@ -522,13 +522,13 @@ Tutorial Mode (Figure 8): Accessible from the start screen to let users practise
   <div align="center">
     <img src="project-report-images/dragonfruitImplementation.gif" alt="Dragonfruit feature in tutorial mode" width="500">
     <br>
-    <b>Figure 7. </b> <i>Dragonfruit feature in tutorial mode.</i>
+    <b>Figure 10. </b> <i>Dragonfruit feature in tutorial mode.</i>
   </div>
   <br>
   <div align="center">
     <img src="project-report-images/recipebookImplementation.gif" alt="Interactive recipe book feature" width="500">
     <br>
-    <b>Figure 8. </b> <i>Demo of the interactive recipe book feature.</i>
+    <b>Figure 11. </b> <i>Demo of the interactive recipe book feature.</i>
   </div>
 
   <h3> Quantative Evaluation: NASA TLX </h3>
@@ -542,7 +542,7 @@ The bar chart shows a notable increase in overall workload from Easy to Hard mod
 
 <p align="center">
   <img src="project-report-images/NASA-TLX-Load-Index-Bar-Chart.png" width="60%"><br>
-  <b>Figure 9. </b> <i>NASA TLX Evaluation Bar Chart Feedback.</i><br><br>
+  <b>Figure 12. </b> <i>NASA TLX Evaluation Bar Chart Feedback.</i><br><br>
 </p>
 
 
@@ -558,7 +558,7 @@ While frustration increased, it was largely attributed to earlier usability issu
 
 <p align="center">
   <img src="project-report-images/NASA-TLX-Load-Index-Pentagraph.png" width="60%"><br>
-  <b>Figure 10. </b> <i>NASA TLX Pentagraph demonstrating specific demand difference feedback.</i><br><br>
+  <b>Figure 13. </b> <i>NASA TLX Pentagraph demonstrating specific demand difference feedback.</i><br><br>
 </p>
 
 <h3>Statistical Analysis</h3>
@@ -583,9 +583,9 @@ As a solution, we migrated our discussions to Microsoft Teams, which is linked t
 
 <p align="center">
   <img src="project-report-images/old-chat.png" width="20%"><br>
-  <b>Figure 11a. </b> <i>An example of our old communication style</i><br><br>
+  <b>Figure 14a. </b> <i>An example of our old communication style</i><br><br>
   <img src="project-report-images/new-chat.png" width="50%"><br>
-  <b>Figure 11b. </b> <i>An example of our new communication style</i>
+  <b>Figure 14b. </b> <i>An example of our new communication style</i>
 </p>
 
 <h3>Development Tools and Techniques</h3>
@@ -595,9 +595,9 @@ To help plan our iterations, we set up a Kanban board on our Github to organise 
 
 <p align="center">
   <img src="project-report-images/sprint-review.png" width="50%"><br>
-  <b>Figure 12a. </b> <i>Sprint breakdown for the project</i><br><br>
+  <b>Figure 15. </b> <i>Sprint breakdown for the project</i><br><br>
   <img src="project-report-images/kanban-board.png" width="50%"><br>
-  <b>Figure 12b. </b> <i>Our Kanban board</i>
+  <b>Figure 16. </b> <i>Our Kanban board</i>
 </p>
 
 The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning the task, and adjusting our priorities—without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Easy Mode in a short period. 
@@ -626,7 +626,7 @@ As a digital-only product, Smoothie Operator avoids carbon emissions associated 
 
 <p align="center">
   <img src="project-report-images/Chainofeffects.jpg" width="70%"><br>
-  <b>Figure 5a. </b> <i>Chain of Effects. Red and green outlined boxes represent potential negative and positive impacts. Boxes with a black, dashed outline represent our design responses to negate the negative impacts. </i>
+  <b>Figure 17. </b> <i>Chain of Effects. Red and green outlined boxes represent potential negative and positive impacts. Boxes with a black, dashed outline represent our design responses to negate the negative impacts. </i>
 </p>
 
 <h3>Sustainability-Informed Requirements Analysis</h3>
@@ -689,7 +689,9 @@ As a digital-only product, Smoothie Operator avoids carbon emissions associated 
   </tbody>
 </table>
 
-<b>Table 5. </b> <i>Chain of Effects formulated into user requirements. </i>
+<p align="center">
+  <b>Table 5. </b> <i>Chain of Effects formulated into user requirements. </i>
+</p>
 
 <h3></h3> Green Software Foundation Implementation Patterns (I will finish and implement) </h3>
 To make our game more sustainable, we implemented three green software patterns:
@@ -770,6 +772,9 @@ Speaking of smooth, we also hope you got the [Smooth Operator](https://youtu.be/
   </tr>
  </tbody>
 </table>
+<p align="center">
+ <b>Table 6. </b><i>Team information</i>
+</p>
 
 ### References
 
