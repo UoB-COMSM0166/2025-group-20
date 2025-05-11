@@ -22,11 +22,11 @@
 ## Introduction
 As a team, we wanted to create something that paid homage to a game we all knew and loved growing up. Rather than relying solely on instinct and quick reactions, we aimed to challenge players’ focus, precision, and sequencing skills. We also wanted to create a game that offers players a fun and rewarding experience whether they were new or advanced gamers. This idea led to the creation of Smoothie Operator — a fruit-slicing game that requires precise accuracy and mental focus!
 
-We drew inspiration from two food-based games: Fruit Ninja, a fast-paced, endless slicer that tests reflexes but doesn’t require mental focus, and Overcooked, a kitchen simulation that completes tasks in a specific sequence but lacks pacing. From these two, we created a hybrid experience with two twists. First, players in ‘Ninja'/Easy Mode slice fruits not just for fun, but to complete smoothie recipes in the order displayed at the top of the screen. Second, in ‘Samurai’/Hard Mode, players still need to follow the recipe order, but they must also slice fruits in specific directions, adding another layer of difficulty. 
+We drew inspiration from two food-based games: Fruit Ninja, a fast-paced, endless slicer that tests reflexes but doesn’t require mental focus, and Overcooked, a cooking simulation that completes tasks in a specific sequence but lacks precision based mechanics. From these two, we created a hybrid experience with two twists. First, players in ‘Ninja'/Easy Mode slice fruits not just for fun, but to complete smoothie recipes in the order displayed at the top of the screen. Second, in ‘Samurai’/Hard Mode, players still need to follow the recipe order, but they must also slice fruits in specific directions, adding another layer of difficulty. 
 
 Additionally, we wanted to incorporate a social aspect into our game, so we added a multiplayer mode where one player slices fruits with the mouse while the other uses the keyboard to control a basket and catch them.
 
-Designing our game based on user experiences led us to create a game that was mentally and physically engaging, simple to understand, and fast-paced.
+Designing our game based on user experiences led us to create a game that was mentally and physically engaging, simple to understand, and well-paced.
 
 ## Requirements 
 <h3>Ideation Process</h3>
@@ -146,15 +146,15 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
   <thead>
     <tr>
       <th>Steps</th>
-      <th>Easy Mode</th>
-      <th>Hard Mode</th>
+      <th>Ninja Mode</th>
+      <th>Samurai Mode</th>
     </tr>
   </thead>
   <tbody>
     <tr>
     <td>1</td>
-    <td>Player launches the game and selects Easy Mode.</td>
-    <td>Player launches the game and selects Hard Mode.</td>
+    <td>Player launches the game and selects Ninja Mode.</td>
+    <td>Player launches the game and selects Samurai Mode.</td>
     </tr>
     <tr>
       <td>2</td>
@@ -188,15 +188,15 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
     <thead>
       <tr>
         <th>Steps</th>
-        <th>Easy Mode</th>
-        <th>Hard Mode</th>
+        <th>Ninja Mode</th>
+        <th>Samurai Mode</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
         <td>Wrong fruit sliced: -1 heart. No effect on score.</td>
-        <td>Wrong fruit sliced: Same as Easy mode.</td>
+        <td>Wrong fruit sliced: Same as Ninja mode.</td>
       </tr>
       <tr>
         <td>2</td>
@@ -225,15 +225,15 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
   <thead>
     <tr>
       <th>Steps</th>
-      <th>Easy Mode</th>
-      <th>Hard Mode</th>
+      <th>Ninja Mode</th>
+      <th>Samurai Mode</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Players select Easy Mode under Two-Players Mode</td>
-      <td>Players select Hard Mode under Two-Player Mode</td>
+      <td>Players select Ninja Mode under Two-Players Mode</td>
+      <td>Players select Samurai Mode under Two-Player Mode</td>
     </tr>
     <tr>
       <td>2</td>
@@ -267,8 +267,8 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
     <thead>
       <tr>
         <th>Steps</th>
-        <th>Easy Mode</th>
-        <th>Hard Mode</th>
+        <th>Ninja Mode</th>
+        <th>Samurai Mode</th>
       </tr>
     </thead>
     <tbody>
@@ -339,7 +339,7 @@ Polymorphism – The different Fruit respond to the user input from the mouse di
 
 Composition – The GameManager and its extending class TutorialManager are composed of all the other classes. Fruit and TutorialFruit are composed of the SlicePattern class which itself is composed of the SliceArray and HitBox classes.
 
-When the game is launched, the player can customise their game through a system of on-screen buttons. Their options include Single/Two-player Mode, Easy (Ninja) and Hard (Samurai) Mode, preference for player 2 controls, and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates the gameplay loop accordingly. In turn, the gameplay loop is controlled by the gameState() method which is only terminated when the player quits the game. 
+When the game is launched, the player can customise their game through a system of on-screen buttons. Their options include Single/Two-player Mode, Ninja (Easy) and Samurai (Hard) Mode, preference for player 2 controls, and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates the gameplay loop accordingly. In turn, the gameplay loop is controlled by the gameState() method which is only terminated when the player quits the game. 
 
 The player can either quit by pausing the game at any time and choosing the ‘main menu’ option or similarly through the game over screen if they lose the game. Game loss is monitored by the Lives class which maintains the state of the player’s 3 lives. When the player runs out of lives, the GameManager checks with the GameScore class to update the player’s high score if necessary. 
 
@@ -369,7 +369,7 @@ Originally, Fruit Ninja was designed for mobile, where players could smoothly sw
 
 •HitBox: A small invisible circle that detects when the player’s mouse passes through it. <br>
 •SliceArray: A group of three HitBoxes arranged in a line to detect slicing direction (e.g. up, down, diagonal).<br>
-•SlicePattern: Combines multiple SliceArrays to define the full slicing rule for the fruit. In Easy Mode, it uses one large HitBox; in hard mode, it checks if the player slices through the correct pattern of hitboxes in the right direction.
+•SlicePattern: Combines multiple SliceArrays to define the full slicing rule for the fruit. In Ninja Mode, it uses one large HitBox; in Samurai mode, it checks if the player slices through the correct pattern of hitboxes in the right direction.
 
 Our initial approach placed 3 hitboxes on each fruit, aligned with the slicing direction and moving alongside it. A correct slice required the cursor to hit all three in order; otherwise, the player had to try again. During early testing, users found this too precise because slices often failed due to slight misalignment, even if the direction was correct. The limited hitbox fruit coverage made accurate slicing frustrating, which went against our goal of making the game both challenging and enjoyable.
 
@@ -477,7 +477,7 @@ One participant suggested removing the 'click and drag' mechanic to simplify sli
 
 •	The blueberry’s slice pattern relies on single-click input, which wouldn’t work without click detection.
 
-•	In Easy Mode, rapid clicking was seen as a satisfying feature.
+•	In Ninja (easy) Mode, rapid clicking was seen as a satisfying feature.
 
 •	Removing click control could lead to accidental slices, especially when accessing menus or the recipe book.
 
@@ -499,7 +499,7 @@ However, two recurrent issues emerged. Firstly, the occasional generation of ove
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features hadn’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory - having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
 
 
-1. Recipe Book (Figure 10): In hard mode, we added an in-game recipe book displaying fruit slice patterns. This allowed players to refer to it during gameplay, removing the need for memorisation and improving flow. 
+1. Recipe Book (Figure 10): In Samurai mode, we added an in-game recipe book displaying fruit slice patterns. This allowed players to refer to it during gameplay, removing the need for memorisation and improving flow. 
 
 2. Tutorial Mode: Accessible from the start screen to let users practice core mechanics before playing. It introduces essential elements such as: 
 
@@ -523,13 +523,13 @@ Early user feedback highlighted issues with the game's initial difficulty. At th
   </div>
 
   <h3> Quantative Evaluation: NASA TLX </h3>
-One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we analysed the two levels of difficulty within our game. In Easy Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Hard Mode, the bombs and the slice patterns were re-introduced. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration.
+One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we analysed the two levels of difficulty within our game. In Ninja Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Samurai Mode, the bombs and the slice patterns were re-introduced. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration.
 
   
 We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)).
 
 
-The bar chart shows a notable increase in overall workload from Easy to Hard mode: an expected and desirable outcome. These results validated our game objectives - we wanted to create an engaging learning curve to interest first-time players and long-term gamers. 
+The bar chart shows a notable increase in overall workload from Ninja to Samurai mode: an expected and desirable outcome. These results validated our game objectives - we wanted to create an engaging learning curve to interest first-time players and long-term gamers. 
 
 <p align="center">
   <img src="project-report-images/NASA-TLX-Load-Index-Bar-Chart.png" width="60%"><br>
@@ -545,7 +545,7 @@ The accompanying pentagraph (Figure 13) reveals more granular differences:
 
 •	Minimal change in physical or temporal demand.
 
-While frustration increased, it was largely attributed to earlier usability issues identified through TAE, all of which were later resolved. These findings suggest that the added difficulty in Hard Mode effectively challenged the player without overwhelming them physically or pacing-wise. 
+While frustration increased, it was largely attributed to earlier usability issues identified through TAE, all of which were later resolved. These findings suggest that the added difficulty in Samurai Mode effectively challenged the player without overwhelming them physically or pacing-wise. 
 
 <p align="center">
   <img src="project-report-images/NASA-TLX-Load-Index-Pentagraph.png" width="60%"><br>
@@ -554,12 +554,12 @@ While frustration increased, it was largely attributed to earlier usability issu
 
 <h3>Statistical Analysis</h3>
 
-While the data visually and confidently determined that the quantitative tests executed indicated a significant workload increase, we adopted the Wilcoxon Signed Rank Test to test if there was a significant difference between the easy and hard modes: 
+While the data visually and confidently determined that the quantitative tests executed indicated a significant workload increase, we adopted the Wilcoxon Signed Rank Test to test if there was a significant difference between the Ninja and Samurai modes: 
 - Wilcoxon result (where n = 10, a = 0.05):
   - A value of 8 or less to quantify a significant difference. 
   - W = 0 (0 < 8).
   - An *extremely* significant difference.
-These findings suggest that the added difficulty in Hard mode effectively challenged the player without overwhelming them physically or pacing-wise. 
+These findings suggest that the added difficulty in Samurai mode effectively challenged the player without overwhelming them physically or pacing-wise. 
 
 ## Process
 Our team worked together successfully, due to a combination of software development techniques and team-building exercises. Effective communication was a top priority, as it enabled us to allocate tasks and track progress throughout the process.
@@ -591,7 +591,7 @@ To help plan our iterations, we set up a Kanban board on our Github to organise 
   <b>Figure 16. </b> <i>Our Kanban board</i>
 </p>
 
-The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning tasks, and adjusting our priorities without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Easy Mode in a short period. 
+The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning tasks, and adjusting our priorities without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Ninja (easy) Mode in a short period. 
 
 ## Sustainability
 With sustainability becoming an increasingly urgent, global priority, we must find simple, everyday ways to engage people in more environmentally friendly behaviours. Therefore, when designing our game, Smoothie Operator, we wanted to ensure that sustainable thinking was part of the development process. To do this, we first needed to understand the sustainability impact of our game. Our analysis was based on the Sustainability Awareness Framework (SusAF), which is divided into five sectors: individual, technical, social, environmental, and economic (Becker et al., 2015).
@@ -599,10 +599,10 @@ With sustainability becoming an increasingly urgent, global priority, we must fi
 <h3>Overview of Sustainability Analysis</h3>
 
 
-Our game promotes lifelong learning by incorporating cognitive challenges. For instance, Hard Mode requires players to memorise the fruits’ directional patterns. Research suggests that games involving memory tasks can enhance cognitive abilities such as short-term memory, reaction time, and communication skills (Ning et al., 2020). Based on this, we can infer that Smoothie Operator offers a degree of cognitive stimulation.
+Our game promotes lifelong learning by incorporating cognitive challenges. For instance, Samurai Mode requires players to memorise the fruits’ directional patterns. Research suggests that games involving memory tasks can enhance cognitive abilities such as short-term memory, reaction time, and communication skills (Ning et al., 2020). Based on this, we can infer that Smoothie Operator offers a degree of cognitive stimulation.
 
 
-NASA TLX results showed that players found Hard Mode more frustrating than Easy Mode (Figure 13). While moderate frustration can be empowering and motivating, it may also cause stress and anxiety. In addition, the precise timing and accuracy required to slice the fruits may help improve hand-eye coordination and boost reflexes, improving an individual’s physical health. 
+NASA TLX results showed that players found Samurai Mode more frustrating than Ninja Mode (Figure 13). While moderate frustration can be empowering and motivating, it may also cause stress and anxiety. In addition, the precise timing and accuracy required to slice the fruits may help improve hand-eye coordination and boost reflexes, improving an individual’s physical health. 
 
 
 Currently, only a player’s current and highest scores are visible. Although this helps to protect player privacy, it may also reduce the social or competitive element that often makes games more engaging. To address the initial lack of social interaction, we added a two-player mode where players collaborate to achieve higher scores. This fosters teamwork and communication but may also cause tension if one player outperforms the other.
@@ -696,7 +696,7 @@ As a digital-only product, it avoids emissions from physical production. While a
 </div>
 
 ## Conclusion
-The Agile process allowed us to create a game that was user-focused by developing functional requirements through user stories. This helped us build a design from the start that ensured the game was challenging, usable, and accessible. Our qualitative evaluation helped us consider user feedback and visibility, while the quantitative evaluation highlighted the challenge of Hard Mode. Through this, we learned how to strike a balance between technical functionality and user experience, especially when designing Hard Mode. Using evaluation tools such as the NASA TLX questionnaire, we gained insight into user expectations and adjusted the game’s difficulty accordingly, ensuring it remained challenging yet enjoyable.
+The Agile process allowed us to create a game that was user-focused by developing functional requirements through user stories. This helped us build a design from the start that ensured the game was challenging, usable, and accessible. Our qualitative evaluation helped us consider user feedback and visibility, while the quantitative evaluation highlighted the challenge of Samurai Mode. Through this, we learned how to strike a balance between technical functionality and user experience, especially when designing Samurai (hard) Mode. Using evaluation tools such as the NASA TLX questionnaire, we gained insight into user expectations and adjusted the game’s difficulty accordingly, ensuring it remained challenging yet enjoyable.
 
 However, creating a game that was challenging but not frustrating wasn’t without its difficulties. Since the original inspiration, Fruit Ninja, was designed for touchscreen use, adapting it to mouse or trackpad input proved tricky. We discovered that slicing precision was harder to achieve, especially with trackpads. To address this, we kept refining our HitBoxes to be more lenient, reducing false positives and negatives when slicing fruit.
 
