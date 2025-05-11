@@ -4,11 +4,10 @@ class SlicePattern{
     this.diameter = size;
     if (this.type === 'bomb' || this.type === 'easy'){
         //bomb and easy mode pattern composed of a large hitbox
-        this.hit = new HitBox(this.diameter);
+        this.hit = new HitBox(this.diameter, false);
     }
     else if (this.type === 'click'){
-        //click slicepattern composed of button
-        //this.hit.addEventListener("click", ()=>{this.clicked=true});
+        this.hit = new HitBox(this.diameter, true);
     }
     else {
         //Hard mode pattern composed of several slice arrays to make it easier to slice
@@ -26,18 +25,12 @@ class SlicePattern{
       return 'inert';
     }
     if (this.type === 'bomb'){
-      if (this.hit.hit){
+      if (this.hit.getHit()){
         return 'bomb';
       }
     }
-    else if (this.type === 'easy') {
-      if (this.hit.hit){
-        return 'correct';
-      }
-    }
-    else if (this.type === 'click'){
-        if (this.clicked){
-            this.hit.remove();
+    else if (this.type === 'easy' || this.type === 'click') {
+        if (this.hit.getHit()){
             return 'correct';
         }
     }
@@ -45,21 +38,22 @@ class SlicePattern{
         let firstTwo = false;
         let endTwo = false;
         for (let j = 0; j < 3; ++j){
-            if (this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+            if (this.sliceArrays[j].getHits(2).getHit() && this.sliceArrays[j].getHits(0).getHit()){
                 firstTwo = true;
             }
-            if (this.sliceArrays[j].hits[1].hit && this.sliceArrays[j].hits[0].hit){
+            if (this.sliceArrays[j].getHits(1).getHit() && this.sliceArrays[j].getHits(0).getHit()){
                 endTwo = true;
             }
-            if (!this.sliceArrays[j].hits[2].hit && !this.sliceArrays[j].hits[1].hit && this.sliceArrays[j].hits[0].hit){
+            if (!this.sliceArrays[j].getHits(2).getHit() && !this.sliceArrays[j].getHits(1).getHit()
+                && this.sliceArrays[j].getHits(0).getHit()){
                 return 'wrong';
             }
         }
         for (let i = 0; i < 3; ++i){
-            if ((this.sliceArrays[i].hits[1].hit && firstTwo) || (this.sliceArrays[i].hits[2].hit && endTwo)){
+            if ((this.sliceArrays[i].getHits(1).getHit() && firstTwo) || (this.sliceArrays[i].getHits(2).getHit() && endTwo)){
                 return 'correct';
             }
-            if ((this.sliceArrays[i].hits[1].hit && !firstTwo) && (this.sliceArrays[i].hits[2].hit && !endTwo)){
+            if ((this.sliceArrays[i].getHits(1).getHit() && !firstTwo) && (this.sliceArrays[i].getHits(2).getHit() && !endTwo)){
                 return 'wrong';
             }
         }
@@ -67,18 +61,18 @@ class SlicePattern{
     else {
         let firstTwo = false;
         for (let j = 0; j < 3; ++j){
-            if (this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+            if (this.sliceArrays[j].getHits(2).getHit() && this.sliceArrays[j].getHits(0).getHit()){
                 firstTwo = true;
             }
-            if (!this.sliceArrays[j].hits[2].hit && this.sliceArrays[j].hits[0].hit){
+            if (!this.sliceArrays[j].getHits(2).getHit() && this.sliceArrays[j].getHits(0).getHit()){
                 return 'wrong';
             }
         }
         for (let i = 0; i < 3; ++i){
-            if (this.sliceArrays[i].hits[1].hit && firstTwo){
+            if (this.sliceArrays[i].getHits(1).getHit() && firstTwo){
                 return 'correct';
             }
-            if (this.sliceArrays[i].hits[1].hit && !firstTwo){
+            if (this.sliceArrays[i].getHits(1).getHit() && !firstTwo){
                 return 'wrong';
             }
         }
@@ -87,11 +81,8 @@ class SlicePattern{
 
   //slicepattern movement mapped to fruit movement
   move(x, y){
-      if (this.type  === 'bomb' || this.type === 'easy'){
+      if (this.type  === 'bomb' || this.type === 'easy' || this.type  === 'click'){
           this.hit.move(x,y);
-      }
-      else if (this.type  === 'click'){
-          this.hit.position(x+this.diameter/2, y+this.diameter/2);
       }
       else{
           this.sliceArrays[0].move(x, y);
@@ -113,6 +104,9 @@ class SlicePattern{
           }
       }
   }
+  getType(){
+        return this.type;
+  }
 }
 
 class SliceArray{
@@ -121,9 +115,9 @@ class SliceArray{
       this.hits = [];
       this.type = type;
       this.diameter = size;
-      this.hits[0] = new HitBox(this.diameter);
-      this.hits[1] = new HitBox(this.diameter);
-      this.hits[2] = new HitBox(this.diameter);
+      this.hits[0] = new HitBox(this.diameter, false);
+      this.hits[1] = new HitBox(this.diameter, false);
+      this.hits[2] = new HitBox(this.diameter, false);
   }
 
   //hitboxes arranged and moved in specific order depending on direction
@@ -154,12 +148,16 @@ class SliceArray{
           this.hits[2].move(x - this.diameter/1.4, y + this.diameter/1.4);
       }
   }
+  getHits(index){
+      return this.hits[index];
+  }
 }
 
 class HitBox {
-  constructor(diameter){
+  constructor(diameter, click){
       this.diameter = diameter;
       this.hit = false;
+      this.click = click;
   }
 
   //hitbox boundaries defined and moved in relation to fruit and slice pattern
@@ -178,13 +176,16 @@ class HitBox {
   //Checks if the specific hitbox has been hit
   isHit(){
       if (mouseX <= this.umx && mouseX >= this.lmx && mouseY <= this.umy && mouseY >= this.lmy) {
-          if (mouseIsPressed) {
+          if (!this.click && mouseIsPressed){
               this.hit = true;
           }
-          else {
-              this.hit = false;
+          else if (this.click && clicked){
+              this.hit = true;
           }
       }
   }
 
+  getHit(){
+      return this.hit;
+  }
 }

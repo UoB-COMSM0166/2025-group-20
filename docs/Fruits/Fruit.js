@@ -29,10 +29,10 @@ class Fruit {
   
   move() {
     // moving fruit along x and y axes
-    if (this.xPos + this.xSpeed > width-this.size && this.slicePat.type === 'inert'){
+    if (this.xPos + this.xSpeed > width-this.size && this.slicePat.getType() === 'inert'){
       this.xPos = width-this.size;
     }
-    else if (this.xPos + this.xSpeed < 0  && this.slicePat.type === 'inert'){
+    else if (this.xPos + this.xSpeed < 0  && this.slicePat.getType() === 'inert'){
       this.xPos = 0;
     }
     else{
@@ -81,6 +81,26 @@ class Fruit {
 
   getName() {
     return this.fruitName;
+  }
+
+  getY(){
+    return this.yPos;
+  }
+
+  getX(){
+    return this.xPos;
+  }
+
+  getSlice(){
+    return this.slicePat;
+  }
+
+  setImage(image){
+    this.fruitImg = image;
+  }
+
+  getVisible(){
+    return this.visible;
   }
 
   //makes slice pattern inert to stop it from affecting game attributes after being sliced
