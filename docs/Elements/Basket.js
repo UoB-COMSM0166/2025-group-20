@@ -34,4 +34,8 @@ class Basket{
     this.x = width/2;
     this.y = height;
   }
+
+  getX(){
+      return this.x;
+  }
 }
