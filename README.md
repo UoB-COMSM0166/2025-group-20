@@ -349,19 +349,18 @@ Other elements interact with the GameManager similarly. If GameManager sees that
 
 How these classes communicate and interact over time during standard user interaction with the system is detailed in the Sequence Diagram below: 
 
-![mermaid-diagram-2025-05-11-225801](https://github.com/user-attachments/assets/b22aad8c-d0eb-4d13-b7c5-1f398f8ddf34)
-
+![mermaid-diagram-2025-05-11-231022](https://github.com/user-attachments/assets/2a08fb40-5a00-408b-853e-7a295bbd1b68)
 
 <p align="center">
   <b>Figure 6. </b><i>Sequence diagram of the main gameplay loop</i>
 </p>
-It models the standard user interaction within the gameplay loop, while also highlighting the integral role of the GameManager and how it organises and utilises the other classes.
+It models in a simplified manner the standard user interaction within the gameplay loop, highlighting the integral role of the GameManager and how it organises and utilises the other classes.
 
 As you can see, initially within the game play loop the GameManager calls upon the FruitGenerator class to produce a new Fruit object, the type of which is random although there is a higher probability that it is the type of the current fruit that needs to be sliced and a very low chance it will be a dragon fruit.
 
 The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks, with it either being correct, wrong or a bomb. In every instance the GameManager calls upon the Splatter class to display a splatter on the background as well as the SliceEffect class to display an effect to let the User know how the slice has affected the game and makes the SlicePattern of the Fruit inert through accessing the makeInert function in the Fruit class. 
 
-If the SlicePattern is correct, the GameManager interacts with the GameScore class to increment the score by 10 points. If this fruit is a dragon fruit then GameManager interacts with the Lives class to increment the life count and if this fruit is the last in the recipe GameManager interacts with GameScore to add 20 points and constructs a new instance of the RecipeGenerator class to generate a new recipe as well as decrementing its spawnRate attribute. If the slice was wrong, which only happens in Samurai mode, the wrongSlice effect is displayed only. If the User slices the fruit that isn’t at the front of the recipe, they lose a life with the GameManager interacting with Lives class to decrement their lives. If the User slices a bomb then the GameManager sets the Lives class life count to zero.
+If the SlicePattern is correct, the GameManager interacts with the GameScore class to increment the score by 10 points. If this fruit is a dragon fruit then GameManager interacts with the Lives class to increment the life count and if this fruit is the last in the recipe GameManager interacts with GameScore to add 20 points and constructs a new instance of the RecipeGenerator class to generate a new recipe as well as decrementing its spawnRate attribute. If the slice was wrong, which only happens in Samurai mode, the wrongSlice effect is displayed only. If the User slices the fruit that isn’t at the front of the recipe, they lose a life with the GameManager interacting with Lives class to decrement their lives. If the User slices a bomb then the GameManager sets the Lives class life count to zero. If in two player mode the User(s) use the arrow keys or 'a' and 'd' to control the Basket class through the move() function and if a Fruit object has an inert SlicePattern meaning it's been sliced the GameManager checks the instance of the Basket class to see if they're in the same position as if not the GameManager accesses the GameScore class again and decrements the score.
 
 
 ## Implementation
