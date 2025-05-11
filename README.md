@@ -356,6 +356,13 @@ How these classes communicate and interact over time during standard user intera
 </p>
 It models the standard user interaction within the gameplay loop, while also highlighting the integral role of the GameManager and how it organises and utilises the other classes.
 
+As you can see, initially within the game play loop the GameManager calls upon the FruitGenerator class to produce a new Fruit object, the type of which is random although there is a higher probability that it is the type of the current fruit that needs to be sliced and a very low chance it will be a dragon fruit.
+
+The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks, with it either being correct, wrong or a bomb. In every instance the GameManager calls upon the Splatter class to display a splatter on the background as well as the SliceEffect class to display an effect to let the User know how the slice has affected the game and makes the SlicePattern of the Fruit inert through accessing the makeInert function in the Fruit class. 
+
+If the SlicePattern is correct, the GameManager interacts with the GameScore class to increment the score by 10 points. If this fruit is a dragon fruit then GameManager interacts with the Lives class to increment the life count and if this fruit is the last in the recipe GameManager interacts with GameScore to add 20 points and constructs a new instance of the RecipeGenerator class to generate a new recipe as well as decrementing its spawnRate attribute. If the slice was wrong, which only happens in Samurai mode, the wrongSlice effect is displayed only. If the User slices the fruit that isn’t at the front of the recipe, they lose a life with the GameManager interacting with Lives class to decrement their lives. If the User slices a bomb then the GameManager sets the Lives class life count to zero.
+
+
 ## Implementation
 <h3>Challenge 1: A suitable hitbox mechanism</h3>
 Originally, Fruit Ninja was designed for mobile, where players could smoothly swipe fruits using the touchscreen. Implementing Ninja (easy) Mode was straightforward, but the Samurai (hard) Mode required players to slice fruits in specific directions, therefore, we needed a way to accurately detect different slicing patterns. Our first challenge was to design an intuitive slicing mechanism that works seamlessly with computer mice and trackpads. To handle slicing, we created a system using three main classes: <br><br> 
