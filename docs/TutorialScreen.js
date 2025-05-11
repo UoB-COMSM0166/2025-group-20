@@ -102,9 +102,13 @@ class TutorialManager extends GameManager {
         }
         if (this.tutorialFruit.getName() === 'bomb'){
             setTimeout(() => {
-                if (this.tutorialFruit.slicePat.isSliced() !== 'bomb' && this.tutorialFruit.yPos === height){
+                if (this.tutorialFruit.slicePat.isSliced() !== 'bomb' && this.tutorialFruit.yPos === height && !this.tutorialEnd){
                     this.sliceEffects['tutorialComplete'].show();
                     this.tutorialEnd = true;
+                    setTimeout(()=>{
+                        tutorial = false;
+                        startScreen();
+                    }, 3000);
                 }
             }, 4000);
         }
