@@ -199,8 +199,16 @@ class GameManager {
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
-      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && Math.round(this.playingFruits[i].yPos) === windowHeight
-      && (Math.round(this.playingFruits[i].xPos) > this.basket.x+110 || Math.round(this.playingFruits[i].xPos) < this.basket.x-110)) {
+      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && this.playingFruits[i].yPos < windowHeight
+          && this.playingFruits[i].yPos > windowHeight-440
+          && this.playingFruits[i].xPos < this.basket.x+110 && this.playingFruits[i].xPos > this.basket.x-110){
+          this.fruitOnScreen.splice(i, 1);
+          this.playingFruits.splice(i, 1);
+      }
+      if (this.coop && this.playingFruits[i].slicePat.type === 'inert' && this.playingFruits[i].yPos > windowHeight
+      && (this.playingFruits[i].xPos > this.basket.x+110 || this.playingFruits[i].xPos < this.basket.x-110)) {
+        this.fruitOnScreen.splice(i, 1);
+        this.playingFruits.splice(i, 1);
         this.score.loseScore(10);
       }
       if (this.playingFruits[i].slicePat.isSliced() === 'correct' || this.playingFruits[i].slicePat.isSliced() === 'wrong') {
