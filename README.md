@@ -16,7 +16,7 @@
 
 ## Our Group
 <div align="center">
-  <img src='project-report-images/group-picture.png'>
+  <img src='project-report-images/group-picture.png'><br>
 </div>
 
 ## Introduction
@@ -132,12 +132,12 @@ We used user stories to define our functional requirements because they provide 
     </tr>
   </tbody>
 </table>
-Table 1: <i>User requirements divided into initiatives, epics, and user stories.</i>
+<p align="center">
+  <b>Table 1. </b><i>User requirements divided into initiatives, epics, and user stories.</i>
+</p>
 
 <h3>Use Case Diagram and Specifications</h3>
 At this stage of development, we were still evaluating whether our game concept was feasible to implement and enjoyable to play. To better understand the functionality and expectations of different stakeholders, we used user stories and identified key roles to create a Use Case Diagram. This helped us visualise and define what different elements of the game should—and shouldn’t—do.
-
-
 <p align="center">
   <img src="project-report-images/usecasediagram.png" width="70%"><br>
   <b>Figure 4. </b> <i>Use Case Diagram</i>
@@ -151,54 +151,165 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
 <h4>1. Single Player Mode </h4>
 
 ***1.1 Basic Flow***
-
-| **Step** | **Easy Mode**                                                                                      | **Hard Mode**                                                                                           |
-|---------:|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| 1        | Player launches the game and selects Easy mode.                                                    | Player launches the game and selects Hard mode.                                                          |
-| 2        | Recipe icons appear at the top of the screen.                                                      | Recipe icons appear at the top + slicing methods found in recipe book (bottom-right corner).            |
-| 3        | Fruits appear and can be sliced freely using a mouse.                                                            | Fruits appear and must be sliced in the correct direction/method using a mouse.                                       |
-| 4        | Slice any correct fruit: +10 points.                                                               | Slice correct fruit **with correct method**: +10 points.                                                 |
-| 5        | Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.                                     | Complete a recipe with correct slices: +20 bonus points. 
-
-<b>Table 2a. </b> <i>Use Case Specification of Basic Flow in Single Player.</i>
-
+<table>
+  <thead>
+    <tr>
+      <th>Steps</th>
+      <th>Easy Mode</th>
+      <th>Hard Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td>1</td>
+    <td>Player launches the game and selects Easy mode.</td>
+    <td>Player launches the game and selects Hard mode.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recipe icons appear at the top of the screen.</td>
+      <td> Recipe icons appear at the top + slicing methods found in recipe book (bottom-right corner).</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Fruits appear and can be sliced freely using a mouse or trackpad.</td>
+      <td>Fruits appear and must be sliced in the correct direction/method using a mouse or trackpad.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Slice the correct fruit: +10 points.</td>
+      <td>Slice the correct fruit <b>in the correct pattern</b>: +10 points</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Complete a recipe (all fruits in the recipe are sliced): +20 bonus points.</td>
+      <td>Complete a recipe with correct slices: +20 bonus points. </td>
+    </tr>
+  </tbody>
+</table>
+<p align="center">
+  <b>Table 2a. </b> <i>Use Case Specification of Basic Flow in Single Player.</i>
+</p>
 
 ***1.2 Alternative Flow***
-
-| **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
-|---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
-| 1        | Wrong fruit sliced: -1 heart. No effect on score.               | Wrong fruit sliced: Same as Easy mode.                 |
-| 2        | Sliced dragon fruit: +1 heart (max 3).                          | Sliced dragon fruit: +1 heart (max 3).                            |
-| 3        | Sliced bomb: Instant game over.                                 |  Sliced bomb: Instant game over.                                    |
-| 4        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
-
-<b>Table 2b. </b> <i>Use Case Specification of Alternative Flow in Single Player.</i>
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>Steps</th>
+        <th>Easy Mode</th>
+        <th>Hard Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Wrong fruit sliced: -1 heart. No effect on score.</td>
+        <td>Wrong fruit sliced: Same as Easy mode.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Sliced dragon fruit: +1 heart (max 3).</td>
+        <td>Sliced dragon fruit: +1 heart (max 3).</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sliced bomb: Instant game over.</td>
+        <td>Sliced bomb: Instant game over.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Incorrect slicing method: Not applicable.</td>
+        <td>Incorrect slicing method: -1 heart. No score.</td>
+      </tr>
+    </tbody>
+  </table>
+  <b>Table 2b. </b> <i>Use Case Specification of Alternative Flow in Single Player.</i>
+</div>
 
 <h4>1. 2. Multiple Players Mode </h4>
 
 ***2.1 Basic Flow***
-
-| **Step** | **Easy Mode**                                                                                                 | **Hard Mode**                                                                                                  |
-|---------:|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| 1        | Player 1 selects Easy + Two Player mode.                                                                      | Player 1 selects Hard + Two Player mode.                                                                       |
-| 2        | Player 1 slices fruits using the mouse.                                                                       | Player 1 slices fruits using correct direction/method.                                                         |
-| 3        | Player 2 moves basket using ⬅️ and ➡️ arrow keys to catch sliced fruit.                                        | Same as Easy mode.                                                                                             |
-| 4        | Correct sliced fruit caught: +10 points.                                                                      | Correctly sliced **and** caught fruit: +10 points.                                                             |
-| 5        | Recipe completion: +20 bonus points.                                                                          | Same, only if all fruits sliced correctly and caught.                                                          |
-
-<b>Table 3a. </b> <i>Use Case Specification of Basic Flow in Multiple Player.</i>
+<table>
+  <thead>
+    <tr>
+      <th>Steps</th>
+      <th>Easy Mode</th>
+      <th>Hard Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Players select easy mode under two players mode</td>
+      <td>Players select hard mode under two players mode</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Player 1 slices fruits using the mouse or trackpad.</td>
+      <td>Player 1 slices fruits in the correct slicing pattern</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Player 2 controls the basket using their preferred keys (aswd or arrow controls)</td>
+      <td>Player 2 controls the basket using their preferred keys (aswd or arrow controls)></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Correct sliced fruit caught: +10 points.</td>
+      <td>Correct slced fruit <b>with the correct pattern</b> caught: +10 points</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Recipe completion: +20 bonus points.</td>
+      <td>Recipe completion: +20 bonus points.</td>
+    </tr>
+  </tbody>
+</table>
+<p align="center">
+  <b>Table 3a. </b> <i>Use Case Specification of Basic Flow in Multiple Player.</i>
+</p>
 
 ***2.2 Alternative Flow***
-
-| **Step** | **Easy Mode**                                                   | **Hard Mode**                                                        |
-|---------:|------------------------------------------------------------------|----------------------------------------------------------------------|
-| 1        | Fruit missed by basket: No points awarded.                      | Fruit missed by basket: No points awarded.                          |
-| 2        | Wrong fruit sliced: -1 heart.                                   | Wrong fruit sliced: -1 heart.                                       |
-| 3        | Sliced dragon fruit: +1 heart (max 3).                          | Sliced dragon fruit: +1 heart (max 3).                             |
-| 4        | Bomb sliced: Instant game over for both players.               | Bomb sliced: Instant game over for both players.                    |
-| 5        | Incorrect slicing method: Not applicable.                       | Incorrect slicing method: -1 heart. No score.                       |
-
-<b>Table 3b. </b> <i>Use Case Specification of Alternative Flow in Multiple Player.</i>
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>Steps</th>
+        <th>Easy Mode</th>
+        <th>Hard Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Fruit missed by basket: No points awarded.</td>
+        <td>Fruit missed by basket: No points awarded.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Wrong fruit sliced: -1 heart.</td>
+        <td>Wrong fruit sliced: -1 heart.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sliced dragon fruit: +1 heart (max 3).</td>
+        <td>Sliced dragon fruit: +1 heart (max 3).</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Bomb sliced: Instant game over for both players.</td>
+        <td>Bomb sliced: Instant game over for both players.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>N/A</td>
+        <td>Incorrect slicing method: -1 heart. No score.</td>
+      </tr>
+    </tbody>
+  </table>
+  <b>Table 3b. </b> <i>Use Case Specification of Alternative Flow in Multiple Player.</i>
+</div>
 
 ## Design
 <p>
@@ -219,8 +330,10 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
 
 <h3>Class Diagram</h3>
 The following diagram illustrates Smoothie Operator’s final design. It shows that the GameManager controls the behaviour of the rest of the classes used in our software. <b>NB: </b> Within the diagram we have omitted constructors, getters and setters as well as any attributes that are constant for simplicity and ease of reading.
-
-![Report Class DIagram FINAL FINAL](https://github.com/user-attachments/assets/e5322b45-152f-4f30-b2ea-a0aa1e717d3f)
+<p align="center">
+  <br><img src="https://github.com/user-attachments/assets/e5322b45-152f-4f30-b2ea-a0aa1e717d3f" width=700"><br><br>
+  <b>Figure 5. </b><i>Class diagram of the game</i>
+</p>
 
 The classes devised uphold the principles of orientation in the following ways:
 
@@ -245,6 +358,9 @@ Other elements interact with the GameManager similarly. If GameManager sees that
 The way in which these classes communicate and interact over time whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
 
 ![Mermaid Diagram](https://raw.githubusercontent.com/UoB-COMSM0166/2025-group-20/refs/heads/main/docs/Design/mermaid-diagram-2025-05-10-232230.svg)
+<p align="center">
+  <b>Figure 6. </b><i>Sequence diagram of the game (linked)</i>
+</p>
 
 
 Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as functions/messages that have minor functionality within the context of the function they are being called in for simplicity and ease of reading. It demonstrates that due to the need for draw(), setup() and various other P5 library functions to be not attached to an object, the sketch.js contains these functions to act as a “main” file and as a user interface between the user and the Game Manager. 
@@ -270,7 +386,7 @@ In our final implementation, we maintained the 3x3 grid of hitboxes, but we chan
 
 <p align="center">
   <img src="project-report-images/challenges1.png" width="70%"><br>
-  <b>Figure 5. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
+  <b>Figure 7. </b> <i>Evolution of the hitbox system. Arrows indicate valid directions that count as a correct slice.</i>
 </p>
 
 <h3>Challenge 2: UI Optimisation</h3>
@@ -298,13 +414,63 @@ To evaluate the usability and HCI design of Smoothie Operator, we used the Think
 
 TA allowed us to gather live verbal feedback as users played, revealing key issues: confusion around input mapping, mixed reactions to visual feedback, and difficulty remembering recipes. These findings, especially those tied to control fluency and clarity, directly informed design changes. Feedback was thematically analysed to identify common points of friction, satisfaction, and emergent strategies.
 
-| Theme           | Positive                                                                                                                                 | Negative                                                                                                                            |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Controls        | - The click control is very satisfying<br>- The `cursorEffect` provides good user feedback                                              | - Trackpad is inelegant<br>- The `mousepressed` function bugs after hearts lost<br>- The `mousepressed` for slicing could be redundant |
-| Display         | - Good fruit sizes<br>- Fruit slice visuals are very rewarding                                                                          | - Recipe aspect and order is unclear<br>- `cursorEffect` does not remain long enough<br>- Some fruits are generated stuck together   |
-| Learning Curve  | *(None listed)*                                                                                                                         | - Initial difficulty remembering rules<br>- Initial difficulty remembering slice patterns<br>- Once slice patterns are internalised, they're too easy to remember |
-
-Table 4: *Raw Think Aloud feedback*
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>Theme</th>
+        <th>Positive</th>
+        <th>Negative</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Controls</td>
+        <td>
+          <ul>
+            <li>The click control is very satisfying</li>
+            <li>The <b>cursorEffect</b> provides good user feedback</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Trackpad is inelegant</li>
+            <li> The <b>mousepressed</b> function bugs after hearts lost</li>
+            <li>The <b>mousepressed</b> for slicing could be redundant</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Display</td>
+        <td>
+          <ul>
+            <li>Good fruit sizes</li>
+            <li>Fruit slice visuals are very rewarding</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Recipe aspect and order is unclear</li>
+            <li><b>cursorEffect</b> does not remain long enough</li>
+            <li>Some fruits are generated stuck together</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Learning Curve</td>
+        <td>N/A</td>
+        <td>
+          <ul>
+            <li>Initial difficulty remembering rules</li>
+            <li>Initial difficulty remembering slice patterns</li>
+            <li>Once slice patterns are internalised, they're too easy to remember</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <b>Table 4. </b><i>Raw Think Aloud feedback</i>
+</div>
 
 <h4> Controls </h4>
 
