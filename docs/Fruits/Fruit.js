@@ -58,7 +58,7 @@ class Fruit {
     /* picks an x speed which moves the fruit in the opposte side of the
     screen from where it spawned */
     const speed = random(4, 5);
-    if (xPos > width / 2) {
+    if (this.xPos > width / 2) {
       return -speed;
     }
     return speed;

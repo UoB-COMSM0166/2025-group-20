@@ -44,7 +44,7 @@ class GameScore {
     let yPosition = 90;
     textSize(26);
     textFont(gameFont);
-    textAlign('CENTER', 'CENTER');
+    textAlign(CENTER, CENTER);
     fill('white');
     stroke('black');
     strokeWeight(3);
