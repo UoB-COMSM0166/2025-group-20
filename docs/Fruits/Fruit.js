@@ -67,10 +67,6 @@ class Fruit {
   //removes fruit from screen
   removeFruit() {
     if (!this.visible) {
-      //Remove button if click slicePattern
-      /*if (this.fruitName === 'blueberry' && gameManager.getMode() === 'hard' && this.slicePat.type !== 'inert'){
-        this.slicePat.hit.remove();
-      }*/
       gameManager.getFruitOnScreen().splice(gameManager.getFruitOnScreen().indexOf(this.index), 1);
     }
   }

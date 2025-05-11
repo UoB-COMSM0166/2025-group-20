@@ -2,8 +2,8 @@ class SlicePattern{
     constructor(type, size){
     this.type = type;
     this.diameter = size;
+    //bomb, easy and click pattern composed of a large hitbox
     if (this.type === 'bomb' || this.type === 'easy'){
-        //bomb and easy mode pattern composed of a large hitbox
         this.hit = new HitBox(this.diameter, false);
     }
     else if (this.type === 'click'){
@@ -19,7 +19,7 @@ class SlicePattern{
     }
   }
 
-  //checks if one of slicearrays or the hitbox has been sliced
+  //checks if relevant slicearrays or hitboxes have been sliced
   isSliced(){
     if (this.type === 'inert'){
       return 'inert';

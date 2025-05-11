@@ -1,4 +1,6 @@
 class RecipeGenerator {
+
+    //Uses random sorting of integers to establish a random recipe of random length
   constructor() {
    const filteredFruits = [0, 1, 2 , 3, 4, 5, 6]; 
    const numFruits = Math.floor(Math.random() * 5) + 3; 

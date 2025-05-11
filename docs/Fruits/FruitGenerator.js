@@ -24,6 +24,7 @@ class FruitGenerator {
     return new Fruit(fruitImg, fruitName, slicePat, index);
   }
 
+  //Generates specific fruit for linear progression of tutorial
   tutorialGen(index){
     let fruitImg = gameManager.getFruitImages()[index];
     let fruitName = gameManager.getFruitNames()[index];
