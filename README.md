@@ -323,7 +323,8 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
     <li>SlicingPattern</li>
     <li>Basket</li>
   </ul>
-  This initial design was implemented using p5js, with a heavy reliance on javascript to manipulate different game screens and states. This prompted us to deal with more classes each time we wanted the player to move through a different dialogue in the game. As we progressed through the development, we started utilising other tools such as HTML and CSS for UI design and elements, which allowed for a cleaner code base. Our multiple game screen classes were replaced by one GameManager class which controlled all game states and facilitated the flow of the main gameplay loop.<br> 
+  This initial design was implemented using p5js, with a heavy reliance on javascript to manipulate different game screens and states. This prompted us to deal with more classes each time we wanted the player to move through a different dialogue in the game. As we progressed through the development, we started utilising other tools such as HTML and CSS for UI design and elements, which allowed for a cleaner code base. Our multiple game screen classes were replaced by one GameManager class which controlled all game states and facilitated the flow of the main gameplay loop.  However due to the need for draw(), setup() and various other P5 library functions, we used sketch.js to contain these functions and to act as a “main” file and as a user interface between the user and the Game Manager.
+<br> 
 </p>
 
 <h3>Class Diagram</h3>
@@ -353,18 +354,14 @@ Other elements interact with the GameManager similarly. If GameManager sees that
 
 <h3>Sequence Diagram</h3>
 
-The way in which these classes communicate and interact over time whilst the user interacts with the system is detailed in the Sequence Diagram linked below: 
+The way in which these classes communicate and interact over time during a standard user interaction with the system is detailed in the Sequence Diagram below: 
 
 ![mermaid-diagram-2025-05-11-175506](https://github.com/user-attachments/assets/2522f7a8-d8da-401f-89d0-5b39e424f7ee)
 
 <p align="center">
-  <b>Figure 6. </b><i>Sequence diagram of the game (linked)</i>
+  <b>Figure 6. </b><i>Sequence diagram of the main gameplay loop</i>
 </p>
-
-
-(To navigate the diagram file CTRL + Scroll to zoom, SHIFT + Click and Drag to move around)
-Yet again we have omitted constructors, getters and setters that aren’t absolutely necessary to display the communication as well as minor functions for simplicity and ease of reading. It models the standard interaction users will have with the system further showing the strong composition relationship between the GameManager, TutorialManager and the other classes and how integral they are to the game's logic and organisation. It demonstrates that due to the need for draw(), setup() and various other P5 library functions to be not attached to an object, the sketch.js contains these functions to act as a “main” file and as a user interface between the user and the Game Manager.
-
+It models the standard interaction users will have with the system during the game play loop and demonstrates the integral role of the GameManager and how it utilises and organises the other classes.
 
 ## Implementation
 <h3>Challenge 1: A suitable hitbox mechanism</h3>
