@@ -330,7 +330,7 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
 <h3>Class Diagram</h3>
 The following diagram illustrates Smoothie Operator’s final design. It shows that the GameManager controls the behaviour of the rest of the classes used in our software. <b>NB: </b> Within the diagram we have omitted constructors, getters and setters as well as any attributes that are constant for simplicity and ease of reading.
 <p align="center">
-  <br><img src="https://github.com/user-attachments/assets/e5322b45-152f-4f30-b2ea-a0aa1e717d3f" width=700"><br><br>
+  <br><img src="https://github.com/UoB-COMSM0166/2025-group-20/blob/27e07bb7d5fab9e4f5017e80f47b65b65c0a3a7e/project-report-images/Report%20Class%20DIagram%20final%20final%20final%20.png" width=700"><br><br>
   <b>Figure 5. </b><i>Class diagram of the game</i>
 </p>
 
