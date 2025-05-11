@@ -56,7 +56,7 @@ Following this exercise, we held a team vote and ultimately chose to develop a g
 
 <p align="center">
   <img src="project-report-images/prototype.gif" width="70%" ><br>
-  <b>Figure 2. </b> <i> Smooth Operator Paper Prototype</i>
+  <b>Figure 2. </b> <i> Smoothie Operator Paper Prototype</i>
 </p>
 
 
@@ -399,7 +399,14 @@ We were able to use CSS and handle these tasks and their layout more efficiently
 We also found an opportunity to add even more visual feedback, including hover effects, a flash effect when user does not click on an option and titles, reducing the need for additional event listeners or styles toggles in JS. We transformed, what previously was a scattered style logic, into a single CSS file. This organised classes such as .button and .imageButton for reuse across different game screens and button types. Additionally, we used a custom font with @font-face to ensure stylistic consistency without additional JS font loading. 
 
 
-This CSS-first approach greatly improved UI responsiveness, reduced code duplication, and made the layout far easier to manage and understand. It also freed up JS to focus solely on gameplay logic, such as scoring, fruit behaviour, and player interaction
+This CSS-first approach greatly improved UI responsiveness, reduced code duplication, and made the layout far easier to manage and understand. It also freed up JS to focus solely on gameplay logic, such as scoring, fruit behaviour, and player interaction.
+
+<div align="center">
+  <img src="project-report-images/old-diagram.gif" alt="Old Diagram" width="500">
+  <br>
+  <b>Figure 7a. </b> <i> Sequence diagram before implementing CSS for UI</i>
+</div>
+
 
 ## Evaluations
 <h3>Qualitative Evaluation: Think Aloud </h3>
