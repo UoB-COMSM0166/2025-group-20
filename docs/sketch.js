@@ -202,6 +202,9 @@ function startScreen() {
     const backBtn = document.createElement('button');
     backBtn.className = 'button';
     backBtn.textContent = 'back';
+    backBtn.style.position = 'absolute';
+    backBtn.style.top = '650px';
+    backBtn.style.right = '15px';
     buttonWrapper.appendChild(backBtn);
     backBtn.addEventListener('click', function(){
       tutorial = false;
