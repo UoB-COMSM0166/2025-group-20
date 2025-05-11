@@ -304,8 +304,8 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
 
 ## Design
 <p>
-  One of our early development stages required the planning of a comprehensive design and structure for our game. To help achieve a code-efficient and modular structure, we decided to utilise object-oriented programming principles that would organise our software around objects and their behaviour.<br><br>
-  Our first task was to identify the classes needed for our objects, for which we carried out an easy grammatical parse exercise which involved identifying nouns from a brief description of our game. Smoothie Operator is a game where <b>fruits</b> are <b>generated</b> on the screen, and the player must slice the fruits according to a <b>smoothie recipe</b> shown on the screen. If the player slices a fruit out of order, they lose a <b>life</b>. If the player is in samurai mode, they must also follow a unique <b>slicing pattern</b> for each fruit. The player gains <b>points</b> for each fruit, and for completing a recipe. If there are two players, the second player must control a <b>basket</b> to catch the fruit slices.<br><br>
+  One early development stage required planning a comprehensive design and structure for our game. To achieve a code-efficient and modular structure, we utilised object-oriented programming principles that organised our software around objects and their behaviour.<br><br>
+  Firstly we identified the classes needed for our objects, for which we performed an easy grammatical parse exercise which involved identifying nouns from a brief game description. Smoothie Operator is a game where  <b>fruits</b> are <b>generated</b> on-screen, which the player must slice according to a  <b>smoothie recipe</b>. If they slice a fruit out of order, they lose a <b>life</b>. I. If in samurai mode, they must also follow a unique <b>slicing pattern</b> for each fruit. The player gains <b>points</b> for each correctly sliced fruit and completed recipe. If there are two players, the second player controls a <b>basket</b> to catch sliced fruit.<br><br>
   Our core classes would therefore be:
   <ul>
     <li>Fruit</li>
@@ -316,52 +316,44 @@ As we worked through these use cases, we also saw an opportunity to introduce a 
     <li>SlicingPattern</li>
     <li>Basket</li>
   </ul>
-  This initial design was implemented using p5js, with a heavy reliance on JavaScript to manipulate different game screens and states. This prompted us to deal with more classes each time we wanted the player to move through a different dialogue in the game. As we progressed through the development, we started utilising other tools such as HTML and CSS for UI design and elements, which allowed for a cleaner code base. Our multiple game screen classes were replaced by one GameManager class which controlled all game states and facilitated the flow of the main gameplay loop.  However, due to the need for draw(), setup(), and various other P5 library functions, we used sketch.js to contain these functions and to act as a 'main' file and as a user interface between the user and the Game Manager.
+  This initial design was implemented using p5js, with a heavy reliance on JavaScript to manipulate different game screens and states. This meant we dealt with more classes each time we wanted the player to move through a different state in the game. As we progressed through development, we started utilising other tools such as HTML and CSS for UI design and elements, allowing for a cleaner code base. Our multiple game screen classes were replaced by one GameManager class which controlled all game states and facilitated the main gameplay loop flow. Due to the need for draw(), setup(), and other P5 library functions, we used sketch.js to contain these and act as both a 'main' file and a user interface for the Game Manager.
 <br> 
 </p>
 
 <h3>Class Diagram</h3>
-The following diagram illustrates Smoothie Operator’s final design. It shows that the GameManager controls the behaviour of the rest of the classes used in our software. <b>NB: </b> Within the diagram we have omitted constructors, getters, and setters as well as any attributes that are constant for simplicity and ease of reading.
+The following diagram illustrates Smoothie Operator’s final design, showing the GameManager controls the behaviour of the other classes. <b>NB</b>: The diagram omits constructors, getters, setters and any constants for reading simplification.
 <p align="center">
   <br><img src="https://github.com/UoB-COMSM0166/2025-group-20/blob/27e07bb7d5fab9e4f5017e80f47b65b65c0a3a7e/project-report-images/Report%20Class%20DIagram%20final%20final%20final%20.png" width=700"><br><br>
   <b>Figure 5. </b><i>Class diagram of the game</i>
 </p>
 
-The classes devised to uphold the principles of orientation in the following ways:
+Devised classes uphold object-orientation principles in the following ways:
 
-Encapsulation – Objects interact mainly through getters and setters and do not access the internals of each other directly.
+Encapsulation – Objects interact through getters and setters and do not access each other’s internals directly.
 
-Abstraction – Objects have simplified and abstracted functionality. Within the GameManager and TutorialManager the objects that it’s composed interact through abstract interfaces and are loosely coupled. 
+Abstraction – Objects have simplified and abstracted functionality. The objects within GameManager interact through abstract interfaces and are loosely coupled.
 
-Inheritance – TutorialManager extends GameManager and TutorialFruit extends Fruit to provide slightly different functionality for the tutorial yet minimise code reuse such as simplified fruit movement and a linear progression through the different fruit types.
+Inheritance – TutorialManager extends GameManager and TutorialFruit extends Fruit to provide slightly different functionality for the tutorial yet minimise code reuse.
 
-Polymorphism – The different Fruit respond to the user input from the mouse differently due to the difference between the SlicePatterns of the types. 
+Polymorphism – Different Fruit respond to user mouse input differently due to the different type SlicePatterns.
 
-Composition – The GameManager and its extending class TutorialManager are composed of all the other classes. Fruit and TutorialFruit are composed of the SlicePattern class which itself is composed of the SliceArray and HitBox classes.
-
-When the game is launched, the player can customise their game through a system of on-screen buttons. Their options include Single/Two-player Mode, Ninja (Easy) and Samurai (Hard) Mode, preference for player 2 controls, and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates the gameplay loop accordingly. In turn, the gameplay loop is controlled by the gameState() method which is only terminated when the player quits the game. 
-
-The player can either quit by pausing the game at any time and choosing the ‘main menu’ option or similarly through the game over screen if they lose the game. Game loss is monitored by the Lives class which maintains the state of the player’s 3 lives. When the player runs out of lives, the GameManager checks with the GameScore class to update the player’s high score if necessary. 
-
-Other elements interact with the GameManager similarly. If GameManager sees that the player is in samurai mode, it will call the RecipeBook on the screen which will contain the different slicing patterns. If it sees that the players are in co-op mode, it will call the basket on screen and ensure that it is controlled using either ‘aswd’ or arrow controls based on the player’s preferences. 
+Composition – GameManager is composed of the other classes. Fruit is composed of SlicePattern which itself is composed of the SliceArray and HitBox classes.
 
 <h3>Sequence Diagram</h3>
-
-How these classes communicate and interact over time during standard user interaction with the system is detailed in the Sequence Diagram below: 
+When launched, the player can customise their game through a system of on-screen buttons. Their options include Single/Two-player Mode, Easy (Ninja) and Hard (Samurai) Mode, preference for player 2 controls, and preferences for cursor and sound effects. All these options are recorded by the GameManager which manipulates gameplay accordingly through the gameState() method. The player can quit the gameplay loop by pausing the game at any time and choosing the ‘main menu’ option or through the game over screen if they lose the game. 
+How these classes communicate and interact over time during the game state is detailed in a simplified Sequence Diagram below: 
 
 ![mermaid-diagram-2025-05-11-231022](https://github.com/user-attachments/assets/2a08fb40-5a00-408b-853e-7a295bbd1b68)
 
 <p align="center">
   <b>Figure 6. </b><i>Sequence diagram of the main gameplay loop</i>
 </p>
-It models in a simplified manner the standard user interaction within the gameplay loop, highlighting the integral role of the GameManager and how it organises and utilises the other classes.
 
-As you can see, initially within the game play loop the GameManager calls upon the FruitGenerator class to produce a new Fruit object, the type of which is random although there is a higher probability that it is the type of the current fruit that needs to be sliced and a very low chance it will be a dragon fruit.
+Initially GameManager calls upon FruitGenerator to produce a new Fruit object, the type of which is random althoug higher probability that it is the current fruit type that needs slicing and a low chance it will be a dragon fruit. The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks. 
 
-The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks, with it either being correct, wrong or a bomb. In every instance the GameManager calls upon the Splatter class to display a splatter on the background as well as the SliceEffect class to display an effect to let the User know how the slice has affected the game and makes the SlicePattern of the Fruit inert through accessing the makeInert function in the Fruit class. 
+If a correct slice, GameManager interacts with GameScore to increment the score. When slicing dragon fruit, GameManager interacts with Lives to increment life count. If this fruit is the last in the recipe GameManager interacts with GameScore to increment score and constructs a new RecipeGenerator to generate a new recipe. If the sliced fruit isn’t at the front of the recipe, the GameManager interacts with Lives to decrement life count. In Samurai mode, if wrongly sliced the wrongSlice effect of class SliceEffect is displayed. With every fruit sliced GameManager utilises Splatter and SliceEffect to display effects letting the User know how it affected the game and interacts with the Fruit class through the makeInert function to make the SlicePattern inert. If a bomb is sliced, GameManager sets the Lives class life count to zero. 
 
-If the SlicePattern is correct, the GameManager interacts with the GameScore class to increment the score by 10 points. If this fruit is a dragon fruit then GameManager interacts with the Lives class to increment the life count and if this fruit is the last in the recipe GameManager interacts with GameScore to add 20 points and constructs a new instance of the RecipeGenerator class to generate a new recipe as well as decrementing its spawnRate attribute. If the slice was wrong, which only happens in Samurai mode, the wrongSlice effect is displayed only. If the User slices the fruit that isn’t at the front of the recipe, they lose a life with the GameManager interacting with Lives class to decrement their lives. If the User slices a bomb then the GameManager sets the Lives class life count to zero. If in two player mode the User(s) use the arrow keys or 'a' and 'd' to control the Basket class through the move() function and if a Fruit object has an inert SlicePattern meaning it's been sliced the GameManager checks the instance of the Basket class to see if they're in the same position as if not the GameManager accesses the GameScore class again and decrements the score.
-
+In two player mode the User(s) use the arrow keys or 'a' and 'd' to control the Basket class through the move() function and if a Fruit object has been sliced the GameManager checks the Basket class to see if they're in the same position and if not the GameManager accesses the GameScore class again and decrements the score.
 
 ## Implementation
 <h3>Challenge 1: A suitable hitbox mechanism</h3>
