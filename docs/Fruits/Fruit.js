@@ -57,10 +57,11 @@ class Fruit {
   randomXDirection(xPos) {
     /* picks an x speed which moves the fruit in the opposte side of the
     screen from where it spawned */
-    if(xPos > width / 2) {
-      return -5;
+    const speed = random(4, 5);
+    if (xPos > width / 2) {
+      return -speed;
     }
-    return 5;
+    return speed;
   }
 
   //removes fruit from screen

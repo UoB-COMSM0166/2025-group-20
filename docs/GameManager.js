@@ -55,6 +55,8 @@ class GameManager {
     this.basket = new Basket();
     this.gameLost = false;
     this.splatters = [];
+    this.lastDragonfruitSpawnTime = -Infinity;
+    this.dragonfruitCooldown = 300;
   }
 
   setCoop(coop) {
@@ -157,14 +159,27 @@ class GameManager {
       this.playingFruits.push(x);
       this.fruitOnScreen.push(x.getIndex());
     }
+  
+    let n = noise(frameCount * 0.01 + this.noiseSeedVal);
+    let timeSinceLast = frameCount - this.lastDragonfruitSpawnTime;
 
-    // generate dragonfruit at a very low rate
-    let n = noise(frameCount * 0.01 + this.noiseSeedVal); //0.01
-      if (n > 0.999) { //0.999
+    if (this.lives === 3) {
+      if (n > 0.9999 && timeSinceLast > this.dragonfruitCooldown) {
         let x = this.fruitGenerator.randomFruitGen(3);
         this.playingFruits.push(x);
         this.fruitOnScreen.push(x.getIndex());
-    }
+        this.lastDragonfruitSpawnTime = frameCount;
+      }
+    } 
+    else {
+      if (n > 0.8 && timeSinceLast > this.dragonfruitCooldown) {
+        let x = this.fruitGenerator.randomFruitGen(3);
+        this.playingFruits.push(x);
+        this.fruitOnScreen.push(x.getIndex());
+        this.lastDragonfruitSpawnTime = frameCount;
+      }
+}
+
 
     if (this.lives.getLife() === 0) {
       this.score.updateHighScore();
