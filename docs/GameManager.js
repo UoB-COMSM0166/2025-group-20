@@ -155,6 +155,7 @@ class GameManager {
       this.fruitOnScreen.push(x.getIndex());
     }
 
+    //Makes sure fruit that needs to be sliced is spawned relatively frequently
     if(!this.fruitOnScreen.includes(this.currentRecipe.getRecipe()[0]) && !this.recipeSpawn){
       let x = this.fruitGenerator.randomFruitGen(0);
       this.recipeSpawn = true;
@@ -164,7 +165,8 @@ class GameManager {
         this.recipeSpawn = false;
       }, 3000);
     }
-  
+
+    //Handles dragronfruit spawning to make sure they don't appear too often
     let n = noise(frameCount * 0.01 + this.noiseSeedVal);
     let timeSinceLast = frameCount - this.lastDragonfruitSpawnTime;
 
@@ -185,13 +187,14 @@ class GameManager {
       }
 }
 
-
+    // Checks if the player is dead and handles subsequent functions
     if (this.lives.getLife() === 0) {
       this.score.updateHighScore();
       this.gameLost = true;
       this.startGame = false;
     }
 
+    //Handles splatter logic so splatters appear on wall
     for (let i = this.splatters.length - 1; i >= 0; i--) {
       this.splatters[i].update();
       this.splatters[i].show();
@@ -200,7 +203,8 @@ class GameManager {
       }
   }
 
-    //runs through all the fruits, moving, showing and checking for slices
+    //runs through all the fruits, moving, showing and checking for slices and carrying out relevant behaviour
+    //also handles basket logic in coop mode
     for (let i = this.playingFruits.length - 1; i >= 0; i--) {
       this.playingFruits[i].show();
       this.playingFruits[i].move();
@@ -250,7 +254,9 @@ class GameManager {
         this.lives.zeroLives();
       }
 
-    }  
+    }
+
+    //displays basket when in coop mode
     if (this.coop) {
       this.basket.show();
     }

@@ -1,4 +1,5 @@
 class TutorialManager extends GameManager {
+    //Loads in relevant attributes from superclass as well as additional visual effects and attributes
     constructor() {
         super();
         this.fruitIndex = 0;
@@ -35,18 +36,22 @@ class TutorialManager extends GameManager {
         this.narrationBox = document.createElement('p');
     }
 
+    //Handles linear tutorial loop
     drawTutorialScreen() {
         background(bg);
+        //Primes effects for display
         this.sliceEffects['correctSlice'].active();
         this.sliceEffects['tutorialComplete'].active();
         this.sliceEffects['bombSlice'].active();
         this.activateEffects();
         // Display scratch effect in background
         scratchCursorEffect();
+        // Shows and moves fruit if not end of tutorial
         if (!this.tutorialEnd){
             this.tutorialFruit.show();
             this.tutorialFruit.move();
         }
+        // Handles fruit generation and narration
         if (!this.tutorialFruit.getVisible()){
             this.tutorialFruit = this.fruitGenerator.tutorialGen(this.fruitIndex);
             if (this.tutorialFruit.getName() === 'blueberry' || this.tutorialFruit.getName() === 'dragonfruit') {
@@ -76,9 +81,11 @@ class TutorialManager extends GameManager {
             `;
             buttonWrapper.append(this.narrationBox);
         }
+        //draws lives when necessary
         if (this.tutorialFruit.getName() === 'dragonfruit' || this.tutorialFruit.getName() === 'bomb'){
             this.lives.drawLife();
         }
+        //Checks and handles all slice logic
         if (this.tutorialFruit.getSlice().isSliced() === 'correct') {
             this.sliceEffects['correctSlice'].show();
             if (this.tutorialFruit.getName() === 'dragonfruit'){
@@ -102,11 +109,13 @@ class TutorialManager extends GameManager {
                 this.lives.resetLife();
             }, 2000)
         }
+        //Checks to see if tutorial is at last stage, ending the tutorial and handling any clean up
         if (this.tutorialFruit.getName() === 'bomb'){
             setTimeout(() => {
                 if (this.tutorialFruit.getSlice().isSliced() !== 'bomb' && this.tutorialFruit.getY() === height && !this.tutorialEnd){
                     this.sliceEffects['tutorialComplete'].show();
                     this.tutorialEnd = true;
+                    //Exits tutorial automatically if user has not already done so
                     setTimeout(()=>{
                         if (tutorial){
                             tutorial = false;
@@ -118,6 +127,7 @@ class TutorialManager extends GameManager {
         }
     }
 
+    //handles additional visual and auditory effects
     sliceHandle(){
         if (soundEffect){
             slicingSound.play();
@@ -127,6 +137,7 @@ class TutorialManager extends GameManager {
         this.tutorialFruit.makeInert();
     }
 
+    //resets the tutorial to initial state in case user wants to do it again
     resetTutorial(){
         this.fruitIndex = 0;
         this.lives = new Lives();

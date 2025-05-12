@@ -26,6 +26,7 @@ let maxScratchLength = 30;
 let baseTaper = 15;
 let clicked;
 
+//sets up and loads initial global variable and objects required for game startup
 function setup() {
   bg = loadImage('Design/Images/gameBg.png');
   slicingSound = loadSound('Design/Audio/soundSlicing.wav');
@@ -58,29 +59,37 @@ function setup() {
   startScreen();
 }
 
+//draws and calls all relevant functions for the different game states
 function draw() {
+  //tutorial state
   if (tutorial){
     tutorialManager.drawTutorialScreen();
   }
   else if (gameManager.getMode() !== null && gameManager.getStartGame()) {
+    //main game play loop
     gameManager.gameState();
     gameManager.activateEffects();
   }
   else if (gameManager.getLostGame()) {
+    //game over state
     gameover.draw();
   }
   else {
+    //clears canvas when needed
     canvas.clear();
   }
 
+  //displays cursor effect when activated
   if (cursorEffect) {
     showCursor();
   }
 
+  // Used as part of clicked hitbox logic
   if (!mouseIsPressed){
     clicked = false;
   }
 
+  //handles relevant user keyboard interaction
   if (gameManager.get2Control() === 'arrow') {
     if (keyIsDown(RIGHT_ARROW)) {
       gameManager.getBasket().move('right');
@@ -100,12 +109,14 @@ function draw() {
   image(overlay, 0, 0);
 }
 
+//Allows music to be muted during any game state using m button
 function keyPressed() {
   if (key === 'm' || key === 'M') {
     toggleSound();
   }
 }
 
+//Handles the start screen state
 function startScreen() {
   // clears screen
   clearMainMenu();
@@ -232,11 +243,13 @@ function startScreen() {
   });
 }
 
+//clears screen of any buttons
 function clearMainMenu() {
   buttonWrapper.innerHTML = '';
 
 }
 
+//handles all game type selection UI
 function selectGame() {
   // clears main menu
   clearMainMenu();
@@ -306,6 +319,7 @@ function selectGame() {
   });
 }
 
+//Displays all buttons in settings
 function optionsScreen() {
   clearMainMenu();
   buttonWrapper.style.marginTop = '80px';
@@ -316,12 +330,14 @@ function optionsScreen() {
   buttonWrapper.appendChild(backButton);
 }
 
+//Additional graphical enhancement
 function flashImage(imgElement) {
   imgElement.style.animation = 'none';
   imgElement.offsetHeight;
   imgElement.style.animation = 'flashEffect 1s ease-in-out 1.5';
 }
 
+//Handles sound/mute button graphics and logic
 function toggleSound() {
   if (soundImg.alt === 'no sound') {
     soundImg.src = 'Design/Images/mute-button.png';
@@ -335,6 +351,8 @@ function toggleSound() {
   themeMusic.pause();
 }
 
+
+//Displays and handles all relevant main buttons
 function makeMenuButtons() {
   // Creates pause button
   pauseButton = document.createElement('button');
@@ -473,6 +491,7 @@ function makeMenuButtons() {
   });
 }
 
+//adjusts certain variables for resizing between different screen sizes
 function windowResized() {
   container = document.getElementById('gameContainer');
   width = container.clientWidth;
@@ -481,6 +500,7 @@ function windowResized() {
   resizeCanvas(width, height);
 }
 
+//Handles cursor effect logic
 function showCursor() {
   if (mouseIsPressed) {
     cursorTrail.push({x: mouseX, y: mouseY, alpha: 255});
@@ -500,6 +520,7 @@ function showCursor() {
   }
 }
 
+//Handles subtle scratch effect on wall
 function scratchCursorEffect() {
   if (mouseIsPressed) {
     scratchTrail.push({
@@ -564,6 +585,7 @@ function scratchCursorEffect() {
   pop();
 }
 
+//Utilised during click hitbox logic
 function mouseClicked(){
   clicked = true;
 }
