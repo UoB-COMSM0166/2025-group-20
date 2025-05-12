@@ -682,6 +682,7 @@ As a digital-only product, it avoids emissions from physical production. While a
 
 <div>
   <h3>Green Software Foundation Implementation Patterns</h3>
+  <p>To further reduce software-related emissions, we applied three Green Software Foundation Patterns to our code: <p>
   <p>1. <strong>Remove all unused CSS definitions</strong>: To decrease file size and enhance efficiency, we removed redundant CSS.</p>
   <p>2. <strong>Optimise image size</strong>: Since there are a lot of photos in our game, we downsized them to save file space without sacrificing quality.</p>
   <p>3. <strong>Defer offscreen images</strong>: To save energy, we only loaded graphics to our game when they were ready to be used.</p>
