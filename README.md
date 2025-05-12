@@ -349,7 +349,7 @@ How these classes communicate and interact over time during the game state is de
   <b>Figure 6. </b><i>Sequence diagram of the main gameplay loop</i>
 </p>
 
-Initially GameManager calls upon FruitGenerator to produce a new Fruit object, the type of which is random althoug higher probability that it is the current fruit type that needs slicing and a low chance it will be a dragon fruit. The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks. 
+Initially GameManager calls upon FruitGenerator to produce a new Fruit object, the type of which is random although higher probability that it is the current fruit type that needs slicing and a low chance it will be a dragon fruit. The User then interacts with the system by using the cursor to slice the Fruit. Each Fruit has a SlicePattern attached to it, which the GameManager then checks. 
 
 If a correct slice, GameManager interacts with GameScore to increment the score. When slicing dragon fruit, GameManager interacts with Lives to increment life count. If this fruit is the last in the recipe GameManager interacts with GameScore to increment score and constructs a new RecipeGenerator to generate a new recipe. If the sliced fruit isn’t at the front of the recipe, the GameManager interacts with Lives to decrement life count. In Samurai mode, if wrongly sliced the wrongSlice effect of class SliceEffect is displayed. With every fruit sliced GameManager utilises Splatter and SliceEffect to display effects letting the User know how it affected the game and interacts with the Fruit class through the makeInert function to make the SlicePattern inert. If a bomb is sliced, GameManager sets the Lives class life count to zero. 
 
@@ -479,7 +479,6 @@ User feedback on visuals was exceptionally positive. Players appreciated the nos
 
 However, two recurrent issues emerged. Firstly, the occasional generation of overlapping rendered fruits difficult to slice, which we resolved by adjusting the spawn rate and speed. Secondly, some users had trouble seeing their slicing direction and requested a longer-lasting cursor. To avoid clutter, we introduced the cursorWoodScratch effect — a subtle trail beneath the cursor and fruit—preserving clarity while enhancing feedback (Figure 9).
 
-<h4> Learning Curve </h4>
 <div align="center">
   <img src="project-report-images/scratchwoodEffect.gif" alt="`cursorWoodScratch` implementation." width="500">
   <br>
@@ -488,6 +487,7 @@ However, two recurrent issues emerged. Firstly, the occasional generation of ove
 </div>
 <br>
 
+<h4> Learning Curve </h4>
 Early user feedback highlighted issues with the game's initial difficulty. At that stage, several game core features hadn’t been implemented, and players found the objectives unclear. Many also disliked the reliance on memory - having to recall specific slice patterns made gameplay feel slow and repetitive. To address this, we implemented two key features: 
 
 
@@ -515,7 +515,7 @@ Early user feedback highlighted issues with the game's initial difficulty. At th
   </div>
 
   <h3> Quantative Evaluation: NASA TLX </h3>
-One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we analysed the two levels of difficulty within our game. In Ninja Mode, the user still needed to slice the fruit in the correct recipe order, but the slice patterns and the bombs were scrapped. In Samurai Mode, the bombs and the slice patterns were re-introduced. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration.
+One of our primary goals was to design a game that was accessible to both casual and experienced users. As a result, we analysed the two levels of difficulty within our game. In Ninja Mode, the user slices the fruit in the correct recipe order displayed at the top of the screen. In Samurai Mode, the user has to also be aware of the bombs and the fruit slice patterns. We aimed for a noticeable increase in challenge between modes, as research shows this boosts player enjoyment (Alexander et al., 2013) but without significantly increasing frustration.
 
   
 We collected data using the NASA Task Load Index (TLX) from a group of diverse age ranges, and with differing experience in playing video games. We chose the NASA TLX as it's been shown to be highly reliable for assessing game difficulty (Hart & Staveland, 1988; Ramkumar et al., 2016; Seyderhelm & Blackmore, 2023). We determined that using the raw TLX scores would be easier and faster to administer, and studies reported back mixed results for raw vs. weighted TLX scores (Hart (2006)).
@@ -537,7 +537,7 @@ The accompanying pentagraph (Figure 13) reveals more granular differences:
 
 •	Minimal change in physical or temporal demand.
 
-While frustration increased, it was largely attributed to earlier usability issues identified through TAE, all of which were later resolved. These findings suggest that the added difficulty in Samurai Mode effectively challenged the player without overwhelming them physically or pacing-wise. 
+While frustration increased, it was largely attributed to earlier usability issues identified through TA, all of which were later resolved. These findings suggest that the added difficulty in Samurai Mode effectively challenged the player without overwhelming them physically or pacing-wise. 
 
 <p align="center">
   <img src="project-report-images/NASA-TLX-Load-Index-Pentagraph.png" width="60%"><br>
@@ -583,7 +583,7 @@ To help plan our iterations, we set up a Kanban board on our Github to organise 
   <b>Figure 16. </b> <i>Our Kanban board</i>
 </p>
 
-The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning tasks, and adjusting our priorities without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Ninja (easy) Mode in a short period. 
+The agile iterative framework is designed to embrace change by encouraging flexibility in handling evolving product requirements. This was instrumental when we were asked to add a new difficulty level, as we were able to adapt quickly by updating our Kanban board, assigning tasks, and adjusting our priorities without disrupting the overall development process. As a result, we delivered a well-tested and fully functional Ninja Mode in a short period. 
 
 ## Sustainability
 With sustainability becoming an increasingly urgent, global priority, we must find simple, everyday ways to engage people in more environmentally friendly behaviours. Therefore, when designing our game, Smoothie Operator, we wanted to ensure that sustainable thinking was part of the development process. To do this, we first needed to understand the sustainability impact of our game. Our analysis was based on the Sustainability Awareness Framework (SusAF), which is divided into five sectors: individual, technical, social, environmental, and economic (Becker et al., 2015).
